@@ -1,0 +1,14 @@
+{
+  "home": {
+    "footerText": "Byggt i Gatsby"
+  },
+  "header": {
+    "links": {
+      "about": "Om",
+      "hold": "Håll",
+      "business": "Företag",
+      "mine": "Mina",
+      "community": "Community"
+    }
+  }
+}

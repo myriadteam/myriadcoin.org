@@ -1,0 +1,51 @@
+{
+  "common": {
+    "readMore": "Read more"
+  },
+  "home": {
+    "coverText": "Welcome to the<br>future and no nonsense<br>transactions!",
+    "animation": "Myriad is an <b>open source</b>, <b>truly decentralized</b>, digital currency that can be sent peer-to-peer over the internet.",
+    "nonsense": {
+      "title": "In today’s world, there are a lot of coins and a lot of claims. It can be hard to spot what’s real and what’s nonsense.",
+      "caption": "Here are some things to look out for:",
+      "bubbles": {
+        "pre_mining": "Pre-mining",
+        "asic_farms": "ASIC-farms",
+        "ico": "ICO",
+        "secure_storing": "No secure storing 😱",
+        "no_development": "No development happening 😴",
+        "pump_and_dump": "Pump and dump-moves",
+        "non_vibrant_communities": "Non-vibrant communities",
+        "instant_transactions": "Instant transactions - the difference between transaction and verification"
+      }
+    },
+    "myriadIs": {
+      "title": "But Myriad on the other hand is:",
+      "trusted": {
+        "title": "Trusted, secure and<br>up-do-date",
+        "body": "Myriadcoins unique multi-algorithm approach means that it has extra resistance to 51% attacks."
+      },
+      "community": {
+        "title": "Community-driven with<br>democratic decision making",
+        "body": "No one and everyone controls Myriad. It’s a community driven project full of volunteers."
+      },
+      "fair": {
+        "title": "Fair distribution and mining",
+        "body": "Myriadcoin has no pre-mine or IPO and was fairly launched. Myriadcoin uses a long mining period, which prevents a large portion of the coins to be consolidated in the hands of very few."
+      }
+    },
+    "security": {
+      "title": "We value security and inclusiveness"
+    },
+    "footerText": "Built with Gatsby"
+  },
+  "header": {
+    "links": {
+      "about": "About",
+      "hold": "Hold",
+      "business": "Business",
+      "mine": "Mine",
+      "community": "Community"
+    }
+  }
+}
