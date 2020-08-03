@@ -13,7 +13,7 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 - [x] Language support
 - [ ] Translations via external service
 - [ ] Open graph tags
-- [ ] Favicon
+- [x] Favicon
 - [ ] Sharing image
 - [ ] Sitemap
 
