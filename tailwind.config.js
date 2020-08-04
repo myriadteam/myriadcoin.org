@@ -23,6 +23,9 @@ module.exports = {
       },
       inset: {
         full: "100%",
+        "-24": "-24%",
+        "12": "12%",
+        "40": "40%",
       },
     },
     fontFamily: {

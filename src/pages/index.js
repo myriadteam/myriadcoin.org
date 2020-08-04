@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Bubble from "../components/bubble"
+import Lines from "../components/lines"
 import tw from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import StartParalaxBackground from "../images/start-paralax.png"
@@ -73,9 +74,12 @@ const IndexPage = ({ t, i18n }) => (
           </Bubble>
         </div>
       </div>
-      <div>
+    </PageContainer>
+    <div tw="relative overflow-hidden">
+      <Lines />
+      <PageContainer>
         <BigText tw="mt-48 mb-32">{t("home.myriadIs.title")}</BigText>
-        <div tw="flex flex-col max-w-screen-md mx-auto">
+        <div tw="flex flex-col max-w-screen-md mx-auto relative">
           <div tw="mb-40">
             <MediumBoldText
               dangerouslySetInnerHTML={{
@@ -106,8 +110,8 @@ const IndexPage = ({ t, i18n }) => (
             </Link>
           </div>
         </div>
-      </div>
-    </PageContainer>
+      </PageContainer>
+    </div>
     <div tw="bg-black py-20">
       <PageContainer>
         <BigText tw="text-orange">{t("home.security.title")}</BigText>
