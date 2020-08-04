@@ -7,6 +7,9 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 ### General
 
 - [ ] Header
+  - [x] Menu
+  - [ ] Menu active indicator
+  - [ ] Menu hover effect
 - [ ] Footer
 - [ ] Updates via Headway
 - [ ] Language picker
