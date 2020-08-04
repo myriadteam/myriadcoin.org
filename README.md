@@ -27,6 +27,10 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 - [ ] Big colored images
   - [ ] Paralax effect
 - [ ] Chat bubbles
+  - [x] Copy
+  - [x] Placement
+  - [ ] speech bubble arrow
+  - [ ] Emotions
 - [ ] Myriad is section
   - [ ] Animated lines
 - [ ] Value block
