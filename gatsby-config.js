@@ -27,14 +27,6 @@ module.exports = {
         icon: `src/images/icon-512x512.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-        },
-      },
-    },
     `gatsby-plugin-preload-fonts`,
     {
       resolve: "gatsby-plugin-web-font-loader",

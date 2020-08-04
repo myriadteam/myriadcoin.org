@@ -4,6 +4,7 @@ module.exports = {
       colors: {
         purple: "#4876F6",
         grey: "#888888",
+        "highlight-grey": "#ECECEE",
         orange: "#FF8A00",
         "purple-light": "#A559C0",
         "bubble-grey": "#313131",
@@ -19,6 +20,9 @@ module.exports = {
       },
       linearGradientColors: {
         "black-grey": ["#000000", "#313131"],
+      },
+      inset: {
+        full: "100%",
       },
     },
     fontFamily: {

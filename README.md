@@ -10,6 +10,11 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 - [ ] Footer
 - [ ] Updates via Headway
 - [ ] Language picker
+  - [x] Choose your own language
+  - [ ] Arrow up on to the menu item
+  - [ ] Icon
+  - [ ] Animate
+  - [ ] Close on outside click
 - [x] Language support
 - [ ] Translations via external service
 - [ ] Open graph tags

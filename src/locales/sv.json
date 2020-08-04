@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "en": "English",
+    "sv": "Svenska"
+  },
   "home": {
     "footerText": "Byggt i Gatsby"
   },

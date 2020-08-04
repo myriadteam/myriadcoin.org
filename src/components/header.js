@@ -12,7 +12,7 @@ const MenuItem = tw.li``
 
 const Header = ({ siteTitle, t, i18n }) => (
   <HeaderContainer>
-    <h1>
+    <h2>
       <Link
         to="/"
         title={siteTitle}
@@ -22,7 +22,7 @@ const Header = ({ siteTitle, t, i18n }) => (
         <Image filename="logo@3x.png" className="w-8 mr-2" alt="Myriad logo" />
         Myriad
       </Link>
-    </h1>
+    </h2>
     <div className="flex">
       <MenuList>
         <MenuItem>

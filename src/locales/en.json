@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "en": "English",
+    "sv": "Swedish"
+  },
   "common": {
     "readMore": "Read more"
   },
