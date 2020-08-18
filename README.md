@@ -37,7 +37,9 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 - [ ] Myriad is section
   - [ ] Animated lines
 - [ ] Value block
-  - [ ] Colored headers
+  - [x] Gradient on header
+  - [x] Copy for content
+  - [ ] Title special effects
 - [ ] Links block
 - [ ] Esperanto block
 - [ ] Telegram block

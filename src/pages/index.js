@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Bubble from "../components/bubble"
 import Lines from "../components/lines"
-import tw from "twin.macro"
+import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import StartParalaxBackground from "../images/start-paralax.png"
 
@@ -16,6 +16,12 @@ const MediumBoldText = tw.h3`text-7xl font-bold leading-extra-tight mb-10`
 const BodyText = tw.p`text-larger font-normal`
 const PurpleGrad = tw.div`bg-gradient-b-purple h-screen w-full absolute inset-0`
 const OrangeGrad = tw.div`bg-gradient-tr-orange h-screen w-full absolute inset-0`
+
+const gradientTextStyle = css`
+  background: -webkit-linear-gradient(60deg, #ffd17f, #ff5aa9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
 
 const IndexPage = ({ t, i18n }) => (
   <Layout>
@@ -112,9 +118,37 @@ const IndexPage = ({ t, i18n }) => (
         </div>
       </PageContainer>
     </div>
-    <div tw="bg-black py-20">
+    <div tw="bg-black py-48">
       <PageContainer>
-        <BigText tw="text-orange">{t("home.security.title")}</BigText>
+        <BigText tw="text-orange mb-24" css={[gradientTextStyle]}>
+          {t("home.security.title")}
+        </BigText>
+        <div tw="flex flex-col max-w-screen-md mx-auto relative">
+          <div tw="mb-24 max-w-none md:max-w-2xl">
+            <BigText tw="text-white mb-8">
+              {t("home.security.attacks.title")}
+            </BigText>
+            <MediumText tw="max-w-none">
+              {t("home.security.attacks.body")}
+            </MediumText>
+          </div>
+          <div tw="mb-24 self-end max-w-none md:max-w-2xl">
+            <BigText tw="text-white mb-8 text-right">
+              {t("home.security.multi-algo.title")}
+            </BigText>
+            <MediumText tw="max-w-none text-right">
+              {t("home.security.multi-algo.body")}
+            </MediumText>
+          </div>
+          <div tw="max-w-none md:max-w-2xl">
+            <BigText tw="text-white mb-8">
+              {t("home.security.longblocks.title")}
+            </BigText>
+            <MediumText tw="max-w-none">
+              {t("home.security.longblocks.body")}
+            </MediumText>
+          </div>
+        </div>
       </PageContainer>
     </div>
   </Layout>

@@ -39,7 +39,19 @@
       }
     },
     "security": {
-      "title": "We value security and inclusiveness"
+      "title": "We value security and inclusiveness",
+      "attacks": {
+        "title": "51% Attack Resistance",
+        "body": "Thanks to our multi algorithm approach."
+      },
+      "multi-algo": {
+        "title": "Multi-algorithm",
+        "body": "SHA256d, Scrypt, Myr-Groestl, Argon2d and Yescrypt."
+      },
+      "longblocks": {
+        "title": "Longblocks",
+        "body": "Increased security, less orphans, higher difficulty."
+      }
     },
     "footerText": "Built with Gatsby"
   },
