@@ -53,6 +53,13 @@
         "body": "Increased security, less orphans, higher difficulty."
       }
     },
+    "links": {
+      "title": "Start using Myriad now",
+      "mine": "Mine Myriad",
+      "hold": "Buy and store Myriad",
+      "business": "Accept Myriad as payment",
+      "community": "Join the community"
+    },
     "footerText": "Built with Gatsby"
   },
   "header": {

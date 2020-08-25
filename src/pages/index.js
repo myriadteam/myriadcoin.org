@@ -1,9 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Bubble from "../components/bubble"
 import Lines from "../components/lines"
+import LinkWithHover from "../components/link-with-hover"
+import HomeLinks from "../components/pages/home/links"
 import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import StartParalaxBackground from "../images/start-paralax.png"
@@ -93,9 +94,7 @@ const IndexPage = ({ t, i18n }) => (
               }}
             />
             <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
-            <Link to="/about" tw="text-larger font-normal underline">
-              {t("common.readMore")}
-            </Link>
+            <LinkWithHover to="/about">{t("common.readMore")}</LinkWithHover>
           </div>
           <div tw="mb-40">
             <MediumBoldText
@@ -104,16 +103,14 @@ const IndexPage = ({ t, i18n }) => (
               }}
             />
             <BodyText tw="mb-6">{t("home.myriadIs.community.body")}</BodyText>
-            <Link to="/community" tw="text-larger font-normal underline">
+            <LinkWithHover to="/community">
               {t("common.readMore")}
-            </Link>
+            </LinkWithHover>
           </div>
           <div tw="mb-40">
             <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
             <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
-            <Link to="/mine" tw="text-larger font-normal underline">
-              {t("common.readMore")}
-            </Link>
+            <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
           </div>
         </div>
       </PageContainer>
@@ -151,6 +148,10 @@ const IndexPage = ({ t, i18n }) => (
         </div>
       </PageContainer>
     </div>
+    <PageContainer tw="py-48">
+      <BigText tw="mb-32">{t("home.links.title")}</BigText>
+      <HomeLinks />
+    </PageContainer>
   </Layout>
 )
 
