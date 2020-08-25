@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Bubble from "../components/bubble"
@@ -8,6 +9,8 @@ import HomeLinks from "../components/pages/home/links"
 import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import StartParalaxBackground from "../images/start-paralax.png"
+import StartEsperantoBackground from "../images/start-esperanto.png"
+import iconArrow from "../images/icons/arrow-forward-white.svg"
 
 const PageContainer = tw.div`container`
 
@@ -152,6 +155,28 @@ const IndexPage = ({ t, i18n }) => (
       <BigText tw="mb-32">{t("home.links.title")}</BigText>
       <HomeLinks />
     </PageContainer>
+    <div
+      tw="py-48"
+      style={{
+        backgroundImage: `url(${StartEsperantoBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
+      <PageContainer tw="py-48 text-right text-white">
+        <BigText tw="italic">{t("home.esperanto.title")}</BigText>
+        <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
+        <span tw="inline-flex">
+          <Link
+            to="/community"
+            tw="underline text-7xl font-bold leading-extra-tight hover:text-black"
+          >
+            {t("home.esperanto.join")}
+          </Link>
+          <img src={iconArrow} alt=">" tw="ml-4 text-white" />
+        </span>
+      </PageContainer>
+    </div>
   </Layout>
 )
 

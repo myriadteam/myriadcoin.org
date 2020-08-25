@@ -60,6 +60,11 @@
       "business": "Accept Myriad as payment",
       "community": "Join the community"
     },
+    "esperanto": {
+      "title": "Saluton!",
+      "body": "Myriad is used to support content creators in the Esperanto community",
+      "join": "Join in"
+    },
     "footerText": "Built with Gatsby"
   },
   "header": {
