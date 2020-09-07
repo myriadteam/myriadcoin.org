@@ -16,6 +16,7 @@ module.exports = {
       fontSize: {
         "7xl": "3.5rem",
         larger: "2rem",
+        "mobile-big": "2.6rem",
         massive: "5.38rem",
       },
       linearGradientColors: {
@@ -26,6 +27,7 @@ module.exports = {
         "-24": "-24%",
         "12": "12%",
         "40": "40%",
+        "6": "6em",
       },
     },
     fontFamily: {

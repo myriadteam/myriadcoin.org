@@ -54,7 +54,7 @@ const columns = [
   [{ text: "Business" }, { text: "Contact", link: "/contact" }],
 ]
 
-const FooterContainer = tw.header`container flex justify-between py-24 text-sm`
+const FooterContainer = tw.header`container flex justify-between py-24 text-sm flex-col sm:flex-row px-6 sm:px-0`
 const FooterLink = tw.a`flex items-center py-1 hover:text-purple`
 const FooterLinkTitle = tw.span`flex items-center`
 
@@ -72,7 +72,7 @@ const Footer = () => {
 
   const renderItem = (item, key) => {
     let classes = classNames({
-      [`mb-4 flex-grow`]: key === 0,
+      [`mb-4 flex-grow mt-8 sm:mt-0`]: key === 0,
     })
     return (
       <li className={classes} key={`footer-item-${key}`}>
