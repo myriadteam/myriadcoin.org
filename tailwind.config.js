@@ -8,6 +8,7 @@ module.exports = {
         orange: "#FF8A00",
         "purple-light": "#A559C0",
         "bubble-grey": "#313131",
+        "bubble-blue": "#327CFF",
       },
       lineHeight: {
         "extra-tight": "1.15",

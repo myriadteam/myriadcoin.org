@@ -65,6 +65,11 @@
       "body": "Myriad is used to support content creators in the Esperanto community",
       "join": "Join in"
     },
+    "telegram": {
+      "bubble": "Join our Telegram channel",
+      "title": "Got any questions or just wanna chat?",
+      "join": "Join telegram"
+    },
     "footerText": "Built with Gatsby"
   },
   "header": {

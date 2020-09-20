@@ -10,7 +10,8 @@ import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import StartParalaxBackground from "../images/start-paralax.png"
 import StartEsperantoBackground from "../images/start-esperanto.png"
-import iconArrow from "../images/icons/arrow-forward-white.svg"
+import iconArrowWhite from "../images/icons/arrow-forward-white.svg"
+import iconArrowBlack from "../images/icons/arrow-forward.svg"
 
 const PageContainer = tw.div`container`
 
@@ -177,10 +178,27 @@ const IndexPage = ({ t, i18n }) => (
           >
             {t("home.esperanto.join")}
           </Link>
-          <img src={iconArrow} alt=">" tw="ml-4 text-white" />
+          <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
         </span>
       </PageContainer>
     </div>
+    <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <div tw="max-w-3xl">
+        <Bubble tw="mb-8 sm:mb-16" color="blue">
+          {t("home.telegram.bubble")}
+        </Bubble>
+        <BigText tw="mb-8 sm:mb-16">{t("home.telegram.title")}</BigText>
+        <span tw="inline-flex">
+          <a
+            href="https://t.me/Myriadcoinofficial"
+            tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+          >
+            {t("home.telegram.join")}
+          </a>
+          <img src={iconArrowBlack} alt=">" tw="ml-4" />
+        </span>
+      </div>
+    </PageContainer>
   </Layout>
 )
 
