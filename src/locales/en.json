@@ -72,6 +72,24 @@
     },
     "footerText": "Built with Gatsby"
   },
+  "about": {
+    "title": "About Myriad"
+  },
+  "mine": {
+    "title": "How to Mine Myriad",
+    "algorithm": {
+      "title": "Choose an algorithm"
+    }
+  },
+  "hold": {
+    "title": "Buy and store Myriad"
+  },
+  "community": {
+    "title": "Join the community"
+  },
+  "business": {
+    "title": "Use Myriad in your business"
+  },
   "header": {
     "links": {
       "about": "About",

@@ -13,14 +13,15 @@ import StartEsperantoBackground from "../images/start-esperanto.png"
 import iconArrowWhite from "../images/icons/arrow-forward-white.svg"
 import iconArrowBlack from "../images/icons/arrow-forward.svg"
 
-const PageContainer = tw.div`container`
-
-const BigText = tw.h2`text-mobile-big sm:text-massive font-bold leading-extra-tight`
-const MediumText = tw.h3`text-4xl sm:text-7xl font-medium leading-extra-tight text-grey max-w-xl`
-const MediumBoldText = tw.h3`text-4xl sm:text-7xl font-bold leading-extra-tight mb-10`
-const BodyText = tw.p`text-2xl sm:text-larger font-normal`
-const PurpleGrad = tw.div`bg-gradient-b-purple absolute inset-0`
-const OrangeGrad = tw.div`bg-gradient-tr-orange absolute inset-0`
+import {
+  PageContainer,
+  BigText,
+  MediumText,
+  MediumBoldText,
+  BodyText,
+  PurpleGrad,
+  OrangeGrad,
+} from "../common/elements"
 
 const gradientTextStyle = css`
   background: -webkit-linear-gradient(60deg, #ffd17f, #ff5aa9);
