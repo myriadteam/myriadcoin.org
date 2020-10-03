@@ -11,8 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import { withTrans } from "../i18n/withTrans"
 import tw from "twin.macro"
 
-import Header from "./header"
-import Footer from "./footer"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const BodyContainer = tw.div`font-body font-semibold`
 

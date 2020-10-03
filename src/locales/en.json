@@ -27,7 +27,7 @@
       "title": "But Myriad on the other hand is:",
       "trusted": {
         "title": "Trusted, secure and<br>up-do-date",
-        "body": "Myriadcoins unique multi-algorithm approach means that it has extra resistance to 51% attacks."
+        "body": "Myriadcoins unique multi-algoritm approach means that it has extra resistance to 51% attacks."
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
@@ -42,10 +42,10 @@
       "title": "We value security and inclusiveness",
       "attacks": {
         "title": "51% Attack Resistance",
-        "body": "Thanks to our multi algorithm approach."
+        "body": "Thanks to our multi algoritm approach."
       },
       "multi-algo": {
-        "title": "Multi-algorithm",
+        "title": "Multi-algoritm",
         "body": "SHA256d, Scrypt, Myr-Groestl, Argon2d and Yescrypt."
       },
       "longblocks": {
@@ -77,8 +77,11 @@
   },
   "mine": {
     "title": "How to Mine Myriad",
-    "algorithm": {
-      "title": "Choose an algorithm"
+    "algoritm": {
+      "title": "1. Choose an algoritm"
+    },
+    "wallet": {
+      "title": "2. Choose a wallet"
     }
   },
   "hold": {
@@ -100,8 +103,8 @@
     }
   },
   "components": {
-    "algorithm": {
-      "choose_algorithm": "Choose an algorithm",
+    "algoritm": {
+      "choose_algoritm": "Choose an algoritm",
       "recommended_for": "Recommended algo for",
       "available_software": "Available softwares for"
     },

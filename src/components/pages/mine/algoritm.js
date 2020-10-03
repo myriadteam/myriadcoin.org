@@ -1,5 +1,5 @@
 import React from "react"
-import { algorithms } from "../../../common/algorithms"
+import { algoritms } from "../../../common/algoritms"
 import { MediumBoldText, BodyText, Code } from "../../../common/elements"
 import Dropdown from "../../dropdown"
 import { animated, useSpring } from "react-spring"
@@ -8,7 +8,7 @@ import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
 const AlgorithmInfo = ({
-  algorithm: { value, label, description, purpose, softwares = null },
+  algoritm: { value, label, description, purpose, softwares = null },
   isVisible,
 }) => {
   const { t } = useTranslation()
@@ -20,13 +20,13 @@ const AlgorithmInfo = ({
   })
   return (
     <animated.div style={style}>
-      <BodyText tw="font-bold mt-2 mb-8">
-        {t("components.algorithm.recommended_for")} {purpose}.
+      <BodyText tw="font-bold mt-10 mb-8">
+        {t("components.algoritm.recommended_for")} {purpose}.
       </BodyText>
       <BodyText tw="mb-16">{description}</BodyText>
       {softwares && (
         <MediumBoldText>
-          2. {t("components.algorithm.available_software")}
+          2. {t("components.algoritm.available_software")}
           <br />
           {label}
         </MediumBoldText>
@@ -63,22 +63,22 @@ const Software = ({ software }) => {
   )
 }
 
-const MineAlgoritm = ({ selected, onChange = () => {} }) => {
+const MineAlgoritm = ({ title, selected, onChange = () => {} }) => {
   const { t } = useTranslation()
   return (
     <div>
       <MediumBoldText>
-        1. {t("components.algorithm.choose_algorithm")}
+        {title || t("components.algoritm.choose_algoritm")}
       </MediumBoldText>
       <Dropdown
-        options={algorithms}
+        options={algoritms}
         selected={selected}
         onChange={({ value }) => onChange(value)}
       />
-      {algorithms.map((algorithm, key) => (
+      {algoritms.map((algoritm, key) => (
         <AlgorithmInfo
-          algorithm={algorithm}
-          isVisible={selected === algorithm.value}
+          algoritm={algoritm}
+          isVisible={selected === algoritm.value}
           key={key}
         />
       ))}
