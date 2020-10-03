@@ -71,23 +71,25 @@ const Wallet = ({ selected, title, theme = "light" }) => {
 
   return (
     <section tw="text-white">
-      <MediumBoldText>{title}</MediumBoldText>
-      <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
-      <Dropdown
-        options={platforms}
-        selected={selectedPlatform}
-        theme="dark"
-        onChange={({ value }) => {
-          changePlatform(value)
-        }}
-      />
-      {platforms.map((platform, key) => (
-        <WalletPlatform
-          platform={platform}
-          key={key}
-          isVisible={selectedPlatform === platform.label}
+      <div tw="px-6 sm:px-0">
+        <MediumBoldText>{title}</MediumBoldText>
+        <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
+        <Dropdown
+          options={platforms}
+          selected={selectedPlatform}
+          theme="dark"
+          onChange={({ value }) => {
+            changePlatform(value)
+          }}
         />
-      ))}
+        {platforms.map((platform, key) => (
+          <WalletPlatform
+            platform={platform}
+            key={key}
+            isVisible={selectedPlatform === platform.label}
+          />
+        ))}
+      </div>
     </section>
   )
 }
