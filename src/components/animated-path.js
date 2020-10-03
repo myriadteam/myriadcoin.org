@@ -12,7 +12,7 @@ const AnimatedPath = ({ animate, ...props }) => {
       animatedValue: 0,
     },
     config: {
-      duration: 3000,
+      duration: 4000,
     },
   })
 
