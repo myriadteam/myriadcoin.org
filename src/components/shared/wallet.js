@@ -2,15 +2,11 @@ import React, { useState } from "react"
 import { osName } from "react-device-detect"
 import { animated, useSpring } from "react-spring"
 import { useTranslation } from "react-i18next"
-import tw from "twin.macro"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Dropdown from "../dropdown"
 import iconArrowWhite from "../../svgs/icons/arrow-forward-white.svg"
-
-// eslint-disable-next-line no-undef
-const defaultWalletImage = require("../../images/wallets/default.png")
 
 const WalletPlatform = ({ platform: { wallets }, isVisible }) => {
   const style = useSpring({

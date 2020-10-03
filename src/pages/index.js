@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
 import BgImage from "../components/bg-image"
 import Bubble from "../components/bubble"
-import Lines from "../components/lines"
 import LinkWithHover from "../components/link-with-hover"
 import HomeLinks from "../components/pages/home/links"
 import tw, { css } from "twin.macro"
 import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+import AnimatedLine from "../components/animated-line"
 
 import {
   PageContainer,
@@ -84,22 +84,27 @@ const IndexPage = () => {
         </div>
       </PageContainer>
       <div tw="relative overflow-hidden px-6 sm:px-0">
-        <Lines />
         <PageContainer>
           <BigText tw="my-24 sm:mt-48 sm:mb-32">
             {t("home.myriadIs.title")}
           </BigText>
-          <div tw="flex flex-col max-w-screen-md mx-auto relative">
+          <div tw="flex flex-col max-w-screen-md mx-auto">
             <div tw="mb-24 sm:mb-40">
               <MediumBoldText
                 dangerouslySetInnerHTML={{
                   __html: t("home.myriadIs.trusted.title"),
                 }}
               />
+              <div tw="absolute left-0 right-0 mt--5 transform -translate-y-1/2">
+                <AnimatedLine name="Line1" />
+              </div>
               <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
               <LinkWithHover to="/about">{t("common.readMore")}</LinkWithHover>
             </div>
             <div tw="mb-24 sm:mb-40">
+              <div tw="absolute left-0 right-0 mt--12 sm:mt--20 transform -translate-y-1/2">
+                <AnimatedLine name="Line2" />
+              </div>
               <MediumBoldText
                 dangerouslySetInnerHTML={{
                   __html: t("home.myriadIs.community.title"),
@@ -109,11 +114,20 @@ const IndexPage = () => {
               <LinkWithHover to="/community">
                 {t("common.readMore")}
               </LinkWithHover>
+              <div tw="absolute left-0 right-0 transform -translate-y-1/2">
+                <AnimatedLine name="Line3" />
+              </div>
             </div>
             <div tw="mb-24 sm:mb-40">
               <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
+              <div tw="absolute left-0 right-0 mt--8">
+                <AnimatedLine name="Line4" />
+              </div>
               <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
               <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
+              <div tw="absolute left-0 right-0 transform -translate-y-1/2">
+                <AnimatedLine name="Line5" />
+              </div>
             </div>
           </div>
         </PageContainer>
