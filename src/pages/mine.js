@@ -11,7 +11,7 @@ import { PageContainer, BigText } from "../common/elements"
 
 const MinePage = () => {
   const { t } = useTranslation()
-  const [algoritm, changeAlgoritm] = useState(null)
+  const [algoritm, changeAlgoritm] = useState("SHA256d")
   return (
     <>
       <SEO title={t("mine.title")} />
@@ -27,7 +27,9 @@ const MinePage = () => {
         />
       </PageContainer>
       <div class="bg-black">
-        <Wallet title={t("mine.wallet.title")} />
+        <PageContainer tw="py-40">
+          <Wallet title={t("mine.wallet.title")} />
+        </PageContainer>
       </div>
     </>
   )

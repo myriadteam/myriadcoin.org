@@ -81,7 +81,8 @@
       "title": "1. Choose an algoritm"
     },
     "wallet": {
-      "title": "2. Choose a wallet"
+      "title": "3. Choose a wallet",
+      "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriad..."
     }
   },
   "hold": {
@@ -107,6 +108,10 @@
       "choose_algoritm": "Choose an algoritm",
       "recommended_for": "Recommended algo for",
       "available_software": "Available softwares for"
+    },
+    "wallet": {
+      "github": "Checkout the Github repository for more info",
+      "homepage": "Checkout the website for more info"
     },
     "dropdown": {
       "placeholder": "Select..."

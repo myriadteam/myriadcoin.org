@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
 import iconArrowBlack from "../images/icons/arrow-forward.svg"
@@ -7,7 +7,7 @@ import { PageContainer, BigText } from "../common/elements"
 import { useTranslation } from "react-i18next"
 
 const AboutPage = () => {
-  const { t } = useTranslation
+  const { t } = useTranslation()
   return (
     <>
       <SEO title={t("about.title")} />
