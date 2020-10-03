@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
-import iconArrowBlack from "../images/icons/arrow-forward.svg"
+import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import { PageContainer, BigText } from "../common/elements"
 import { useTranslation } from "react-i18next"

@@ -1,11 +1,11 @@
 import React from "react"
 import tw from "twin.macro"
 
-import one from "../images/lines/1.svg"
-import two from "../images/lines/2.svg"
-import three from "../images/lines/3.svg"
-import four from "../images/lines/4.svg"
-import five from "../images/lines/5.svg"
+import one from "../svgs/lines/1.svg"
+import two from "../svgs/lines/2.svg"
+import three from "../svgs/lines/3.svg"
+import four from "../svgs/lines/4.svg"
+import five from "../svgs/lines/5.svg"
 const Container = tw.div`absolute inset-0`
 
 const Lines = ({ className }) => {

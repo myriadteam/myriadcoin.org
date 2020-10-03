@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
-import iconChevronDownBlack from "../images/icons/chevron-down-black.svg"
-import iconChevronDownWhite from "../images/icons/chevron-down.svg"
+import iconChevronDownBlack from "../svgs/icons/chevron-down-black.svg"
+import iconChevronDownWhite from "../svgs/icons/chevron-down.svg"
 
 const DropdownContainer = styled.div`
   ${tw`rounded cursor-pointer inline-flex flex-col relative z-10`}

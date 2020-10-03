@@ -7,7 +7,7 @@ import tw from "twin.macro"
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Dropdown from "../dropdown"
-import iconArrowWhite from "../../images/icons/arrow-forward-white.svg"
+import iconArrowWhite from "../../svgs/icons/arrow-forward-white.svg"
 
 // eslint-disable-next-line no-undef
 const defaultWalletImage = require("../../images/wallets/default.png")

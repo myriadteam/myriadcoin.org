@@ -3,15 +3,14 @@ import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import SEO from "../components/seo"
+import BgImage from "../components/bg-image"
 import Bubble from "../components/bubble"
 import Lines from "../components/lines"
 import LinkWithHover from "../components/link-with-hover"
 import HomeLinks from "../components/pages/home/links"
 import tw, { css } from "twin.macro"
-import StartParalaxBackground from "../images/start-paralax.png"
-import StartEsperantoBackground from "../images/start-esperanto.png"
-import iconArrowWhite from "../images/icons/arrow-forward-white.svg"
-import iconArrowBlack from "../images/icons/arrow-forward.svg"
+import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
+import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import {
   PageContainer,
@@ -42,15 +41,8 @@ const IndexPage = () => {
           />
         </div>
       </PageContainer>
-      <div
-        tw="sm:h-screen relative py-40"
-        style={{
-          backgroundImage: `url(${StartParalaxBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-        }}
-      >
-        <PageContainer>
+      <BgImage filename="start-paralax.png">
+        <PageContainer tw="sm:h-screen relative py-40">
           <p
             tw="relative text-2xl font-normal text-white z-10 max-w-sm px-6 sm:px-0"
             dangerouslySetInnerHTML={{ __html: t("home.animation") }}
@@ -58,7 +50,7 @@ const IndexPage = () => {
         </PageContainer>
         <OrangeGrad />
         <PurpleGrad />
-      </div>
+      </BgImage>
       <PageContainer>
         <div tw="mt-24 sm:mt-48 px-2 sm:px-0">
           <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
@@ -163,14 +155,7 @@ const IndexPage = () => {
         <BigText tw="mb-32">{t("home.links.title")}</BigText>
         <HomeLinks />
       </PageContainer>
-      <div
-        tw="py-24 sm:py-48 px-6 sm:px-0"
-        style={{
-          backgroundImage: `url(${StartEsperantoBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-        }}
-      >
+      <BgImage filename="start-esperanto.png">
         <PageContainer tw="py-48 text-right text-white">
           <BigText tw="italic">{t("home.esperanto.title")}</BigText>
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
@@ -184,7 +169,7 @@ const IndexPage = () => {
             <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
           </span>
         </PageContainer>
-      </div>
+      </BgImage>
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <div tw="max-w-3xl">
           <Bubble tw="mb-8 sm:mb-16" color="blue">

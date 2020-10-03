@@ -27,6 +27,13 @@ module.exports = {
         icon: `src/images/icon-512x512.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-background-image-es5",
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: "/:",
+      },
+    },
     `gatsby-plugin-preload-fonts`,
     {
       resolve: "gatsby-plugin-web-font-loader",

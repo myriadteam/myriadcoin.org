@@ -3,11 +3,11 @@ import React from "react"
 import tw from "twin.macro"
 import classNames from "classnames"
 
-import logo from "../images/logo.svg"
-import iconFacebook from "../images/icons/icon-facebook.svg"
-import iconTwitter from "../images/icons/icon-twitter.svg"
-import iconTelegram from "../images/icons/icon-telegram.svg"
-import iconInstagram from "../images/icons/icon-instagram.svg"
+import logo from "../svgs/logo.svg"
+import iconFacebook from "../svgs/icons/icon-facebook.svg"
+import iconTwitter from "../svgs/icons/icon-twitter.svg"
+import iconTelegram from "../svgs/icons/icon-telegram.svg"
+import iconInstagram from "../svgs/icons/icon-instagram.svg"
 
 const columns = [
   [

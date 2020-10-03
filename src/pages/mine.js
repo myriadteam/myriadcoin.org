@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
-import iconArrowBlack from "../images/icons/arrow-forward.svg"
+import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import MineAlgorithm from "../components/pages/mine/algoritm"
 import Wallet from "../components/shared/wallet"

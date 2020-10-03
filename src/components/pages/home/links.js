@@ -1,6 +1,6 @@
 import React from "react"
 import LinkWithHover from "../../link-with-hover"
-import iconArrow from "../../../images/icons/arrow-forward.svg"
+import iconArrow from "../../../svgs/icons/arrow-forward.svg"
 import { withTrans } from "../../../i18n/withTrans"
 import tw from "twin.macro"
 
@@ -10,7 +10,7 @@ const HomeLinks = ({ t, i18n }) => {
   return (
     <ul>
       {links.map(link => (
-        <li tw="flex mb-10">
+        <li tw="flex mb-10" key={`key-${link}`}>
           <LinkWithHover to={`/${link}`} variant="mediumBold">
             {t(`home.links.${link}`)}
           </LinkWithHover>

@@ -1,4 +1,4 @@
-import iconGithub from "../images/icons/icon-github.svg"
+import iconGithub from "../svgs/icons/icon-github.svg"
 
 export const algoritms = [
   {
