@@ -9,6 +9,7 @@ module.exports = {
         "purple-light": "#A559C0",
         "bubble-grey": "#313131",
         "bubble-blue": "#327CFF",
+        "code-green": "#02C093",
       },
       lineHeight: {
         "extra-tight": "1.15",
@@ -47,6 +48,8 @@ module.exports = {
     radialGradientColors: theme => theme("colors"),
     conicGradientColors: theme => theme("colors"),
   },
-  variants: {},
+  variants: {
+    rounded: ["responsive", "first", "last", "hover"],
+  },
   plugins: [require("tailwindcss-gradients")],
 }

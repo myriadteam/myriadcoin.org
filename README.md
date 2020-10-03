@@ -48,6 +48,14 @@ Follow the work of the new Myriad website. As soon as we have enough to show you
 
 ### Page - Mine
 
+- [ ] Algoritm selector
+  - [x] Selector
+  - [ ] Translatable algoritm copy
+- [ ] Wallet selector
+- [ ] Mining pool block
+- [ ] Do more with Myriad block
+- [ ] Telegram block
+
 ### Page - Hold
 
 ### Page - Community

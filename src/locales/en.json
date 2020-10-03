@@ -98,5 +98,15 @@
       "mine": "Mine",
       "community": "Community"
     }
+  },
+  "components": {
+    "algorithm": {
+      "choose_algorithm": "Choose an algorithm",
+      "recommended_for": "Recommended algo for",
+      "available_software": "Available softwares for"
+    },
+    "dropdown": {
+      "placeholder": "Select..."
+    }
   }
 }

@@ -7,3 +7,4 @@ export const MediumBoldText = tw.h3`text-4xl sm:text-7xl font-bold leading-extra
 export const BodyText = tw.p`text-2xl sm:text-larger font-normal`
 export const PurpleGrad = tw.div`bg-gradient-b-purple absolute inset-0`
 export const OrangeGrad = tw.div`bg-gradient-tr-orange absolute inset-0`
+export const Code = tw.p`text-lg italic text-code-green`

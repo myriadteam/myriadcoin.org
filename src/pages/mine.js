@@ -5,9 +5,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import iconArrowBlack from "../images/icons/arrow-forward.svg"
 
+import MineAlgorithm from "../components/pages/mine/algorithm"
+
 import { PageContainer, BigText, MediumBoldText } from "../common/elements"
 
 const MinePage = ({ t, i18n }) => {
+  const [algoritm, changeAlgoritm] = useState(null)
   return (
     <Layout>
       <SEO title={t("mine.title")} />
@@ -16,6 +19,10 @@ const MinePage = ({ t, i18n }) => {
           <BigText tw="mb-8">{t("mine.title")}</BigText>
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
+        <MineAlgorithm
+          selected={algoritm}
+          onChange={value => changeAlgoritm(value)}
+        />
       </PageContainer>
     </Layout>
   )
