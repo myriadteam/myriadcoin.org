@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
+import Image from "../image"
 import Dropdown from "../dropdown"
 import iconArrowWhite from "../../svgs/icons/arrow-forward-white.svg"
 
@@ -17,7 +18,9 @@ const WalletPlatform = ({ platform: { wallets }, isVisible }) => {
   return (
     <animated.div style={style}>
       {wallets &&
-        wallets.map((wallet, key) => <WalletItem wallet={wallet} key={key} />)}
+        wallets.map(wallet => (
+          <WalletItem wallet={wallet} key={`wallet-${wallet.name}`} />
+        ))}
     </animated.div>
   )
 }
@@ -30,7 +33,7 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
 
       <ul tw="mb-4">
         {versions.map(({ name, url }, key) => (
-          <li tw="mb-4">
+          <li tw="mb-4" key={key}>
             <span tw="inline-flex items-center">
               <a
                 href={url}
@@ -65,26 +68,40 @@ const Wallet = ({ selected, title, theme = "light" }) => {
     changePlatform(osName)
   }
 
+  let selectedPlatformObject = platforms.find(
+    platform => platform.label === selectedPlatform
+  )
+
   return (
-    <section tw="text-white">
+    <section tw="text-white relative">
       <div tw="px-6 sm:px-0">
-        <MediumBoldText>{title}</MediumBoldText>
-        <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
-        <Dropdown
-          options={platforms}
-          selected={selectedPlatform}
-          theme="dark"
-          onChange={({ value }) => {
-            changePlatform(value)
-          }}
-        />
-        {platforms.map((platform, key) => (
-          <WalletPlatform
-            platform={platform}
-            key={key}
-            isVisible={selectedPlatform === platform.label}
+        {selectedPlatformObject && (
+          <div tw="absolute left-0 h-full w-full">
+            <Image
+              filename={`wallets/${selectedPlatformObject.image}.png`}
+              tw="absolute"
+            />
+          </div>
+        )}
+        <div tw="sm:ml-48">
+          <MediumBoldText>{title}</MediumBoldText>
+          <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
+          <Dropdown
+            options={platforms}
+            selected={selectedPlatform}
+            theme="dark"
+            onChange={({ value }) => {
+              changePlatform(value)
+            }}
           />
-        ))}
+          {platforms.map((platform, key) => (
+            <WalletPlatform
+              platform={platform}
+              key={key}
+              isVisible={selectedPlatform === platform.label}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

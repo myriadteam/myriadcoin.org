@@ -26,7 +26,7 @@ const MinePage = () => {
           onChange={value => changeAlgoritm(value)}
         />
       </PageContainer>
-      <div class="bg-black">
+      <div tw="bg-black">
         <PageContainer tw="py-40">
           <Wallet title={t("mine.wallet.title")} />
         </PageContainer>
