@@ -28,10 +28,10 @@ const Line1 = ({ animate }) => {
           y2="1001.76"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF8A00" />
-          <stop offset="0.0001" stop-color="#E5A63C" />
-          <stop offset="0.480837" stop-color="#DF85FF" />
-          <stop offset="1" stop-color="#C883FF" />
+          <stop stopColor="#FF8A00" />
+          <stop offset="0.0001" stopColor="#E5A63C" />
+          <stop offset="0.480837" stopColor="#DF85FF" />
+          <stop offset="1" stopColor="#C883FF" />
         </linearGradient>
         <linearGradient
           id="line3-fade"
@@ -41,8 +41,8 @@ const Line1 = ({ animate }) => {
           y2="413.21"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
