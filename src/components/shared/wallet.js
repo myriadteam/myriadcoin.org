@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { osName } from "react-device-detect"
 import { animated, useSpring } from "react-spring"
 import { useTranslation } from "react-i18next"
+import tw from "twin.macro"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
@@ -64,12 +65,8 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   const { t } = useTranslation()
   const [selectedPlatform, changePlatform] = useState(null)
 
-  if (!platforms.some(platform => platform.label === selectedPlatform)) {
-    changePlatform(osName)
-  }
-
   let selectedPlatformObject = platforms.find(
-    platform => platform.label === selectedPlatform
+    platform => platform.label === (selectedPlatform || osName)
   )
 
   return (
