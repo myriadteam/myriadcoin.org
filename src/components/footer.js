@@ -2,12 +2,17 @@ import { Link } from "gatsby"
 import React from "react"
 import tw from "twin.macro"
 import classNames from "classnames"
+import { useTranslation } from "react-i18next"
 
+import Bubble from "../components/bubble"
 import logo from "../svgs/logo.svg"
 import iconFacebook from "../svgs/icons/icon-facebook.svg"
 import iconTwitter from "../svgs/icons/icon-twitter.svg"
 import iconTelegram from "../svgs/icons/icon-telegram.svg"
 import iconInstagram from "../svgs/icons/icon-instagram.svg"
+import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+
+import { PageContainer, BigText } from "../common/elements"
 
 const columns = [
   [
@@ -59,6 +64,7 @@ const FooterLink = tw.a`flex items-center py-1 hover:text-purple`
 const FooterLinkTitle = tw.span`flex items-center`
 
 const Footer = () => {
+  const { t } = useTranslation()
   const renderColumn = (items, key) => {
     let classes = classNames("footer__list", {
       [`footer__list--social`]: key === 0,
@@ -116,9 +122,28 @@ const Footer = () => {
   }
 
   return (
-    <FooterContainer>
-      {columns.map((items, key) => renderColumn(items, key))}
-    </FooterContainer>
+    <>
+      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+        <div tw="max-w-3xl">
+          <Bubble tw="mb-8 sm:mb-16" color="blue">
+            {t("home.telegram.bubble")}
+          </Bubble>
+          <BigText tw="mb-8 sm:mb-16">{t("home.telegram.title")}</BigText>
+          <span tw="inline-flex">
+            <a
+              href="https://t.me/Myriadcoinofficial"
+              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+            >
+              {t("home.telegram.join")}
+            </a>
+            <img src={iconArrowBlack} alt=">" tw="ml-4" />
+          </span>
+        </div>
+      </PageContainer>
+      <FooterContainer>
+        {columns.map((items, key) => renderColumn(items, key))}
+      </FooterContainer>
+    </>
   )
 }
 

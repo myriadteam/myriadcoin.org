@@ -9,7 +9,6 @@ import LinkWithHover from "../components/link-with-hover"
 import HomeLinks from "../components/pages/home/links"
 import tw, { css } from "twin.macro"
 import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 import AnimatedLine from "../components/animated-line"
 
 import {
@@ -196,23 +195,6 @@ const IndexPage = () => {
           </span>
         </PageContainer>
       </BgImage>
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
-        <div tw="max-w-3xl">
-          <Bubble tw="mb-8 sm:mb-16" color="blue">
-            {t("home.telegram.bubble")}
-          </Bubble>
-          <BigText tw="mb-8 sm:mb-16">{t("home.telegram.title")}</BigText>
-          <span tw="inline-flex">
-            <a
-              href="https://t.me/Myriadcoinofficial"
-              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
-            >
-              {t("home.telegram.join")}
-            </a>
-            <img src={iconArrowBlack} alt=">" tw="ml-4" />
-          </span>
-        </div>
-      </PageContainer>
     </>
   )
 }
