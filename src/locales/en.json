@@ -81,8 +81,13 @@
       "title": "1. Choose an algoritm"
     },
     "wallet": {
-      "title": "3. Choose a wallet",
+      "title": "2. Choose a wallet",
       "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriad..."
+    },
+    "pool": {
+      "title": "3. Join a mining pool",
+      "body": "A mining pool is the pooling of resources by miners, who share their processing power over a network.",
+      "available_for": "Available mining pools for "
     },
     "ready": "Now you’re ready to start mining!",
     "links": {

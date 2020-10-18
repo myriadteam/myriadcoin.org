@@ -1,31 +1,36 @@
 import React from "react"
-import { algoritms } from "../../constants/algoritms"
+import { algoritms } from "../../../common/algoritms"
+import {
+  MediumBoldText,
+  BodyText,
+  BodyBoldText,
+} from "../../../common/elements"
+import tw from "twin.macro"
+
+import { useTranslation } from "react-i18next"
 
 const MinePool = ({ selected }) => {
+  let { t } = useTranslation()
   let algoritm = algoritms.find(algo => algo.value === selected)
   return (
-    <section className="section section--mine-pool">
-      <div className="wrapper">
-        <div className="u-max-width--650">
-          <h2>(Optional) Join a mining pool</h2>
-          <p>
-            A mining pool is the pooling of resources by miners, who share their
-            processing power over a network.
-          </p>
-          <h4 className="u-margin-top--l">
-            Available mining pools for {algoritm.label}
-          </h4>
-          {algoritm.miningPools.map(({ url, name }, key) => (
-            <div className="u-margin-bottom" key={`mining-pool-key-${key}`}>
-              <a href={url} className="btn btn--wide">
-                {name}
-              </a>
-            </div>
-          ))}
-          <h2 className="u-margin-top--xxl">Now you can start mining!</h2>
+    <>
+      <MediumBoldText>{t("mine.pool.title")}</MediumBoldText>
+      <BodyText>{t("mine.pool.body")}</BodyText>
+      <BodyBoldText tw="my-8">
+        {t("mine.pool.available_for")}
+        {algoritm.label}
+      </BodyBoldText>
+      {algoritm.miningPools.map(({ url, name }, key) => (
+        <div key={`mining-pool-key-${key}`}>
+          <a
+            href={url}
+            tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-lg py-3 px-10 rounded-md mb-6"
+          >
+            {name}
+          </a>
         </div>
-      </div>
-    </section>
+      ))}
+    </>
   )
 }
 

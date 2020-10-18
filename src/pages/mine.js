@@ -4,6 +4,7 @@ import tw, { css } from "twin.macro"
 import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
 import MineAlgorithm from "../components/pages/mine/algoritm"
+import MinePool from "../components/pages/mine/pool"
 import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
 import BgImage from "../components/bg-image"
@@ -39,6 +40,9 @@ const MinePage = () => {
       <div tw="bg-black relative">
         <Wallet title={t("mine.wallet.title")} />
       </div>
+      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+        <MinePool selected={algoritm} />
+      </PageContainer>
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <BigText tw="text-orange sm:px-32" css={[gradientTextStyle]}>
           {t("mine.ready")}
