@@ -43,7 +43,7 @@ const MinePage = () => {
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <MinePool selected={algoritm} />
       </PageContainer>
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="pb-24 sm:pb-48 px-6 sm:px-0">
         <BigText tw="text-orange sm:px-32" css={[gradientTextStyle]}>
           {t("mine.ready")}
         </BigText>
