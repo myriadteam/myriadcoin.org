@@ -4,7 +4,7 @@ import { animated, useSpring } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw from "twin.macro"
 
-import { MediumBoldText, BodyText } from "../../common/elements"
+import { PageContainer, MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Image from "../image"
 import Dropdown from "../dropdown"
@@ -70,35 +70,33 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   )
 
   return (
-    <section tw="text-white relative">
-      <div tw="px-6 sm:px-0">
-        {selectedPlatformObject && (
-          <div tw="absolute left-0 h-full w-full">
-            <Image
-              filename={`wallets/${selectedPlatformObject.image}.png`}
-              tw="absolute"
-            />
-          </div>
-        )}
-        <div tw="sm:ml-48">
-          <MediumBoldText>{title}</MediumBoldText>
-          <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
-          <Dropdown
-            options={platforms}
-            selected={selectedPlatform}
-            theme="dark"
-            onChange={({ value }) => {
-              changePlatform(value)
-            }}
+    <section tw="text-white py-40 grid grid-cols-1 sm:grid-cols-5">
+      {selectedPlatformObject && (
+        <div tw="p-6 sm:p-0 max-h-620 relative sm:col-span-2">
+          <Image
+            filename={`wallets/${selectedPlatformObject.image}.png`}
+            className="max-h-full"
           />
-          {platforms.map((platform, key) => (
-            <WalletPlatform
-              platform={platform}
-              key={key}
-              isVisible={selectedPlatform === platform.label}
-            />
-          ))}
         </div>
+      )}
+      <div tw="p-6 sm:p-0 sm:col-span-2">
+        <MediumBoldText>{title}</MediumBoldText>
+        <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
+        <Dropdown
+          options={platforms}
+          selected={selectedPlatform}
+          theme="dark"
+          onChange={({ value }) => {
+            changePlatform(value)
+          }}
+        />
+        {platforms.map((platform, key) => (
+          <WalletPlatform
+            platform={platform}
+            key={key}
+            isVisible={selectedPlatform === platform.label}
+          />
+        ))}
       </div>
     </section>
   )

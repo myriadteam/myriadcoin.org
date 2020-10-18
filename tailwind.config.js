@@ -31,6 +31,9 @@ module.exports = {
         "40": "40%",
         "6": "6em",
       },
+      maxHeight: {
+        620: "620px",
+      },
     },
     fontFamily: {
       body: ["HK Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
