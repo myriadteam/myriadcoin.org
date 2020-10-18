@@ -1,14 +1,22 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
-
 import MineAlgorithm from "../components/pages/mine/algoritm"
 import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
+import BgImage from "../components/bg-image"
 
-import { PageContainer, BigText } from "../common/elements"
+import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
+
+import {
+  PageContainer,
+  BigText,
+  PurpleGrad,
+  OrangeGrad,
+} from "../common/elements"
 
 const MinePage = () => {
   const { t } = useTranslation()
@@ -34,6 +42,20 @@ const MinePage = () => {
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
         <Links skip={["mine"]} />
       </PageContainer>
+      <BgImage filename="grad-1.png">
+        <PageContainer tw="py-48 text-right text-white">
+          <BigText tw="mb-24">{t("mine.need.title")}</BigText>
+          <span tw="inline-flex">
+            <Link
+              to="/community"
+              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+            >
+              {t("mine.need.link")}
+            </Link>
+            <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
+          </span>
+        </PageContainer>
+      </BgImage>
     </>
   )
 }
