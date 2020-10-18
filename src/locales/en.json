@@ -83,6 +83,9 @@
     "wallet": {
       "title": "3. Choose a wallet",
       "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriad..."
+    },
+    "links": {
+      "title": "Do more with Myriad"
     }
   },
   "hold": {

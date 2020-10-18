@@ -6,6 +6,7 @@ import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import MineAlgorithm from "../components/pages/mine/algoritm"
 import Wallet from "../components/shared/wallet"
+import Links from "../components/shared/links"
 
 import { PageContainer, BigText } from "../common/elements"
 
@@ -29,6 +30,10 @@ const MinePage = () => {
       <div tw="bg-black relative">
         <Wallet title={t("mine.wallet.title")} />
       </div>
+      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+        <BigText tw="mb-32">{t("mine.links.title")}</BigText>
+        <Links skip={["mine"]} />
+      </PageContainer>
     </>
   )
 }

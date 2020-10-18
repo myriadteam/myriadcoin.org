@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import BgImage from "../components/bg-image"
 import Bubble from "../components/bubble"
 import LinkWithHover from "../components/link-with-hover"
-import HomeLinks from "../components/pages/home/links"
+import Links from "../components/shared/links"
 import tw, { css } from "twin.macro"
 import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
 import AnimatedLine from "../components/animated-line"
@@ -178,7 +178,7 @@ const IndexPage = () => {
       </div>
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <BigText tw="mb-32">{t("home.links.title")}</BigText>
-        <HomeLinks />
+        <Links />
       </PageContainer>
       <BgImage filename="start-esperanto.png">
         <PageContainer tw="py-48 text-right text-white">
