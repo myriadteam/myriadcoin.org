@@ -146,7 +146,7 @@ const IndexPage = () => {
       <div tw="bg-black py-24 sm:py-48 px-6 sm:px-0">
         <PageContainer>
           <BigText tw="text-orange mb-24" css={[gradientTextStyle]}>
-            {t("home.security.title")}
+            {t("mine.security.title")}
           </BigText>
           <div tw="flex flex-col max-w-screen-md mx-auto relative">
             <div tw="mb-24 max-w-none md:max-w-2xl">

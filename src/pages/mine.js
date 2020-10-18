@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import tw from "twin.macro"
+import tw, { css } from "twin.macro"
 import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
 import MineAlgorithm from "../components/pages/mine/algoritm"
@@ -11,12 +11,13 @@ import BgImage from "../components/bg-image"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
 
-import {
-  PageContainer,
-  BigText,
-  PurpleGrad,
-  OrangeGrad,
-} from "../common/elements"
+import { PageContainer, BigText } from "../common/elements"
+
+const gradientTextStyle = css`
+  background: -webkit-linear-gradient(60deg, #ffd17f, #ff5aa9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
 
 const MinePage = () => {
   const { t } = useTranslation()
@@ -38,6 +39,12 @@ const MinePage = () => {
       <div tw="bg-black relative">
         <Wallet title={t("mine.wallet.title")} />
       </div>
+      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+        <BigText tw="text-orange sm:px-32" css={[gradientTextStyle]}>
+          {t("mine.ready")}
+        </BigText>
+      </PageContainer>
+      <hr />
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
         <Links skip={["mine"]} />
