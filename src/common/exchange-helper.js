@@ -4,6 +4,7 @@
  */
 
 import { EventEmitter } from "events"
+import "whatwg-fetch"
 
 const apiUrl = "https://min-api.cryptocompare.com/data"
 
