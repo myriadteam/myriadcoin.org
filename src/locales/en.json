@@ -99,7 +99,26 @@
     }
   },
   "hold": {
-    "title": "Buy and store Myriad"
+    "title": "Buy and store Myriad",
+    "buy": {
+      "title": "Buy Myriad",
+      "body": "To get your hands on your first Myriad you need to use an exchange. You can buy Myriad with fiat money or exchange another cryptocurrency for Myriad."
+    },
+    "wallet": {
+      "title": "Store your coins"
+    },
+    "use": {
+      "title": "Use your coins",
+      "body": "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "link": "Learn more"
+    },
+    "links": {
+      "title": "Do more with Myriad"
+    },
+    "woop": {
+      "title": "Share your story with the community",
+      "link": "Join in"
+    }
   },
   "community": {
     "title": "Join the community"
