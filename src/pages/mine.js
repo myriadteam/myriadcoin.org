@@ -54,8 +54,8 @@ const MinePage = () => {
         <Links skip={["mine"]} />
       </PageContainer>
       <BgImage filename="grad-1.png">
-        <PageContainer tw="py-48 text-right text-white">
-          <BigText tw="mb-24">{t("mine.need.title")}</BigText>
+        <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0 text-right text-white">
+          <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
           <span tw="inline-flex">
             <Link
               to="/community"

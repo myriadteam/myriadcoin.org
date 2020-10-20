@@ -70,7 +70,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   )
 
   return (
-    <section tw="text-white py-40 grid grid-cols-1 sm:grid-cols-5">
+    <section tw="text-white py-24 sm:py-40 grid grid-cols-1 sm:grid-cols-5">
       {selectedPlatformObject && (
         <div tw="p-6 sm:p-0 max-h-620 relative sm:col-span-2">
           <Image
