@@ -38,7 +38,7 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
             <span tw="inline-flex items-center">
               <a
                 href={url}
-                tw="underline text-2xl sm:text-larger font-bold leading-extra-tight hover:text-purple"
+                tw="underline text-md sm:text-lg font-bold leading-extra-tight hover:text-purple"
               >
                 {name}
               </a>

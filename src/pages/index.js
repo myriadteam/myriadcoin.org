@@ -43,7 +43,7 @@ const IndexPage = () => {
       <BgImage filename="start-paralax.png">
         <PageContainer tw="sm:h-screen relative py-40">
           <p
-            tw="relative text-2xl font-normal text-white z-10 max-w-sm px-6 sm:px-0"
+            tw="relative text-sm font-normal text-white z-10 max-w-sm px-6 sm:px-0"
             dangerouslySetInnerHTML={{ __html: t("home.animation") }}
           />
         </PageContainer>
@@ -187,7 +187,7 @@ const IndexPage = () => {
           <span tw="inline-flex">
             <Link
               to="/community"
-              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-lg sm:text-xl font-bold leading-extra-tight hover:text-black"
             >
               {t("home.esperanto.join")}
             </Link>

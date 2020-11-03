@@ -59,7 +59,7 @@ const MinePage = () => {
           <span tw="inline-flex">
             <Link
               to="/community"
-              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-lg sm:text-xl font-bold leading-extra-tight hover:text-black"
             >
               {t("mine.need.link")}
             </Link>

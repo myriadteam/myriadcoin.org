@@ -2,6 +2,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "light-grey": "#F6F6F6",
         purple: "#4876F6",
         grey: "#888888",
         "highlight-grey": "#ECECEE",
@@ -14,12 +15,6 @@ module.exports = {
       lineHeight: {
         "extra-tight": "1.15",
         normal: "1.4",
-      },
-      fontSize: {
-        "7xl": "3.5rem",
-        larger: "2rem",
-        "mobile-big": "2.6rem",
-        massive: "5.38rem",
       },
       linearGradientColors: {
         "black-grey": ["#000000", "#313131"],
@@ -34,12 +29,24 @@ module.exports = {
       maxHeight: {
         620: "620px",
       },
+      spacing: {
+        "6vw": "6vw",
+        full: "100%",
+      },
     },
     fontFamily: {
       body: ["HK Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
     },
     container: {
       center: true,
+    },
+    fontSize: {
+      xs: "14px",
+      sm: "20px",
+      base: "24px",
+      md: "28px",
+      lg: "48px",
+      xl: "72px",
     },
     screens: {
       sm: "640px",

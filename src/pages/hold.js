@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
 import Price from "../components/shared/price"
+import Exchanges from "../components/shared/exchanges"
 import BgImage from "../components/bg-image"
 
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
@@ -33,6 +34,7 @@ const HoldPage = () => {
         <MediumBoldText>{t("hold.buy.title")}</MediumBoldText>
         <BodyText tw="mb-12">{t("hold.buy.body")}</BodyText>
         <Price />
+        <Exchanges />
       </PageContainer>
       <div tw="bg-black relative">
         <Wallet title={t("hold.wallet.title")} />
@@ -58,7 +60,7 @@ const HoldPage = () => {
           <span tw="inline-flex">
             <Link
               to="/community"
-              tw="underline text-4xl sm:text-7xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-lg sm:text-xl font-bold leading-extra-tight hover:text-black"
             >
               {t("hold.woop.link")}
             </Link>

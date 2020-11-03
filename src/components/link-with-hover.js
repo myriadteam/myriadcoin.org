@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import tw, { css } from "twin.macro"
 
 const styleMap = {
-  mediumBold: tw`text-4xl sm:text-7xl font-bold leading-extra-tight`,
-  default: tw`text-2xl sm:text-larger font-normal inline-flex leading-tight`,
+  mediumBold: tw`font-bold text-md sm:text-lg leading-extra-tight`,
+  default: tw`inline-flex font-normal leading-tight sm:text-md`,
 }
 
 const underlinedStyle = css`
