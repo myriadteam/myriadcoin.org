@@ -6,9 +6,9 @@ import LanguageMenu from "./language-menu"
 import tw from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 
-const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-sm`
-const MenuList = tw.ul`text-sm`
-const MenuItem = tw.li`block  mr-0 mt-4 text-center sm:text-left sm:inline-block sm:mt-0 sm:mr-4`
+const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xs`
+const MenuList = tw.ul`text-xs`
+const MenuItem = tw.li`block mr-0 mt-4 text-center sm:text-left sm:inline-block sm:mt-0 sm:mr-4`
 
 const Header = ({ siteTitle, t, i18n }) => {
   const [isExpanded, toggleExpansion] = useState(false)
