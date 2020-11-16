@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { withTrans } from "../i18n/withTrans"
 import tw, { styled } from "twin.macro"
 
-const Wrapper = tw.div`font-body font-semibold text-xs px-4 relative my-4 lg:my-0`
+const Wrapper = tw.div`font-body font-semibold text-xxs px-4 relative my-4 lg:my-0`
 const ListItem = tw.li`border-b border-solid border-highlight-grey last:border-b-0`
 const Button = tw.a`cursor-pointer px-8 py-4 text-sm leading-none block w-full hover:text-purple`
 

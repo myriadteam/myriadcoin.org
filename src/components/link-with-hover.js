@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import tw, { css } from "twin.macro"
 
 const styleMap = {
-  mediumBold: tw`font-bold text-md sm:text-lg leading-extra-tight`,
+  mediumBold: tw`font-bold text-md sm:text-2xl leading-extra-tight`,
   default: tw`inline-flex font-normal leading-tight sm:text-md`,
 }
 

@@ -46,12 +46,15 @@ module.exports = {
       center: true,
     },
     fontSize: {
-      xs: "14px",
+      xxs: "14px",
+      xs: "18px",
       sm: "20px",
       base: "24px",
       md: "28px",
-      lg: "48px",
-      xl: "72px",
+      lg: "32px",
+      xl: "42px",
+      "2xl": "48px",
+      "3xl": "72px",
     },
     screens: {
       sm: "640px",

@@ -187,7 +187,7 @@ const IndexPage = () => {
           <span tw="inline-flex">
             <Link
               to="/community"
-              tw="underline text-lg sm:text-xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-2xl sm:text-3xl font-bold leading-extra-tight hover:text-black"
             >
               {t("home.esperanto.join")}
             </Link>

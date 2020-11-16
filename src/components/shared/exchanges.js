@@ -8,7 +8,7 @@ const Exchanges = () => {
     return (
       <a
         href={url}
-        tw="flex items-center justify-center rounded-full bg-light-grey w-full h-auto pt-full text-xs text-grey overflow-hidden m-4"
+        tw="flex items-center justify-center rounded-full bg-light-grey w-full h-auto pt-full text-xxs text-grey overflow-hidden m-4"
         title={name}
         target="_blank"
         rel="noopener noreferrer"

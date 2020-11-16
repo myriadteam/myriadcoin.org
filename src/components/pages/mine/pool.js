@@ -24,7 +24,7 @@ const MinePool = ({ selected }) => {
         <div key={`mining-pool-key-${key}`}>
           <a
             href={url}
-            tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-lg py-3 px-10 rounded-md mb-6"
+            tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-sm py-3 px-10 rounded-md mb-6"
           >
             {name}
           </a>
