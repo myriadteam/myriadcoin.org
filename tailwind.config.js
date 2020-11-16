@@ -62,7 +62,10 @@ module.exports = {
       lg: "980px",
       xl: "980px",
     },
-
+    borderRadius: {
+      default: "8px",
+      full: "9999px",
+    },
     linearGradientColors: theme => theme("colors"),
     radialGradientColors: theme => theme("colors"),
     conicGradientColors: theme => theme("colors"),

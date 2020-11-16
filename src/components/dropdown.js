@@ -6,13 +6,13 @@ import iconChevronDownBlack from "../svgs/icons/chevron-down-black.svg"
 import iconChevronDownWhite from "../svgs/icons/chevron-down.svg"
 
 const DropdownContainer = styled.div`
-  ${tw`rounded cursor-pointer inline-flex flex-col relative z-10`}
+  ${tw`relative z-10 inline-flex flex-col rounded cursor-pointer`}
   ${({ theme }) =>
-    theme === "light" ? tw`bg-black text-white` : tw`bg-white text-black`}
+    theme === "light" ? tw`text-white bg-black` : tw`text-black bg-white`}
 `
 
 const Selected = styled.div`
-  ${tw`px-4 py-2  flex justify-between items-center`}
+  ${tw`flex items-center justify-between px-4 py-2 text-xs`}
   ${({ isOpen }) => (isOpen ? tw`rounded-t` : tw`rounded`)}
   ${({ theme }) =>
     theme === "light"
@@ -21,12 +21,12 @@ const Selected = styled.div`
 `
 
 const Menu = styled.div`
-  ${tw`absolute top-full w-full rounded-b z-20 shadow`}
+  ${tw`absolute z-20 w-full rounded-b shadow top-full`}
   ${({ theme }) => (theme === "light" ? tw`bg-black` : tw`bg-white`)}
 `
 
 const Option = styled.a`
-  ${tw`block px-4 py-2 w-full first:rounded-t last:rounded-b `}
+  ${tw`block w-full px-4 py-2 first:rounded-t last:rounded-b `}
   ${({ theme }) =>
     theme === "light" ? tw`bg-black` : tw`bg-white hover:bg-gray-300`}
 `

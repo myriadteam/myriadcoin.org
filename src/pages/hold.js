@@ -44,7 +44,7 @@ const HoldPage = () => {
         <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
         <a
           href="XXXX"
-          tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-2xl py-3 px-10 rounded-md mb-6"
+          tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-2xl py-3 px-10 rounded mb-6"
         >
           {t("hold.use.link")}
         </a>

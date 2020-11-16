@@ -44,7 +44,7 @@ const Software = ({ software }) => {
     <div>
       <a
         href={software.url}
-        tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-sm py-3 px-10 rounded-md mb-8"
+        tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-xs py-3 px-10 rounded mb-8"
       >
         {software.label}
         {software.icon && (
