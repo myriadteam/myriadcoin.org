@@ -36,6 +36,7 @@ module.exports = {
       spacing: {
         "6vw": "6vw",
         full: "100%",
+        "32p": "32px",
       },
     },
     fontFamily: {

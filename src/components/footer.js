@@ -12,7 +12,7 @@ import iconTelegram from "../svgs/icons/icon-telegram.svg"
 import iconInstagram from "../svgs/icons/icon-instagram.svg"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
-import { PageContainer, BigText } from "../common/elements"
+import { PageContainer, MediumBoldText } from "../common/elements"
 
 const columns = [
   [
@@ -88,7 +88,7 @@ const Footer = () => {
   }
 
   const renderIcon = (svg, text) => {
-    return <img src={svg} className="fill-current mr-2" alt={`Icon ${text}`} />
+    return <img src={svg} className="mr-2 fill-current" alt={`Icon ${text}`} />
   }
 
   const renderLink = item => {
@@ -124,19 +124,23 @@ const Footer = () => {
   return (
     <>
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
-        <div tw="max-w-3xl">
+        <div tw="max-w-2xl">
           <Bubble tw="mb-8 sm:mb-16" color="blue">
             {t("home.telegram.bubble")}
           </Bubble>
-          <BigText tw="mb-8 sm:mb-16">{t("home.telegram.title")}</BigText>
+          <MediumBoldText tw="text-black mb-8 sm:mb-16">
+            {t("home.telegram.title")}
+          </MediumBoldText>
           <span tw="inline-flex">
             <a
               href="https://t.me/Myriadcoinofficial"
-              tw="underline text-lg sm:text-xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-black"
             >
               {t("home.telegram.join")}
             </a>
-            <img src={iconArrowBlack} alt=">" tw="ml-4" />
+            <span tw="ml-4 w-32p h-32p">
+              <img src={iconArrowBlack} alt=">" tw="w-full h-full" />
+            </span>
           </span>
         </div>
       </PageContainer>
