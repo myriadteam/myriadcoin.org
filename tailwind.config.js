@@ -21,6 +21,7 @@ module.exports = {
       },
       inset: {
         full: "100%",
+        double: "200%",
         "-24": "-24%",
         "12": "12%",
         "40": "40%",
@@ -28,6 +29,9 @@ module.exports = {
       },
       maxHeight: {
         620: "620px",
+      },
+      minWidth: {
+        245: "245px",
       },
       spacing: {
         "6vw": "6vw",
@@ -54,6 +58,7 @@ module.exports = {
       lg: "980px",
       xl: "980px",
     },
+
     linearGradientColors: theme => theme("colors"),
     radialGradientColors: theme => theme("colors"),
     conicGradientColors: theme => theme("colors"),
