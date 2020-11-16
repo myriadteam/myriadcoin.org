@@ -59,7 +59,7 @@ const columns = [
   [{ text: "Business" }, { text: "Contact", link: "/contact" }],
 ]
 
-const FooterContainer = tw.header`container flex justify-between py-24 text-sm flex-col sm:flex-row px-6 sm:px-0`
+const FooterContainer = tw.header`container flex justify-between py-24 text-xs flex-col sm:flex-row px-6 sm:px-0`
 const FooterLink = tw.a`flex items-center py-1 hover:text-purple`
 const FooterLinkTitle = tw.span`flex items-center`
 
