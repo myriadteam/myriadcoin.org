@@ -38,7 +38,7 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
             <span tw="inline-flex items-center">
               <a
                 href={url}
-                tw="underline text-md sm:text-2xl font-bold leading-extra-tight hover:text-purple"
+                tw="underline text-md sm:text-base font-bold leading-extra-tight hover:text-purple"
               >
                 {name}
               </a>
@@ -48,12 +48,18 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
         ))}
       </ul>
       {github && (
-        <a href={github} tw="block mb-4 underline hover:text-purple">
+        <a
+          href={github}
+          tw="block mb-4 text-xxs sm:text-xs font-medium underline hover:text-purple"
+        >
           {t("components.wallet.github")}
         </a>
       )}
       {homepage && (
-        <a href={homepage} tw="block mb-4 underline hover:text-purple">
+        <a
+          href={homepage}
+          tw="block mb-4 text-xxs sm:text-xs font-medium underline hover:text-purple"
+        >
           {t("components.wallet.homepage")}
         </a>
       )}
