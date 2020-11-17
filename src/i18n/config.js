@@ -19,6 +19,8 @@ i18next.init({
   },
   react: {
     wait: true,
+    transSupportBasicHtmlNodes: true,
+    transKeepBasicHtmlNodesFor: ["br", "strong", "i"],
   },
 })
 
