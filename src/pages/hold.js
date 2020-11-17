@@ -52,13 +52,13 @@ const HoldPage = () => {
       </PageContainer>
       <BgImage filename="grad-2.png">
         <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0 text-right text-white">
-          <BigText tw="mb-16 sm:mb-24">{t("hold.woop.title")}</BigText>
+          <BigText tw="mb-16 sm:mb-24">{t("hold.fair.title")}</BigText>
           <span tw="inline-flex">
             <Link
-              to="/community"
-              tw="underline text-2xl sm:text-3xl font-bold leading-extra-tight hover:text-black"
+              to="/about"
+              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
             >
-              {t("hold.woop.link")}
+              {t("hold.fair.link")}
             </Link>
             <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
           </span>
