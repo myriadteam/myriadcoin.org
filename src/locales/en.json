@@ -77,6 +77,27 @@
     "top": {
       "title": "Trusted, secure and up-do-date",
       "body": "<0>Myriad addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriad has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed at ???.</0>"
+    },
+    "history": {
+      "title": "The history of Myriad",
+      "items": [
+        {
+          "date": "February, 2014",
+          "text": "Myriad was launched by 8bitcoder, forked from Zetacoin. It was the first cryptocurrency to use five proof-of-work algorithms in an effort to increase security as well as broaden the base of people who could mine it - SHA256d and Scrypt for ASIC miners, Skein and Myr-Groestl for GPU miners, and Qubit for GPU and CPU miners."
+        },
+        {
+          "date": "August, 2015",
+          "text": "Myriad hard-forked to allow merge-mining on its SHA256d and Scrypt algorithms in an effort to improve security and achieve a more stable hashrate on those two algorithms."
+        },
+        {
+          "date": "August, 2016",
+          "text": "Myriad used mining consensus to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriad became the first cryptocurrency to use mining consensus to change a mining algorithm."
+        },
+        {
+          "date": "February, 2018",
+          "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
+        }
+      ]
     }
   },
   "mine": {

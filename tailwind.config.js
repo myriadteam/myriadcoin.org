@@ -11,6 +11,7 @@ module.exports = {
         "bubble-grey": "#313131",
         "bubble-blue": "#327CFF",
         "code-green": "#02C093",
+        "blue-light": "#00E1FF",
       },
       lineHeight: {
         "extra-tight": "1.15",
