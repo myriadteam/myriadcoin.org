@@ -121,7 +121,11 @@
     }
   },
   "community": {
-    "title": "Join the community"
+    "title": "Join the community!",
+    "top": {
+      "title": "No one and everyone controls Myriad.",
+      "body": "Myriad is a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining."
+    }
   },
   "business": {
     "title": "Use Myriad in your business"
