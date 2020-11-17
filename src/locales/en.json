@@ -98,6 +98,22 @@
           "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
         }
       ]
+    },
+    "community": {
+      "title": "Community-driven with democratic decision making",
+      "body": "<0>No one and everyone controls Myriad. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriad strives to be a coin for everyone, not a elite/selected few. Myriad is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
+      "link": {
+        "title": "Join our community",
+        "url": "/community"
+      }
+    },
+    "fair": {
+      "title": "Fair distribution and mining",
+      "body": "<0>No one and everyone controls Myriad. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriad strives to be a coin for everyone, not a elite/selected few. Myriad is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
+      "link": {
+        "title": "Start mining",
+        "url": "/mine"
+      }
     }
   },
   "mine": {
