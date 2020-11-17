@@ -28,6 +28,14 @@ const CommunityPage = () => {
           <BodyText>{t("community.top.body")}</BodyText>
         </div>
       </PageContainer>
+      <div tw="bg-light-grey">
+        <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+          <div tw="max-w-2xl">
+            <MediumBoldText>{t("community.social_media.title")}</MediumBoldText>
+            <BodyText>{t("community.social_media.body")}</BodyText>
+          </div>
+        </PageContainer>
+      </div>
     </>
   )
 }
