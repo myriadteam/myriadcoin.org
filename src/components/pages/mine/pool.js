@@ -9,6 +9,8 @@ import tw from "twin.macro"
 
 import { useTranslation } from "react-i18next"
 
+const LinkButton = tw.a`inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-xs py-3 px-10 rounded mb-6`
+
 const MinePool = ({ selected }) => {
   let { t } = useTranslation()
   let algoritm = algoritms.find(algo => algo.value === selected)
@@ -22,12 +24,7 @@ const MinePool = ({ selected }) => {
       </BodyBoldText>
       {algoritm.miningPools.map(({ url, name }, key) => (
         <div key={`mining-pool-key-${key}`}>
-          <a
-            href={url}
-            tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-sm py-3 px-10 rounded mb-6"
-          >
-            {name}
-          </a>
+          <LinkButton href={url}>{name}</LinkButton>
         </div>
       ))}
     </>
