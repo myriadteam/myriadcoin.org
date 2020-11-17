@@ -16,6 +16,7 @@ import {
   BigText,
   MediumBoldText,
   BodyText,
+  LinkButton,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
 
@@ -42,12 +43,7 @@ const HoldPage = () => {
       <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
         <MediumBoldText>{t("hold.use.title")}</MediumBoldText>
         <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
-        <a
-          href="XXXX"
-          tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-2xl py-3 px-10 rounded mb-6"
-        >
-          {t("hold.use.link")}
-        </a>
+        <LinkButton href="XXXX">{t("hold.use.link")}</LinkButton>
       </PageContainer>
       <hr />
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">

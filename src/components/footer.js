@@ -134,7 +134,7 @@ const Footer = () => {
           <span tw="inline-flex">
             <a
               href="https://t.me/Myriadcoinofficial"
-              tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-black"
+              tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-purple"
             >
               {t("home.telegram.join")}
             </a>
