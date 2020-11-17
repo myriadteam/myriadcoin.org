@@ -4,7 +4,7 @@ import { animated, useSpring } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw from "twin.macro"
 
-import { PageContainer, MediumBoldText, BodyText } from "../../common/elements"
+import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Image from "../image"
 import Dropdown from "../dropdown"

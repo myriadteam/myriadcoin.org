@@ -4,12 +4,11 @@ import {
   MediumBoldText,
   BodyText,
   BodyBoldText,
+  LinkButton,
 } from "../../../common/elements"
 import tw from "twin.macro"
 
 import { useTranslation } from "react-i18next"
-
-const LinkButton = tw.a`inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-xs py-3 px-10 rounded mb-6`
 
 const MinePool = ({ selected }) => {
   let { t } = useTranslation()

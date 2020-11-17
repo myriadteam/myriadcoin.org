@@ -1,6 +1,11 @@
 import React from "react"
 import { algoritms } from "../../../common/algoritms"
-import { MediumBoldText, BodyText, Code } from "../../../common/elements"
+import {
+  MediumBoldText,
+  BodyText,
+  Code,
+  LinkButton,
+} from "../../../common/elements"
 import Dropdown from "../../dropdown"
 import { animated, useSpring } from "react-spring"
 import tw from "twin.macro"
@@ -42,17 +47,18 @@ const AlgorithmInfo = ({
 const Software = ({ software }) => {
   return (
     <div>
-      <a
-        href={software.url}
-        tw="inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-xs py-3 px-10 rounded mb-8"
-      >
+      <LinkButton href={software.url} tw="mb-8">
         {software.label}
         {software.icon && (
           <>
-            <img src={software.icon} alt={`Icon ${software.label}`} tw="ml-4" />
+            <img
+              src={software.icon}
+              alt={`Icon ${software.label}`}
+              tw="ml-4 -my-1"
+            />
           </>
         )}
-      </a>
+      </LinkButton>
       {software.example && (
         <>
           <BodyText tw="font-bold mt-2 mb-4">{software.example.label}</BodyText>
