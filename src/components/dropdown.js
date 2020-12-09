@@ -26,7 +26,7 @@ const Menu = styled.div`
 `
 
 const Option = styled.a`
-  ${tw`block w-full px-4 py-2 first:rounded-t last:rounded-b `}
+  ${tw`block w-full px-4 py-2 last:rounded-b `}
   ${({ theme }) =>
     theme === "light" ? tw`bg-black` : tw`bg-white hover:bg-gray-300`}
 `
