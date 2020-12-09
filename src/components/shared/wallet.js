@@ -72,10 +72,8 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   const [selectedPlatform, changePlatform] = useState(null)
 
   let selectedPlatformObject = platforms.find(platform => {
-    console.log(`${platform.label} === (${selectedPlatform} || ${osName})`)
     return platform.label === (selectedPlatform || osName)
   })
-  console.log("os", osName, selectedPlatformObject)
   return (
     <section tw="text-white py-24 sm:py-40 flex">
       {selectedPlatformObject && (
