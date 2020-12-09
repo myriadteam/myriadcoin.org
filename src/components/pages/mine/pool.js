@@ -14,7 +14,7 @@ const MinePool = ({ selected }) => {
   let { t } = useTranslation()
   let algoritm = algoritms.find(algo => algo.value === selected)
   return (
-    <>
+    <div tw="sm:max-w-screen-sm">
       <MediumBoldText>{t("mine.pool.title")}</MediumBoldText>
       <BodyText>{t("mine.pool.body")}</BodyText>
       <BodyBoldText tw="my-8">
@@ -26,7 +26,7 @@ const MinePool = ({ selected }) => {
           <LinkButton href={url}>{name}</LinkButton>
         </div>
       ))}
-    </>
+    </div>
   )
 }
 
