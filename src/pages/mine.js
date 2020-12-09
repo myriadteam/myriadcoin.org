@@ -38,7 +38,9 @@ const MinePage = () => {
         />
       </PageContainer>
       <div tw="bg-black relative">
-        <Wallet title={t("mine.wallet.title")} />
+        <PageContainer>
+          <Wallet title={t("mine.wallet.title")} />
+        </PageContainer>
       </div>
       <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
         <MinePool selected={algoritm} />

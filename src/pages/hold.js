@@ -40,7 +40,9 @@ const HoldPage = () => {
         <Exchanges />
       </PageContainer>
       <div tw="bg-black relative">
-        <Wallet title={t("hold.wallet.title")} />
+        <PageContainer>
+          <Wallet title={t("hold.wallet.title")} />
+        </PageContainer>
       </div>
       <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
         <MediumBoldText>{t("hold.use.title")}</MediumBoldText>

@@ -26,7 +26,7 @@ export const platforms = [
   {
     label: "Mac OS",
     value: "Mac OS",
-    image: "mac-os",
+    image: "macos",
     wallets: [
       {
         name: "Myriadcoin 0.16.4.1",
@@ -67,6 +67,7 @@ export const platforms = [
   {
     label: "Android",
     value: "Android",
+    image: "android",
     wallets: [
       {
         name: "COINiD",

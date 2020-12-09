@@ -71,26 +71,25 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   const { t } = useTranslation()
   const [selectedPlatform, changePlatform] = useState(null)
 
-  let selectedPlatformObject = platforms.find(
-    platform => platform.label === (selectedPlatform || osName)
-  )
-
+  let selectedPlatformObject = platforms.find(platform => {
+    console.log(`${platform.label} === (${selectedPlatform} || ${osName})`)
+    return platform.label === (selectedPlatform || osName)
+  })
+  console.log("os", osName, selectedPlatformObject)
   return (
-    <section tw="text-white py-24 sm:py-40 grid grid-cols-1 sm:grid-cols-5">
+    <section tw="text-white py-24 sm:py-40 flex">
       {selectedPlatformObject && (
-        <div tw="p-6 sm:p-0 max-h-620 relative sm:col-span-2">
-          <Image
-            filename={`wallets/${selectedPlatformObject.image}.png`}
-            className="max-h-full"
-          />
-        </div>
+        <Image
+          filename={`wallets/${selectedPlatformObject.image.toLocaleLowerCase()}.png`}
+          className="w-full max-w-full max-h-full sm:mr-12"
+        />
       )}
-      <div tw="p-6 sm:p-0 sm:col-span-2">
+      <div tw="p-6 sm:p-0 flex flex-col justify-center">
         <MediumBoldText>{title}</MediumBoldText>
         <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
         <Dropdown
           options={platforms}
-          selected={selectedPlatform}
+          selected={selectedPlatformObject.label}
           theme="dark"
           onChange={({ value }) => {
             changePlatform(value)
@@ -100,7 +99,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
           <WalletPlatform
             platform={platform}
             key={key}
-            isVisible={selectedPlatform === platform.label}
+            isVisible={selectedPlatformObject.label === platform.label}
           />
         ))}
       </div>
