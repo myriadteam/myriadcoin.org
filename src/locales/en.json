@@ -181,7 +181,8 @@
       "hold": "Hold",
       "business": "Business",
       "mine": "Mine",
-      "community": "Community"
+      "community": "Community",
+      "updates": "Updates"
     }
   },
   "components": {

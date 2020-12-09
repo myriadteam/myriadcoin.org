@@ -1,0 +1,13 @@
+#HW_badge_cont {
+  position: absolute !important;
+  top: -5px;
+  right: -10px;
+}
+
+#HW_badge {
+  background: #ff4848 !important;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  text-indent: -100px;
+}

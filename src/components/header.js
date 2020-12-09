@@ -74,6 +74,11 @@ const Header = ({ siteTitle, t, i18n }) => {
                 {t("header.links.business")}
               </Link>
             </MenuItem>
+            <MenuItem>
+              <a href="#" id="headway-link" className="relative px-4 py-2">
+                {t("header.links.updates")}
+              </a>
+            </MenuItem>
           </MenuList>
           <LanguageMenu />
         </div>

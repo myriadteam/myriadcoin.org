@@ -68,7 +68,24 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <script type="text/javascript">
+        {`var HW_config = {
+          selector: "#headway-link",
+          account:  "7wRpdx",
+          trigger: "#headway-link",
+          position: {
+            x: "right",
+            y: "bottom",
+          }
+        }`}
+      </script>
+      <script
+        async
+        type="text/javascript"
+        src="//cdn.headwayapp.co/widget.js"
+      ></script>
+    </Helmet>
   )
 }
 
