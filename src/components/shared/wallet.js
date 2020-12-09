@@ -85,23 +85,25 @@ const Wallet = ({ selected, title, theme = "light" }) => {
         />
       )}
       <div tw="p-6 sm:p-0 flex flex-col justify-center">
-        <MediumBoldText>{title}</MediumBoldText>
-        <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
-        <Dropdown
-          options={platforms}
-          selected={selectedPlatformObject.label}
-          theme="dark"
-          onChange={({ value }) => {
-            changePlatform(value)
-          }}
-        />
-        {platforms.map((platform, key) => (
-          <WalletPlatform
-            platform={platform}
-            key={key}
-            isVisible={selectedPlatformObject.label === platform.label}
+        <div>
+          <MediumBoldText>{title}</MediumBoldText>
+          <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
+          <Dropdown
+            options={platforms}
+            selected={selectedPlatformObject.label}
+            theme="dark"
+            onChange={({ value }) => {
+              changePlatform(value)
+            }}
           />
-        ))}
+          {platforms.map((platform, key) => (
+            <WalletPlatform
+              platform={platform}
+              key={key}
+              isVisible={selectedPlatformObject.label === platform.label}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )
