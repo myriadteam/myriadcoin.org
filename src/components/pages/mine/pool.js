@@ -21,11 +21,13 @@ const MinePool = ({ selected }) => {
         {t("mine.pool.available_for")}
         {algoritm.label}
       </BodyBoldText>
-      {algoritm.miningPools.map(({ url, name }, key) => (
-        <div key={`mining-pool-key-${key}`}>
-          <LinkButton href={url}>{name}</LinkButton>
-        </div>
-      ))}
+      <div class="flex">
+        {algoritm.miningPools.map(({ url, name }, key) => (
+          <LinkButton href={url} className="mr-4 last:mr-0">
+            {name}
+          </LinkButton>
+        ))}
+      </div>
     </div>
   )
 }
