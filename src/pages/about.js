@@ -26,7 +26,7 @@ const AboutPage = () => {
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+      <PageContainer tw="pb-24 px-6 sm:pb-48 sm:px-0">
         <BodyBlock translationKey="about.top" />
       </PageContainer>
       <div tw="bg-black text-white">
