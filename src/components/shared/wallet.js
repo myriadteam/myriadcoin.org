@@ -88,7 +88,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
           <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
           <Dropdown
             options={platforms}
-            selected={selectedPlatformObject.label}
+            selected={selectedPlatformObject && selectedPlatformObject.label}
             theme="dark"
             onChange={({ value }) => {
               changePlatform(value)
@@ -98,7 +98,10 @@ const Wallet = ({ selected, title, theme = "light" }) => {
             <WalletPlatform
               platform={platform}
               key={key}
-              isVisible={selectedPlatformObject.label === platform.label}
+              isVisible={
+                selectedPlatformObject &&
+                selectedPlatformObject.label === platform.label
+              }
             />
           ))}
         </div>
