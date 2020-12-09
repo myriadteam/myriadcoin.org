@@ -4,7 +4,7 @@ import tw, { styled } from "twin.macro"
 
 const Wrapper = tw.div`font-body font-semibold text-xxs px-4 relative my-4 lg:my-0`
 const ListItem = tw.li`border-b border-solid border-highlight-grey last:border-b-0`
-const Button = tw.a`cursor-pointer px-8 py-4 text-sm leading-none block w-full hover:text-purple`
+const Button = tw.a`cursor-pointer px-6 py-4 text-xxs leading-none block w-full hover:text-purple`
 
 const List = styled.ul`
   ${tw`absolute right-0 border border-solid rounded shadow-md top-double border-highlight-grey min-w-245`}
