@@ -16,7 +16,7 @@ const Links = ({ skip = [] }) => {
           <LinkWithHover to={`${link}`} variant="mediumBold">
             {t(`home.links.${link}`)}
           </LinkWithHover>
-          <img src={iconArrow} alt=">" />
+          <img src={iconArrow} alt=">" tw="w-10 sm:w-auto" />
         </li>
       ))}
     </ul>
