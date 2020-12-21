@@ -9,6 +9,9 @@ i18next.init({
     eo: {
       translations: require("../locales/eo.json"),
     },
+    es: {
+      translations: require("../locales/es.json"),
+    },
     sv: {
       translations: require("../locales/sv.json"),
     },
@@ -27,6 +30,6 @@ i18next.init({
   },
 })
 
-i18next.languages = ["en", "eo", "sv"]
+i18next.languages = ["en", "eo", "sv", "es"]
 
 export default i18next
