@@ -1,0 +1,202 @@
+{
+  "languages": {
+    "en": "Angla",
+    "sv": "Sveda"
+  },
+  "common": {
+    "readMore": "Legu pli"
+  },
+  "home": {
+    "coverText": "Bonvenon al la estonteco kaj neniuj sensencaj <br> transakcioj!",
+    "animation": "Miriado estas <b> malferma fonto </b>, <b> vere malcentralizita </b>, cifereca valuto, kiu povas esti sendita samranga interrete.",
+    "nonsense": {
+      "title": "En la hodiaŭa mondo, ekzistas multaj moneroj kaj multaj asertoj. Povas esti malfacile ekvidi, kio estas reala kaj kio estas sensencaĵo.",
+      "caption": "Jen kelkaj aferoj atentindaj:",
+      "bubbles": {
+        "pre_mining": "Antaŭminado",
+        "asic_farms": "ASIC-bienoj",
+        "ico": "ICO",
+        "secure_storing": "Neniu sekura stokado 😱",
+        "no_development": "Neniu evoluo okazas 😴",
+        "pump_and_dump": "Pumpi kaj forĵeti movojn",
+        "non_vibrant_communities": "Ne-viglaj komunumoj",
+        "instant_transactions": "Tujaj transakcioj - la diferenco inter transakcio kaj konfirmo"
+      }
+    },
+    "myriadIs": {
+      "title": "Sed Miriado aliflanke estas:",
+      "trusted": {
+        "title": "Fidinda, sekura kaj <br> ĝisdatigita",
+        "body": "Myriadcoins-unika multi-algoritma aliro signifas, ke ĝi havas ekstran reziston al 51% -atakoj."
+      },
+      "community": {
+        "title": "Komunuma-gvidita kun <br> demokratia decidado",
+        "body": "Neniu kaj ĉiuj kontrolas Myriad. Ĝi estas komunuma movita projekto plena de volontuloj."
+      },
+      "fair": {
+        "title": "Justa distribuo kaj minado",
+        "body": "Myriadcoin ne havas antaŭminon aŭ IPO kaj estis sufiĉe lanĉita. Myriadcoin uzas longan minindustrian periodon, kiu malebligas solidigi grandan parton de la moneroj en la manoj de tre malmultaj."
+      }
+    },
+    "security": {
+      "title": "Ni taksas sekurecon kaj inkluzivecon",
+      "attacks": {
+        "title": "51% Ataka Rezisto",
+        "body": "Danke al nia aliro al multalgoritmo."
+      },
+      "multi-algo": {
+        "title": "Multalgoritmo",
+        "body": "SHA256d, Scrypt, Myr-Groestl, Argon2d kaj Yescrypt."
+      },
+      "longblocks": {
+        "title": "Longblokoj",
+        "body": "Pliigita sekureco, malpli da orfoj, pli alta malfacileco."
+      }
+    },
+    "links": {
+      "title": "Komencu uzi Miriadon nun",
+      "mine": "Mia Miriado",
+      "hold": "Aĉetu kaj stoku Miriadon",
+      "business": "Akceptu Miriadon kiel pagon",
+      "community": "Aliĝu al la komunumo"
+    },
+    "esperanto": {
+      "title": "Saluton!",
+      "body": "Miriado estas uzata por subteni kreintojn de enhavo en la Esperanto-komunumo",
+      "join": "Aliĝi"
+    },
+    "telegram": {
+      "bubble": "Aliĝu al nia Telegram-kanalo",
+      "title": "Ĉu vi havas demandojn aŭ nur volas babili?",
+      "join": "Aliĝu al telegramo"
+    },
+    "footerText": "Konstruita kun Gatsby"
+  },
+  "about": {
+    "title": "Pri Miriado",
+    "top": {
+      "title": "Fidinda, sekura kaj ĝisdata",
+      "body": "<0> Miriado traktas la problemojn kun ASIC-specialiĝo kaj centralizo, 51% atakoj, maljusta distribuo kaj malrapidaj transakcioj per noviga aliro kun multalgoritma blokĉeno. </0> <0> Ĝi estas la unua multalgoritma monero kaj ĝia novigo influis multajn venontajn monerojn. Miriado havas pruvitan historion kaj ekde sia eldono en 2014 eltenis la provon de tempo kaj adaptiĝis kiam bezonite. </0> <0> Ĉiu evoluo povas esti sekvata kaj diskutita ĉe ???. </0>"
+    },
+    "history": {
+      "title": "La historio de Miriado",
+      "items": [
+        {
+          "date": "Februaro, 2014",
+          "text": "Myriad estis lanĉita de 8bitcoder, forigita de Zetacoin. Ĝi estis la unua kripta monero, kiu uzis kvin provajn algoritmojn por pliigi sekurecon kaj plilarĝigi la bazon de homoj, kiuj povus minigi ĝin - SHA256d kaj Scrypt por ASIC-ministoj, Skein kaj Myr-Groestl por GPU-ministoj, kaj Qubit por GPU kaj CPU-ministoj."
+        },
+        {
+          "date": "Aŭgusto 2015",
+          "text": "Multege malmolaj por permesi kunfandi minadon de siaj SHA256d kaj Scrypt-algoritmoj por plibonigi sekurecon kaj atingi pli stabilan hasraton en tiuj du algoritmoj."
+        },
+        {
+          "date": "Aŭgusto 2016",
+          "text": "Miriado uzis minindustrian konsenton por anstataŭigi la algoritmon Qubit kun la algoritmo Yescrypt por konservi minindustrian malcentralizadon. Miriado fariĝis la unua kripta monero, kiu uzis minindustrian konsenton por ŝanĝi minindustrian algoritmon."
+        },
+        {
+          "date": "Februaro, 2018",
+          "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
+        }
+      ]
+    },
+    "community": {
+      "title": "Komunum-pelita kun demokrata decidado",
+      "body": "<0> Neniu kaj ĉiuj regas Miriadon. Ĝi estas komunuma movita projekto plena de volontuloj. Por grandaj ŝanĝoj en Kerna minindustria konsento estas uzata. Ĉi tiu principo funkcias pro Myriads malcentralizita minado. </0> <0> Myriad strebas esti monero por ĉiuj, ne por elitaj / elektitaj malmultaj. Miriado estas por la homoj, kiujn ĝi povas plej helpi. Kun vere sekura kaj malcentralizita monero, ni verŝas nian fokuson kaj penon en realajn uzokazojn por helpi la homojn kun la plej granda bezono. </0> <0> Por grandaj ŝanĝoj en Kerna minindustria konsento estas uzata. La plej nova minindustria konsento estis 2016 kun Yescrypt kaj 2019 kun Argon2D. </0>",
+      "link": {
+        "title": "Aliĝu al nia komunumo",
+        "url": "/ komunumo"
+      }
+    },
+    "fair": {
+      "title": "Justa distribuo kaj minado",
+      "body": "<0> Neniu kaj ĉiuj regas Miriadon. Ĝi estas komunuma movita projekto plena de volontuloj. Por grandaj ŝanĝoj en Kerna minindustria konsento estas uzata. Ĉi tiu principo funkcias pro Myriads malcentralizita minado. </0> <0> Myriad strebas esti monero por ĉiuj, ne por elitaj / elektitaj malmultaj. Miriado estas por la homoj, kiujn ĝi povas plej helpi. Kun vere sekura kaj malcentralizita monero, ni verŝas nian fokuson kaj penon en realajn uzokazojn por helpi la homojn kun la plej granda bezono. </0> <0> Por grandaj ŝanĝoj en Kerna minindustria konsento estas uzata. La plej nova minindustria konsento estis 2016 kun Yescrypt kaj 2019 kun Argon2D. </0>",
+      "link": {
+        "title": "Komencu minadon",
+        "url": "/ mia"
+      }
+    }
+  },
+  "mine": {
+    "title": "Kiel Minigi Miriadon",
+    "algoritm": {
+      "title": "1. Elektu algoritmon"
+    },
+    "wallet": {
+      "title": "2. Elektu monujon",
+      "body": "Ne stoku vian kriporan moneron en interŝanĝo. Vi devus esti preta kaj aranĝita por stoki viajn monerojn. Ĉi tiuj monujoj subtenas Miriadon ..."
+    },
+    "pool": {
+      "title": "3. Aliĝu al minindustria naĝejo",
+      "body": "Minindustria grupo estas la kunigo de rimedoj fare de ministoj, kiuj dividas sian prilaboran potencon per reto.",
+      "available_for": "Haveblaj minindustriaj naĝejoj por"
+    },
+    "ready": "Nun vi pretas komenci minadon!",
+    "links": {
+      "title": "Faru pli kun Miriado"
+    },
+    "need": {
+      "title": "Ĉu necesas kriptovalutoj?",
+      "link": "Ni eksciu"
+    }
+  },
+  "hold": {
+    "title": "Aĉetu kaj stoku Miriadon",
+    "buy": {
+      "title": "Aĉetu Miriadon",
+      "body": "Por meti viajn manojn sur vian unuan Miriadon, vi devas uzi interŝanĝon. Vi povas aĉeti Miriadon per fidinda mono aŭ interŝanĝi alian kriporan moneron kontraŭ Miriadoj."
+    },
+    "wallet": {
+      "title": "Konservu viajn monerojn"
+    },
+    "use": {
+      "title": "Uzu viajn monerojn",
+      "body": "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Mecenatoj faucibus mollis interdum. Mecenas sed diam eget risus varius blandit sit amet non magna.",
+      "link": "Lernu pli"
+    },
+    "links": {
+      "title": "Faru pli kun Miriado"
+    },
+    "fair": {
+      "title": "Ĉu ĉiuj kriptaj moneroj ne estas sufiĉe distribuitaj kaj minitaj?",
+      "link": "Ni eksciu"
+    }
+  },
+  "community": {
+    "title": "Aliĝu al la komunumo!",
+    "top": {
+      "title": "Neniu kaj ĉiuj kontrolas Myriad.",
+      "body": "Miriado estas komunuma movita projekto plena de volontuloj. Por grandaj ŝanĝoj en Kerna minindustria konsento estas uzata. Ĉi tiu principo funkcias pro Myriads malcentralizita minado."
+    },
+    "social_media": {
+      "title": "Sociaj retoj",
+      "body": "Ni estas ankaŭ ĉe Bitcointalk kaj nia propra IRC-kanalo"
+    }
+  },
+  "business": {
+    "title": "Uzu Miriadon en via komerco"
+  },
+  "header": {
+    "links": {
+      "about": "Pri",
+      "hold": "Tenu",
+      "business": "Komerco",
+      "mine": "Mia",
+      "community": "Komunumo",
+      "updates": "Ĝisdatigoj"
+    }
+  },
+  "components": {
+    "algoritm": {
+      "choose_algoritm": "Elektu algoritmon",
+      "recommended_for": "Rekomendita io por",
+      "available_software": "Disponeblaj programoj por"
+    },
+    "wallet": {
+      "github": "Kontrolu la Github-deponejon por pliaj informoj",
+      "homepage": "Kontrolu la retejon por pliaj informoj"
+    },
+    "dropdown": {
+      "placeholder": "Elektu ..."
+    }
+  }
+}
