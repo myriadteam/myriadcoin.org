@@ -51,7 +51,7 @@ const IndexPage = () => {
         <PurpleGrad />
       </BgImage>
       <PageContainer>
-        <div tw="mt-24 sm:mt-48 px-2 sm:px-0">
+        <div tw="mt-24 sm:mt-48 px-6 sm:px-0">
           <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
           <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
           <div tw="flex flex-row flex-wrap justify-center">
@@ -181,7 +181,7 @@ const IndexPage = () => {
         <Links />
       </PageContainer>
       <BgImage filename="start-esperanto.png">
-        <PageContainer tw="py-48 text-right text-white">
+        <PageContainer tw="py-48 px-6 sm:px-0 text-right text-white">
           <BigText tw="italic">{t("home.esperanto.title")}</BigText>
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
           <span tw="inline-flex">

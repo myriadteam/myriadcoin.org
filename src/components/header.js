@@ -46,36 +46,61 @@ const Header = ({ siteTitle, t, i18n }) => {
         </div>
         <div
           className={`${isExpanded ? `block` : `hidden`}`}
-          tw="top-6 absolute left-0 sm:top-auto sm:left-auto sm:relative bg-white sm:bg-transparent w-full sm:flex flex-grow sm:items-center sm:w-auto sm:justify-end"
+          tw="z-50 top-6 absolute left-0 bg-white shadow sm:top-auto sm:left-auto sm:relative bg-white sm:bg-transparent w-full sm:flex flex-grow sm:items-center sm:w-auto sm:justify-end"
         >
           <MenuList>
             <MenuItem>
-              <Link to="/about" className="px-4 py-2">
+              <Link
+                to="/about"
+                className="px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.about")}
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/mine" className="px-4 py-2">
+              <Link
+                to="/mine"
+                className="px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.mine")}
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/hold" className="px-4 py-2">
+              <Link
+                to="/hold"
+                className="px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.hold")}
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/community" className="px-4 py-2">
+              <Link
+                to="/community"
+                className="px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.community")}
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/business" className="px-4 py-2">
+              <Link
+                to="/business"
+                className="px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.business")}
               </Link>
             </MenuItem>
             <MenuItem>
-              <a href="#" id="headway-link" className="relative px-4 py-2">
+              <a
+                href="#"
+                id="headway-link"
+                className="relative px-4 py-2"
+                onClick={() => toggleExpansion(!isExpanded)}
+              >
                 {t("header.links.updates")}
               </a>
             </MenuItem>
