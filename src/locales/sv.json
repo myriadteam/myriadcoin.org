@@ -3,7 +3,11 @@
     "en": "English",
     "sv": "Svenska"
   },
+  "common": {
+    "readMore": "Läs mer"
+  },
   "home": {
+    "coverText": "Välkommen till<br>framtiden av inget nonsens och transaktioner!",
     "footerText": "Byggt i Gatsby"
   },
   "header": {
