@@ -31,12 +31,16 @@ const MinePage = () => {
           <BigText tw="mb-8">{t("mine.title")}</BigText>
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
-        <MineAlgorithm
-          title={t("mine.algoritm.title")}
-          selected={algoritm}
-          onChange={value => changeAlgoritm(value)}
-        />
       </PageContainer>
+      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0">
+        <PageContainer>
+          <MineAlgorithm
+            title={t("mine.algoritm.title")}
+            selected={algoritm}
+            onChange={value => changeAlgoritm(value)}
+          />
+        </PageContainer>
+      </div>
       <div tw="bg-black relative">
         <PageContainer>
           <Wallet title={t("mine.wallet.title")} />
