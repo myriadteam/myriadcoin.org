@@ -20,7 +20,7 @@ const Exchanges = () => {
     )
   }
   return (
-    <div tw="rounded flex-shrink-0 sm:ml-16 bg-white grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 px-6 py-8">
+    <div tw="rounded shadow-wide flex-shrink-0 sm:ml-16 bg-white grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 px-6 py-8">
       {exchanges.map(exchange => renderExchange(exchange))}
     </div>
   )

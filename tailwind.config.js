@@ -76,6 +76,9 @@ module.exports = {
       lg: "32px",
       full: "9999px",
     },
+    boxShadow: {
+      wide: "0px 8px 48px 8px rgba(0, 0, 0, 0.05)",
+    },
     linearGradientColors: theme => theme("colors"),
     radialGradientColors: theme => theme("colors"),
     conicGradientColors: theme => theme("colors"),
