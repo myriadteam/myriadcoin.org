@@ -10,6 +10,7 @@ import Links from "../components/shared/links"
 import tw, { css } from "twin.macro"
 import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
 import AnimatedLine from "../components/animated-line"
+import { gradientTextStylePink } from "../common/gradients"
 
 import {
   PageContainer,
@@ -20,12 +21,6 @@ import {
   PurpleGrad,
   OrangeGrad,
 } from "../common/elements"
-
-const gradientTextStyle = css`
-  background: -webkit-linear-gradient(60deg, #ffd17f, #ff5aa9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`
 
 const IndexPage = () => {
   const { t } = useTranslation()
@@ -145,7 +140,7 @@ const IndexPage = () => {
       </div>
       <div tw="bg-black py-24 sm:py-48 px-6 sm:px-0">
         <PageContainer>
-          <BigText tw="text-orange mb-24" css={[gradientTextStyle]}>
+          <BigText tw="text-orange mb-24" css={[gradientTextStylePink]}>
             {t("home.security.title")}
           </BigText>
           <div tw="flex flex-col max-w-screen-md mx-auto relative">

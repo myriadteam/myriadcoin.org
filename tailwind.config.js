@@ -36,8 +36,11 @@ module.exports = {
       },
       spacing: {
         "6vw": "6vw",
+        half: "50%",
         full: "100%",
         "32p": "32px",
+        "30": "7.5rem",
+        "36": "9rem",
       },
     },
     fontFamily: {
@@ -56,6 +59,7 @@ module.exports = {
       xl: "42px",
       "2xl": "48px",
       "3xl": "72px",
+      "4xl": "86px",
     },
     screens: {
       sm: "640px",
