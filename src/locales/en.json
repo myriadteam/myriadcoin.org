@@ -1,10 +1,12 @@
 {
+  "formattedNumber": "{{number, 0,0}}",
   "languages": {
     "en": "English",
     "eo": "Esperanto",
     "es": "Spanish",
     "sv": "Swedish"
   },
+
   "common": {
     "readMore": "Read more"
   },

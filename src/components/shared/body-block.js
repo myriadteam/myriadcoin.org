@@ -11,7 +11,6 @@ import {
 const BodyBlock = ({ translationKey }) => {
   const { t } = useTranslation()
   const link = t(`${translationKey}.link`, { returnObjects: true })
-  console.log("link", link)
   return (
     <div tw="max-w-2xl mb-32 last:mb-0">
       <MediumBoldText>{t(`${translationKey}.title`)}</MediumBoldText>

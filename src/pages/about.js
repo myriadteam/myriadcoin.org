@@ -1,8 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
+import { XmyBlocksContext } from "../common/contexts"
 import BodyBlock from "../components/shared/body-block"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+import {
+  gradientTextStylePurple,
+  gradientTextStylePink,
+  gradientTextStyleGreen,
+  gradientTextStyleBlue,
+} from "../common/gradients"
 
 import {
   PageContainer,
@@ -15,7 +22,7 @@ import { useTranslation, Trans } from "react-i18next"
 
 const AboutPage = () => {
   const { t } = useTranslation()
-
+  const nrOfBlocks = useContext(XmyBlocksContext)
   const historyItems = t("about.history.items", { returnObjects: true })
   return (
     <>
@@ -26,9 +33,49 @@ const AboutPage = () => {
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <PageContainer tw="pb-24 px-6 sm:pb-48 sm:px-0">
-        <BodyBlock translationKey="about.top" />
-      </PageContainer>
+      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0">
+        <PageContainer>
+          <BodyBlock translationKey="about.top" />
+          <div tw="flex sm:flex-wrap flex-col sm:flex-row">
+            <div tw="w-full sm:w-half mb-10">
+              <span
+                tw="text-2xl sm:text-4xl leading-none font-bold"
+                css={[gradientTextStylePurple]}
+              >
+                8
+              </span>
+              <BodyText>Years in Development</BodyText>
+            </div>
+            <div tw="w-full sm:w-half mb-10">
+              <span
+                tw="text-2xl sm:text-4xl leading-none font-bold"
+                css={[gradientTextStylePink]}
+              >
+                {t("formattedNumber", { number: 30246 })}
+              </span>
+              <BodyText>Full nodes</BodyText>
+            </div>
+            <div tw="w-full sm:w-half mb-10">
+              <span
+                tw="text-2xl sm:text-4xl leading-none font-bold"
+                css={[gradientTextStyleGreen]}
+              >
+                {t("formattedNumber", { number: nrOfBlocks })}
+              </span>
+              <BodyText>Blocks</BodyText>
+            </div>
+            <div tw="w-full sm:w-half">
+              <span
+                tw="text-2xl sm:text-4xl leading-none font-bold"
+                css={[gradientTextStyleBlue]}
+              >
+                {t("formattedNumber", { number: 126222412 })}
+              </span>
+              <BodyText>Transactions</BodyText>
+            </div>
+          </div>
+        </PageContainer>
+      </div>
       <div tw="bg-black text-white">
         <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
           <MediumBoldText tw="mb-24">{t("about.history.title")}</MediumBoldText>

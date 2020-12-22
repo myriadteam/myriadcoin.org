@@ -21,7 +21,6 @@ const fetchFromHistoricPriceApi = (ticker, currency, timestamp) => {
     `${apiUrl}/` +
     "pricehistorical" +
     `?fsym=${ticker}&tsyms=${currency}&ts=${parseInt(timestamp, 10)}`
-  console.log(url)
   return fetch(url)
     .then(r => r.json())
     .then(j => j[ticker][currency])

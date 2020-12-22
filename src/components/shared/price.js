@@ -22,7 +22,6 @@ const Price = () => {
     return exchangeHelper
       .fetchHistoricPrice("USD", timeStamp.getTime())
       .then(todayStartPrice => {
-        console.log(todayStartPrice)
         setTodayStartPrice(todayStartPrice)
       })
   }

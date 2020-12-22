@@ -1,4 +1,5 @@
 import i18next from "i18next"
+import numeral from "numeral"
 
 i18next.init({
   fallbackLng: "en",
@@ -22,6 +23,11 @@ i18next.init({
   debug: process.env.NODE_ENV === "development",
   interpolation: {
     escapeValue: false,
+    format: function (value, format, lng) {
+      if (format === "uppercase") return value.toUpperCase()
+      if (format === "0,0") return numeral(value).format(format)
+      return value
+    },
   },
   react: {
     wait: true,
