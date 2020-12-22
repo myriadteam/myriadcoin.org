@@ -40,7 +40,7 @@ module.exports = {
       options: {
         custom: {
           families: ["HK Grotesk"],
-          urls: ["fonts.css"],
+          urls: ["/fonts.css"],
         },
       },
     },

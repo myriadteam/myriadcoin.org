@@ -41,7 +41,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      body: ["HK Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
+      body: ["HK Grotesk"],
     },
     container: {
       center: true,
