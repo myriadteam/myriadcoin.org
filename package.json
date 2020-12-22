@@ -42,6 +42,7 @@
     "react-spring": "^8.0.27",
     "react-svg": "^11.0.20",
     "styled-components": "^5.1.0",
+    "tailwind-config-viewer": "^1.4.0",
     "tailwindcss-gradients": "^3.0.0",
     "twin.macro": "^1.7.0"
   },
@@ -57,7 +58,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "preload-fonts": "gatsby-preload-fonts"
+    "preload-fonts": "gatsby-preload-fonts",
+    "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "repository": {
     "type": "git",
