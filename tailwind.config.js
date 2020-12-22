@@ -79,4 +79,5 @@ module.exports = {
     rounded: ["responsive", "first", "last", "hover"],
   },
   plugins: [require("tailwindcss-gradients")],
+  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
 }
