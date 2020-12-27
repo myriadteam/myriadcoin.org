@@ -118,7 +118,7 @@ const AboutPage = () => {
           </MediumBoldText>
           <div tw="sm:grid sm:grid-cols-2">
             <div tw="mb-20 sm:mb-0">
-              <BodyBoldText tw="mb-4">
+              <BodyBoldText tw="mb-8">
                 {t("about.specifications.distribution.title")}
               </BodyBoldText>
               {distributionItems.map((item, index) => (
@@ -129,7 +129,7 @@ const AboutPage = () => {
               ))}
             </div>
             <div>
-              <BodyBoldText tw="mb-4">
+              <BodyBoldText tw="mb-8">
                 {t("about.specifications.features.title")}
               </BodyBoldText>
               {featuresItems.map((item, index) => (
