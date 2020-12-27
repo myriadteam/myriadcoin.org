@@ -78,10 +78,9 @@ const Nonsense = () => {
       <div tw="flex mt-10 xl:justify-center overflow-x-scroll">
         {dataKeys.map(key => {
           return (
-            <span tw="px-2">
+            <span tw="px-2" key={`nonsense-key-${key}`}>
               <NonsenseButton
                 onClick={() => changeKey(key)}
-                key={`nonsense-key-${key}`}
                 selectedKey={currentKey}
                 thisKey={key}
               >
