@@ -17,14 +17,48 @@
       "title": "In today’s world, there are a lot of coins and a lot of claims. It can be hard to spot what’s real and what’s nonsense.",
       "caption": "Here are some things to look out for:",
       "bubbles": {
-        "pre_mining": "Pre-mining",
-        "asic_farms": "ASIC-farms",
-        "ico": "ICO",
-        "secure_storing": "No secure storing 😱",
-        "no_development": "No development happening 😴",
-        "pump_and_dump": "Pump and dump-moves",
-        "non_vibrant_communities": "Non-vibrant communities",
-        "instant_transactions": "Instant transactions - the difference between transaction and verification"
+        "pre_mining": {
+          "title": "Pre-mining",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about",
+          "info": "Myriad do not do premining"
+        },
+        "asic_farms": {
+          "title": "ASIC-farms",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about",
+          "info": "Myriad do not do premining"
+        },
+        "ico": {
+          "title": "ICO",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        },
+        "secure_storing": {
+          "title": "No secure storing",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        },
+        "no_development": {
+          "title": "No development happening",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        },
+        "pump_and_dump": {
+          "title": "Pump and dump-moves",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        },
+        "non_vibrant_communities": {
+          "title": "Non-vibrant communities",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        },
+        "instant_transactions": {
+          "title": "Instant transactions",
+          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "link": "/about"
+        }
       }
     },
     "myriadIs": {

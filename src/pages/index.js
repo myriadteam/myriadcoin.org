@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
 import BgImage from "../components/bg-image"
 import Bubble from "../components/bubble"
+import Nonsense from "../components/pages/home/nonsense"
 import LinkWithHover from "../components/link-with-hover"
 import Links from "../components/shared/links"
 import tw, { css } from "twin.macro"
@@ -45,38 +46,7 @@ const IndexPage = () => {
         <OrangeGrad />
         <PurpleGrad />
       </BgImage>
-      <PageContainer>
-        <div tw="mt-24 sm:mt-48 px-6 sm:px-0">
-          <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
-          <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
-          <div tw="flex flex-row flex-wrap justify-center">
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mt-8 sm:mb-8">
-              {t("home.nonsense.bubbles.asic_farms")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mb-16">
-              {t("home.nonsense.bubbles.pre_mining")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mt-12">
-              {t("home.nonsense.bubbles.secure_storing")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mt-4 sm:mb-8">
-              {t("home.nonsense.bubbles.ico")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mt-16">
-              {t("home.nonsense.bubbles.no_development")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-4 sm:mt-24">
-              {t("home.nonsense.bubbles.pump_and_dump")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-4 sm:mt-16 sm:mb-8">
-              {t("home.nonsense.bubbles.non_vibrant_communities")}
-            </Bubble>
-            <Bubble tw="mt-8 mx-2 sm:mx-16 sm:mt-16 sm:max-w-3xl">
-              {t("home.nonsense.bubbles.instant_transactions")}
-            </Bubble>
-          </div>
-        </div>
-      </PageContainer>
+      <Nonsense />
       <div tw="relative overflow-hidden px-6 sm:px-0">
         <PageContainer>
           <BigText tw="my-24 sm:mt-48 sm:mb-32">

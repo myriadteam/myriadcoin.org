@@ -1,12 +1,7 @@
 import React from "react"
 import { useTranslation, Trans } from "react-i18next"
 import tw from "twin.macro"
-import {
-  PageContainer,
-  MediumBoldText,
-  BodyText,
-  LinkButton,
-} from "../../common/elements"
+import { MediumBoldText, BodyText, LinkButton } from "../../common/elements"
 
 const BodyBlock = ({ translationKey }) => {
   const { t } = useTranslation()
