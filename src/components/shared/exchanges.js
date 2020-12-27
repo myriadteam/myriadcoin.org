@@ -9,12 +9,12 @@ const Exchanges = () => {
       <div tw="flex items-center justify-center" key={`exchange-${index}`}>
         <a
           href={url}
-          tw="rounded-full bg-light-grey w-18 h-18 flex justify-center items-center text-xxs text-grey overflow-hidden p-2"
+          tw="rounded-full bg-light-grey w-18 h-18 flex justify-center items-center text-xxs text-grey overflow-hidden p-3"
           title={name}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {logo && <img src={logo} alt={name} title={name} tw="rounded-full" />}
+          {logo && <img src={logo} alt={name} title={name} tw="w-4/5 h-auto" />}
         </a>
       </div>
     )
