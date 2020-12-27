@@ -50,10 +50,10 @@ const Nonsense = () => {
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
         <div tw="bg-white shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 -mx-3 sm:mx-0">
-          <div tw="flex justify-between items-center mb-10">
+          <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
             <MediumBoldText tw="mb-0">{title}</MediumBoldText>
             {info && (
-              <div tw="rounded-full bg-light-grey text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">
+              <div tw="mt-8 sm:mt-0 rounded-full bg-light-grey text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">
                 <div tw="mr-2 w-6 h-6">
                   <img src={InfoSvg} alt="i" />
                 </div>{" "}
