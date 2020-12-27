@@ -23,3 +23,9 @@ export const gradientTextStyleBlue = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
+
+export const gradientTextStyleGreenBlue = css`
+  background: -webkit-linear-gradient(-45deg, #28d8ff, #76eb9e, #42da64);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`

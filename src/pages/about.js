@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
-import { XmyBlocksContext } from "../common/contexts"
+import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 import {
@@ -22,7 +22,8 @@ import { useTranslation, Trans } from "react-i18next"
 
 const AboutPage = () => {
   const { t } = useTranslation()
-  const nrOfBlocks = useContext(XmyBlocksContext)
+  const { blocks, transactions, fullNodes } = useContext(XmyDataContext)
+
   const historyItems = t("about.history.items", { returnObjects: true })
   return (
     <>
@@ -51,7 +52,7 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStylePink]}
               >
-                {t("formattedNumber", { number: 30246 })}
+                {t("formattedNumber", { number: fullNodes })}
               </span>
               <BodyText>Full nodes</BodyText>
             </div>
@@ -60,7 +61,7 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStyleGreen]}
               >
-                {t("formattedNumber", { number: nrOfBlocks })}
+                {t("formattedNumber", { number: blocks })}
               </span>
               <BodyText>Blocks</BodyText>
             </div>
@@ -69,7 +70,7 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStyleBlue]}
               >
-                {t("formattedNumber", { number: 126222412 })}
+                {t("formattedNumber", { number: transactions })}
               </span>
               <BodyText>Transactions</BodyText>
             </div>

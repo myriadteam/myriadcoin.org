@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { withTrans } from "../i18n/withTrans"
 import tw from "twin.macro"
 
-import { XmyBlocksContext } from "../common/contexts"
+import { XmyDataProvider } from "../contexts/xmy-data-context"
 
 import Header from "../components/header"
 import Footer from "../components/footer"
@@ -30,13 +30,13 @@ const Layout = ({ children, t, i18n }) => {
   `)
 
   return (
-    <XmyBlocksContext.Provider value={3177528}>
+    <XmyDataProvider>
       <BodyContainer>
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <Footer />
       </BodyContainer>
-    </XmyBlocksContext.Provider>
+    </XmyDataProvider>
   )
 }
 
