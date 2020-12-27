@@ -25,6 +25,14 @@ const AboutPage = () => {
   const { blocks, transactions, fullNodes } = useContext(XmyDataContext)
 
   const historyItems = t("about.history.items", { returnObjects: true })
+  const distributionItems = t("about.specifications.distribution.items", {
+    returnObjects: true,
+  })
+  console.log("distributionItems", { distributionItems })
+  const featuresItems = t("about.specifications.features.items", {
+    returnObjects: true,
+  })
+
   return (
     <>
       <SEO title={t("about.title")} />
@@ -45,7 +53,7 @@ const AboutPage = () => {
               >
                 8
               </span>
-              <BodyText>Years in Development</BodyText>
+              <BodyText>{t("about.stats.years")}</BodyText>
             </div>
             <div tw="w-full sm:w-half mb-10">
               <span
@@ -54,7 +62,7 @@ const AboutPage = () => {
               >
                 {t("formattedNumber", { number: fullNodes })}
               </span>
-              <BodyText>Full nodes</BodyText>
+              <BodyText>{t("about.stats.full_nodes")}</BodyText>
             </div>
             <div tw="w-full sm:w-half mb-10">
               <span
@@ -63,7 +71,7 @@ const AboutPage = () => {
               >
                 {t("formattedNumber", { number: blocks })}
               </span>
-              <BodyText>Blocks</BodyText>
+              <BodyText>{t("about.stats.blocks")}</BodyText>
             </div>
             <div tw="w-full sm:w-half">
               <span
@@ -72,7 +80,7 @@ const AboutPage = () => {
               >
                 {t("formattedNumber", { number: transactions })}
               </span>
-              <BodyText>Transactions</BodyText>
+              <BodyText>{t("about.stats.transactions")}</BodyText>
             </div>
           </div>
         </PageContainer>
@@ -103,6 +111,37 @@ const AboutPage = () => {
         <BodyBlock translationKey="about.community" />
         <BodyBlock translationKey="about.fair" />
       </PageContainer>
+      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0" id="specifications">
+        <PageContainer>
+          <MediumBoldText tw="mb-10 sm:mb-24">
+            {t("about.specifications.title")}
+          </MediumBoldText>
+          <div tw="sm:grid sm:grid-cols-2">
+            <div tw="mb-20 sm:mb-0">
+              <BodyBoldText tw="mb-4">
+                {t("about.specifications.distribution.title")}
+              </BodyBoldText>
+              {distributionItems.map((item, index) => (
+                <div key={`dist-item-${index}`} tw="mb-8 last:mb-0">
+                  <BodyText>{item.title}:</BodyText>
+                  <BodyBoldText>{item.value}</BodyBoldText>
+                </div>
+              ))}
+            </div>
+            <div>
+              <BodyBoldText tw="mb-4">
+                {t("about.specifications.features.title")}
+              </BodyBoldText>
+              {featuresItems.map((item, index) => (
+                <div key={`dist-item-${index}`} tw="mb-8 last:mb-0">
+                  <BodyText>{item.title}:</BodyText>
+                  <BodyBoldText>{item.value}</BodyBoldText>
+                </div>
+              ))}
+            </div>
+          </div>
+        </PageContainer>
+      </div>
     </>
   )
 }

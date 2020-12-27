@@ -115,6 +115,12 @@
       "title": "Trusted, secure and up-do-date",
       "body": "<0>Myriad addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriad has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed at ???.</0>"
     },
+    "stats": {
+      "full_nodes": "Full nodes",
+      "blocks": "Blocks",
+      "transactions": "Transactions",
+      "years": "Years in Development"
+    },
     "history": {
       "title": "The history of Myriad",
       "items": [
@@ -135,6 +141,71 @@
           "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
         }
       ]
+    },
+    "specifications": {
+      "title": "Specifications",
+      "distribution": {
+        "title": "Distribution",
+        "items": [
+          {
+            "title": "Block Time",
+            "value": "1 minute"
+          },
+          {
+            "title": "Current Block Reward",
+            "value": "250 XMY"
+          },
+          {
+            "title": "Halving Time",
+            "value": "Every 96 week (967680 blocks)"
+          },
+          {
+            "title": "Total Coin Supply",
+            "value": "About 2 Billion XMY"
+          },
+          {
+            "title": "Difficult Adjustment",
+            "value": "Every block"
+          },
+          {
+            "title": "Fair",
+            "value": "Myriad is fairly distributed. No Premine and No ICO."
+          }
+        ]
+      },
+      "features": {
+        "title": "Features",
+        "items": [
+          {
+            "title": "Multi-Algo",
+            "value": "Scrypt, SHA256D, Yescrypt, Skein and Myriad-Groestl"
+          },
+          {
+            "title": "Difficulty Separation",
+            "value": "Each algorithm has separate difficulty"
+          },
+          {
+            "title": "Difficulty Calculation",
+            "value": "Geometric average"
+          },
+          {
+            "title": "Consecutive Block Limit",
+            "value": "6 Consecutive Blocks"
+          },
+          {
+            "title": "AUX-POW",
+            "value": "Scrypt and SHA256D"
+          },
+          {
+            "title": "Coin Control",
+            "value": "Yes"
+          },
+          {
+            "title": "Time Warp Proof",
+            "value": "Yes"
+          }
+        ]
+      }
     },
     "community": {
       "title": "Community-driven with democratic decision making",
