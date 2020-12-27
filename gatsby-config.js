@@ -35,15 +35,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: ["HK Grotesk"],
-          urls: ["/fonts.css"],
-        },
-      },
-    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-layout`,
