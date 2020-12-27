@@ -37,11 +37,15 @@ module.exports = {
       spacing: {
         "6vw": "6vw",
         half: "50%",
+        "4/5": "80%",
         full: "100%",
         "32p": "32px",
         "18": "4.5rem",
         "30": "7.5rem",
         "36": "9rem",
+      },
+      boxShadow: {
+        wide: "0px 8px 48px 8px rgba(0, 0, 0, 0.05)",
       },
     },
     fontFamily: {
@@ -75,9 +79,6 @@ module.exports = {
       md: "16px",
       lg: "32px",
       full: "9999px",
-    },
-    boxShadow: {
-      wide: "0px 8px 48px 8px rgba(0, 0, 0, 0.05)",
     },
     linearGradientColors: theme => theme("colors"),
     radialGradientColors: theme => theme("colors"),
