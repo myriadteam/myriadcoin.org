@@ -1,7 +1,7 @@
 import "tailwindcss/dist/base.min.css"
 import "tailwindcss/dist/components.css"
 import "tailwindcss/dist/utilities.css"
-import "./static/headway.css"
+import "./static/headway.scss"
 import "./static/fonts.css"
 
 // ES5 way
