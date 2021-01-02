@@ -18,7 +18,7 @@ import {
   BodyText,
   BodyBoldText,
 } from "../common/elements"
-import { useTranslation, Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 const AboutPage = () => {
   const { t } = useTranslation()
@@ -28,7 +28,7 @@ const AboutPage = () => {
   const distributionItems = t("about.specifications.distribution.items", {
     returnObjects: true,
   })
-  console.log("distributionItems", { distributionItems })
+
   const featuresItems = t("about.specifications.features.items", {
     returnObjects: true,
   })
