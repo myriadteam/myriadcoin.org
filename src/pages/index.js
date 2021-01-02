@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 
 import SEO from "../components/seo"
 import BgImage from "../components/bg-image"
+import HandsParallax from "../components/hands-parallax"
 import Bubble from "../components/bubble"
 import Nonsense from "../components/pages/home/nonsense"
 import LinkWithHover from "../components/link-with-hover"
@@ -19,8 +20,6 @@ import {
   MediumText,
   MediumBoldText,
   BodyText,
-  PurpleGrad,
-  OrangeGrad,
 } from "../common/elements"
 
 const IndexPage = () => {
@@ -36,16 +35,9 @@ const IndexPage = () => {
           />
         </div>
       </PageContainer>
-      <BgImage filename="start-paralax.png">
-        <PageContainer tw="sm:h-screen relative py-40">
-          <p
-            tw="relative text-sm font-normal text-white z-10 max-w-sm px-6 sm:px-0"
-            dangerouslySetInnerHTML={{ __html: t("home.animation") }}
-          />
-        </PageContainer>
-        <OrangeGrad />
-        <PurpleGrad />
-      </BgImage>
+
+      <HandsParallax />
+
       <Nonsense />
       <div tw="relative overflow-hidden px-6 sm:px-0">
         <PageContainer>
