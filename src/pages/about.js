@@ -86,7 +86,7 @@ const AboutPage = () => {
         </PageContainer>
       </div>
       <div tw="bg-black text-white">
-        <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
           <MediumBoldText tw="mb-24">{t("about.history.title")}</MediumBoldText>
 
           <div tw="flex flex-col sm:-mx-8">
@@ -107,7 +107,7 @@ const AboutPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
         <BodyBlock translationKey="about.community" />
         <BodyBlock translationKey="about.fair" />
       </PageContainer>

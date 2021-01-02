@@ -1,6 +1,7 @@
 import React from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
+import SvgIcon from "../components/svg-icon"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import {
@@ -10,6 +11,44 @@ import {
   BodyText,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
+
+const communities = [
+  {
+    text: "Facebook",
+    url: "https://www.facebook.com/themyriadplatform",
+  },
+  {
+    text: "Reddit",
+    url: "https://www.reddit.com/r/myriadcoin/",
+  },
+  {
+    text: "Discord",
+    url: "https://t.me/https://www.instagram.com/myriadcoin",
+  },
+  {
+    text: "Telegram",
+    url: "https://t.me/Myriadcoinofficial",
+  },
+  {
+    text: "Twitter",
+    url: "https://twitter.com/myriadcoin",
+  },
+  { text: "Slack", url: "https://slack.myralicious.com/" },
+]
+
+const CommunityLink = ({ text, url }) => {
+  return (
+    <a
+      href={url}
+      title={text}
+      target="_blank"
+      rel="noopener noreferrer"
+      tw="hover:text-purple transition ease-in duration-150 mr-10"
+    >
+      <SvgIcon name={text} size="lg" />
+    </a>
+  )
+}
 
 const CommunityPage = () => {
   const { t } = useTranslation()
@@ -30,12 +69,24 @@ const CommunityPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
         <div tw="max-w-2xl">
-          <MediumBoldText>{t("community.social_media.title")}</MediumBoldText>
+          <MediumBoldText tw="mb-12">
+            {t("community.social_media.title")}
+          </MediumBoldText>
+          <div tw="flex mb-12">
+            {communities.map(({ text, url }) => (
+              <CommunityLink
+                text={text}
+                url={url}
+                key={`community-link-${text}`}
+              />
+            ))}
+          </div>
           <BodyText>{t("community.social_media.body")}</BodyText>
         </div>
       </PageContainer>
+      <hr />
     </>
   )
 }

@@ -46,18 +46,18 @@ const HoldPage = () => {
           <Wallet title={t("hold.wallet.title")} />
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
         <MediumBoldText>{t("hold.use.title")}</MediumBoldText>
         <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
         <LinkButton href="XXXX">{t("hold.use.link")}</LinkButton>
       </PageContainer>
       <hr />
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <BigText tw="mb-32">{t("hold.links.title")}</BigText>
         <Links skip={["hold"]} />
       </PageContainer>
       <BgImage filename="grad-2.png">
-        <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0 text-right text-white">
+        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white">
           <BigText tw="mb-16 sm:mb-24">{t("hold.fair.title")}</BigText>
           <span tw="inline-flex">
             <Link

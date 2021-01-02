@@ -123,7 +123,7 @@ const Footer = () => {
 
   return (
     <>
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <div tw="max-w-2xl">
           <Bubble tw="mb-8 sm:mb-16" color="blue">
             {t("home.telegram.bubble")}

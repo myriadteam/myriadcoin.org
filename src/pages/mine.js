@@ -46,7 +46,7 @@ const MinePage = () => {
           <Wallet title={t("mine.wallet.title")} />
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <MinePool selected={algoritm} />
       </PageContainer>
       <PageContainer tw="pb-24 sm:pb-48 px-6 sm:px-0">
@@ -55,12 +55,12 @@ const MinePage = () => {
         </BigText>
       </PageContainer>
       <hr />
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
         <Links skip={["mine"]} />
       </PageContainer>
       <BgImage filename="grad-1.png">
-        <PageContainer tw="py-24 px-6 sm:py-48 sm:px-0 text-right text-white overflow-hidden">
+        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
           <span tw="inline-flex">
             <Link

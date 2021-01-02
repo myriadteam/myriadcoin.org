@@ -108,7 +108,7 @@ const IndexPage = () => {
           </div>
         </PageContainer>
       </div>
-      <div tw="bg-black py-24 sm:py-48 px-6 sm:px-0">
+      <div tw="bg-black py-24 sm:py-30 px-6 sm:px-0">
         <PageContainer>
           <BigText tw="text-orange mb-24" css={[gradientTextStylePink]}>
             {t("home.security.title")}
@@ -141,7 +141,7 @@ const IndexPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 sm:py-48 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <BigText tw="mb-32">{t("home.links.title")}</BigText>
         <Links />
       </PageContainer>
