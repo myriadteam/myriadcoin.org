@@ -1,10 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import Image from "./image"
 import LanguageMenu from "./language-menu"
 import tw from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
+import logo from "../images/logo@3x.png"
 
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xxs`
 const MenuList = tw.ul`text-xxs`
@@ -22,10 +22,12 @@ const Header = ({ siteTitle, t, i18n }) => {
           aria-label={`Visit ${siteTitle} (opens in a new window)`}
           className="flex items-center flex-shrink-0 mr-6"
         >
-          <Image
-            filename="logo@3x.png"
+          <img
+            src={logo}
             className="w-8 mr-2"
             alt="Myriad logo"
+            width="32"
+            height="32"
           />
           <h2 tw="tracking-tight">Myriad</h2>
         </Link>

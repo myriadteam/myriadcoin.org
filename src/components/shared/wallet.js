@@ -79,7 +79,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
       {selectedPlatformObject && (
         <Image
           filename={`wallets/${selectedPlatformObject.image.toLocaleLowerCase()}.png`}
-          className="w-full max-w-full max-h-full sm:mr-12"
+          className="sm:mr-12"
         />
       )}
       <div tw="p-6 sm:p-0 flex flex-col justify-center">

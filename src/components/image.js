@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import tw from "twin.macro"
 
 const Image = ({ filename, className, alt }) => (
   <StaticQuery
@@ -30,7 +31,14 @@ const Image = ({ filename, className, alt }) => (
       }
 
       const imageSizes = image.node.childImageSharp.sizes
-      return <Img alt={alt} sizes={imageSizes} className={className} />
+      return (
+        <Img
+          alt={alt}
+          sizes={imageSizes}
+          tw="relative w-full max-w-full max-h-full"
+          className={className}
+        />
+      )
     }}
   />
 )
