@@ -42,7 +42,7 @@ const Exchanges = () => {
     )
   }
   return (
-    <div tw="rounded-lg shadow-wide flex-shrink-0 sm:ml-16 bg-white grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 p-6">
+    <div tw="mt-10 sm:mt-0 rounded-lg shadow-wide flex-shrink-0 sm:ml-16 bg-white grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 p-6">
       {exchanges.map((exchange, index) => renderExchange(exchange, index))}
     </div>
   )
