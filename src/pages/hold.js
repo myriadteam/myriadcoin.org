@@ -33,7 +33,7 @@ const HoldPage = () => {
       </PageContainer>
       <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0">
         <PageContainer tw="flex flex-col sm:flex-row">
-          <div tw="">
+          <div>
             <MediumBoldText>{t("hold.buy.title")}</MediumBoldText>
             <BodyText tw="mb-12">{t("hold.buy.body")}</BodyText>
             <Price />

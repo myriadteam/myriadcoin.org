@@ -29,7 +29,9 @@ const Price = () => {
       >
         {currentPrice} USD
       </MediumBoldText>
-      <MediumBoldText tw="text-grey">({differenceRounded}%)</MediumBoldText>
+      <MediumBoldText tw="text-grey mb-0">
+        ({differenceRounded}%)
+      </MediumBoldText>
     </div>
   )
 }

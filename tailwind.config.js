@@ -12,6 +12,13 @@ module.exports = {
         "bubble-blue": "#327CFF",
         "code-green": "#02C093",
         "blue-light": "#00E1FF",
+        exchanges: {
+          0: "#327CFF",
+          1: "#1A44CB",
+          2: "#8B67FF",
+          3: "#4C59EF",
+          4: "#3C52A1",
+        },
       },
       lineHeight: {
         "extra-tight": "1.15",
@@ -42,6 +49,7 @@ module.exports = {
         "32p": "32px",
         "14": "3.5rem",
         "18": "4.5rem",
+        "22": "5.5rem",
         "30": "7.5rem",
         "36": "9rem",
         "43": "10.75rem",
