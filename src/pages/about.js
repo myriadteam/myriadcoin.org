@@ -113,7 +113,7 @@ const AboutPage = () => {
       </PageContainer>
       <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0" id="specifications">
         <PageContainer>
-          <MediumBoldText tw="mb-10 sm:mb-24">
+          <MediumBoldText tw="mb-10">
             {t("about.specifications.title")}
           </MediumBoldText>
           <div tw="sm:grid sm:grid-cols-2">
