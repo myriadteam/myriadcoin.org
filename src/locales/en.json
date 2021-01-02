@@ -297,7 +297,7 @@
     "algoritm": {
       "choose_algoritm": "Choose an algoritm",
       "recommended_for": "Recommended algo for",
-      "available_software": "Available softwares for"
+      "available_software": "Choose a {{name}} software"
     },
     "wallet": {
       "github": "Checkout the Github repository for more info",

@@ -75,7 +75,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
     return platform.label === (selectedPlatform || osName)
   })
   return (
-    <section tw="text-white py-24 sm:py-40 flex flex-col-reverse sm:flex-row">
+    <section tw="text-white py-24 sm:py-32 flex flex-col-reverse sm:flex-row">
       {selectedPlatformObject && (
         <Image
           filename={`wallets/${selectedPlatformObject.image.toLocaleLowerCase()}.png`}

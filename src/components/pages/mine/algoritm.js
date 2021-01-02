@@ -31,9 +31,7 @@ const AlgorithmInfo = ({
       <BodyText tw="mb-16">{description}</BodyText>
       {softwares && (
         <MediumBoldText>
-          2. {t("components.algoritm.available_software")}
-          <br />
-          {label}
+          2. {t("components.algoritm.available_software", { name: label })}
         </MediumBoldText>
       )}
       {softwares &&
