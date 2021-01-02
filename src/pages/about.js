@@ -19,6 +19,9 @@ import {
   BodyBoldText,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
+import moment from "moment"
+
+const startDate = moment("2014-02-23 18:30 UTC")
 
 const AboutPage = () => {
   const { t } = useTranslation()
@@ -51,7 +54,7 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStylePurple]}
               >
-                8
+                {Math.round(moment().diff(startDate, "years", true))}
               </span>
               <BodyText>{t("about.stats.years")}</BodyText>
             </div>
