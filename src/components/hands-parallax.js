@@ -3,7 +3,7 @@ import { useSpring, animated, interpolate, config } from "react-spring"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
-import Image from "./Image"
+import Image from "./image"
 import { PurpleGrad, OrangeGrad } from "../common/elements"
 
 import SvgM from "../svgs/parallax/m.inline.svg"
