@@ -57,8 +57,8 @@ const HoldPage = () => {
         <Links skip={["hold"]} />
       </PageContainer>
       <BgImage filename="grad-2.png">
-        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white">
-          <BigText tw="mb-16 sm:mb-24">{t("hold.fair.title")}</BigText>
+        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
+          <BigText tw="mb-16 sm:mb-24 text-xl">{t("hold.fair.title")}</BigText>
           <span tw="inline-flex">
             <Link
               to="/about"
