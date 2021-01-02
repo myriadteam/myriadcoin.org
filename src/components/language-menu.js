@@ -7,7 +7,7 @@ const ListItem = tw.li`border-b border-solid border-highlight-grey last:border-b
 const Button = tw.a`cursor-pointer px-6 py-4 text-xxs leading-none block w-full hover:text-purple`
 
 const List = styled.ul`
-  ${tw`absolute right-0 border border-solid rounded shadow-md top-double border-highlight-grey min-w-245`}
+  ${tw`absolute right-0 bg-white border border-solid rounded shadow-md top-double border-highlight-grey min-w-245`}
   &:before, &:after {
     content: "";
     position: absolute;

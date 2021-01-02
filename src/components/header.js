@@ -46,7 +46,7 @@ const Header = ({ siteTitle, t, i18n }) => {
         </div>
         <div
           className={`${isExpanded ? `block` : `hidden`}`}
-          tw="z-50 top-6 absolute left-0 bg-white shadow sm:shadow-none sm:top-auto sm:left-auto sm:relative bg-white sm:bg-transparent w-full sm:flex flex-grow sm:items-center sm:w-auto sm:justify-end"
+          tw="z-50 top-6 absolute left-0 bg-white shadow sm:shadow-none sm:top-auto sm:left-auto sm:relative sm:bg-transparent w-full sm:flex flex-grow sm:items-center sm:w-auto sm:justify-end"
         >
           <MenuList>
             <MenuItem>
