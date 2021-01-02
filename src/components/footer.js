@@ -2,14 +2,11 @@ import { Link } from "gatsby"
 import React from "react"
 import tw from "twin.macro"
 import classNames from "classnames"
+import SvgIcon from "../components/svg-icon"
 import { useTranslation } from "react-i18next"
 
 import Bubble from "../components/bubble"
 import logo from "../svgs/logo.svg"
-import iconFacebook from "../svgs/icons/icon-facebook.svg"
-import iconTwitter from "../svgs/icons/icon-twitter.svg"
-import iconTelegram from "../svgs/icons/icon-telegram.svg"
-import iconInstagram from "../svgs/icons/icon-instagram.svg"
 import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
 
 import { PageContainer, MediumBoldText } from "../common/elements"
@@ -20,27 +17,27 @@ const columns = [
     {
       text: "Instagram",
       url: "https://t.me/https://www.instagram.com/myriadcoin",
-      icon: iconInstagram,
+      icon: true,
     },
     {
       text: "Telegram",
       url: "https://t.me/Myriadcoinofficial",
-      icon: iconTelegram,
+      icon: true,
     },
     {
       text: "Twitter",
       url: "https://twitter.com/myriadcoin",
-      icon: iconTwitter,
+      icon: true,
     },
     {
       text: "Facebook",
       url: "https://www.facebook.com/themyriadplatform",
-      icon: iconFacebook,
+      icon: true,
     },
     {
       text: "Reddit",
       url: "https://www.reddit.com/r/myriadcoin/",
-      icon: iconInstagram,
+      icon: true,
     },
   ],
   [
@@ -88,25 +85,27 @@ const Footer = () => {
   }
 
   const renderIcon = (svg, text) => {
-    return <img src={svg} className="mr-2 fill-current" alt={`Icon ${text}`} />
+    return <img src={svg} className="mr-2" alt={`Icon ${text}`} />
   }
 
-  const renderLink = item => {
-    if (item.url) {
+  const renderLink = ({ url, icon, text, link }) => {
+    if (url) {
       return (
-        <FooterLink href={item.url}>
-          {item.icon && renderIcon(item.icon, item.text)}
-          <FooterLinkTitle>{item.text}</FooterLinkTitle>
+        <FooterLink href={url}>
+          {icon && icon !== true && renderIcon(icon, text)}
+          {icon && icon === true && (
+            <span tw="mr-2">
+              <SvgIcon name={text} size="sm" />
+            </span>
+          )}
+          <FooterLinkTitle>{text}</FooterLinkTitle>
         </FooterLink>
       )
     } else {
       return (
-        <Link
-          to={item.link}
-          className="flex items-center py-1 hover:text-purple"
-        >
-          {item.icon && renderIcon(item.icon, item.text)}
-          <FooterLinkTitle>{item.text}</FooterLinkTitle>
+        <Link to={link} className="flex items-center py-1 hover:text-purple">
+          {icon && renderIcon(icon, text)}
+          <FooterLinkTitle>{text}</FooterLinkTitle>
         </Link>
       )
     }
