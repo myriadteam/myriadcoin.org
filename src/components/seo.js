@@ -74,10 +74,7 @@ function SEO({ description, lang, meta, title }) {
           selector: "#headway-link",
           account:  "7wRpdx",
           trigger: "#headway-link",
-          position: {
-            x: "right",
-            y: "bottom",
-          }
+          widgetPosition: "bottom-left",
         }`}
       </script>
       <script
