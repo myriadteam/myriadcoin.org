@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "d3-ease": "^2.0.0",
     "gatsby": "^2.25.0",
     "gatsby-background-image": "^1.1.2",
     "gatsby-background-image-es5": "^1.1.2",

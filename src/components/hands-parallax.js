@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from "react"
 import { useSpring, animated, interpolate, config } from "react-spring"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
+import * as easings from "d3-ease"
 
 import Image from "./image"
 import { PurpleGrad, OrangeGrad } from "../common/elements"
@@ -61,8 +62,15 @@ const HandsParallax = ({ filename, children, style }) => {
     st: 0,
     wh: 0,
     eh: 0,
-    config: config.default,
   }))
+
+  console.log(
+    easings.easeCubic(0),
+    easings.easeCubic(0.25),
+    easings.easeCubic(0.5),
+    easings.easeCubic(0.75),
+    easings.easeCubic(1)
+  )
 
   const onLayout = useCallback(() => {
     if (!el.current) {
@@ -107,14 +115,36 @@ const HandsParallax = ({ filename, children, style }) => {
       (eh * stickyMultiplier) / 2 / 2
   )
 
+  const easingRange = 1000
+  const letterInput = () =>
+    [...new Array(easingRange * 2 + 1)].map((_, i) => i - easingRange)
+  const letterOutput = speed =>
+    letterInput().map(v => {
+      let val = (v + easingRange) / (easingRange * 2)
+      val -= 0.5
+      val *= 2
+
+      if (val > 0) {
+        val = easings.easeQuadIn(val)
+      } else {
+        val = -1 * easings.easeQuadIn(-1 * val)
+      }
+
+      val *= easingRange * speed
+
+      return val
+    })
+
+  console.log({ letterOutput: letterOutput(1) })
+
   const items = [
     {
       component: <SvgM tw="m-auto" width={"13%"} />,
       offsetY: 0,
       offsetX: (-0.03 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, 1],
+        range: letterInput(),
+        output: letterOutput(1),
       },
     },
     {
@@ -122,8 +152,8 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: (-0.02 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, -1],
+        range: letterInput(),
+        output: letterOutput(-1),
       },
     },
     {
@@ -131,8 +161,8 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: (-0.01 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, 0.7],
+        range: letterInput(),
+        output: letterOutput(0.7),
       },
     },
     {
@@ -140,8 +170,8 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: (0.01 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, -0.5],
+        range: letterInput(),
+        output: letterOutput(-0.5),
       },
     },
     {
@@ -149,8 +179,8 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: (0.02 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, 1],
+        range: letterInput(),
+        output: letterOutput(1),
       },
     },
     {
@@ -158,8 +188,8 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: (0.03 * space) / 3,
       interpolation: {
-        range: [0, 1],
-        output: [0, -0.4],
+        range: letterInput(),
+        output: letterOutput(-0.4),
       },
     },
     {
