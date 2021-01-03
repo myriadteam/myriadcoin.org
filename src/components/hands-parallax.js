@@ -59,18 +59,10 @@ const HandsParallax = ({ filename, children, style }) => {
   const el2 = useRef(null)
 
   const [{ st, wh, eh }, set] = useSpring(() => ({
-    st: 0,
-    wh: 0,
-    eh: 0,
+    st: 1000,
+    wh: window.innerHeight,
+    eh: window.innerHeight,
   }))
-
-  console.log(
-    easings.easeCubic(0),
-    easings.easeCubic(0.25),
-    easings.easeCubic(0.5),
-    easings.easeCubic(0.75),
-    easings.easeCubic(1)
-  )
 
   const onLayout = useCallback(() => {
     if (!el.current) {
@@ -105,6 +97,8 @@ const HandsParallax = ({ filename, children, style }) => {
   const stickyMultiplier = 4
   const stickyLength = eh.interpolate(h => h * stickyMultiplier)
 
+  const progressMax = eh.interpolate(h => h * (stickyMultiplier - 1))
+
   const space = 47
 
   const translateY = interpolate(
@@ -117,7 +111,7 @@ const HandsParallax = ({ filename, children, style }) => {
 
   const easingRange = 1000
   const letterInput = () =>
-    [...new Array(easingRange * 2 + 1)].map((_, i) => i - easingRange)
+    [...new Array(easingRange * 2)].map((_, i) => i - easingRange)
   const letterOutput = speed =>
     letterInput().map(v => {
       let val = (v + easingRange) / (easingRange * 2)
@@ -125,9 +119,10 @@ const HandsParallax = ({ filename, children, style }) => {
       val *= 2
 
       if (val > 0) {
-        val = easings.easeQuadIn(val)
+        //val = easings.easeQuadIn(val)
       } else {
-        val = -1 * easings.easeQuadIn(-1 * val)
+        //val = easings.easeQuadIn(-1 * val)
+        //val *= -1
       }
 
       val *= easingRange * speed
@@ -198,7 +193,7 @@ const HandsParallax = ({ filename, children, style }) => {
         />
       ),
       offsetY: -1.1,
-      offsetX: -0.2,
+      offsetX: -0.3,
       interpolation: {
         range: [0, 1],
         output: [0, 1.15],
@@ -212,7 +207,7 @@ const HandsParallax = ({ filename, children, style }) => {
         />
       ),
       offsetY: 1.1,
-      offsetX: 0.2,
+      offsetX: 0.3,
       interpolation: {
         range: [0, 1],
         output: [0, 1.15],
@@ -232,8 +227,9 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetY: 0,
       offsetX: 0,
       interpolation: {
-        range: [0, 1],
-        output: [0, 0.05],
+        range: [-2544 / 2, 2544 / 2],
+        output: [(0.1 * -2544) / 2, (0.1 * 2544) / 2],
+        extrapolate: "clamp",
       },
     },
   ]
@@ -256,6 +252,9 @@ const HandsParallax = ({ filename, children, style }) => {
           <animated.div>{st.interpolate(n => n.toFixed(2))}</animated.div>
           <animated.div>{wh.interpolate(n => n.toFixed(2))}</animated.div>
           <animated.div>{eh.interpolate(n => n.toFixed(2))}</animated.div>
+          <animated.div>
+            {progressMax.interpolate(n => n.toFixed(2))}
+          </animated.div>
         </div>
       </animated.div>
     </animated.div>
