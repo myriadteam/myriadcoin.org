@@ -43,7 +43,7 @@ const ParallaxItem = ({
 
 const Parallax = ({ items, translateY, eh }) => {
   return (
-    <div tw="flex w-full h-full items-center">
+    <div tw="absolute top-0 left-0 flex w-full h-full items-center">
       {items.map((item, index) => (
         <ParallaxItem key={index} {...item} translateY={translateY} eh={eh} />
       ))}
@@ -206,7 +206,7 @@ const HandsParallax = ({ filename, children, style }) => {
   return (
     <animated.div Tag="section" style={{ height: stickyLength }} ref={el2}>
       <animated.div
-        tw="sticky h-full sm:h-screen overflow-hidden"
+        tw="sticky overflow-hidden pb-2/3 sm:h-screen"
         style={{ top: stickyTop }}
         ref={el}
       >
