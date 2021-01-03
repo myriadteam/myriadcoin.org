@@ -192,9 +192,11 @@ const HandsParallax = ({ filename, children, style }) => {
     },
     {
       component: (
-        <Image filename="parallax/hands.png" alt="Hands" tw="w-6/12 m-auto" />
+        <div style={{ transform: "translate3d(0px, -4%, 0px)" }}>
+          <Image filename="parallax/hands.png" alt="Hands" tw="w-6/12 m-auto" />
+        </div>
       ),
-      offsetY: -0.2,
+      offsetY: 0,
       offsetX: 0,
       interpolation: {
         range: [0, 1],
@@ -206,7 +208,7 @@ const HandsParallax = ({ filename, children, style }) => {
   return (
     <animated.div Tag="section" style={{ height: stickyLength }} ref={el2}>
       <animated.div
-        tw="sticky overflow-hidden pb-2/3 sm:h-screen"
+        tw="sticky overflow-hidden h-screen"
         style={{ top: stickyTop }}
         ref={el}
       >
