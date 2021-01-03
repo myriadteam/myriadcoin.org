@@ -135,8 +135,6 @@ const HandsParallax = ({ filename, children, style }) => {
       return val
     })
 
-  console.log({ letterOutput: letterOutput(1) })
-
   const items = [
     {
       component: <SvgM tw="m-auto" width={"13%"} />,
@@ -222,15 +220,20 @@ const HandsParallax = ({ filename, children, style }) => {
     },
     {
       component: (
-        <div style={{ transform: "translate3d(0px, -4%, 0px)" }}>
-          <Image filename="parallax/hands.png" alt="Hands" tw="w-6/12 m-auto" />
+        <div
+          tw="m-auto w-6/12"
+          style={{
+            transform: "translate3d(0px, -4%, 0px)",
+          }}
+        >
+          <Image filename="parallax/hands.png" alt="Hands" />
         </div>
       ),
       offsetY: 0,
       offsetX: 0,
       interpolation: {
         range: [0, 1],
-        output: [0, 1],
+        output: [0, 0.05],
       },
     },
   ]
