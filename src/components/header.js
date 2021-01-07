@@ -7,7 +7,7 @@ import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
 
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xxs`
-const MenuList = tw.ul`text-xxs flex items-center`
+const MenuList = tw.ul`text-xxs flex flex-col sm:(items-center flex-row)`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 sm:mr-4`
 const MenuItemEffect = tw.i`relative block overflow-hidden not-italic`
 
@@ -88,7 +88,7 @@ const Header = ({ siteTitle, t, i18n }) => {
             <MenuItem>
               <Link
                 to="/about"
-                className="px-4 py-2"
+                className="relative block px-4 py-2 overflow-hidden"
                 css={[underlinedStyle]}
                 activeClassName="active"
                 onClick={() => toggleExpansion(!isExpanded)}
