@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useRef } from "react"
 import { useSpring, animated, interpolate, config } from "react-spring"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
-import * as easings from "d3-ease"
-
 import Image from "./image"
 import { PurpleGrad, OrangeGrad } from "../common/elements"
 
@@ -60,8 +58,8 @@ const HandsParallax = ({ filename, children, style }) => {
 
   const [{ st, wh, eh }, set] = useSpring(() => ({
     st: 1000,
-    wh: window.innerHeight,
-    eh: window.innerHeight,
+    wh: window && window.innerHeight,
+    eh: window && window.innerHeight,
   }))
 
   const onLayout = useCallback(() => {
@@ -72,7 +70,7 @@ const HandsParallax = ({ filename, children, style }) => {
     const { height } = el.current.getBoundingClientRect()
     const { y } = el2.current.getBoundingClientRect()
 
-    set({ st: y, eh: height, wh: window.innerHeight })
+    set({ st: y, eh: height, wh: window && window.innerHeight })
   }, [set])
 
   useEffect(() => {
