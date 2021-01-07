@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import LanguageMenu from "./language-menu"
+import HeaderLink from "./header-link"
 import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
@@ -9,7 +10,7 @@ import logo from "../images/logo@3x.png"
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xxs`
 const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 sm:mr-4`
-const MenuItemEffect = tw.i`relative block overflow-hidden not-italic`
+const MenuItemEffect = tw.i`relative block overflow-hidden not-italic py-0.5`
 
 const underlinedStyle = css`
   i:after {
@@ -86,7 +87,7 @@ const Header = ({ siteTitle, t, i18n }) => {
         >
           <MenuList>
             <MenuItem>
-              <Link
+              <HeaderLink
                 to="/about"
                 className="relative block px-4 py-2 overflow-hidden"
                 css={[underlinedStyle]}
@@ -94,10 +95,10 @@ const Header = ({ siteTitle, t, i18n }) => {
                 onClick={() => toggleExpansion(!isExpanded)}
               >
                 <MenuItemEffect>{t("header.links.about")}</MenuItemEffect>
-              </Link>
+              </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <Link
+              <HeaderLink
                 to="/mine"
                 css={[underlinedStyle]}
                 activeClassName="active"
@@ -105,10 +106,10 @@ const Header = ({ siteTitle, t, i18n }) => {
                 onClick={() => toggleExpansion(!isExpanded)}
               >
                 <MenuItemEffect>{t("header.links.mine")}</MenuItemEffect>
-              </Link>
+              </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <Link
+              <HeaderLink
                 to="/hold"
                 css={[underlinedStyle]}
                 activeClassName="active"
@@ -116,10 +117,10 @@ const Header = ({ siteTitle, t, i18n }) => {
                 onClick={() => toggleExpansion(!isExpanded)}
               >
                 <MenuItemEffect>{t("header.links.hold")}</MenuItemEffect>
-              </Link>
+              </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <Link
+              <HeaderLink
                 to="/community"
                 css={[underlinedStyle]}
                 activeClassName="active"
@@ -127,10 +128,10 @@ const Header = ({ siteTitle, t, i18n }) => {
                 onClick={() => toggleExpansion(!isExpanded)}
               >
                 <MenuItemEffect>{t("header.links.community")}</MenuItemEffect>
-              </Link>
+              </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <Link
+              <HeaderLink
                 to="/business"
                 css={[underlinedStyle]}
                 activeClassName="active"
@@ -138,7 +139,7 @@ const Header = ({ siteTitle, t, i18n }) => {
                 onClick={() => toggleExpansion(!isExpanded)}
               >
                 <MenuItemEffect>{t("header.links.business")}</MenuItemEffect>
-              </Link>
+              </HeaderLink>
             </MenuItem>
             <MenuItem>
               <a
