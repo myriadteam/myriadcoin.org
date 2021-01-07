@@ -7,7 +7,7 @@ import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
 
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xxs`
-const MenuList = tw.ul`text-xxs flex flex-col sm:(items-center flex-row)`
+const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 sm:mr-4`
 const MenuItemEffect = tw.i`relative block overflow-hidden not-italic`
 
