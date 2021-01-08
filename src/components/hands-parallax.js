@@ -134,7 +134,7 @@ const HandsParallax = ({ filename, children, style }) => {
     const handAspect = 3848 / 1760
     const handWidth = width * 0.5
     const handHeight = handWidth * handAspect
-    let handScale = (430 + height) / handHeight
+    let handScale = (450 + height) / handHeight
     if (handScale < 1) {
       handScale = 1
     }
