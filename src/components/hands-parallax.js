@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useSpring, animated, interpolate, config } from "react-spring"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
@@ -52,6 +52,7 @@ const Parallax = ({ items, translateY, eh }) => {
 
 const HandsParallax = ({ filename, children, style }) => {
   const { t } = useTranslation()
+  const [{ height, width }, setDimensions] = useState({})
 
   const el = useRef(null)
   const el2 = useRef(null)
@@ -67,8 +68,9 @@ const HandsParallax = ({ filename, children, style }) => {
       return
     }
 
-    const { height } = el.current.getBoundingClientRect()
+    const { height, width } = el.current.getBoundingClientRect()
     const { y } = el2.current.getBoundingClientRect()
+    setDimensions({ height, width })
 
     set({ st: y, eh: height, wh: window && window.innerHeight })
   }, [set])
@@ -95,7 +97,7 @@ const HandsParallax = ({ filename, children, style }) => {
   const stickyMultiplier = 4
   const stickyLength = eh.interpolate(h => h * stickyMultiplier)
 
-  const progressMax = eh.interpolate(h => h * (stickyMultiplier - 1))
+  const progressMax = height * (stickyMultiplier - 1)
 
   const space = 47
 
@@ -127,6 +129,27 @@ const HandsParallax = ({ filename, children, style }) => {
 
       return val
     })
+
+  const getHandComponent = () => {
+    const handAspect = 3848 / 1760
+    const handWidth = width * 0.5
+    const handHeight = handWidth * handAspect
+    let handScale = (430 + height) / handHeight
+    if (handScale < 1) {
+      handScale = 1
+    }
+
+    return (
+      <div
+        tw="m-auto w-6/12"
+        style={{
+          transform: "translate3d(0px, -4%, 0px) scale(" + handScale + ")",
+        }}
+      >
+        <Image filename="parallax/hands.png" alt="Hands" />
+      </div>
+    )
+  }
 
   const items = [
     {
@@ -212,25 +235,22 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: (
-        <div
-          tw="m-auto w-6/12"
-          style={{
-            transform: "translate3d(0px, -4%, 0px)",
-          }}
-        >
-          <Image filename="parallax/hands.png" alt="Hands" />
-        </div>
-      ),
+      component: getHandComponent(),
       offsetY: 0,
       offsetX: 0,
       interpolation: {
-        range: [-2544 / 2, 2544 / 2],
-        output: [(0.1 * -2544) / 2, (0.1 * 2544) / 2],
+        range: [-progressMax / 2, progressMax / 2],
+        output: [-200, 200],
         extrapolate: "clamp",
       },
     },
   ]
+
+  console.log(
+    width * 0.5,
+    (width * 0.5 * 3848) / 1760,
+    height / ((width * 0.5 * 3848) / 1760)
+  )
 
   return (
     <animated.div Tag="section" style={{ height: stickyLength }} ref={el2}>
@@ -241,7 +261,7 @@ const HandsParallax = ({ filename, children, style }) => {
       >
         <OrangeGrad />
         <PurpleGrad />
-        <Parallax items={items} translateY={translateY} eh={eh} />
+        {height && <Parallax items={items} translateY={translateY} eh={eh} />}
 
         <div tw="absolute top-0 left-0">
           <animated.div>
@@ -250,9 +270,7 @@ const HandsParallax = ({ filename, children, style }) => {
           <animated.div>{st.interpolate(n => n.toFixed(2))}</animated.div>
           <animated.div>{wh.interpolate(n => n.toFixed(2))}</animated.div>
           <animated.div>{eh.interpolate(n => n.toFixed(2))}</animated.div>
-          <animated.div>
-            {progressMax.interpolate(n => n.toFixed(2))}
-          </animated.div>
+          <animated.div>{progressMax.toFixed(2)}</animated.div>
         </div>
       </animated.div>
     </animated.div>
