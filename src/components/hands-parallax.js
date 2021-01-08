@@ -58,8 +58,8 @@ const HandsParallax = ({ filename, children, style }) => {
 
   const [{ st, wh, eh }, set] = useSpring(() => ({
     st: 1000,
-    wh: window && window.innerHeight,
-    eh: window && window.innerHeight,
+    wh: 0,
+    eh: 0,
   }))
 
   const onLayout = useCallback(() => {
