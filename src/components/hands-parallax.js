@@ -20,6 +20,7 @@ const ParallaxItem = ({
   offsetX,
   speed,
   interpolation,
+  zIndex,
 }) => {
   return (
     <animated.div
@@ -33,6 +34,7 @@ const ParallaxItem = ({
           }
         ),
         left: offsetX * 100 + "%",
+        zIndex,
       }}
     >
       {component}
@@ -99,8 +101,6 @@ const HandsParallax = ({ filename, children, style }) => {
 
   const progressMax = height * (stickyMultiplier - 1)
 
-  const space = 47
-
   const translateY = interpolate(
     [st, wh, eh],
     (st, wh, eh) =>
@@ -134,7 +134,7 @@ const HandsParallax = ({ filename, children, style }) => {
     const handAspect = 3848 / 1760
     const handWidth = width * 0.5
     const handHeight = handWidth * handAspect
-    let handScale = (450 + height) / handHeight
+    let handScale = (200 + height) / handHeight
     if (handScale < 1) {
       handScale = 1
     }
@@ -143,7 +143,7 @@ const HandsParallax = ({ filename, children, style }) => {
       <div
         tw="m-auto w-6/12"
         style={{
-          transform: "translate3d(0px, -4%, 0px) scale(" + handScale + ")",
+          transform: "translate3d(0px, 0px, 0px) scale(" + handScale + ")",
         }}
       >
         <Image filename="parallax/hands.png" alt="Hands" />
@@ -151,11 +151,28 @@ const HandsParallax = ({ filename, children, style }) => {
     )
   }
 
+  const wide = width > 640
+
+  const letterOffsetX = i => {
+    const spread = wide ? 6 : 5
+
+    const space = 47
+    let placement = i
+
+    if (wide && i >= 3) {
+      placement += 1
+    }
+
+    const multiplier = placement - spread / 2
+
+    return (0.01 * multiplier * space) / (spread / 2)
+  }
+
   const items = [
     {
       component: <SvgM tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (-0.03 * space) / 3,
+      offsetX: letterOffsetX(0),
       interpolation: {
         range: letterInput(),
         output: letterOutput(1),
@@ -164,7 +181,7 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: <SvgY tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (-0.02 * space) / 3,
+      offsetX: letterOffsetX(1),
       interpolation: {
         range: letterInput(),
         output: letterOutput(-1),
@@ -173,7 +190,7 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: <SvgR tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (-0.01 * space) / 3,
+      offsetX: letterOffsetX(2),
       interpolation: {
         range: letterInput(),
         output: letterOutput(0.7),
@@ -182,7 +199,7 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: <SvgI tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (0.01 * space) / 3,
+      offsetX: letterOffsetX(3),
       interpolation: {
         range: letterInput(),
         output: letterOutput(-0.5),
@@ -191,7 +208,7 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: <SvgA tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (0.02 * space) / 3,
+      offsetX: letterOffsetX(4),
       interpolation: {
         range: letterInput(),
         output: letterOutput(1),
@@ -200,7 +217,7 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: <SvgD tw="m-auto" width={"13%"} />,
       offsetY: 0,
-      offsetX: (0.03 * space) / 3,
+      offsetX: letterOffsetX(5),
       interpolation: {
         range: letterInput(),
         output: letterOutput(-0.4),
@@ -209,12 +226,12 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: (
         <p
-          tw="relative font-normal text-white m-auto text-xxs sm:text-sm sm:max-w-sm w-4/12"
+          tw="relative font-normal text-white m-auto text-xxs sm:text-sm sm:max-w-sm w-6/12 sm:w-4/12"
           dangerouslySetInnerHTML={{ __html: t("home.parallax.first") }}
         />
       ),
       offsetY: -1.1,
-      offsetX: -0.3,
+      offsetX: wide ? -0.3 : -0.15,
       interpolation: {
         range: [0, 1],
         output: [0, 1.15],
@@ -223,12 +240,12 @@ const HandsParallax = ({ filename, children, style }) => {
     {
       component: (
         <p
-          tw="relative text-sm font-normal text-white m-auto text-xxs sm:text-sm sm:max-w-sm w-4/12"
+          tw="relative text-sm font-normal text-white m-auto text-xxs sm:text-sm sm:max-w-sm w-6/12 sm:w-4/12"
           dangerouslySetInnerHTML={{ __html: t("home.parallax.second") }}
         />
       ),
       offsetY: 1.1,
-      offsetX: 0.3,
+      offsetX: wide ? 0.3 : 0.15,
       interpolation: {
         range: [0, 1],
         output: [0, 1.15],
@@ -240,17 +257,12 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetX: 0,
       interpolation: {
         range: [-progressMax / 2, progressMax / 2],
-        output: [-200, 200],
+        output: [-100, 100],
         extrapolate: "clamp",
       },
+      zIndex: wide ? 0 : -1,
     },
   ]
-
-  console.log(
-    width * 0.5,
-    (width * 0.5 * 3848) / 1760,
-    height / ((width * 0.5 * 3848) / 1760)
-  )
 
   return (
     <animated.div Tag="section" style={{ height: stickyLength }} ref={el2}>
@@ -262,16 +274,6 @@ const HandsParallax = ({ filename, children, style }) => {
         <OrangeGrad />
         <PurpleGrad />
         {height && <Parallax items={items} translateY={translateY} eh={eh} />}
-
-        <div tw="absolute top-0 left-0">
-          <animated.div>
-            {translateY.interpolate(n => n.toFixed(2))}
-          </animated.div>
-          <animated.div>{st.interpolate(n => n.toFixed(2))}</animated.div>
-          <animated.div>{wh.interpolate(n => n.toFixed(2))}</animated.div>
-          <animated.div>{eh.interpolate(n => n.toFixed(2))}</animated.div>
-          <animated.div>{progressMax.toFixed(2)}</animated.div>
-        </div>
       </animated.div>
     </animated.div>
   )
