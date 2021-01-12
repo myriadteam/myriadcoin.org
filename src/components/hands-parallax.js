@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
-import { useSpring, animated, interpolate, config } from "react-spring"
+import { useSpring, animated, interpolate } from "react-spring"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 import Image from "./image"
@@ -120,10 +120,10 @@ const HandsParallax = ({ filename, children, style }) => {
       val *= 2
 
       if (val > 0) {
-        val = easings.easeQuadIn(val)
+        // val = easings.easeQuadIn(val)
       } else {
-        val = easings.easeQuadIn(-1 * val)
-        val *= -1
+        // val = easings.easeQuadIn(-1 * val)
+        // val *= -1
       }
 
       val *= easingRange * speed
@@ -136,7 +136,7 @@ const HandsParallax = ({ filename, children, style }) => {
     const targetHandWidth = width * 0.5
     const targetHandHeight = targetHandWidth * handAspect
 
-    let handScale = (200 + height) / targetHandHeight
+    let handScale = height / targetHandHeight
     if (handScale < 1) {
       handScale = 1 - (1 - handScale) / 3
     }
