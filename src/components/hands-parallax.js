@@ -100,7 +100,7 @@ const HandsParallax = ({ filename, children, style }) => {
   const stickyMultiplier = 4
   const stickyLength = eh.interpolate(h => h * stickyMultiplier)
 
-  const progressMax = height * (stickyMultiplier - 1) + 500
+  const progressMax = height * (stickyMultiplier - 1)
 
   const translateY = interpolate(
     [st, wh, eh],
@@ -136,7 +136,7 @@ const HandsParallax = ({ filename, children, style }) => {
     const targetHandWidth = width * 0.5
     const targetHandHeight = targetHandWidth * handAspect
 
-    let handScale = height / targetHandHeight
+    let handScale = (200 + height) / targetHandHeight
     if (handScale < 1) {
       handScale = 1 - (1 - handScale) / 3
     }
