@@ -130,15 +130,25 @@ const HandsParallax = ({ filename, children, style }) => {
       return val
     })
 
-  const getHandComponent = () => {
+  const getHandDimensions = () => {
     const handAspect = 3848 / 1760
-    const handWidth = width * 0.5
-    const handHeight = handWidth * handAspect
-    let handScale = (200 + height) / handHeight
+    const targetHandWidth = width * 0.5
+    const targetHandHeight = targetHandWidth * handAspect
+
+    let handScale = (200 + height) / targetHandHeight
     if (handScale < 1) {
-      handScale = 1
+      handScale = 1 - (1 - handScale) / 3
     }
 
+    const handWidth = targetHandWidth * handScale
+    const handHeight = targetHandHeight * handScale
+
+    return { handScale, handHeight, handWidth }
+  }
+
+  const { handScale, handHeight } = getHandDimensions()
+
+  const getHandComponent = () => {
     return (
       <div
         tw="m-auto w-6/12"
@@ -257,7 +267,7 @@ const HandsParallax = ({ filename, children, style }) => {
       offsetX: 0,
       interpolation: {
         range: [-progressMax / 2, progressMax / 2],
-        output: [-100, 100],
+        output: [-(handHeight - height) / 2, (handHeight - height) / 2],
         extrapolate: "clamp",
       },
       zIndex: wide ? 0 : -1,
