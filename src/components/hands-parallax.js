@@ -4,6 +4,7 @@ import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 import Image from "./image"
 import { PurpleGrad, OrangeGrad } from "../common/elements"
+import * as easings from "d3-ease"
 
 import SvgM from "../svgs/parallax/m.inline.svg"
 import SvgY from "../svgs/parallax/y.inline.svg"
@@ -99,7 +100,7 @@ const HandsParallax = ({ filename, children, style }) => {
   const stickyMultiplier = 4
   const stickyLength = eh.interpolate(h => h * stickyMultiplier)
 
-  const progressMax = height * (stickyMultiplier - 1)
+  const progressMax = height * (stickyMultiplier - 1) + 500
 
   const translateY = interpolate(
     [st, wh, eh],
@@ -119,10 +120,10 @@ const HandsParallax = ({ filename, children, style }) => {
       val *= 2
 
       if (val > 0) {
-        //val = easings.easeQuadIn(val)
+        val = easings.easeQuadIn(val)
       } else {
-        //val = easings.easeQuadIn(-1 * val)
-        //val *= -1
+        val = easings.easeQuadIn(-1 * val)
+        val *= -1
       }
 
       val *= easingRange * speed
@@ -178,9 +179,11 @@ const HandsParallax = ({ filename, children, style }) => {
     return (0.01 * multiplier * space) / (spread / 2)
   }
 
+  const letterWidth = wide ? "13%" : "16%"
+
   const items = [
     {
-      component: <SvgM tw="m-auto" width={"13%"} />,
+      component: <SvgM tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(0),
       interpolation: {
@@ -189,7 +192,7 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: <SvgY tw="m-auto" width={"13%"} />,
+      component: <SvgY tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(1),
       interpolation: {
@@ -198,7 +201,7 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: <SvgR tw="m-auto" width={"13%"} />,
+      component: <SvgR tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(2),
       interpolation: {
@@ -207,7 +210,7 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: <SvgI tw="m-auto" width={"13%"} />,
+      component: <SvgI tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(3),
       interpolation: {
@@ -216,7 +219,7 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: <SvgA tw="m-auto" width={"13%"} />,
+      component: <SvgA tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(4),
       interpolation: {
@@ -225,7 +228,7 @@ const HandsParallax = ({ filename, children, style }) => {
       },
     },
     {
-      component: <SvgD tw="m-auto" width={"13%"} />,
+      component: <SvgD tw="m-auto" width={letterWidth} />,
       offsetY: 0,
       offsetX: letterOffsetX(5),
       interpolation: {
