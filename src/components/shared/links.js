@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import LinkWithHover from "../link-with-hover"
-import iconArrow from "../../svgs/icons/arrow-forward.svg"
+import ArrowForward from "../../svgs/icons/arrow-forward.inline.svg"
 import tw from "twin.macro"
 
 const links = ["mine", "hold", "business", "community"]
@@ -16,7 +16,7 @@ const Links = ({ skip = [] }) => {
           <LinkWithHover to={`${link}`} variant="mediumBold">
             {t(`home.links.${link}`)}
           </LinkWithHover>
-          <img src={iconArrow} alt=">" tw="w-10 sm:w-auto" />
+          <ArrowForward tw="w-10 sm:w-auto" />
         </li>
       ))}
     </ul>
