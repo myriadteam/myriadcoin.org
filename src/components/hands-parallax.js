@@ -13,6 +13,9 @@ import SvgI from "../svgs/parallax/i.inline.svg"
 import SvgA from "../svgs/parallax/a.inline.svg"
 import SvgD from "../svgs/parallax/d.inline.svg"
 
+import Gradient from "../svgs/parallax/gradient.inline.svg"
+import GradientOverlay from "../svgs/parallax/gradient-overlay.inline.svg"
+
 const ParallaxItem = ({
   translateY,
   eh,
@@ -155,6 +158,7 @@ const HandsParallax = ({ filename, children, style }) => {
         tw="m-auto w-6/12"
         style={{
           transform: "translate3d(0px, 0px, 0px) scale(" + handScale + ")",
+          opacity: wide ? 1 : 0.3,
         }}
       >
         <Image filename="parallax/hands.png" alt="Hands" />
@@ -190,6 +194,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(1),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: <SvgY tw="m-auto" width={letterWidth} />,
@@ -199,6 +204,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(-1),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: <SvgR tw="m-auto" width={letterWidth} />,
@@ -208,6 +214,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(0.7),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: <SvgI tw="m-auto" width={letterWidth} />,
@@ -217,6 +224,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(-0.5),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: <SvgA tw="m-auto" width={letterWidth} />,
@@ -226,6 +234,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(1),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: <SvgD tw="m-auto" width={letterWidth} />,
@@ -235,6 +244,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: letterInput(),
         output: letterOutput(-0.4),
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: (
@@ -249,6 +259,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: [0, 1],
         output: [0, 1.15],
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: (
@@ -263,6 +274,7 @@ const HandsParallax = ({ filename, children, style }) => {
         range: [0, 1],
         output: [0, 1.15],
       },
+      zIndex: wide ? 0 : 1,
     },
     {
       component: getHandComponent(),
@@ -273,7 +285,7 @@ const HandsParallax = ({ filename, children, style }) => {
         output: [-(handHeight - height) / 2, (handHeight - height) / 2],
         extrapolate: "clamp",
       },
-      zIndex: wide ? 0 : -1,
+      zIndex: 0,
     },
   ]
 
@@ -284,9 +296,23 @@ const HandsParallax = ({ filename, children, style }) => {
         style={{ top: stickyTop }}
         ref={el}
       >
-        <OrangeGrad />
-        <PurpleGrad />
+        <Gradient
+          width="100%"
+          height="100%"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 0,
+          }}
+        />
+
         {height && <Parallax items={items} translateY={translateY} eh={eh} />}
+        <GradientOverlay
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", top: 0, left: 0, zIndex: 2 }}
+        />
       </animated.div>
     </animated.div>
   )

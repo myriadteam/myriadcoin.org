@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Myriadcoin`,
-    description: `Myriad coins next website!`,
+    title: `Myriad`,
+    description: `Welcome to the future of no nonsense transactions!`,
     author: `@emilkarl`,
   },
   plugins: [
