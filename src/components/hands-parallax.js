@@ -69,17 +69,27 @@ const HandsParallax = ({ filename, children, style }) => {
     eh: 0,
   }))
 
+  const onScroll = useCallback(() => {
+    if (!el2.current) {
+      return
+    }
+
+    const { y } = el2.current.getBoundingClientRect()
+
+    set({ st: y })
+  }, [set])
+
   const onLayout = useCallback(() => {
     if (!el.current) {
       return
     }
 
     const { height, width } = el.current.getBoundingClientRect()
-    const { y } = el2.current.getBoundingClientRect()
     setDimensions({ height, width })
+    set({ eh: height, wh: window && window.innerHeight })
 
-    set({ st: y, eh: height, wh: window && window.innerHeight })
-  }, [set])
+    onScroll()
+  }, [onScroll, set])
 
   useEffect(() => {
     if (!el.current) {
@@ -90,14 +100,14 @@ const HandsParallax = ({ filename, children, style }) => {
   }, [onLayout])
 
   useEffect(() => {
-    window.addEventListener("scroll", onLayout)
+    window.addEventListener("scroll", onScroll)
     window.addEventListener("resize", onLayout)
 
     return () => {
-      window.removeEventListener("scroll", onLayout)
+      window.removeEventListener("scroll", onScroll)
       window.removeEventListener("resize", onLayout)
     }
-  }, [onLayout])
+  }, [onLayout, onScroll])
 
   const stickyTop = interpolate([wh, eh], (wh, eh) => (wh - eh) / 2)
   const stickyMultiplier = 4
