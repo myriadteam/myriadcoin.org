@@ -10,7 +10,7 @@ import Nonsense from "../components/pages/home/nonsense"
 import LinkWithHover from "../components/link-with-hover"
 import Links from "../components/shared/links"
 import tw, { css } from "twin.macro"
-import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
+import IconArrowWhite from "../svgs/icons/arrow-forward.inline.svg"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
 
@@ -141,14 +141,14 @@ const IndexPage = () => {
         <PageContainer tw="py-48 px-6 sm:px-0 text-right text-white">
           <BigText tw="italic">{t("home.esperanto.title")}</BigText>
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
-          <span tw="inline-flex">
+          <span tw="inline-flex hover:text-black">
             <Link
               to="/community"
-              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
+              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight flex flex-row"
             >
               {t("home.esperanto.join")}
+              <IconArrowWhite tw="ml-4" />
             </Link>
-            <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
           </span>
         </PageContainer>
       </BgImage>
