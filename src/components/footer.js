@@ -6,14 +6,14 @@ import SvgIcon from "../components/svg-icon"
 import { useTranslation } from "react-i18next"
 
 import Bubble from "../components/bubble"
-import logo from "../svgs/logo.svg"
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+import Logo from "../svgs/logo.inline.svg"
+import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 
 import { PageContainer, MediumBoldText } from "../common/elements"
 
 const columns = [
   [
-    { text: "Myriad", link: "/", icon: logo },
+    { text: "Myriad", link: "/", Component: Logo },
     {
       text: "Instagram",
       url: "https://t.me/https://www.instagram.com/myriadcoin",
@@ -88,7 +88,7 @@ const Footer = () => {
     return <img src={svg} className="mr-2" alt={`Icon ${text}`} />
   }
 
-  const renderLink = ({ url, icon, text, link }) => {
+  const renderLink = ({ url, Component, icon, text, link }) => {
     if (url) {
       return (
         <FooterLink href={url}>
@@ -105,6 +105,11 @@ const Footer = () => {
       return (
         <Link to={link} className="flex items-center py-1 hover:text-purple">
           {icon && renderIcon(icon, text)}
+          {Component && (
+            <span tw="mr-2">
+              <Component />
+            </span>
+          )}
           <FooterLinkTitle>{text}</FooterLinkTitle>
         </Link>
       )
@@ -127,20 +132,16 @@ const Footer = () => {
           <Bubble tw="mb-8 sm:mb-16" color="blue">
             {t("home.telegram.bubble")}
           </Bubble>
-          <MediumBoldText tw="text-black mb-8 sm:mb-16">
+          <MediumBoldText tw="text-black dark:text-white mb-8 sm:mb-16">
             {t("home.telegram.title")}
           </MediumBoldText>
-          <span tw="inline-flex">
-            <a
-              href="https://t.me/Myriadcoinofficial"
-              tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-purple"
-            >
-              {t("home.telegram.join")}
-            </a>
-            <span tw="ml-4 w-32p h-32p">
-              <img src={iconArrowBlack} alt=">" tw="w-full h-full" />
-            </span>
-          </span>
+          <a
+            href="https://t.me/Myriadcoinofficial"
+            tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-purple"
+          >
+            {t("home.telegram.join")}
+            <IconArrowBlack tw="ml-2 w-32p h-32p inline-flex" />
+          </a>
         </div>
       </PageContainer>
       <FooterContainer>
