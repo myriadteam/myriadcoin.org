@@ -59,6 +59,9 @@ module.exports = {
       boxShadow: {
         wide: "0px 8px 48px 8px rgba(0, 0, 0, 0.05)",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
     fontFamily: {
       body: ["HK Grotesk"],

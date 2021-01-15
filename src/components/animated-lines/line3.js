@@ -15,7 +15,7 @@ const Line1 = ({ animate }) => {
       <path
         d="M-131.506 638.826C973.103 979.67 1675.01 497.701 1866.51 556.788"
         stroke="url(#line3-fade)"
-        strokeWidth="2"
+        strokeWidth="3"
         vectorEffect="non-scaling-stroke"
         transform="translate(0,-550)"
       />
@@ -41,8 +41,8 @@ const Line1 = ({ animate }) => {
           y2="413.21"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="currentColor" />
+          <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

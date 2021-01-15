@@ -3,6 +3,7 @@ import "tailwindcss/dist/components.css"
 import "tailwindcss/dist/utilities.css"
 import "./static/headway.scss"
 import "./static/fonts.css"
+import "./static/index.css"
 
 // ES5 way
 // exports.onClientEntry = () => {
