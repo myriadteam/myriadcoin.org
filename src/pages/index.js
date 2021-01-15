@@ -44,10 +44,9 @@ const resistanceSpecial = title => {
   }
 
   return (
-    <span tw="inline-flex items-baseline">
+    <span tw="items-baseline">
       51
-      <FunkyPercent alt="%" />
-      <span>&nbsp;</span>
+      <FunkyPercent alt="%" tw="inline" />
       {title.split("51%")[1]}
     </span>
   )
@@ -59,9 +58,9 @@ const longblocksSpecial = title => {
   }
 
   return (
-    <span tw="inline-flex items-baseline">
+    <span tw="items-baseline">
       L
-      <Loooong alt="o" />
+      <Loooong alt="o" tw="inline" />
       ngblocks
     </span>
   )
