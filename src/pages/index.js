@@ -92,9 +92,13 @@ const IndexPage = () => {
       <Nonsense />
       <div tw="relative overflow-hidden px-6 sm:px-0">
         <PageContainer>
+          <div tw="absolute left-0 right-0 mt-30 sm:mt-24 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+            <AnimatedLine name="Line1" />
+          </div>
           <BigText tw="my-24 sm:mt-48 sm:mb-32">
             {t("home.myriadIs.title")}
           </BigText>
+
           <div tw="flex flex-col max-w-screen-md mx-auto">
             <div tw="flex flex-row">
               <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
@@ -107,20 +111,20 @@ const IndexPage = () => {
                     __html: t("home.myriadIs.trusted.title"),
                   }}
                 />
-                <div tw="absolute left-0 right-0 mt--5 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                  <AnimatedLine name="Line1" />
+                <div tw="absolute left-0 right-0 mt--6 sm:mt--10 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line2" />
                 </div>
                 <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
                 <LinkWithHover to="/about">
                   {t("common.readMore")}
                 </LinkWithHover>
+                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt-4 sm:mt-8">
+                  <AnimatedLine name="Line3" />
+                </div>
               </div>
             </div>
             <div tw="flex flex-row">
               <div tw="mb-24 sm:mb-40">
-                <div tw="absolute left-0 right-0 mt--12 sm:mt--20 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                  <AnimatedLine name="Line2" />
-                </div>
                 <MediumBoldText
                   dangerouslySetInnerHTML={{
                     __html: t("home.myriadIs.community.title"),
@@ -132,8 +136,8 @@ const IndexPage = () => {
                 <LinkWithHover to="/community" tw="relative">
                   {t("common.readMore")}
                 </LinkWithHover>
-                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                  <AnimatedLine name="Line3" />
+                <div tw="absolute left-0 right-0 mt--12 sm:mt--16 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line4" />
                 </div>
               </div>
 
@@ -148,12 +152,9 @@ const IndexPage = () => {
 
               <div tw="mb-24 sm:mb-40">
                 <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
-                <div tw="absolute left-0 right-0 mt--8 text-white dark:text-dark-bg -z-10">
-                  <AnimatedLine name="Line4" />
-                </div>
                 <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
                 <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
-                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt--10 sm:mt--12">
                   <AnimatedLine name="Line5" />
                 </div>
               </div>
