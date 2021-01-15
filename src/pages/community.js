@@ -61,7 +61,7 @@ const CommunityPage = () => {
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
         <PageContainer>
           <div tw="max-w-2xl">
             <MediumBoldText>{t("community.top.title")}</MediumBoldText>
