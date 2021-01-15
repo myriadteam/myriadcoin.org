@@ -1,13 +1,23 @@
 import React from "react"
-
+import tw from "twin.macro"
 import SEO from "../components/seo"
 
-const NotFoundPage = () => (
-  <>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </>
-)
+import { PageContainer, BigText, BodyText } from "../common/elements"
 
-export default NotFoundPage
+const HoldPage = () => {
+  return (
+    <>
+      <SEO title="404 - page not found" />
+      <PageContainer>
+        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
+          <BigText tw="mb-8">404 - Page not found</BigText>
+          <BodyText>
+            Sorry but we could not find what you were looking for :(
+          </BodyText>
+        </div>
+      </PageContainer>
+    </>
+  )
+}
+
+export default HoldPage
