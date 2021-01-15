@@ -17,7 +17,7 @@ const NonsenseButton = styled.button`
   ${({ thisKey, selectedKey }) =>
     thisKey === selectedKey
       ? tw`text-white bg-bubble-blue`
-      : tw`bg-light-grey text-grey`}
+      : tw`bg-light-grey dark:bg-dark-box text-grey`}
 `
 
 const dataKeys = [
@@ -49,7 +49,7 @@ const Nonsense = () => {
       <PageContainer tw="px-6 sm:px-0">
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
-        <div tw="bg-white shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 -mx-3 sm:mx-0">
+        <div tw="bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 -mx-3 sm:mx-0">
           <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
             <MediumBoldText tw="mb-0">{title}</MediumBoldText>
             {info && (

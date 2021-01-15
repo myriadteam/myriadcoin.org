@@ -19,6 +19,10 @@ module.exports = {
           3: "#4C59EF",
           4: "#3C52A1",
         },
+        dark: {
+          bg: "#1E1E1E",
+          box: "#2B2B2B",
+        },
       },
       lineHeight: {
         "extra-tight": "1.15",
