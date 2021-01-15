@@ -21,6 +21,21 @@ import {
   BodyText,
 } from "../common/elements"
 
+const multiColor = title => {
+  const [colorable, rest] = title.split("-")
+  const colors = ["#FED17F", "#C376FF", "#27E0B4", "#F971A2", "#23D0E8"]
+
+  const colored = colorable.split("").map((letter, i) => {
+    return (
+      <span style={{ color: colors[i % colors.length] }} key={i}>
+        {letter}
+      </span>
+    )
+  })
+
+  return [colored, "-" + rest]
+}
+
 const IndexPage = () => {
   const { t } = useTranslation()
   return (
@@ -103,7 +118,7 @@ const IndexPage = () => {
             </div>
             <div tw="mb-24 self-end max-w-none md:max-w-2xl">
               <BigText tw="text-white mb-8 text-right">
-                {t("home.security.multi-algo.title")}
+                {multiColor(t("home.security.multi-algo.title"))}
               </BigText>
               <MediumText tw="max-w-none text-right">
                 {t("home.security.multi-algo.body")}
