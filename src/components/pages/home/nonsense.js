@@ -53,7 +53,7 @@ const Nonsense = () => {
           <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
             <MediumBoldText tw="mb-0">{title}</MediumBoldText>
             {info && (
-              <div tw="mt-8 sm:mt-0 rounded-full bg-light-grey text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">
+              <div tw="mt-8 sm:mt-0 rounded-full bg-light-grey dark:bg-dark-info-box text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">
                 <div tw="mr-2 w-6 h-6">
                   <img src={InfoSvg} alt="i" />
                 </div>{" "}
