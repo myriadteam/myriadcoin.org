@@ -50,7 +50,7 @@ const HoldPage = () => {
         <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
         <LinkButton href="XXXX">{t("hold.use.link")}</LinkButton>
       </PageContainer>
-      <hr />
+      <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
       <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <BigText tw="mb-32">{t("hold.links.title")}</BigText>
         <Links skip={["hold"]} />

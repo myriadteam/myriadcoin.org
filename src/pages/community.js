@@ -86,7 +86,7 @@ const CommunityPage = () => {
           <BodyText>{t("community.social_media.body")}</BodyText>
         </div>
       </PageContainer>
-      <hr />
+      <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
     </>
   )
 }

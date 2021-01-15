@@ -53,7 +53,7 @@ const MinePage = () => {
           {t("mine.ready")}
         </BigText>
       </PageContainer>
-      <hr />
+      <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
       <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
         <Links skip={["mine"]} />
