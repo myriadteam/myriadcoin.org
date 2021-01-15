@@ -45,7 +45,7 @@ const AboutPage = () => {
           <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
         <PageContainer>
           <BodyBlock translationKey="about.top" />
           <div tw="flex sm:flex-wrap flex-col sm:flex-row">
@@ -114,7 +114,10 @@ const AboutPage = () => {
         <BodyBlock translationKey="about.community" />
         <BodyBlock translationKey="about.fair" />
       </PageContainer>
-      <div tw="bg-light-grey py-24 px-6 sm:py-30 sm:px-0" id="specifications">
+      <div
+        tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0"
+        id="specifications"
+      >
         <PageContainer>
           <MediumBoldText tw="mb-10">
             {t("about.specifications.title")}

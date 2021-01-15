@@ -22,6 +22,7 @@ module.exports = {
         dark: {
           bg: "#1E1E1E",
           box: "#2B2B2B",
+          "light-bg": "#2A2A2A",
           "info-box": "#2C3746",
         },
       },
