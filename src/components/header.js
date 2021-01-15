@@ -66,7 +66,7 @@ const Header = ({ siteTitle, t, i18n }) => {
           />
           <h2 tw="tracking-tight">Myriad</h2>
         </Link>
-        <div className="block lg:hidden">
+        <div className="block sm:hidden">
           <button
             onClick={() => toggleExpansion(!isExpanded)}
             tw="flex items-center px-3 py-2 rounded hover:text-purple"
