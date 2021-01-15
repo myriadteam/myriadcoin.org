@@ -14,6 +14,9 @@ import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
 import Loooong from "../svgs/icons/loooong.inline.svg"
 import FunkyPercent from "../svgs/icons/funky-percent.inline.svg"
+import SymbolTrusted from "../svgs/icons/symbol-trusted.inline.svg"
+import SymbolFair from "../svgs/icons/symbol-fair.inline.svg"
+import SymbolCommunity from "../svgs/icons/symbol-community.inline.svg"
 
 import {
   PageContainer,
@@ -93,44 +96,66 @@ const IndexPage = () => {
             {t("home.myriadIs.title")}
           </BigText>
           <div tw="flex flex-col max-w-screen-md mx-auto">
-            <div tw="mb-24 sm:mb-40">
-              <MediumBoldText
-                dangerouslySetInnerHTML={{
-                  __html: t("home.myriadIs.trusted.title"),
-                }}
-              />
-              <div tw="absolute left-0 right-0 mt--5 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                <AnimatedLine name="Line1" />
+            <div tw="flex flex-row">
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
+                <SymbolTrusted />
               </div>
-              <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
-              <LinkWithHover to="/about">{t("common.readMore")}</LinkWithHover>
-            </div>
-            <div tw="mb-24 sm:mb-40">
-              <div tw="absolute left-0 right-0 mt--12 sm:mt--20 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                <AnimatedLine name="Line2" />
-              </div>
-              <MediumBoldText
-                dangerouslySetInnerHTML={{
-                  __html: t("home.myriadIs.community.title"),
-                }}
-              />
-              <BodyText tw="mb-6">{t("home.myriadIs.community.body")}</BodyText>
-              <LinkWithHover to="/community" tw="relative">
-                {t("common.readMore")}
-              </LinkWithHover>
-              <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                <AnimatedLine name="Line3" />
+
+              <div tw="mb-24 sm:mb-40">
+                <MediumBoldText
+                  dangerouslySetInnerHTML={{
+                    __html: t("home.myriadIs.trusted.title"),
+                  }}
+                />
+                <div tw="absolute left-0 right-0 mt--5 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line1" />
+                </div>
+                <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
+                <LinkWithHover to="/about">
+                  {t("common.readMore")}
+                </LinkWithHover>
               </div>
             </div>
-            <div tw="mb-24 sm:mb-40">
-              <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
-              <div tw="absolute left-0 right-0 mt--8 text-white dark:text-dark-bg -z-10">
-                <AnimatedLine name="Line4" />
+            <div tw="flex flex-row">
+              <div tw="mb-24 sm:mb-40">
+                <div tw="absolute left-0 right-0 mt--12 sm:mt--20 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line2" />
+                </div>
+                <MediumBoldText
+                  dangerouslySetInnerHTML={{
+                    __html: t("home.myriadIs.community.title"),
+                  }}
+                />
+                <BodyText tw="mb-6">
+                  {t("home.myriadIs.community.body")}
+                </BodyText>
+                <LinkWithHover to="/community" tw="relative">
+                  {t("common.readMore")}
+                </LinkWithHover>
+                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line3" />
+                </div>
               </div>
-              <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
-              <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
-              <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
-                <AnimatedLine name="Line5" />
+
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 ml-6 sm:w-48 sm:h-48 sm:ml-12 rounded-lg justify-center items-center shadow-wide">
+                <SymbolCommunity />
+              </div>
+            </div>
+            <div tw="flex flex-row">
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
+                <SymbolFair />
+              </div>
+
+              <div tw="mb-24 sm:mb-40">
+                <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
+                <div tw="absolute left-0 right-0 mt--8 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line4" />
+                </div>
+                <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
+                <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
+                <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
+                  <AnimatedLine name="Line5" />
+                </div>
               </div>
             </div>
           </div>
