@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import tw from "twin.macro"
 import SEO from "../components/seo"
@@ -8,8 +8,7 @@ import Price from "../components/shared/price"
 import Exchanges from "../components/shared/exchanges"
 import BgImage from "../components/bg-image"
 
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
-import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
+import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 
 import {
   PageContainer,
@@ -28,7 +27,7 @@ const HoldPage = () => {
       <PageContainer>
         <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
           <BigText tw="mb-8">{t("hold.title")}</BigText>
-          <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
+          <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
@@ -59,15 +58,13 @@ const HoldPage = () => {
       <BgImage filename="grad-2.png">
         <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24 text-xl">{t("hold.fair.title")}</BigText>
-          <span tw="inline-flex">
-            <Link
-              to="/about"
-              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
-            >
-              {t("hold.fair.link")}
-            </Link>
-            <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
-          </span>
+          <Link
+            to="/about"
+            tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black inline-flex"
+          >
+            {t("hold.fair.link")}
+            <IconArrowBlack tw="ml-4" />
+          </Link>
         </PageContainer>
       </BgImage>
     </>

@@ -3,7 +3,7 @@ import tw from "twin.macro"
 import SEO from "../components/seo"
 import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
+import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 import {
   gradientTextStylePurple,
   gradientTextStylePink,
@@ -42,7 +42,7 @@ const AboutPage = () => {
       <PageContainer>
         <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
           <BigText tw="mb-8">{t("about.title")}</BigText>
-          <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
+          <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">

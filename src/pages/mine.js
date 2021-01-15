@@ -9,8 +9,7 @@ import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
 import BgImage from "../components/bg-image"
 
-import iconArrowBlack from "../svgs/icons/arrow-forward.svg"
-import iconArrowWhite from "../svgs/icons/arrow-forward-white.svg"
+import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 
 import { PageContainer, BigText } from "../common/elements"
 
@@ -29,7 +28,7 @@ const MinePage = () => {
       <PageContainer tw="mb-16 sm:mb-24">
         <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
           <BigText tw="mb-8">{t("mine.title")}</BigText>
-          <img src={iconArrowBlack} alt=">" tw="transform rotate-90" />
+          <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
@@ -62,15 +61,13 @@ const MinePage = () => {
       <BgImage filename="grad-1.png">
         <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
-          <span tw="inline-flex">
-            <Link
-              to="/community"
-              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
-            >
-              {t("mine.need.link")}
-            </Link>
-            <img src={iconArrowWhite} alt=">" tw="ml-4 text-white" />
-          </span>
+          <Link
+            to="/community"
+            tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black inline-flex"
+          >
+            {t("mine.need.link")}
+            <IconArrowBlack tw="ml-4" />
+          </Link>
         </PageContainer>
       </BgImage>
     </>
