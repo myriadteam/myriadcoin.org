@@ -101,7 +101,7 @@ const IndexPage = () => {
 
           <div tw="flex flex-col max-w-screen-md mx-auto">
             <div tw="flex flex-row">
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
                 <SymbolTrusted />
               </div>
 
@@ -141,12 +141,12 @@ const IndexPage = () => {
                 </div>
               </div>
 
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 ml-6 sm:w-48 sm:h-48 sm:ml-12 rounded-lg justify-center items-center shadow-wide">
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 ml-6 sm:w-48 sm:h-48 sm:ml-12 rounded-lg justify-center items-center shadow-wide">
                 <SymbolCommunity />
               </div>
             </div>
             <div tw="flex flex-row">
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-32 h-32 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
+              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
                 <SymbolFair />
               </div>
 
