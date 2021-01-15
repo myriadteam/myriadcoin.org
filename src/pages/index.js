@@ -13,6 +13,7 @@ import IconArrowWhite from "../svgs/icons/arrow-forward.inline.svg"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
 import Loooong from "../svgs/icons/loooong.inline.svg"
+import FunkyPercent from "../svgs/icons/funky-percent.inline.svg"
 
 import {
   PageContainer,
@@ -37,6 +38,21 @@ const multiColor = title => {
   return [colored, "-" + rest]
 }
 
+const resistanceSpecial = title => {
+  if (title.indexOf("51%") !== 0) {
+    return title
+  }
+
+  return (
+    <span tw="inline-flex items-baseline">
+      51
+      <FunkyPercent alt="%" />
+      <span>&nbsp;</span>
+      {title.split("51%")[1]}
+    </span>
+  )
+}
+
 const longblocksSpecial = title => {
   if (title !== "Longblocks") {
     return title
@@ -45,7 +61,7 @@ const longblocksSpecial = title => {
   return (
     <span tw="inline-flex items-baseline">
       L
-      <Loooong />
+      <Loooong alt="o" />
       ngblocks
     </span>
   )
@@ -125,7 +141,7 @@ const IndexPage = () => {
           <div tw="flex flex-col max-w-screen-md mx-auto relative">
             <div tw="mb-24 max-w-none md:max-w-2xl">
               <BigText tw="text-white mb-8">
-                {t("home.security.attacks.title")}
+                {resistanceSpecial(t("home.security.attacks.title"))}
               </BigText>
               <MediumText tw="max-w-none">
                 {t("home.security.attacks.body")}
