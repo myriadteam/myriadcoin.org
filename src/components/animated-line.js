@@ -18,7 +18,7 @@ const lines = {
 const AnimatedLine = ({ name = "Line1" }) => {
   const [seen, setSeen] = useState(false)
 
-  const { ref, inView } = useInView({ threshold: 0.5 })
+  const { ref, inView } = useInView({ threshold: 0 })
 
   useEffect(() => {
     if (inView && !seen) {
