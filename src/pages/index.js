@@ -12,6 +12,7 @@ import tw, { css } from "twin.macro"
 import IconArrowWhite from "../svgs/icons/arrow-forward.inline.svg"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
+import Loooong from "../svgs/icons/loooong.inline.svg"
 
 import {
   PageContainer,
@@ -34,6 +35,20 @@ const multiColor = title => {
   })
 
   return [colored, "-" + rest]
+}
+
+const longblocksSpecial = title => {
+  if (title !== "Longblocks") {
+    return title
+  }
+
+  return (
+    <span tw="inline-flex items-baseline">
+      L
+      <Loooong />
+      ngblocks
+    </span>
+  )
 }
 
 const IndexPage = () => {
@@ -126,7 +141,7 @@ const IndexPage = () => {
             </div>
             <div tw="max-w-none md:max-w-2xl">
               <BigText tw="text-white mb-8">
-                {t("home.security.longblocks.title")}
+                {longblocksSpecial(t("home.security.longblocks.title"))}
               </BigText>
               <MediumText tw="max-w-none">
                 {t("home.security.longblocks.body")}
