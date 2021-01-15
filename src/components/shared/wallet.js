@@ -8,7 +8,7 @@ import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Image from "../image"
 import Dropdown from "../dropdown"
-import iconArrowWhite from "../../svgs/icons/arrow-forward-white.svg"
+import IconArrow from "../../svgs/icons/arrow-forward.inline.svg"
 
 const WalletPlatform = ({ platform: { wallets }, isVisible }) => {
   const style = useSpring({
@@ -35,15 +35,13 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
       <ul tw="mb-4">
         {versions.map(({ name, url }, key) => (
           <li tw="mb-4" key={key}>
-            <span tw="inline-flex items-center">
-              <a
-                href={url}
-                tw="underline text-md sm:text-base font-bold leading-extra-tight hover:text-purple"
-              >
-                {name}
-              </a>
-              <img src={iconArrowWhite} alt=">" tw="ml-4 text-white w-8 h-8" />
-            </span>
+            <a
+              href={url}
+              tw="underline text-md sm:text-base font-bold leading-extra-tight hover:text-purple inline-flex items-center"
+            >
+              {name}
+              <IconArrow tw="ml-2 w-8 h-8" />
+            </a>
           </li>
         ))}
       </ul>
