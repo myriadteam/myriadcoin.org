@@ -3,6 +3,7 @@ import tw from "twin.macro"
 import SEO from "../components/seo"
 import SvgIcon from "../components/svg-icon"
 import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
+import SymbolBox from "../components/symbol-box"
 
 import {
   PageContainer,
@@ -63,9 +64,12 @@ const CommunityPage = () => {
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
         <PageContainer>
-          <div tw="max-w-2xl">
-            <MediumBoldText>{t("community.top.title")}</MediumBoldText>
-            <BodyText>{t("community.top.body")}</BodyText>
+          <div tw="flex flex-row">
+            <SymbolBox symbol="control" left alternate />
+            <div>
+              <MediumBoldText>{t("community.top.title")}</MediumBoldText>
+              <BodyText>{t("community.top.body")}</BodyText>
+            </div>
           </div>
         </PageContainer>
       </div>

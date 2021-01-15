@@ -12,11 +12,10 @@ import tw, { css } from "twin.macro"
 import IconArrowWhite from "../svgs/icons/arrow-forward.inline.svg"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
+import SymbolBox from "../components/symbol-box"
+
 import Loooong from "../svgs/icons/loooong.inline.svg"
 import FunkyPercent from "../svgs/icons/funky-percent.inline.svg"
-import SymbolTrusted from "../svgs/icons/symbol-trusted.inline.svg"
-import SymbolFair from "../svgs/icons/symbol-fair.inline.svg"
-import SymbolCommunity from "../svgs/icons/symbol-community.inline.svg"
 
 import {
   PageContainer,
@@ -101,9 +100,7 @@ const IndexPage = () => {
 
           <div tw="flex flex-col max-w-screen-md mx-auto">
             <div tw="flex flex-row">
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
-                <SymbolTrusted />
-              </div>
+              <SymbolBox symbol="trusted" left />
 
               <div tw="mb-24 sm:mb-40">
                 <MediumBoldText
@@ -141,14 +138,10 @@ const IndexPage = () => {
                 </div>
               </div>
 
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 ml-6 sm:w-48 sm:h-48 sm:ml-12 rounded-lg justify-center items-center shadow-wide">
-                <SymbolCommunity />
-              </div>
+              <SymbolBox symbol="community" right />
             </div>
             <div tw="flex flex-row">
-              <div tw="flex flex-shrink-0 bg-white dark:bg-dark-box w-24 h-24 mr-6 sm:w-48 sm:h-48 sm:mr-12 rounded-lg justify-center items-center shadow-wide">
-                <SymbolFair />
-              </div>
+              <SymbolBox symbol="fair" left />
 
               <div tw="mb-24 sm:mb-40">
                 <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
