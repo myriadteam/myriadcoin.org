@@ -65,7 +65,7 @@ const longblocksSpecial = title => {
   }
 
   return (
-    <span tw="items-baseline">
+    <span tw="items-baseline flex flex-row">
       L
       <Loooong alt="o" tw="inline" />
       ngblocks
