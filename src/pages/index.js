@@ -46,7 +46,11 @@ const resistanceSpecial = title => {
   return (
     <span tw="items-baseline">
       51
-      <FunkyPercent alt="%" tw="inline" />
+      <FunkyPercent
+        alt="%"
+        tw="inline"
+        style={{ position: "relative", top: "-0.25em" }}
+      />
       {title.split("51%")[1]}
     </span>
   )
