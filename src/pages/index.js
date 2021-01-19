@@ -80,7 +80,7 @@ const IndexPage = () => {
       <PageContainer>
         <div>
           <BigText
-            tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0"
+            tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6"
             dangerouslySetInnerHTML={{ __html: t("home.coverText") }}
           />
         </div>
@@ -89,7 +89,7 @@ const IndexPage = () => {
       <HandsParallax />
 
       <Nonsense />
-      <div tw="relative overflow-hidden px-6 sm:px-0">
+      <div tw="relative overflow-hidden px-6">
         <PageContainer>
           <div tw="absolute left-0 right-0 mt-30 sm:mt-24 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
             <AnimatedLine name="Line1" />
@@ -155,7 +155,7 @@ const IndexPage = () => {
           </div>
         </PageContainer>
       </div>
-      <div tw="bg-black py-24 sm:py-30 px-6 sm:px-0">
+      <div tw="bg-black py-24 sm:py-30 px-6">
         <PageContainer>
           <BigText tw="text-orange mb-24" css={[gradientTextStylePink]}>
             {t("home.security.title")}
@@ -188,12 +188,12 @@ const IndexPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6 ">
         <BigText tw="mb-32">{t("home.links.title")}</BigText>
         <Links />
       </PageContainer>
       <BgImage filename="start-esperanto.png">
-        <PageContainer tw="py-48 px-6 sm:px-0 text-right text-white">
+        <PageContainer tw="py-48 px-6 text-right text-white">
           <BigText tw="italic">{t("home.esperanto.title")}</BigText>
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
           <span tw="inline-flex hover:text-black">

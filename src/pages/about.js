@@ -40,12 +40,12 @@ const AboutPage = () => {
     <>
       <SEO title={t("about.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
+        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
           <BigText tw="mb-8">{t("about.title")}</BigText>
           <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
           <BodyBlock translationKey="about.top" />
           <div tw="flex sm:flex-wrap flex-col sm:flex-row">
@@ -89,7 +89,7 @@ const AboutPage = () => {
         </PageContainer>
       </div>
       <div tw="bg-black text-white">
-        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
+        <PageContainer tw="py-24 px-6 sm:py-30 ">
           <MediumBoldText tw="mb-24">{t("about.history.title")}</MediumBoldText>
 
           <div tw="flex flex-col sm:-mx-8">
@@ -110,12 +110,12 @@ const AboutPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 ">
         <BodyBlock translationKey="about.community" />
         <BodyBlock translationKey="about.fair" />
       </PageContainer>
       <div
-        tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0"
+        tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 "
         id="specifications"
       >
         <PageContainer>

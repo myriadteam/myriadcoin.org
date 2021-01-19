@@ -26,12 +26,12 @@ const MinePage = () => {
     <>
       <SEO title={t("mine.title")} />
       <PageContainer tw="mb-16 sm:mb-24">
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
+        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
           <BigText tw="mb-8">{t("mine.title")}</BigText>
           <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
           <MineAlgorithm
             title={t("mine.algoritm.title")}
@@ -45,21 +45,21 @@ const MinePage = () => {
           <Wallet title={t("mine.wallet.title")} />
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6">
         <MinePool selected={algoritm} />
       </PageContainer>
-      <PageContainer tw="pb-24 sm:pb-43 px-6 sm:px-0">
+      <PageContainer tw="pb-24 sm:pb-43 px-6">
         <BigText tw="text-orange sm:px-32" css={[gradientTextStyle]}>
           {t("mine.ready")}
         </BigText>
       </PageContainer>
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
-      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6">
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
         <Links skip={["mine"]} />
       </PageContainer>
       <BgImage filename="grad-1.png">
-        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
+        <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
           <Link
             to="/community"

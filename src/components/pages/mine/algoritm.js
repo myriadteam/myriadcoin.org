@@ -70,7 +70,7 @@ const Software = ({ software }) => {
 const MineAlgoritm = ({ title, selected, onChange = () => {} }) => {
   const { t } = useTranslation()
   return (
-    <div tw="px-6 sm:px-0">
+    <div tw="px-6">
       <MediumBoldText>
         {title || t("components.algoritm.choose_algoritm")}
       </MediumBoldText>

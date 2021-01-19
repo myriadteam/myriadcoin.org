@@ -57,12 +57,12 @@ const CommunityPage = () => {
     <>
       <SEO title={t("community.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
+        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
           <BigText tw="mb-8">{t("community.title")}</BigText>
           <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
           <div tw="flex flex-row">
             <SymbolBox symbol="control" left alternate />
@@ -73,7 +73,7 @@ const CommunityPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 ">
         <div tw="max-w-2xl">
           <MediumBoldText tw="mb-12">
             {t("community.social_media.title")}

@@ -25,12 +25,12 @@ const HoldPage = () => {
     <>
       <SEO title={t("hold.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6 sm:px-0">
+        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
           <BigText tw="mb-8">{t("hold.title")}</BigText>
           <IconArrowBlack alt=">" tw="transform rotate-90" />
         </div>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 sm:px-0">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer tw="flex flex-col sm:flex-row">
           <div>
             <MediumBoldText>{t("hold.buy.title")}</MediumBoldText>
@@ -41,22 +41,22 @@ const HoldPage = () => {
         </PageContainer>
       </div>
       <div tw="bg-black relative">
-        <PageContainer>
+        <PageContainer id="download">
           <Wallet title={t("hold.wallet.title")} />
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0">
+      <PageContainer tw="py-24 px-6 sm:py-30 ">
         <MediumBoldText>{t("hold.use.title")}</MediumBoldText>
         <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
         <LinkButton href="XXXX">{t("hold.use.link")}</LinkButton>
       </PageContainer>
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
-      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6">
         <BigText tw="mb-32">{t("hold.links.title")}</BigText>
         <Links skip={["hold"]} />
       </PageContainer>
       <BgImage filename="grad-2.png">
-        <PageContainer tw="py-24 px-6 sm:py-30 sm:px-0 text-right text-white overflow-hidden">
+        <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24 text-xl">{t("hold.fair.title")}</BigText>
           <Link
             to="/about"

@@ -91,8 +91,8 @@ module.exports = {
     screens: {
       sm: "640px",
       md: "768px",
-      lg: "980px",
-      xl: "980px",
+      lg: "1024px",
+      xl: "1280px",
     },
     borderRadius: {
       none: "0",

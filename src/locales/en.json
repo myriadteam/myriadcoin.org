@@ -282,13 +282,23 @@
       "body": "We are also on Bitcointalk and our own IRC channel"
     }
   },
-  "header": {
+  "navigation": {
     "links": {
+      "myriad": "Myriad",
       "about": "About",
       "hold": "Hold",
       "mine": "Mine",
       "community": "Community",
-      "updates": "Updates"
+      "updates": "Updates",
+      "download": "Download",
+      "resources": "Resources",
+      "explore": "Explore",
+      "blog": "Blog",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "reddit": "Reddit",
+      "twitter": "Twitter",
+      "facebook": "Facebook"
     }
   },
   "components": {
