@@ -101,7 +101,7 @@ const Footer = () => {
       )
     } else {
       return (
-        <Link to={link} className="flex items-center py-1 hover:text-purple">
+        <Link to={link} tw="flex items-center py-1 hover:text-purple">
           {icon && renderIcon(icon, text)}
           {Component && (
             <span tw="mr-2">
