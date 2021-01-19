@@ -29,16 +29,12 @@ const styleMap = {
 
 const getStyleName = ({ size }) => styleMap[size] || styleMap.base
 const getIcon = name => {
-  console.log(name)
-  console.log("iucon", icons[name.replace(/\s+/g, "-").toLowerCase()])
   return icons[name.replace(/\s+/g, "-").toLowerCase()]
 }
 
 const Svg = styled.svg(getStyleName)
 
 const SvgIcon = ({ name, size = "base" }) => {
-  console.log(getStyleName(size))
-
   return (
     <Svg
       size={size}
