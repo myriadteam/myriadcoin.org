@@ -7,7 +7,7 @@ import tw, { css } from "twin.macro"
 import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
 
-const HeaderContainer = tw.header`container flex justify-between py-8 px-8 sm:px-0 text-xxs`
+const HeaderContainer = tw.header`container flex justify-between py-8 px-8  text-xxs`
 const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 sm:mr-4`
 const MenuItemEffect = tw.i`relative block overflow-hidden not-italic py-0.5`
@@ -94,7 +94,7 @@ const Header = ({ siteTitle, t, i18n }) => {
                 activeClassName="active"
                 onClick={() => toggleExpansion(!isExpanded)}
               >
-                <MenuItemEffect>{t("header.links.about")}</MenuItemEffect>
+                <MenuItemEffect>{t("navigation.links.about")}</MenuItemEffect>
               </HeaderLink>
             </MenuItem>
             <MenuItem>
@@ -105,7 +105,7 @@ const Header = ({ siteTitle, t, i18n }) => {
                 className="relative block px-4 py-2 overflow-hidden"
                 onClick={() => toggleExpansion(!isExpanded)}
               >
-                <MenuItemEffect>{t("header.links.mine")}</MenuItemEffect>
+                <MenuItemEffect>{t("navigation.links.mine")}</MenuItemEffect>
               </HeaderLink>
             </MenuItem>
             <MenuItem>
@@ -116,7 +116,7 @@ const Header = ({ siteTitle, t, i18n }) => {
                 className="relative block px-4 py-2 overflow-hidden"
                 onClick={() => toggleExpansion(!isExpanded)}
               >
-                <MenuItemEffect>{t("header.links.hold")}</MenuItemEffect>
+                <MenuItemEffect>{t("navigation.links.hold")}</MenuItemEffect>
               </HeaderLink>
             </MenuItem>
             <MenuItem>
@@ -127,7 +127,9 @@ const Header = ({ siteTitle, t, i18n }) => {
                 className="relative block px-4 py-2 overflow-hidden"
                 onClick={() => toggleExpansion(!isExpanded)}
               >
-                <MenuItemEffect>{t("header.links.community")}</MenuItemEffect>
+                <MenuItemEffect>
+                  {t("navigation.links.community")}
+                </MenuItemEffect>
               </HeaderLink>
             </MenuItem>
             <MenuItem>
@@ -138,7 +140,7 @@ const Header = ({ siteTitle, t, i18n }) => {
                 className="relative block px-4 py-2"
                 onClick={() => toggleExpansion(!isExpanded)}
               >
-                <MenuItemEffect>{t("header.links.updates")}</MenuItemEffect>
+                <MenuItemEffect>{t("navigation.links.updates")}</MenuItemEffect>
               </a>
             </MenuItem>
           </MenuList>

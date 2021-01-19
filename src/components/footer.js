@@ -13,50 +13,48 @@ import { PageContainer, MediumBoldText } from "../common/elements"
 
 const columns = [
   [
-    { text: "Myriad", link: "/", Component: Logo },
+    { text: "myriad", link: "/", Component: Logo },
     {
-      text: "Instagram",
+      text: "instagram",
       url: "https://www.instagram.com/myriadcoin",
       icon: true,
     },
     {
-      text: "Telegram",
+      text: "telegram",
       url: "https://t.me/Myriadcoinofficial",
       icon: true,
     },
     {
-      text: "Twitter",
+      text: "twitter",
       url: "https://twitter.com/myriadcoin",
       icon: true,
     },
     {
-      text: "Facebook",
+      text: "facebook",
       url: "https://www.facebook.com/themyriadplatform",
       icon: true,
     },
     {
-      text: "Reddit",
+      text: "reddit",
       url: "https://www.reddit.com/r/myriadcoin/",
       icon: true,
     },
   ],
   [
-    { text: "Explore" },
-    { text: "About", link: "/about" },
-    { text: "Community", link: "/community" },
-    { text: "Blog", link: "/blog" },
+    { text: "explore" },
+    { text: "about", link: "/about" },
+    { text: "community", link: "/community" },
+    { text: "blog", url: "https://medium.com/myriadcoin" },
   ],
   [
-    { text: "Resources" },
-    { text: "Mine", link: "/mine" },
-    { text: "Hold", link: "/hold" },
-    { text: "Buy", link: "/buy" },
-    { text: "Accept", link: "/accept" },
+    { text: "resources" },
+    { text: "download", link: "/hold#download" },
+    { text: "mine", link: "/mine" },
+    { text: "hold", link: "/hold" },
   ],
-  [{ text: "Contact", link: "/contact" }],
 ]
 
-const FooterContainer = tw.header`container flex justify-between py-24 text-xxs flex-col sm:flex-row px-6 sm:px-0`
+const FooterContainer = tw.header`container flex justify-between py-24 text-xxs flex-col sm:flex-row px-6`
 const FooterLink = tw.a`flex items-center py-1 hover:text-purple`
 const FooterLinkTitle = tw.span`flex items-center`
 
@@ -98,7 +96,7 @@ const Footer = () => {
               <SvgIcon name={text} size="sm" />
             </span>
           )}
-          <FooterLinkTitle>{text}</FooterLinkTitle>
+          <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
         </FooterLink>
       )
     } else {
@@ -110,24 +108,24 @@ const Footer = () => {
               <Component />
             </span>
           )}
-          <FooterLinkTitle>{text}</FooterLinkTitle>
+          <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
         </Link>
       )
     }
   }
 
-  const renderTitle = item => {
+  const renderTitle = ({ icon, text }) => {
     return (
       <>
-        {item.icon && renderIcon(item.icon, item.text)}{" "}
-        <FooterLinkTitle>{item.text}</FooterLinkTitle>
+        {icon && renderIcon(icon, text)}{" "}
+        <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
       </>
     )
   }
 
   return (
     <>
-      <PageContainer tw="py-24 sm:py-30 px-6 sm:px-0">
+      <PageContainer tw="py-24 sm:py-30 px-6">
         <div tw="max-w-2xl">
           <Bubble tw="mb-8 sm:mb-16" color="blue">
             {t("home.telegram.bubble")}

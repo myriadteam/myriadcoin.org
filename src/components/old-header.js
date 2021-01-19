@@ -44,27 +44,27 @@ const Header = ({ siteTitle, t, i18n }) => (
       <MenuList>
         <MenuItem>
           <Link to="/about" className="px-4 py-2">
-            {t("header.links.about")}
+            {t("navigation.links.about")}
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/mine" className="px-4 py-2">
-            {t("header.links.mine")}
+            {t("navigation.links.mine")}
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/hold" className="px-4 py-2">
-            {t("header.links.hold")}
+            {t("navigation.links.hold")}
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/community" className="px-4 py-2">
-            {t("header.links.community")}
+            {t("navigation.links.community")}
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/business" className="px-4 py-2">
-            {t("header.links.business")}
+            {t("navigation.links.business")}
           </Link>
         </MenuItem>
         <LanguageMenu />
