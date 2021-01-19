@@ -1,11 +1,10 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import LinkWithHover from "../link-with-hover"
-import { Link } from "gatsby"
 import ArrowForward from "../../svgs/icons/arrow-forward.inline.svg"
 import tw from "twin.macro"
 
-const links = ["mine", "hold", "business", "community"]
+const links = ["mine", "hold", "community"]
 
 const Links = ({ skip = [] }) => {
   const { t } = useTranslation()

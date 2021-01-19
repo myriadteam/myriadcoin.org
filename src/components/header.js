@@ -131,17 +131,6 @@ const Header = ({ siteTitle, t, i18n }) => {
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink
-                to="/business"
-                css={[underlinedStyle]}
-                activeClassName="active"
-                className="relative block px-4 py-2 overflow-hidden"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>{t("header.links.business")}</MenuItemEffect>
-              </HeaderLink>
-            </MenuItem>
-            <MenuItem>
               <a
                 href="#"
                 id="headway-link"

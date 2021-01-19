@@ -97,7 +97,6 @@
       "title": "Start using Myriad now",
       "mine": "Mine Myriad",
       "hold": "Buy and store Myriad",
-      "business": "Accept Myriad as payment",
       "community": "Join the community"
     },
     "esperanto": {
@@ -283,14 +282,10 @@
       "body": "We are also on Bitcointalk and our own IRC channel"
     }
   },
-  "business": {
-    "title": "Use Myriad in your business"
-  },
   "header": {
     "links": {
       "about": "About",
       "hold": "Hold",
-      "business": "Business",
       "mine": "Mine",
       "community": "Community",
       "updates": "Updates"

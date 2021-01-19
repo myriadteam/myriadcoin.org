@@ -53,7 +53,7 @@ const columns = [
     { text: "Buy", link: "/buy" },
     { text: "Accept", link: "/accept" },
   ],
-  [{ text: "Business" }, { text: "Contact", link: "/contact" }],
+  [{ text: "Contact", link: "/contact" }],
 ]
 
 const FooterContainer = tw.header`container flex justify-between py-24 text-xxs flex-col sm:flex-row px-6 sm:px-0`
