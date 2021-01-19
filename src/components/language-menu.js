@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { withTrans } from "../i18n/withTrans"
 import tw, { styled } from "twin.macro"
+import { useSpring, animated } from "react-spring"
 
-const Wrapper = tw.div`font-body font-semibold text-xxs px-4 relative my-4 lg:my-0`
+const Wrapper = tw.div`font-body font-semibold text-xxs px-4 relative`
 const ListItem = tw.li`border-b border-solid border-highlight-grey last:border-b-0`
 const Button = tw.a`cursor-pointer px-6 py-4 text-xxs leading-none block w-full hover:text-purple`
 
 const List = styled.ul`
-  ${tw`absolute right-0 bg-white border-highlight-grey border border-solid rounded shadow-md top-double min-w-245`}
+  ${tw`absolute bg-white border border-solid rounded shadow-md left-1 right-1 sm:right-0 sm:left-auto border-highlight-grey top-full min-w-245`}
   &:before, &:after {
     content: "";
     position: absolute;
@@ -24,6 +25,8 @@ const List = styled.ul`
     top: -33px;
   }
 `
+
+const AnimatedList = animated(List)
 
 const LanguageMenu = ({ t, i18n }) => {
   const [values, setValues] = useState({
@@ -62,17 +65,23 @@ const LanguageMenu = ({ t, i18n }) => {
     )
   }
 
+  const menuAppear = useSpring({
+    transform: values.open ? "translate3D(0,0,0)" : "translate3D(0,-40px,0)",
+    opacity: values.open ? 1 : 0,
+    visibility: values.open ? "visible" : "hidden",
+  })
+
   return (
     <Wrapper>
       <button
         onClick={toggleMenu}
-        tw="block cursor-pointer font-semibold text-center sm:text-left w-full"
+        tw="block cursor-pointer font-semibold text-center sm:text-left w-full py-2 my-4"
       >
         {t(`languages.${values.language}`)}
       </button>
-      <List className={values.open ? "block" : "hidden"}>
+      <AnimatedList style={menuAppear}>
         {Object.keys(i18n.options.resources).map(key => renderButton(key))}
-      </List>
+      </AnimatedList>
     </Wrapper>
   )
 }
