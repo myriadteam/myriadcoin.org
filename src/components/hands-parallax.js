@@ -110,7 +110,7 @@ const HandsParallax = ({ filename, children, style }) => {
   }, [onLayout, onScroll])
 
   const stickyTop = interpolate([wh, eh], (wh, eh) => (wh - eh) / 2)
-  const stickyMultiplier = 4
+  const stickyMultiplier = 3
   const stickyLength = eh.interpolate(h => h * stickyMultiplier)
 
   const progressMax = height * (stickyMultiplier - 1)
