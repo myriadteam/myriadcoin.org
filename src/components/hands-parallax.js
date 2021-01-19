@@ -20,7 +20,6 @@ const ParallaxItem = ({
   component,
   offsetY,
   offsetX,
-  speed,
   interpolation,
   zIndex,
 }) => {
@@ -54,7 +53,7 @@ const Parallax = ({ items, translateY, eh }) => {
   )
 }
 
-const HandsParallax = ({ filename, children, style }) => {
+const HandsParallax = () => {
   const { t } = useTranslation()
   const [{ height, width }, setDimensions] = useState({})
 
