@@ -16,7 +16,7 @@ const columns = [
     { text: "Myriad", link: "/", Component: Logo },
     {
       text: "Instagram",
-      url: "https://t.me/https://www.instagram.com/myriadcoin",
+      url: "https://www.instagram.com/myriadcoin",
       icon: true,
     },
     {
