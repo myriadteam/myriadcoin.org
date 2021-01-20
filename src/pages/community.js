@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import SvgIcon from "../components/svg-icon"
 import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 import SymbolBox from "../components/symbol-box"
+import Link from "../components/shared/link"
 
 import {
   PageContainer,
@@ -11,7 +12,7 @@ import {
   MediumBoldText,
   BodyText,
 } from "../common/elements"
-import { useTranslation } from "react-i18next"
+import { useTranslation, Trans } from "react-i18next"
 
 const communities = [
   {
@@ -24,7 +25,7 @@ const communities = [
   },
   {
     text: "Discord",
-    url: "https://t.me/https://www.instagram.com/myriadcoin",
+    url: "https://discord.gg/fbDrFWZ",
   },
   {
     text: "Telegram",
@@ -34,20 +35,13 @@ const communities = [
     text: "Twitter",
     url: "https://twitter.com/myriadcoin",
   },
-  { text: "Slack", url: "https://slack.myralicious.com/" },
 ]
 
 const CommunityLink = ({ text, url }) => {
   return (
-    <a
-      href={url}
-      title={text}
-      target="_blank"
-      rel="noopener noreferrer"
-      tw="hover:text-purple transition ease-in duration-150 mr-10"
-    >
+    <Link uri={url} title={text} tw="mr-6 sm:mr-10 mb-4">
       <SvgIcon name={text} size="lg" />
-    </a>
+    </Link>
   )
 }
 
@@ -75,10 +69,10 @@ const CommunityPage = () => {
       </div>
       <PageContainer tw="py-24 px-6 sm:py-30 ">
         <div tw="max-w-2xl">
-          <MediumBoldText tw="mb-12">
+          <MediumBoldText tw="mb-8 sm:mb-12">
             {t("community.social_media.title")}
           </MediumBoldText>
-          <div tw="flex mb-12">
+          <div tw="flex flex-wrap mb-4 sm:mb-8 -mr-6 sm:-mr-10">
             {communities.map(({ text, url }) => (
               <CommunityLink
                 text={text}
@@ -87,7 +81,18 @@ const CommunityPage = () => {
               />
             ))}
           </div>
-          <BodyText>{t("community.social_media.body")}</BodyText>
+          <BodyText>
+            <Trans i18nKey="community.social_media.body">
+              We are also on{" "}
+              <Link uri="https://bitcointalk.org/index.php?topic=483515.0">
+                Bitcointalk
+              </Link>{" "}
+              and on our own{" "}
+              <Link uri="https://webchat.freenode.net/##myriadcoin">
+                IRC channel
+              </Link>
+            </Trans>
+          </BodyText>
         </div>
       </PageContainer>
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />

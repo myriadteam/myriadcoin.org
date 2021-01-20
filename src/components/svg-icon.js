@@ -24,7 +24,7 @@ const styleMap = {
   sm: tw`w-4 h-4`,
   base: tw`w-8 h-8`,
   md: tw`w-12 h-12`,
-  lg: tw`w-14 h-14`,
+  lg: tw`w-10 h-10 sm:w-14 sm:h-14`,
 }
 
 const getStyleName = ({ size }) => styleMap[size] || styleMap.base
