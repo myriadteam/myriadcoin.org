@@ -69,6 +69,10 @@ module.exports = {
       zIndex: {
         "-10": "-10",
       },
+      height: {
+        "112": "28rem",
+        "176": "44rem",
+      },
     },
     fontFamily: {
       body: ["HK Grotesk"],

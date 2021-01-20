@@ -9,13 +9,14 @@ import Nonsense from "../components/pages/home/nonsense"
 import LinkWithHover from "../components/link-with-hover"
 import Links from "../components/shared/links"
 import tw, { css } from "twin.macro"
-import IconArrowWhite from "../svgs/icons/arrow-forward.inline.svg"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
 import SymbolBox from "../components/symbol-box"
+import Cover from "../components/shared/cover"
 
 import Loooong from "../svgs/icons/loooong.inline.svg"
 import FunkyPercent from "../svgs/icons/funky-percent.inline.svg"
+import IconArrowForward from "../svgs/icons/arrow-forward.inline.svg"
 
 import {
   PageContainer,
@@ -71,19 +72,13 @@ const longblocksSpecial = title => {
     </span>
   )
 }
-
 const IndexPage = () => {
   const { t } = useTranslation()
   return (
     <>
       <SEO title="Home" />
       <PageContainer>
-        <div>
-          <BigText
-            tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6"
-            dangerouslySetInnerHTML={{ __html: t("home.coverText") }}
-          />
-        </div>
+        <Cover>{t("home.coverText")}</Cover>
       </PageContainer>
 
       <HandsParallax />
@@ -202,7 +197,7 @@ const IndexPage = () => {
               tw="underline text-xl sm:text-2xl font-bold leading-extra-tight flex flex-row"
             >
               {t("home.esperanto.join")}
-              <IconArrowWhite tw="ml-4" />
+              <IconArrowForward tw="ml-4" />
             </Link>
           </span>
         </PageContainer>

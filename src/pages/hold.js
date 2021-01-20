@@ -7,8 +7,9 @@ import Links from "../components/shared/links"
 import Price from "../components/shared/price"
 import Exchanges from "../components/shared/exchanges"
 import BgImage from "../components/bg-image"
+import Cover from "../components/shared/cover"
 
-import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
+import IconArrowForward from "../svgs/icons/arrow-forward.inline.svg"
 
 import {
   PageContainer,
@@ -25,10 +26,7 @@ const HoldPage = () => {
     <>
       <SEO title={t("hold.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
-          <BigText tw="mb-8">{t("hold.title")}</BigText>
-          <IconArrowBlack alt=">" tw="transform rotate-90" />
-        </div>
+        <Cover showArrow>{t("hold.title")}</Cover>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer tw="flex flex-col sm:flex-row">
@@ -63,7 +61,7 @@ const HoldPage = () => {
             tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black inline-flex"
           >
             {t("hold.fair.link")}
-            <IconArrowBlack tw="ml-4" />
+            <IconArrowForward tw="ml-4" />
           </Link>
         </PageContainer>
       </BgImage>

@@ -2,16 +2,11 @@ import React from "react"
 import tw from "twin.macro"
 import SEO from "../components/seo"
 import SvgIcon from "../components/svg-icon"
-import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 import SymbolBox from "../components/symbol-box"
 import Link from "../components/shared/link"
+import Cover from "../components/shared/cover"
 
-import {
-  PageContainer,
-  BigText,
-  MediumBoldText,
-  BodyText,
-} from "../common/elements"
+import { PageContainer, MediumBoldText, BodyText } from "../common/elements"
 import { useTranslation, Trans } from "react-i18next"
 
 const communities = [
@@ -51,10 +46,7 @@ const CommunityPage = () => {
     <>
       <SEO title={t("community.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
-          <BigText tw="mb-8">{t("community.title")}</BigText>
-          <IconArrowBlack alt=">" tw="transform rotate-90" />
-        </div>
+        <Cover showArrow>{t("community.title")}</Cover>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>

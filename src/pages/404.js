@@ -9,11 +9,13 @@ const HoldPage = () => {
     <>
       <SEO title="404 - page not found" />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
-          <BigText tw="mb-8">404 - Page not found</BigText>
-          <BodyText>
-            Sorry but we could not find what you were looking for :(
-          </BodyText>
+        <div tw="h-112 -mt-24 sm:h-176 sm:-mt-32 flex items-center px-6">
+          <div tw="relative">
+            <BigText>404 - Page not found</BigText>
+            <BodyText>
+              Sorry but we could not find what you were looking for :(
+            </BodyText>
+          </div>
         </div>
       </PageContainer>
     </>

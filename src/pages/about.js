@@ -3,7 +3,8 @@ import tw from "twin.macro"
 import SEO from "../components/seo"
 import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
-import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
+import Cover from "../components/shared/cover"
+
 import {
   gradientTextStylePurple,
   gradientTextStylePink,
@@ -13,7 +14,6 @@ import {
 
 import {
   PageContainer,
-  BigText,
   MediumBoldText,
   BodyText,
   BodyBoldText,
@@ -40,10 +40,7 @@ const AboutPage = () => {
     <>
       <SEO title={t("about.title")} />
       <PageContainer>
-        <div tw="mt-16 mb-24 sm:mt-20 sm:mb-56 px-6">
-          <BigText tw="mb-8">{t("about.title")}</BigText>
-          <IconArrowBlack alt=">" tw="transform rotate-90" />
-        </div>
+        <Cover showArrow>{t("about.title")}</Cover>
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
