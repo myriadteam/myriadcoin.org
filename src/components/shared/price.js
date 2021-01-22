@@ -8,12 +8,12 @@ import {
 import XmyDataContext from "../../contexts/xmy-data-context.js"
 
 const Price = () => {
-  const { currentPrice, startPrice } = useContext(XmyDataContext)
+  const {
+    USD: { opening, current },
+  } = useContext(XmyDataContext)
 
   let difference =
-    ((parseFloat(currentPrice) - parseFloat(startPrice)) /
-      parseFloat(currentPrice)) *
-    100
+    ((parseFloat(current) - parseFloat(opening)) / parseFloat(current)) * 100
 
   let differenceRounded = Math.round(difference * 100) / 100
 
@@ -27,7 +27,7 @@ const Price = () => {
             : gradientTextStylePink,
         ]}
       >
-        {currentPrice} USD
+        {current} USD
       </MediumBoldText>
       <MediumBoldText tw="text-grey mb-0">
         ({differenceRounded}%)

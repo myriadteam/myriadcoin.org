@@ -1,72 +1,56 @@
-import React, { createContext, Component } from "react"
-import ExchangeHelper from "../common/exchange-helper"
+import React, { useEffect, useState, useCallback } from "react"
+import exchangeHelper from "../common/exchange-helper"
 
 const defaultState = {
-  blocks: 0,
-  transactions: 0,
-  fullNodes: 0,
-  currentPrice: null,
-  startPrice: null,
+  blocks: 3191373,
+  transactions: 3191373 * 3.5,
+  fullNodes: 75,
+  USD: { opening: 0, current: 0 },
 }
 
-const XmyDataContext = createContext(defaultState)
+const XmyDataContext = React.createContext(defaultState)
 
-class XmyDataProvider extends Component {
-  state = {
-    blocks: 12345,
-    transactions: 654321,
-    fullNodes: 75,
-    currentPrice: null,
-    startPrice: null,
-  }
+function XmyDataProvider({ children }) {
+  const [state, setState] = useState(defaultState)
 
-  exchangeHelper = null
-
-  componentDidMount() {
-    this.exchangeHelper = ExchangeHelper("XMY")
-    this.fetchStartPrice()
-    this.fetchCurrentPrice()
-  }
-
-  fetchStartPrice = () => {
-    var timeStamp = new Date()
+  const updatePrice = useCallback(async currency => {
+    const timeStamp = new Date()
     timeStamp.setHours(0, 0, 0, 0)
-    return this.exchangeHelper
-      .fetchHistoricPrice("USD", timeStamp.getTime())
-      .then(startPrice => {
-        this.setState({ startPrice })
-      })
-  }
 
-  fetchCurrentPrice = () => {
-    this.exchangeHelper.fetchCurrentPrice("USD").then(currentPrice => {
-      this.setState({ currentPrice })
-    })
-  }
+    const [current, opening] = await Promise.all([
+      exchangeHelper("XMY").fetchCurrentPrice("USD"),
+      exchangeHelper("XMY").fetchHistoricPrice(currency, timeStamp.getTime()),
+    ])
 
-  render() {
-    const { children } = this.props
-    const {
-      blocks,
-      transactions,
-      currentPrice,
-      startPrice,
-      fullNodes,
-    } = this.state
-    return (
-      <XmyDataContext.Provider
-        value={{
-          blocks,
-          transactions,
-          currentPrice,
-          startPrice,
-          fullNodes,
-        }}
-      >
-        {children}
-      </XmyDataContext.Provider>
-    )
-  }
+    setState(c => ({ ...c, [currency]: { current, opening } }))
+  }, [])
+
+  const updateBlockchain = useCallback(async () => {
+    const { backend } = await fetch(
+      "https://xmy-blockbook1.coinid.org/api"
+    ).then(r => r.json())
+
+    setState(c => ({
+      ...c,
+      blocks: backend.blocks,
+      transactions: backend.blocks * 3.5,
+    }))
+  }, [])
+
+  useEffect(() => {
+    const updateData = () => {
+      updatePrice("USD")
+      updateBlockchain()
+    }
+
+    updateData()
+    setInterval(updateData, 30000)
+  }, [updateBlockchain, updatePrice])
+
+  return (
+    <XmyDataContext.Provider value={state}>{children}</XmyDataContext.Provider>
+  )
 }
+
 export default XmyDataContext
 export { XmyDataProvider }

@@ -21,8 +21,6 @@ import {
 import { useTranslation } from "react-i18next"
 import moment from "moment"
 
-const startDate = moment("2014-02-23 18:30 UTC")
-
 const AboutPage = () => {
   const { t } = useTranslation()
   const { blocks, transactions, fullNodes } = useContext(XmyDataContext)
@@ -35,6 +33,9 @@ const AboutPage = () => {
   const featuresItems = t("about.specifications.features.items", {
     returnObjects: true,
   })
+
+  const startDate = moment("2014-02-23 18:30 UTC")
+  const yearsInDevelopment = Math.round(moment().diff(startDate, "years", true))
 
   return (
     <>
@@ -51,7 +52,7 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStylePurple]}
               >
-                {Math.round(moment().diff(startDate, "years", true))}
+                {yearsInDevelopment}
               </span>
               <BodyText>{t("about.stats.years")}</BodyText>
             </div>
