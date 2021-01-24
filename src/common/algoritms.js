@@ -3,9 +3,6 @@ import iconGithub from "../svgs/icons/icon-github.svg"
 export const algoritms = [
   {
     value: "SHA256d",
-    label: "SHA256d",
-    purpose: "ASIC miners",
-    description: "You may use any SHA256d compatible ASIC",
     miningPools: [
       {
         url: "https://myrsha256.miningfield.com",
@@ -17,9 +14,6 @@ export const algoritms = [
   },
   {
     value: "scrypt",
-    label: "Scrypt",
-    purpose: "ASIC miners",
-    description: "You may use any Scrypt compatible ASIC",
     miningPools: [
       { url: "https://pokemongomongo.tk", name: "Pokemongomongo.tk Pool" },
       { url: "https://www.zpool.ca", name: "zpool" },
@@ -27,22 +21,30 @@ export const algoritms = [
   },
   {
     value: "myr-groestl",
-    label: "Myr-Groestl",
-    purpose: "GPU miners",
-    description: "If you mine using Myr-Groestl, you have a few options.",
     softwares: [
-      {
-        label: "Bitcoin Talk",
-        url: "https://bitcointalk.org/index.php?topic=632503.0",
-      },
       {
         label: "SGMiner",
         url: "https://github.com/sgminer-dev/sgminer",
         icon: iconGithub,
         example: {
-          label: "Suggested Command Line",
           code:
             "sgminer --algoritm myriadcoin-groestl --no-extranonce -o {pool-URL} -O Username:Password",
+        },
+      },
+      {
+        label: "CCMiner",
+        url: "https://github.com/sgminer-dev/sgminer",
+        icon: iconGithub,
+        example: {
+          code: "ccminer -a myr-gr -o {pool-URL} -O Username:Password",
+        },
+      },
+      {
+        label: "CPUMiner-multi",
+        url: "https://github.com/sgminer-dev/sgminer",
+        icon: iconGithub,
+        example: {
+          code: "cpuminer -a myr-gr -o {pool-URL} -O Username:Password",
         },
       },
     ],
@@ -60,17 +62,12 @@ export const algoritms = [
   },
   {
     value: "argon2d",
-    label: "Argon 2D",
-    purpose: "CPU miners",
-    description:
-      "Argon2 is a key derivation function that was selected as the winner of the Password Hashing Competition in July 2015. Argon2d maximizes resistance to GPU cracking attacks. It accesses the memory array in a password dependent order, which reduces the possibility of time memory trade-off aka (TMTO) attacks, but introduces possible side-channel attacks.",
     softwares: [
       {
         label: "CPUMiner-opt",
         url: "https://bitcointalk.org/index.php?topic=1326803.0",
         icon: iconGithub,
         example: {
-          label: "Suggested Command Line",
           code: "cpuminer -a argon2d4096 -o {pool-URL} -u username -p password",
         },
       },
@@ -81,17 +78,13 @@ export const algoritms = [
   },
   {
     value: "yescrypt",
-    label: "Yescrypt",
-    purpose: "CPU miners",
-    description:
-      "Yescrypt is a password-based key derivation function. It applies slow cryptographic operations to a password and salt, creating a key suitable for performing encryption or storage to validate the password in the future. Yescrypt algoritm is based on scrypt by Colin Percival of Tarsnap.",
+
     softwares: [
       {
         label: "CPUMiner-opt",
         url: "https://bitcointalk.org/index.php?topic=1326803.0",
         icon: iconGithub,
         example: {
-          label: "Suggested Command Line",
           code: "cpuminer -a yescrypt -o {pool-URL} -O xmyaddress:home",
         },
       },

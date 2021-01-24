@@ -46,7 +46,7 @@ const Nonsense = () => {
 
   return (
     <div tw="mt-24 sm:mt-48">
-      <PageContainer tw="px-6">
+      <PageContainer tw="px-6 sm:px-0">
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
         <div tw="bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 -mx-3 sm:mx-0">

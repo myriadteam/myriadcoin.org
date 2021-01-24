@@ -8,7 +8,7 @@ const DropdownContainer = styled.div`
   ${tw`relative z-10 inline-flex flex-col rounded cursor-pointer`}
   ${({ theme }) =>
     theme === "light"
-      ? tw`bg-black text-white dark:bg-white dark:text-black`
+      ? tw`text-white bg-black dark:bg-white dark:text-black`
       : tw`text-black bg-white`}
 `
 
@@ -35,7 +35,15 @@ const Option = styled.a`
       : tw`bg-white hover:bg-gray-300`}
 `
 
-const DropdownMenu = ({ options, theme, toggleOpen, onChange }) => {
+const DropdownMenu = ({
+  options,
+  theme,
+  toggleOpen,
+  onChange,
+  labelPrefix,
+}) => {
+  const { t } = useTranslation()
+  console.log("labelPrefix 2", labelPrefix)
   return (
     <Menu>
       {options.map(option => (
@@ -47,7 +55,9 @@ const DropdownMenu = ({ options, theme, toggleOpen, onChange }) => {
             toggleOpen(false)
           }}
         >
-          {option.label}
+          {labelPrefix
+            ? t(`${labelPrefix}.${option.value}.label`)
+            : option.label}
         </Option>
       ))}
     </Menu>
@@ -59,13 +69,18 @@ const Dropdown = ({
   selected,
   onChange,
   placeholder,
+  labelPrefix,
   theme = "light",
 }) => {
+  console.log("labelPrefix 1", labelPrefix)
   const { t } = useTranslation()
   const [isOpen, toggleOpen] = useState(false)
 
   const selectedOption = options.find(option => option.value === selected)
 
+  const selectedTitle = labelPrefix
+    ? t(`${labelPrefix}.${selectedOption.value}.label`)
+    : selectedOption.label
   return (
     <DropdownContainer theme={theme}>
       <Selected
@@ -75,13 +90,14 @@ const Dropdown = ({
       >
         <span>
           {selectedOption
-            ? selectedOption.label
+            ? selectedTitle
             : placeholder || t("components.dropdown.placeholder")}
         </span>
         <IconChevronDown alt=">" tw="ml-8" />
       </Selected>
       {isOpen && (
         <DropdownMenu
+          labelPrefix={labelPrefix}
           options={options}
           theme={theme}
           onChange={onChange}
@@ -94,6 +110,7 @@ const Dropdown = ({
 
 Dropdown.propTypes = {
   options: PropTypes.array,
+  labelPrefix: PropTypes.string,
   selected: PropTypes.string,
   onChange: PropTypes.func,
 }

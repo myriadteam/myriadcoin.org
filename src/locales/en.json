@@ -305,7 +305,8 @@
     "algoritm": {
       "choose_algoritm": "Choose an algorithm",
       "recommended_for": "Recommended algo for",
-      "available_software": "Choose a {{name}} software"
+      "available_software": "Choose a {{name}} software",
+      "suggested_command_line": "Suggested Command Line"
     },
     "wallet": {
       "github": "Checkout the Github repository for more info",
@@ -313,6 +314,33 @@
     },
     "dropdown": {
       "placeholder": "Select..."
+    }
+  },
+  "algoritms": {
+    "SHA256d": {
+      "label": "SHA256d",
+      "purpose": "ASIC miners",
+      "description": "You may use any SHA256d compatible ASIC"
+    },
+    "scrypt": {
+      "label": "Scrypt",
+      "purpose": "ASIC miners",
+      "description": "You may use any Scrypt compatible ASIC"
+    },
+    "myr-groestl": {
+      "label": "Myr-Groestl",
+      "purpose": "GPU miners",
+      "description": "If you mine using Myr-Groestl, you have a few options"
+    },
+    "argon2d": {
+      "label": "Argon 2D",
+      "purpose": "CPU miners",
+      "description": "Argon2 is a key derivation function that was selected as the winner of the Password Hashing Competition in July 2015. Argon2d maximizes resistance to GPU cracking attacks. It accesses the memory array in a password dependent order, which reduces the possibility of time memory trade-off aka (TMTO) attacks, but introduces possible side-channel attacks."
+    },
+    "yescrypt": {
+      "label": "Yescrypt",
+      "purpose": "CPU miners",
+      "description": "Yescrypt is a password-based key derivation function. It applies slow cryptographic operations to a password and salt, creating a key suitable for performing encryption or storage to validate the password in the future. Yescrypt algoritm is based on scrypt by Colin Percival of Tarsnap."
     }
   }
 }
