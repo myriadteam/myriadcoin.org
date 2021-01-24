@@ -50,8 +50,8 @@ const Nonsense = () => {
           {transitions.map(({ props }) => (
             <NonsenseBox
               keyName={dataKeys[index]}
+              key={dataKeys[index]}
               style={props}
-              currentSlide={index}
             />
           ))}
         </div>
