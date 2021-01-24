@@ -1,16 +1,10 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
-import {
-  BigText,
-  MediumText,
-  MediumBoldText,
-  BodyText,
-  PageContainer,
-} from "../../../common/elements"
+import { useTransition } from "react-spring"
+import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
-import InfoSvg from "../../../svgs/info.svg"
-
-import { useTranslation, Trans } from "react-i18next"
+import { BigText, MediumText, PageContainer } from "../../../common/elements"
+import NonsenseBox from "./nonsense-box"
+import usePrevious from "../../../hooks/use-previous"
 
 const NonsenseButton = styled.button`
   ${tw`px-4 py-2 whitespace-no-wrap transition duration-100 ease-in transform rounded-full hover:opacity-75`}
@@ -33,56 +27,43 @@ const dataKeys = [
 
 const Nonsense = () => {
   let { t } = useTranslation()
-  let [currentKey, setCurrentKey] = useState("asic_farms")
+  const [index, setIndex] = useState(0)
 
-  const changeKey = key => {
-    setCurrentKey(key)
-  }
+  const previousSlide = usePrevious(index)
 
-  const translationKey = `home.nonsense.bubbles.${currentKey}`
-  const title = t([`${translationKey}.title`, ""])
-  const info = t([`${translationKey}.info`, ""])
-  const link = t([`${translationKey}.link`, ""])
+  const dir = index < previousSlide ? -1 : 1
+  const transitions = useTransition([index], item => item, {
+    from: { opacity: 0, transform: `translate3d(${80 * dir}%, 0, 0)` },
+    enter: { opacity: 1, transform: `translate3d(0px, 0, 0)` },
+    leave: { opacity: 0, transform: `translate3d(${-100 * dir}%, 0, 0)` },
+    config: {
+      duration: 400,
+    },
+  })
 
   return (
     <div tw="mt-24 sm:mt-48">
       <PageContainer tw="px-6 sm:px-0">
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
-        <div tw="bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 -mx-3 sm:mx-0">
-          <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
-            <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-            {info && (
-              <div tw="mt-8 sm:mt-0 rounded-full bg-light-grey dark:bg-dark-info-box text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">
-                <div tw="mr-2 w-6 h-6">
-                  <img src={InfoSvg} alt="i" />
-                </div>{" "}
-                {info}
-              </div>
-            )}
-          </div>
-          <Trans
-            i18nKey={`${translationKey}.body`}
-            components={[<BodyText tw="mb-8 last:mb-0" />]}
-          />
-          {link && (
-            <Link
-              to={link}
-              tw="underline hover:no-underline inline-block text-sm sm:text-base font-medium"
-            >
-              {t("common.readMore")}
-            </Link>
-          )}
+        <div tw="h-112 overflow-hidden relative">
+          {transitions.map(({ props }) => (
+            <NonsenseBox
+              keyName={dataKeys[index]}
+              style={props}
+              currentSlide={index}
+            />
+          ))}
         </div>
       </PageContainer>
-      <div tw="flex mt-10 xl:justify-center overflow-x-scroll">
-        {dataKeys.map(key => {
+      <div tw="flex mt-10 xl:justify-center">
+        {dataKeys.map((key, keyIndex) => {
           return (
-            <span tw="px-2" key={`nonsense-key-${key}`}>
+            <span tw="px-2" key={`nonsense-btn-${key}`}>
               <NonsenseButton
-                onClick={() => changeKey(key)}
-                selectedKey={currentKey}
-                thisKey={key}
+                onClick={() => setIndex(keyIndex)}
+                selectedKey={index}
+                thisKey={keyIndex}
               >
                 {t(`home.nonsense.bubbles.${key}.title`)}
               </NonsenseButton>
