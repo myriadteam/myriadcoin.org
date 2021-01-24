@@ -106,6 +106,9 @@ module.exports = {
       lg: "32px",
       full: "9999px",
     },
+    backgroundOpacity: {
+      90: 0.9,
+    },
     linearGradientColors: theme => theme("colors"),
     radialGradientColors: theme => theme("colors"),
     conicGradientColors: theme => theme("colors"),
