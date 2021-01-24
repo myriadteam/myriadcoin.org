@@ -119,6 +119,7 @@
     },
     "stats": {
       "full_nodes": "Full nodes",
+      "circulating_supply": "Circulating supply",
       "blocks": "Blocks",
       "transactions": "Transactions",
       "years": "Years in development"

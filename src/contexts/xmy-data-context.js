@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback } from "react"
 import exchangeHelper from "../common/exchange-helper"
 
 const defaultState = {
-  blocks: 3191373,
-  transactions: 3191373 * 3.5,
-  fullNodes: 75,
+  blocks: 3192785,
+  transactions: 2184920,
+  fullNodes: 24,
+  circulatingSupply: 1765875500,
   USD: { opening: 0, current: 0 },
 }
 
@@ -26,14 +27,26 @@ function XmyDataProvider({ children }) {
   }, [])
 
   const updateBlockchain = useCallback(async () => {
-    const { backend } = await fetch(
-      "https://xmy-blockbook1.coinid.org/api"
+    const backend = await fetch(
+      "https://xmy-history.coinid.org/gettxoutsetinfo/latest.json"
     ).then(r => r.json())
 
     setState(c => ({
       ...c,
-      blocks: backend.blocks,
-      transactions: backend.blocks * 3.5,
+      blocks: backend.height,
+      transactions: backend.transactions,
+      circulatingSupply: backend.total_amount,
+    }))
+  }, [])
+
+  const updateConnectionCount = useCallback(async () => {
+    const connectionCount = await fetch(
+      "https://xmy-history.coinid.org/getconnectioncount/latest.json"
+    ).then(r => r.json())
+
+    setState(c => ({
+      ...c,
+      fullNodes: connectionCount,
     }))
   }, [])
 
@@ -41,11 +54,12 @@ function XmyDataProvider({ children }) {
     const updateData = () => {
       updatePrice("USD")
       updateBlockchain()
+      updateConnectionCount()
     }
 
     updateData()
     setInterval(updateData, 30000)
-  }, [updateBlockchain, updatePrice])
+  }, [updatePrice, updateBlockchain, updateConnectionCount])
 
   return (
     <XmyDataContext.Provider value={state}>{children}</XmyDataContext.Provider>

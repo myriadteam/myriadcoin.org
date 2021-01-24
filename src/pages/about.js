@@ -23,7 +23,7 @@ import moment from "moment"
 
 const AboutPage = () => {
   const { t } = useTranslation()
-  const { blocks, transactions, fullNodes } = useContext(XmyDataContext)
+  const { blocks, transactions, circulatingSupply } = useContext(XmyDataContext)
 
   const historyItems = t("about.history.items", { returnObjects: true })
   const distributionItems = t("about.specifications.distribution.items", {
@@ -61,9 +61,9 @@ const AboutPage = () => {
                 tw="text-2xl sm:text-4xl leading-none font-bold"
                 css={[gradientTextStylePink]}
               >
-                {t("formattedNumber", { number: fullNodes })}
+                {t("formattedNumber", { number: circulatingSupply })}
               </span>
-              <BodyText>{t("about.stats.full_nodes")}</BodyText>
+              <BodyText>{t("about.stats.circulating_supply")}</BodyText>
             </div>
             <div tw="w-full sm:w-half mb-10">
               <span
