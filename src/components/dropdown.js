@@ -72,7 +72,6 @@ const Dropdown = ({
   labelPrefix,
   theme = "light",
 }) => {
-  console.log("labelPrefix 1", labelPrefix)
   const { t } = useTranslation()
   const [isOpen, toggleOpen] = useState(false)
 
@@ -80,7 +79,7 @@ const Dropdown = ({
 
   const selectedTitle = labelPrefix
     ? t(`${labelPrefix}.${selectedOption.value}.label`)
-    : selectedOption.label
+    : selectedOption && selectedOption.label
   return (
     <DropdownContainer theme={theme}>
       <Selected
