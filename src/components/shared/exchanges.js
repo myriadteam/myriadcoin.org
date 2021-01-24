@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import tw, { styled } from "twin.macro"
 import { exchanges } from "../../common/exchanges"
 import IconLitebit from "../../svgs/icons/litebit.inline.svg"
