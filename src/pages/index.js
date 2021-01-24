@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import SEO from "../components/seo"
@@ -8,6 +7,7 @@ import HandsParallax from "../components/hands-parallax"
 import Nonsense from "../components/pages/home/nonsense"
 import LinkWithHover from "../components/link-with-hover"
 import Links from "../components/shared/links"
+import Link from "../components/shared/link"
 import tw, { css } from "twin.macro"
 import AnimatedLine from "../components/animated-line"
 import { gradientTextStylePink } from "../common/gradients"
@@ -107,9 +107,12 @@ const IndexPage = () => {
                   <AnimatedLine name="Line2" />
                 </div>
                 <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
-                <LinkWithHover to="/about">
+                <Link
+                  uri="/about"
+                  tw="inline-flex font-normal leading-tight sm:text-md"
+                >
                   {t("common.readMore")}
-                </LinkWithHover>
+                </Link>
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt-4 sm:mt-8">
                   <AnimatedLine name="Line3" />
                 </div>
@@ -125,9 +128,12 @@ const IndexPage = () => {
                 <BodyText tw="mb-6">
                   {t("home.myriadIs.community.body")}
                 </BodyText>
-                <LinkWithHover to="/community" tw="relative">
+                <Link
+                  uri="/community"
+                  tw="inline-flex font-normal leading-tight sm:text-md"
+                >
                   {t("common.readMore")}
-                </LinkWithHover>
+                </Link>
                 <div tw="absolute left-0 right-0 mt--12 sm:mt--16 text-white dark:text-dark-bg -z-10">
                   <AnimatedLine name="Line4" />
                 </div>
@@ -141,7 +147,12 @@ const IndexPage = () => {
               <div tw="mb-24 sm:mb-40">
                 <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
                 <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
-                <LinkWithHover to="/mine">{t("common.readMore")}</LinkWithHover>
+                <Link
+                  uri="mine"
+                  tw="inline-flex font-normal leading-tight sm:text-md"
+                >
+                  {t("common.readMore")}
+                </Link>
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt--10 sm:mt--12">
                   <AnimatedLine name="Line5" />
                 </div>
@@ -193,8 +204,8 @@ const IndexPage = () => {
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
           <span tw="inline-flex hover:text-black">
             <Link
-              to="/community"
-              tw="underline text-xl sm:text-2xl font-bold leading-extra-tight flex flex-row"
+              uri="/community"
+              tw="text-xl sm:text-2xl font-bold leading-extra-tight flex flex-row hover:text-black"
             >
               {t("home.esperanto.join")}
               <IconArrowForward tw="ml-4" />

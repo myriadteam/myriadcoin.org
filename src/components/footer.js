@@ -1,8 +1,8 @@
-import { Link } from "gatsby"
 import React from "react"
 import tw from "twin.macro"
 import classNames from "classnames"
 import SvgIcon from "../components/svg-icon"
+import Link from "../components/shared/link"
 import { useTranslation } from "react-i18next"
 
 import Bubble from "../components/bubble"
@@ -55,7 +55,6 @@ const columns = [
 ]
 
 const FooterContainer = tw.header`container flex justify-between py-24 text-xxs flex-col sm:flex-row px-6`
-const FooterLink = tw.a`flex items-center py-1 hover:text-purple`
 const FooterLinkTitle = tw.span`flex items-center`
 
 const Footer = () => {
@@ -89,7 +88,7 @@ const Footer = () => {
   const renderLink = ({ url, Component, icon, text, link }) => {
     if (url) {
       return (
-        <FooterLink href={url}>
+        <Link uri={url} tw="flex items-center py-1">
           {icon && icon !== true && renderIcon(icon, text)}
           {icon && icon === true && (
             <span tw="mr-2">
@@ -97,11 +96,11 @@ const Footer = () => {
             </span>
           )}
           <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
-        </FooterLink>
+        </Link>
       )
     } else {
       return (
-        <Link to={link} tw="flex items-center py-1 hover:text-purple">
+        <Link uri={link} tw="flex items-center py-1">
           {icon && renderIcon(icon, text)}
           {Component && (
             <span tw="mr-2">
@@ -133,13 +132,13 @@ const Footer = () => {
           <MediumBoldText tw="text-black dark:text-white mb-8 sm:mb-16">
             {t("home.telegram.title")}
           </MediumBoldText>
-          <a
-            href="https://t.me/Myriadcoinofficial"
+          <Link
+            uri="https://t.me/Myriadcoinofficial"
             tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-purple"
           >
             {t("home.telegram.join")}
             <IconArrowBlack tw="ml-2 w-32p h-32p inline-flex" />
-          </a>
+          </Link>
         </div>
       </PageContainer>
       <FooterContainer>
