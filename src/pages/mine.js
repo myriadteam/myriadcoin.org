@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import tw, { css } from "twin.macro"
-import { useTranslation } from "react-i18next"
+import { useTranslation, Trans } from "react-i18next"
 import SEO from "../components/seo"
 import MineAlgorithm from "../components/pages/mine/algoritm"
 import MinePool from "../components/pages/mine/pool"
@@ -56,7 +56,13 @@ const MinePage = () => {
       </PageContainer>
       <BgImage filename="grad-1.png">
         <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
-          <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
+          <BigText tw="mb-16 sm:mb-24">
+            <Trans i18nKey="mine.need.title">
+              Is there a need for
+              <br />
+              cryptocurrencies
+            </Trans>
+          </BigText>
           <Link
             uri="/community"
             tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
