@@ -62,12 +62,10 @@ function HeaderLink({ children, to, onClick, ...props }) {
 HeaderLink.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
-  activeClassName: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
 HeaderLink.defaultProps = {
-  activeClassName: "active",
   className: "",
   to: null,
 }
