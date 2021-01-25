@@ -19,7 +19,6 @@ import {
   BodyBoldText,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
-import moment from "moment"
 
 const AboutPage = () => {
   const { t } = useTranslation()
@@ -34,8 +33,14 @@ const AboutPage = () => {
     returnObjects: true,
   })
 
-  const startDate = moment("2014-02-23 18:30 UTC")
-  const yearsInDevelopment = Math.round(moment().diff(startDate, "years", true))
+  const yearsInDevelopment = Math.round(
+    (new Date() - new Date("2014-02-23 18:00 UTC")) /
+      1000 /
+      60 /
+      60 /
+      24 /
+      365.24
+  )
 
   return (
     <>
