@@ -13,7 +13,7 @@ const Links = ({ skip = [] }) => {
       {linksToShow.map(link => (
         <li tw="flex mb-10" key={`key-${link}`}>
           <Link
-            uri={link}
+            uri={`/${link}`}
             tw="font-bold text-md sm:text-2xl leading-extra-tight"
             showArrow
           >
