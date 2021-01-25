@@ -5,7 +5,6 @@ import SEO from "../components/seo"
 import BgImage from "../components/bg-image"
 import HandsParallax from "../components/hands-parallax"
 import Nonsense from "../components/pages/home/nonsense"
-import LinkWithHover from "../components/link-with-hover"
 import Links from "../components/shared/links"
 import Link from "../components/shared/link"
 import tw, { css } from "twin.macro"
@@ -16,7 +15,6 @@ import Cover from "../components/shared/cover"
 
 import Loooong from "../svgs/icons/loooong.inline.svg"
 import FunkyPercent from "../svgs/icons/funky-percent.inline.svg"
-import IconArrowForward from "../svgs/icons/arrow-forward.inline.svg"
 
 import {
   PageContainer,
@@ -208,10 +206,10 @@ const IndexPage = () => {
           <span tw="inline-flex hover:text-black">
             <Link
               uri="/community"
-              tw="text-xl sm:text-2xl font-bold justify-center items-center flex flex-row hover:text-black"
+              tw="text-xl sm:text-2xl font-bold hover:text-black"
+              showArrow
             >
               {t("home.esperanto.join")}
-              <IconArrowForward tw="ml-4" />
             </Link>
           </span>
         </PageContainer>

@@ -34,13 +34,8 @@ const AboutPage = () => {
   })
 
   const yearsInDevelopment = Math.round(
-    (new Date() - new Date("2014-02-23 18:00 UTC")) /
-      1000 /
-      60 /
-      60 /
-      24 /
-      365.24
-  )
+    (new Date() - 1393164995000) / 1000 / 60 / 60 / 24 / 365.24
+  ) // 1393164995 = genesis block
 
   return (
     <>

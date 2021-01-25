@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next"
 
 import Bubble from "../components/bubble"
 import Logo from "../svgs/logo.inline.svg"
-import IconArrowBlack from "../svgs/icons/arrow-forward.inline.svg"
 
 import { PageContainer, MediumBoldText } from "../common/elements"
 
@@ -134,10 +133,10 @@ const Footer = () => {
           </MediumBoldText>
           <Link
             uri="https://t.me/Myriadcoinofficial"
-            tw="underline text-sm sm:text-md font-bold leading-extra-tight hover:text-purple"
+            tw="text-sm sm:text-md font-bold"
+            showArrow
           >
             {t("home.telegram.join")}
-            <IconArrowBlack tw="ml-2 w-32p h-32p inline-flex" />
           </Link>
         </div>
       </PageContainer>

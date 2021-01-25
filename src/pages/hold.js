@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import tw from "twin.macro"
 import SEO from "../components/seo"
 import Wallet from "../components/shared/wallet"
@@ -8,8 +7,7 @@ import Price from "../components/shared/price"
 import Exchanges from "../components/shared/exchanges"
 import BgImage from "../components/bg-image"
 import Cover from "../components/shared/cover"
-
-import IconArrowForward from "../svgs/icons/arrow-forward.inline.svg"
+import Link from "../components/shared/link"
 
 import {
   PageContainer,
@@ -57,11 +55,11 @@ const HoldPage = () => {
         <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24 text-xl">{t("hold.fair.title")}</BigText>
           <Link
-            to="/about"
-            tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black inline-flex"
+            uri="/about"
+            tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
+            showArrow
           >
             {t("hold.fair.link")}
-            <IconArrowForward tw="ml-4" />
           </Link>
         </PageContainer>
       </BgImage>

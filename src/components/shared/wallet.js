@@ -8,7 +8,7 @@ import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
 import Image from "../image"
 import Dropdown from "../dropdown"
-import IconArrow from "../../svgs/icons/arrow-forward.inline.svg"
+import Link from "./link"
 
 const WalletPlatform = ({ platform: { wallets }, isVisible }) => {
   const style = useSpring({
@@ -35,31 +35,25 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
       <ul tw="mb-4">
         {versions.map(({ name, url }, key) => (
           <li tw="mb-4" key={key}>
-            <a
-              href={url}
-              tw="underline text-md sm:text-base font-bold leading-extra-tight hover:text-purple inline-flex items-center"
+            <Link
+              uri={url}
+              tw="text-md sm:text-base font-bold leading-extra-tight"
+              showArrow
             >
               {name}
-              <IconArrow tw="ml-2 w-8 h-8" />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
       {github && (
-        <a
-          href={github}
-          tw="block mb-4 text-xxs sm:text-xs font-medium underline hover:text-purple"
-        >
+        <Link uri={github} tw="block mb-4 text-xxs sm:text-xs font-medium">
           {t("components.wallet.github")}
-        </a>
+        </Link>
       )}
       {homepage && (
-        <a
-          href={homepage}
-          tw="block mb-4 text-xxs sm:text-xs font-medium underline hover:text-purple"
-        >
+        <Link uri={homepage} tw="block mb-4 text-xxs sm:text-xs font-medium">
           {t("components.wallet.homepage")}
-        </a>
+        </Link>
       )}
     </div>
   )

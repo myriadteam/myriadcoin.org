@@ -1,8 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import { animated } from "react-spring"
 import tw from "twin.macro"
 import { MediumBoldText, BodyText } from "../../../common/elements"
+import Link from "../../shared/link"
+
 import InfoSvg from "../../../svgs/info.svg"
 
 import { useTranslation, Trans } from "react-i18next"
@@ -37,10 +38,7 @@ const NonsenseBox = ({ keyName, style }) => {
           components={[<BodyText tw="mb-8 last:mb-0" />]}
         />
         {link && (
-          <Link
-            to={link}
-            tw="underline hover:no-underline inline-block text-sm sm:text-base font-medium"
-          >
+          <Link uri={link} tw="inline-block text-sm sm:text-base font-medium">
             {t("common.readMore")}
           </Link>
         )}

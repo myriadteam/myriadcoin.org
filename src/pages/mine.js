@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import tw, { css } from "twin.macro"
 import { useTranslation } from "react-i18next"
 import SEO from "../components/seo"
@@ -9,8 +8,7 @@ import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
 import BgImage from "../components/bg-image"
 import Cover from "../components/shared/cover"
-
-import IconArrowForward from "../svgs/icons/arrow-forward.inline.svg"
+import Link from "../components/shared/link"
 
 import { PageContainer, BigText } from "../common/elements"
 
@@ -60,11 +58,11 @@ const MinePage = () => {
         <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24">{t("mine.need.title")}</BigText>
           <Link
-            to="/community"
-            tw="underline text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black inline-flex"
+            uri="/community"
+            tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
+            showArrow
           >
             {t("mine.need.link")}
-            <IconArrowForward tw="ml-4" />
           </Link>
         </PageContainer>
       </BgImage>
