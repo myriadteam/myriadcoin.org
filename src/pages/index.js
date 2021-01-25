@@ -106,13 +106,15 @@ const IndexPage = () => {
                 <div tw="absolute left-0 right-0 mt--6 sm:mt--10 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10">
                   <AnimatedLine name="Line2" />
                 </div>
-                <BodyText tw="mb-6">{t("home.myriadIs.trusted.body")}</BodyText>
-                <Link
-                  uri="/about"
-                  tw="inline-flex font-normal leading-tight sm:text-md"
-                >
-                  {t("common.readMore")}
-                </Link>
+                <BodyText>
+                  {t("home.myriadIs.trusted.body")}
+                  <div tw="mt-6">
+                    <Link uri="/about" tw="inline-flex leading-tight">
+                      {t("common.readMore")}
+                    </Link>
+                  </div>
+                </BodyText>
+
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt-4 sm:mt-8">
                   <AnimatedLine name="Line3" />
                 </div>
@@ -125,15 +127,15 @@ const IndexPage = () => {
                     __html: t("home.myriadIs.community.title"),
                   }}
                 />
-                <BodyText tw="mb-6">
+                <BodyText>
                   {t("home.myriadIs.community.body")}
+                  <div tw="mt-6">
+                    <Link uri="/community" tw="inline-flex leading-tight">
+                      {t("common.readMore")}
+                    </Link>
+                  </div>
                 </BodyText>
-                <Link
-                  uri="/community"
-                  tw="inline-flex font-normal leading-tight sm:text-md"
-                >
-                  {t("common.readMore")}
-                </Link>
+
                 <div tw="absolute left-0 right-0 mt--12 sm:mt--16 text-white dark:text-dark-bg -z-10">
                   <AnimatedLine name="Line4" />
                 </div>
@@ -146,13 +148,14 @@ const IndexPage = () => {
 
               <div tw="mb-24 sm:mb-40">
                 <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
-                <BodyText tw="mb-6">{t("home.myriadIs.fair.body")}</BodyText>
-                <Link
-                  uri="mine"
-                  tw="inline-flex font-normal leading-tight sm:text-md"
-                >
-                  {t("common.readMore")}
-                </Link>
+                <BodyText>
+                  {t("home.myriadIs.fair.body")}
+                  <div tw="mt-6">
+                    <Link uri="/mine" tw="inline-flex leading-tight">
+                      {t("common.readMore")}
+                    </Link>
+                  </div>
+                </BodyText>
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt--10 sm:mt--12">
                   <AnimatedLine name="Line5" />
                 </div>
@@ -205,7 +208,7 @@ const IndexPage = () => {
           <span tw="inline-flex hover:text-black">
             <Link
               uri="/community"
-              tw="text-xl sm:text-2xl font-bold leading-extra-tight flex flex-row hover:text-black"
+              tw="text-xl sm:text-2xl font-bold justify-center items-center flex flex-row hover:text-black"
             >
               {t("home.esperanto.join")}
               <IconArrowForward tw="ml-4" />
