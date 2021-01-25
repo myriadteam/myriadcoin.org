@@ -1,6 +1,6 @@
+import React, { useState, useCallback } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState } from "react"
 import LanguageMenu from "./language-menu"
 import HeaderLink from "./header-link"
 import tw, { css } from "twin.macro"
@@ -10,43 +10,13 @@ import logo from "../images/logo@3x.png"
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8  text-xxs`
 const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 md:mr-4`
-const MenuItemEffect = tw.i`relative block overflow-hidden not-italic py-0.5`
 
-const underlinedStyle = css`
-  i:after {
-    content: "";
-    height: 2px;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    width: 400%;
-    will-change: transform;
-    z-index: -1;
-  }
+const Header = ({ siteTitle, t }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
 
-  &.active i:after,
-  &:hover i:after {
-    animation: underline-gradient 6s linear infinite;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 138, 0, 1) 15%,
-      rgba(223, 133, 255, 1) 35%,
-      rgba(255, 138, 0, 1) 85%
-    );
-  }
+  const toggleExpansion = useCallback(() => setIsExpanded(c => !c), [])
 
-  @keyframes underline-gradient {
-    0% {
-      transform: translate3d(0%, 0%, 0);
-    }
-    100% {
-      transform: translate3d(-75%, 0%, 0);
-    }
-  }
-`
-
-const Header = ({ siteTitle, t, i18n }) => {
-  const [isExpanded, toggleExpansion] = useState(false)
+  const closeExpansion = useCallback(() => setIsExpanded(false), [])
 
   return (
     <HeaderContainer>
@@ -68,7 +38,7 @@ const Header = ({ siteTitle, t, i18n }) => {
         </Link>
         <div className="block sm:hidden">
           <button
-            onClick={() => toggleExpansion(!isExpanded)}
+            onClick={toggleExpansion}
             tw="flex items-center px-3 py-2 rounded hover:text-purple"
           >
             <svg
@@ -87,61 +57,29 @@ const Header = ({ siteTitle, t, i18n }) => {
         >
           <MenuList>
             <MenuItem>
-              <HeaderLink
-                to="/about"
-                className="relative block px-4 py-2 overflow-hidden"
-                css={[underlinedStyle]}
-                activeClassName="active"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>{t("navigation.links.about")}</MenuItemEffect>
+              <HeaderLink to="/about" onClick={closeExpansion}>
+                {t("navigation.links.about")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink
-                to="/mine"
-                css={[underlinedStyle]}
-                activeClassName="active"
-                className="relative block px-4 py-2 overflow-hidden"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>{t("navigation.links.mine")}</MenuItemEffect>
+              <HeaderLink to="/mine" onClick={closeExpansion}>
+                {t("navigation.links.mine")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink
-                to="/hold"
-                css={[underlinedStyle]}
-                activeClassName="active"
-                className="relative block px-4 py-2 overflow-hidden"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>{t("navigation.links.hold")}</MenuItemEffect>
+              <HeaderLink to="/hold" onClick={closeExpansion}>
+                {t("navigation.links.hold")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink
-                to="/community"
-                css={[underlinedStyle]}
-                activeClassName="active"
-                className="relative block px-4 py-2 overflow-hidden"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>
-                  {t("navigation.links.community")}
-                </MenuItemEffect>
+              <HeaderLink to="/community" onClick={closeExpansion}>
+                {t("navigation.links.community")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <a
-                href="#"
-                id="headway-link"
-                css={[underlinedStyle]}
-                className="relative block px-4 py-2"
-                onClick={() => toggleExpansion(!isExpanded)}
-              >
-                <MenuItemEffect>{t("navigation.links.updates")}</MenuItemEffect>
-              </a>
+              <HeaderLink id="headway-link" onClick={closeExpansion}>
+                {t("navigation.links.updates")}
+              </HeaderLink>
             </MenuItem>
           </MenuList>
           <LanguageMenu />

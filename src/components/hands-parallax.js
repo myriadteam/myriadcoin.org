@@ -297,7 +297,7 @@ const HandsParallax = () => {
   ]
 
   return (
-    <animated.div Tag="section" style={{ height: stickyLength }} ref={el2}>
+    <animated.div style={{ height: stickyLength }} ref={el2}>
       <animated.div
         tw="sticky overflow-hidden h-screen"
         style={{ top: stickyTop }}
