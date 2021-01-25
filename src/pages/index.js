@@ -106,11 +106,10 @@ const IndexPage = () => {
                 </div>
                 <BodyText>
                   {t("home.myriadIs.trusted.body")}
-                  <div tw="mt-6">
-                    <Link uri="/about" tw="inline-flex leading-tight">
-                      {t("common.readMore")}
-                    </Link>
-                  </div>
+
+                  <Link uri="/about" tw="inline-flex leading-tight block mt-6">
+                    {t("common.readMore")}
+                  </Link>
                 </BodyText>
 
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt-4 sm:mt-8">
@@ -127,11 +126,13 @@ const IndexPage = () => {
                 />
                 <BodyText>
                   {t("home.myriadIs.community.body")}
-                  <div tw="mt-6">
-                    <Link uri="/community" tw="inline-flex leading-tight">
-                      {t("common.readMore")}
-                    </Link>
-                  </div>
+
+                  <Link
+                    uri="/community"
+                    tw="inline-flex leading-tight block mt-6"
+                  >
+                    {t("common.readMore")}
+                  </Link>
                 </BodyText>
 
                 <div tw="absolute left-0 right-0 mt--12 sm:mt--16 text-white dark:text-dark-bg -z-10">
@@ -148,11 +149,10 @@ const IndexPage = () => {
                 <MediumBoldText>{t("home.myriadIs.fair.title")}</MediumBoldText>
                 <BodyText>
                   {t("home.myriadIs.fair.body")}
-                  <div tw="mt-6">
-                    <Link uri="/mine" tw="inline-flex leading-tight">
-                      {t("common.readMore")}
-                    </Link>
-                  </div>
+
+                  <Link uri="/mine" tw="inline-flex leading-tight block mt-6">
+                    {t("common.readMore")}
+                  </Link>
                 </BodyText>
                 <div tw="absolute left-0 right-0 transform -translate-y-1/2 text-white dark:text-dark-bg -z-10 mt--10 sm:mt--12">
                   <AnimatedLine name="Line5" />
