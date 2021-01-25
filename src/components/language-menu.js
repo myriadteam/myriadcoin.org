@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import tw, { styled } from "twin.macro"
 import { useSpring, animated } from "react-spring"
 import { useTranslation } from "react-i18next"
@@ -18,6 +18,25 @@ const LanguageMenu = () => {
   const { t, i18n } = useTranslation()
   const { language } = i18n
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      const closeMenu = () => {
+        setOpen(false)
+      }
+
+      document.addEventListener("click", closeMenu)
+      document
+        .getElementById("headway-link") // needed since they preventDefault
+        .addEventListener("click", closeMenu)
+      return () => {
+        document.removeEventListener("click", closeMenu)
+        document
+          .getElementById("headway-link")
+          .removeEventListener("click", closeMenu)
+      }
+    }
+  }, [open])
 
   const toggleMenu = useCallback(() => {
     setOpen(c => !c)
