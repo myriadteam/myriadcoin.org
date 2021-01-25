@@ -40,13 +40,23 @@ const MenuItemEffectWrapper = styled.span`
 `
 
 function HeaderLink({ children, to, onClick, ...props }) {
-  return (
-    <MenuItemEffectWrapper>
+  const renderContent = () => {
+    if (!to) {
+      return (
+        <a {...props} onClick={onClick}>
+          <MenuItemEffect>{children}</MenuItemEffect>
+        </a>
+      )
+    }
+
+    return (
       <Link {...props} to={to} onClick={onClick} activeClassName="active">
         <MenuItemEffect>{children}</MenuItemEffect>
       </Link>
-    </MenuItemEffectWrapper>
-  )
+    )
+  }
+
+  return <MenuItemEffectWrapper>{renderContent()}</MenuItemEffectWrapper>
 }
 
 HeaderLink.propTypes = {
@@ -59,7 +69,7 @@ HeaderLink.propTypes = {
 HeaderLink.defaultProps = {
   activeClassName: "active",
   className: "",
-  to: "#",
+  to: null,
 }
 
 export default HeaderLink

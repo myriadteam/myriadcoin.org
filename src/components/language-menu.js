@@ -71,12 +71,14 @@ const LanguageMenu = () => {
   })
 
   return (
-    <div tw="relative">
-      <HeaderLink onClick={toggleMenu}>{t(`languages.${language}`)}</HeaderLink>
+    <>
+      <HeaderLink onClick={toggleMenu} tw="relative">
+        {t(`languages.${language}`)}
+      </HeaderLink>
       <AnimatedList style={menuAppear}>
         {Object.keys(i18n.options.resources).map(key => renderButton(key))}
       </AnimatedList>
-    </div>
+    </>
   )
 }
 

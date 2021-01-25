@@ -8,7 +8,7 @@ import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
 
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8  text-xxs`
-const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row`
+const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row md:-mr-4`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 md:mr-4`
 
 const Header = ({ siteTitle, t }) => {
@@ -16,7 +16,9 @@ const Header = ({ siteTitle, t }) => {
 
   const toggleExpansion = useCallback(() => setIsExpanded(c => !c), [])
 
-  const closeExpansion = useCallback(() => setIsExpanded(false), [])
+  const closeExpansion = useCallback(() => {
+    setIsExpanded(false)
+  }, [])
 
   return (
     <HeaderContainer>
@@ -81,8 +83,10 @@ const Header = ({ siteTitle, t }) => {
                 {t("navigation.links.updates")}
               </HeaderLink>
             </MenuItem>
+            <MenuItem>
+              <LanguageMenu />
+            </MenuItem>
           </MenuList>
-          <LanguageMenu />
         </div>
       </nav>
     </HeaderContainer>
