@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react"
-import { withTrans } from "../i18n/withTrans"
 import tw, { styled } from "twin.macro"
 import { useSpring, animated } from "react-spring"
+import { useTranslation } from "react-i18next"
 
 import HeaderLink from "./header-link"
 
@@ -14,9 +14,10 @@ const List = styled.ul`
 
 const AnimatedList = animated(List)
 
-const LanguageMenu = ({ t, i18n }) => {
-  const [open, setOpen] = useState(false)
+const LanguageMenu = () => {
+  const { t, i18n } = useTranslation()
   const { language } = i18n
+  const [open, setOpen] = useState(false)
 
   const toggleMenu = useCallback(() => {
     setOpen(c => !c)
@@ -60,4 +61,4 @@ const LanguageMenu = ({ t, i18n }) => {
   )
 }
 
-export default withTrans(LanguageMenu)
+export default LanguageMenu
