@@ -299,7 +299,11 @@
       "telegram": "Telegram",
       "reddit": "Reddit",
       "twitter": "Twitter",
-      "facebook": "Facebook"
+      "facebook": "Facebook",
+      "external": "External",
+      "myrstats": "Myrstats",
+      "blockbook": "Blockbook",
+      "chainz": "Chainz"
     }
   },
   "components": {

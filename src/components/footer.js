@@ -51,6 +51,12 @@ const columns = [
     { text: "mine", link: "/mine" },
     { text: "hold", link: "/hold" },
   ],
+  [
+    { text: "external" },
+    { text: "blockbook", link: "https://xmy-blockbook1.coinid.org" },
+    { text: "chainz", link: "https://chainz.cryptoid.info/xmy" },
+    { text: "myrstats", link: "https://cryptapus.org/myr/myrstat" },
+  ],
 ]
 
 const FooterContainer = tw.header`container flex justify-between py-24 text-xxs flex-col sm:flex-row px-6`
