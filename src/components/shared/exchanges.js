@@ -8,7 +8,7 @@ import IconNetcoins from "../../svgs/icons/netcoins.inline.svg"
 import IconDoveWallet from "../../svgs/icons/dove-wallet.inline.svg"
 
 const ExchangeCircle = styled.div`
-  ${tw`flex items-center justify-center p-3 overflow-hidden rounded-full w-18 h-18 hover:bg-opacity-90`}
+  ${tw`flex items-center justify-center p-3 overflow-hidden rounded-full w-14 h-14 sm:w-18 sm:h-18 group-hover:bg-opacity-90`}
   ${({ nr }) => {
     if (nr === 0) return tw`bg-exchanges-0`
     if (nr === 1) return tw`bg-exchanges-1`
@@ -28,9 +28,9 @@ const Exchanges = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="group"
-        tw="w-22"
+        tw="w-full"
       >
-        <div tw="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full h-auto">
+        <div tw="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full h-auto text-white">
           <ExchangeCircle nr={index}>
             {name === "Litebit" && <IconLitebit />}
             {name === "Bittrex" && <IconBittrex />}
@@ -39,15 +39,17 @@ const Exchanges = () => {
             {name === "Dove Wallet" && <IconDoveWallet />}
           </ExchangeCircle>
         </div>
-        <div tw="text-black text-center text-xxs group-hover:text-purple">
+        <div tw="text-black dark:text-white text-center text-xxs group-hover:text-purple">
           {name}
         </div>
       </a>
     )
   }
   return (
-    <div tw="mt-10 sm:mt-0 rounded-lg shadow-wide flex-shrink-0 sm:ml-16 bg-white grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 p-6">
-      {exchanges.map((exchange, index) => renderExchange(exchange, index))}
+    <div tw="flex-shrink-0">
+      <div tw="mt-10 sm:mt-0 rounded-lg shadow-wide  sm:ml-16 bg-white dark:bg-dark-bg grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-4 p-3 sm:p-6">
+        {exchanges.map((exchange, index) => renderExchange(exchange, index))}
+      </div>
     </div>
   )
 }
