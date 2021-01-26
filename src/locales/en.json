@@ -196,7 +196,7 @@
         "items": [
           {
             "title": "Multi-Algo",
-            "value": "Scrypt, SHA256D, Yescrypt, Skein and Myriad-Groestl"
+            "value": "Scrypt, SHA256D, Yescrypt, Argon2d and Myriad-Groestl"
           },
           {
             "title": "Difficulty Separation",
