@@ -57,7 +57,7 @@ function XmyDataProvider({ children }) {
     ).then(r => r.json())
 
     const blockCount = blocktimes.filter(
-      t => t > Date.now() / 1000 - 24 * 60 * 60
+      t => t > blocktimes[blocktimes.length - 1] - 24 * 60 * 60
     ).length
 
     setState(c => ({
