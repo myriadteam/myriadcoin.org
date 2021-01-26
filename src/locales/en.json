@@ -143,8 +143,16 @@
           "text": "Myriad used mining consensus to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriad became the first cryptocurrency to use mining consensus to change a mining algorithm."
         },
         {
-          "date": "February, 2018",
-          "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
+          "date": "October, 2018",
+          "text": "Longblock is implemented via MIP 3. A gradual increase in block time from 1 to 8 minutes using multiple intervals of block time adjustments. Coin supply and emission rate vs clock time is made sure not to be affected. It is later activated using consensus bit 5."
+        },
+        {
+          "date": "February, 2019",
+          "text": "Algoswap2 (MIP 4), Skein to Argon2d is implemented. It is later activated using consensus bit 6."
+        },
+        {
+          "date": "March, 2020",
+          "text": "Myriad 0.18.1.0 is released with improved multi-wallet support and RISC-V support. 0.00000001 XMY is now defined as octibit or obi."
         }
       ]
     },
