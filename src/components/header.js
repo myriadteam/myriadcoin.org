@@ -8,7 +8,7 @@ import { withTrans } from "../i18n/withTrans"
 import logo from "../images/logo@3x.png"
 
 const HeaderContainer = tw.header`container flex justify-between py-8 px-8  text-xxs`
-const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row md:-mr-4`
+const MenuList = tw.ul`text-xxs flex flex-col items-center sm:flex-row md:-mr-4 pb-4 sm:pb-0`
 const MenuItem = tw.li`block mr-0 mt-4 text-center sm:mt-0 md:mr-4`
 
 const Header = ({ siteTitle, t }) => {
