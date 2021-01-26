@@ -1,9 +1,9 @@
 import React from "react"
-import tw from "twin.macro"
+import tw, { css } from "twin.macro"
 import { Link as GatsbyLink } from "gatsby"
 import IconArrow from "../../svgs/icons/arrow-forward.inline.svg"
 
-function Link({ children, uri, showArrow, ...props }) {
+function Link({ children, uri, showArrow, noUnderline, ...props }) {
   const renderContent = () => {
     return (
       <>
@@ -18,11 +18,14 @@ function Link({ children, uri, showArrow, ...props }) {
     )
   }
 
+  const style = tw`hover:text-purple transition ease-in duration-150 underline`
+  const noUnderlineStyle = noUnderline && tw`no-underline`
+
   if (uri.indexOf("http") === 0) {
     return (
       <a
         href={uri}
-        tw="hover:text-purple underline transition ease-in duration-150"
+        css={[style, noUnderlineStyle]}
         target="_blank"
         rel="noopener noreferrer"
         {...props}
@@ -33,11 +36,7 @@ function Link({ children, uri, showArrow, ...props }) {
   }
 
   return (
-    <GatsbyLink
-      to={uri}
-      tw="hover:text-purple underline transition ease-in duration-150"
-      {...props}
-    >
+    <GatsbyLink to={uri} css={[style, noUnderlineStyle]} {...props}>
       {renderContent()}
     </GatsbyLink>
   )
