@@ -139,8 +139,12 @@
           "text": "Myriad hard-forked to allow merge-mining on its SHA256d and Scrypt algorithms in an effort to improve security and achieve a more stable hashrate on those two algorithms."
         },
         {
+          "date": "July, 2016",
+          "text": "Myriad 0.11.3.1 is released changing the ticker from MYR to XMY and signaling replacement of Qubit to Yescrypt using mining consensus."
+        },
+        {
           "date": "August, 2016",
-          "text": "Myriad used mining consensus to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriad became the first cryptocurrency to use mining consensus to change a mining algorithm."
+          "text": "Mining consensus is reached and Myriad succeeds to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriad became the first cryptocurrency to use mining consensus to change a mining algorithm."
         },
         {
           "date": "October, 2018",
@@ -148,7 +152,7 @@
         },
         {
           "date": "February, 2019",
-          "text": "Algoswap2 (MIP 4), Skein to Argon2d is implemented. It is later activated using consensus bit 6."
+          "text": "Algoswap2 is implemented via MIP 4. Swapping Skein to Argon2d. The change is later activated using mining consensus (consensus bit 6)."
         },
         {
           "date": "March, 2020",
