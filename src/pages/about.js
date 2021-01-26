@@ -22,7 +22,9 @@ import { useTranslation } from "react-i18next"
 
 const AboutPage = () => {
   const { t } = useTranslation()
-  const { blocks, transactions, circulatingSupply } = useContext(XmyDataContext)
+  const { blocks, circulatingSupply, blockCountLast24Hour } = useContext(
+    XmyDataContext
+  )
 
   const historyItems = t("about.history.items", { returnObjects: true })
   const distributionItems = t("about.specifications.distribution.items", {
@@ -49,7 +51,7 @@ const AboutPage = () => {
           <div tw="flex sm:flex-wrap flex-col sm:flex-row">
             <div tw="w-full sm:w-half mb-10">
               <span
-                tw="text-2xl sm:text-4xl leading-none font-bold"
+                tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
                 css={[gradientTextStylePurple]}
               >
                 {yearsInDevelopment}
@@ -58,30 +60,35 @@ const AboutPage = () => {
             </div>
             <div tw="w-full sm:w-half mb-10">
               <span
-                tw="text-2xl sm:text-4xl leading-none font-bold"
-                css={[gradientTextStylePink]}
-              >
-                {t("formattedNumber", { number: circulatingSupply })}
-              </span>
-              <BodyText>{t("about.stats.circulating_supply")}</BodyText>
-            </div>
-            <div tw="w-full sm:w-half mb-10">
-              <span
-                tw="text-2xl sm:text-4xl leading-none font-bold"
+                tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
                 css={[gradientTextStyleGreen]}
               >
                 {t("formattedNumber", { number: blocks })}
               </span>
               <BodyText>{t("about.stats.blocks")}</BodyText>
             </div>
+            <div tw="w-full sm:w-half mb-10">
+              <span
+                tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
+                css={[gradientTextStylePink]}
+              >
+                {t("formattedNumber", { number: blockCountLast24Hour })}
+              </span>
+              <BodyText>{t("about.stats.blocks_last_24hours")}</BodyText>
+            </div>
             <div tw="w-full sm:w-half">
               <span
-                tw="text-2xl sm:text-4xl leading-none font-bold"
+                tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
                 css={[gradientTextStyleBlue]}
               >
-                {t("formattedNumber", { number: transactions })}
+                {t("percentage", {
+                  number:
+                    (100 * (blockCountLast24Hour * 250) * 365) /
+                    circulatingSupply,
+                })}
+                %
               </span>
-              <BodyText>{t("about.stats.transactions")}</BodyText>
+              <BodyText>{t("about.stats.inflation_rate")}</BodyText>
             </div>
           </div>
         </PageContainer>

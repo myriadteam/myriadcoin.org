@@ -28,6 +28,7 @@ i18next.use(LanguageDetector).init({
     format: function (value, format) {
       if (format === "uppercase") return value.toUpperCase()
       if (format === "0,0") return numeral(value).format(format)
+      if (format === "0,0.00") return numeral(value).format(format)
       return value
     },
   },

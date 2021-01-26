@@ -1,5 +1,6 @@
 {
   "formattedNumber": "{{number, 0,0}}",
+  "percentage": "{{number, 0,0.00}}",
   "languages": {
     "en": "English",
     "eo": "Esperanto",
@@ -122,7 +123,9 @@
       "circulating_supply": "Circulating supply",
       "blocks": "Blocks",
       "transactions": "Transactions",
-      "years": "Years in development"
+      "years": "Years in development",
+      "blocks_last_24hours": "Blocks mined last 24 hours",
+      "inflation_rate": "Yearly inflation rate (last 24 hours)"
     },
     "history": {
       "title": "The history of Myriad",
