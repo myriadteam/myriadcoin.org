@@ -22,9 +22,12 @@ import { useTranslation } from "react-i18next"
 
 const AboutPage = () => {
   const { t } = useTranslation()
-  const { blocks, circulatingSupply, blockCountLast24Hour } = useContext(
-    XmyDataContext
-  )
+  const {
+    blocks,
+    circulatingSupply,
+    blockCountLast24Hour,
+    coinsPerBlock,
+  } = useContext(XmyDataContext)
 
   const historyItems = t("about.history.items", { returnObjects: true })
   const distributionItems = t("about.specifications.distribution.items", {
@@ -83,7 +86,7 @@ const AboutPage = () => {
               >
                 {t("percentage", {
                   number:
-                    (100 * (blockCountLast24Hour * 250) * 365) /
+                    (100 * (blockCountLast24Hour * coinsPerBlock) * 365) /
                     circulatingSupply,
                 })}
                 %

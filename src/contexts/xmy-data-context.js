@@ -7,6 +7,7 @@ const defaultState = {
   fullNodes: 24,
   circulatingSupply: 1765875500,
   blockCountLast24Hour: 500,
+  coinsPerBlock: 250,
   USD: { opening: 0, current: 0 },
 }
 
