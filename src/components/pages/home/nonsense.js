@@ -56,7 +56,7 @@ const Nonsense = () => {
           ))}
         </div>
       </PageContainer>
-      <div tw="flex mt-10 xl:justify-center">
+      <div tw="flex mt-10 xl:justify-center overflow-hidden">
         {dataKeys.map((key, keyIndex) => {
           return (
             <span tw="px-2" key={`nonsense-btn-${key}`}>
