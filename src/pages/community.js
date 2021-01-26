@@ -11,24 +11,24 @@ import { useTranslation, Trans } from "react-i18next"
 
 const communities = [
   {
-    text: "Facebook",
-    url: "https://www.facebook.com/themyriadplatform",
-  },
-  {
     text: "Reddit",
     url: "https://www.reddit.com/r/myriadcoin/",
-  },
-  {
-    text: "Discord",
-    url: "https://discord.gg/fbDrFWZ",
   },
   {
     text: "Telegram",
     url: "https://t.me/Myriadcoinofficial",
   },
   {
+    text: "Discord",
+    url: "https://discord.gg/fbDrFWZ",
+  },
+  {
     text: "Twitter",
     url: "https://twitter.com/myriadcoin",
+  },
+  {
+    text: "Instagram",
+    url: "https://www.instagram.com/myriadcoin",
   },
 ]
 

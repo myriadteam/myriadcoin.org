@@ -12,50 +12,50 @@ import { PageContainer, MediumBoldText } from "../common/elements"
 
 const columns = [
   [
-    { text: "myriad", link: "/", Component: Logo },
+    { text: "myriad", uri: "/", Component: Logo },
     {
-      text: "instagram",
-      url: "https://www.instagram.com/myriadcoin",
+      text: "reddit",
+      uri: "https://www.reddit.com/r/myriadcoin/",
       icon: true,
     },
     {
       text: "telegram",
-      url: "https://t.me/Myriadcoinofficial",
+      uri: "https://t.me/Myriadcoinofficial",
+      icon: true,
+    },
+    {
+      text: "discord",
+      uri: "https://discord.gg/fbDrFWZ",
       icon: true,
     },
     {
       text: "twitter",
-      url: "https://twitter.com/myriadcoin",
+      uri: "https://twitter.com/myriadcoin",
       icon: true,
     },
     {
-      text: "facebook",
-      url: "https://www.facebook.com/themyriadplatform",
-      icon: true,
-    },
-    {
-      text: "reddit",
-      url: "https://www.reddit.com/r/myriadcoin/",
+      text: "instagram",
+      uri: "https://www.instagram.com/myriadcoin",
       icon: true,
     },
   ],
   [
     { text: "explore" },
-    { text: "about", link: "/about" },
-    { text: "community", link: "/community" },
-    { text: "blog", url: "https://medium.com/myriadcoin" },
+    { text: "about", uri: "/about" },
+    { text: "community", uri: "/community" },
+    { text: "blog", uri: "https://medium.com/myriadcoin" },
   ],
   [
     { text: "resources" },
-    { text: "download", link: "/hold#download" },
-    { text: "mine", link: "/mine" },
-    { text: "hold", link: "/hold" },
+    { text: "download", uri: "/hold#download" },
+    { text: "mine", uri: "/mine" },
+    { text: "hold", uri: "/hold" },
   ],
   [
     { text: "external" },
-    { text: "blockbook", link: "https://xmy-blockbook1.coinid.org" },
-    { text: "chainz", link: "https://chainz.cryptoid.info/xmy" },
-    { text: "myrstats", link: "https://cryptapus.org/myr/myrstat" },
+    { text: "blockbook", uri: "https://xmy-blockbook1.coinid.org" },
+    { text: "chainz", uri: "https://chainz.cryptoid.info/xmy" },
+    { text: "myrstats", uri: "https://cryptapus.org/myr/myrstat" },
   ],
 ]
 
@@ -81,7 +81,7 @@ const Footer = () => {
     })
     return (
       <li className={classes} key={`footer-item-${key}`}>
-        {item.url || item.link ? renderLink(item) : renderTitle(item)}
+        {item.uri ? renderLink(item) : renderTitle(item)}
       </li>
     )
   }
@@ -90,32 +90,23 @@ const Footer = () => {
     return <img src={svg} className="mr-2" alt={`Icon ${text}`} />
   }
 
-  const renderLink = ({ url, Component, icon, text, link }) => {
-    if (url) {
-      return (
-        <Link uri={url} tw="flex items-center py-1">
-          {icon && icon !== true && renderIcon(icon, text)}
-          {icon && icon === true && (
-            <span tw="mr-2">
-              <SvgIcon name={text} size="sm" />
-            </span>
-          )}
-          <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
-        </Link>
-      )
-    } else {
-      return (
-        <Link uri={link} tw="flex items-center py-1">
-          {icon && renderIcon(icon, text)}
-          {Component && (
-            <span tw="mr-2">
-              <Component />
-            </span>
-          )}
-          <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
-        </Link>
-      )
-    }
+  const renderLink = ({ uri, Component, icon, text }) => {
+    return (
+      <Link uri={uri} tw="flex items-center py-1" noUnderline>
+        {icon && icon !== true && renderIcon(icon, text)}
+        {icon && icon === true && (
+          <span tw="mr-2">
+            <SvgIcon name={text} size="sm" />
+          </span>
+        )}
+        {Component && (
+          <span tw="mr-2">
+            <Component />
+          </span>
+        )}
+        <FooterLinkTitle>{t(`navigation.links.${text}`)}</FooterLinkTitle>
+      </Link>
+    )
   }
 
   const renderTitle = ({ icon, text }) => {

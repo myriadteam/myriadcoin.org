@@ -303,7 +303,8 @@
       "external": "External",
       "myrstats": "Myrstats",
       "blockbook": "Blockbook",
-      "chainz": "Chainz"
+      "chainz": "Chainz",
+      "discord": "Discord"
     }
   },
   "components": {
