@@ -36,10 +36,10 @@ function LineGraph() {
   return (
     <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-16 sm:py-18 rounded">
       <MediumBoldText>Block weights</MediumBoldText>
-      <div tw="flex flex-row text-grey font-normal text-xxxs sm:text-base">
+      <div tw="flex flex-row text-grey font-normal text-xxxs sm:text-xxs md:text-base">
         <div tw="flex flex-col justify-between pt-1 pr-2 pb-8 sm:pr-6 sm:pt-4 sm:pb-14">
-          <span>{parsedData.maxY}</span>
-          <span>{parsedData.minY}</span>
+          <span>{(parsedData.maxY / 1000).toFixed(1)}K</span>
+          <span>{(parsedData.minY / 1000).toFixed(1)}K</span>
         </div>
         <div tw="flex-grow">
           <LineGraphContent parsedData={parsedData} />
