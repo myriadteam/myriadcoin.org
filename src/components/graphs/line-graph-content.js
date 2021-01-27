@@ -19,7 +19,7 @@ const LineGraphContent = ({ parsedData }) => {
 }
 
 LineGraphContent.propTypes = {
-  parsedData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  parsedData: PropTypes.shape().isRequired,
 }
 
 export default React.memo(LineGraphContent)

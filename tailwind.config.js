@@ -81,6 +81,7 @@ module.exports = {
       center: true,
     },
     fontSize: {
+      xxxs: "12px",
       xxs: "14px",
       xs: "18px",
       sm: "20px",
