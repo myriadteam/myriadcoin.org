@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
 import Cover from "../components/shared/cover"
+import LineGraph from "../components/graphs/line-graph"
 
 import {
   gradientTextStylePurple,
@@ -51,7 +52,7 @@ const AboutPage = () => {
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
           <BodyBlock translationKey="about.top" />
-          <div tw="flex sm:flex-wrap flex-col sm:flex-row">
+          <div tw="flex sm:flex-wrap flex-col sm:flex-row mb-24">
             <div tw="w-full sm:w-half mb-10">
               <span
                 tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
@@ -70,7 +71,7 @@ const AboutPage = () => {
               </span>
               <BodyText>{t("about.stats.blocks")}</BodyText>
             </div>
-            <div tw="w-full sm:w-half mb-10">
+            <div tw="w-full sm:w-half">
               <span
                 tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
                 css={[gradientTextStylePink]}
@@ -93,6 +94,9 @@ const AboutPage = () => {
               </span>
               <BodyText>{t("about.stats.inflation_rate")}</BodyText>
             </div>
+          </div>
+          <div>
+            <LineGraph />
           </div>
         </PageContainer>
       </div>

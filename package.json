@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "d3-ease": "^2.0.0",
+    "d3-shape": "^2.0.0",
     "gatsby": "^2.25.0",
     "gatsby-background-image": "^1.1.2",
     "gatsby-background-image-es5": "^1.1.2",
