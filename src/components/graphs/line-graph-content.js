@@ -7,7 +7,13 @@ const LineGraphContent = ({ parsedData }) => {
 
   return (
     <svg width={"100%"} viewBox="0 0 794 248" tw="overflow-visible">
-      <path d={svgLine} fill="none" stroke={"#0066FF"} strokeWidth="2" />
+      <path
+        d={svgLine}
+        fill="none"
+        stroke={"#0066FF"}
+        strokeWidth="2"
+        vectorEffect="non-scaling-stroke"
+      />
     </svg>
   )
 }
