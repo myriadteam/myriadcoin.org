@@ -7,7 +7,6 @@ import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
 
-import { MediumBoldText } from "../../common/elements"
 import { parseDataForLineGraph } from "../../common/graph"
 
 function LineGraph({
@@ -29,7 +28,7 @@ function LineGraph({
   }
 
   return (
-    <div tw=" flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+    <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
       <LineGraphYAxis parsedData={parsedData} renderValue={renderYAxis} />
       <div tw="flex-grow">
         <div tw="relative">
