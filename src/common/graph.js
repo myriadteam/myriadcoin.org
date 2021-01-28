@@ -59,7 +59,7 @@ export const parseHistoryData = data => {
   }
 }
 
-export const parseDataForLineGraph = (data, width, height, mod = 0) => {
+export const parseDataForLineGraph = (data, width, height, startY, endY) => {
   if (!data.length) {
     return {
       gradientDivide: 0,
@@ -70,11 +70,8 @@ export const parseDataForLineGraph = (data, width, height, mod = 0) => {
 
   const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(data)
 
-  const diff = maxY - minY
-  const extra = diff * mod
-
-  const adjustedMinY = minY - extra
-  const adjustedMaxY = maxY + extra
+  const adjustedMinY = startY === undefined ? minY : startY
+  const adjustedMaxY = endY === undefined ? maxY : endY
 
   const x = scaleGraph(minX, maxX, width)
   const y = scaleGraph(adjustedMaxY, adjustedMinY, height)

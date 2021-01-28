@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useEffect, useRef, useState } from "react"
 import tw from "twin.macro"
 import { useSpring, animated, interpolate } from "react-spring"
-import { useTranslation } from "react-i18next"
 
 function useDimensions(ref) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
@@ -42,9 +41,8 @@ function useMousePosition(ref) {
   return mousePosition
 }
 
-function LineGraphMouse({ parsedData }) {
+function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
   const boxRef = useRef(null)
-  const { t } = useTranslation()
 
   const [{ dataX, dataY, xValue, yValue }, set] = useSpring(() => ({
     dataX: 0,
@@ -83,7 +81,7 @@ function LineGraphMouse({ parsedData }) {
         }}
       >
         <animated.div tw="absolute bottom-0 whitespace-no-wrap bg-dark-light-bg rounded text-white px-3 text-sm leading-lg">
-          {xValue.interpolate(x => x.toFixed(0))}
+          {xValue.interpolate(renderXValue)}
         </animated.div>
       </animated.div>
       <animated.div
@@ -95,12 +93,7 @@ function LineGraphMouse({ parsedData }) {
         }}
       >
         <div tw="absolute bottom-0 mb-5 bg-blue-graph rounded-14 text-white px-3 text-sm leading-lg whitespace-no-wrap">
-          <animated.span>
-            {yValue.interpolate(v =>
-              t("formattedNumber", { number: v.toFixed(0) })
-            )}
-          </animated.span>{" "}
-          WUs
+          <animated.span>{yValue.interpolate(renderYValue)}</animated.span>
         </div>
       </animated.div>
     </div>
