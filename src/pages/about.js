@@ -71,7 +71,7 @@ const AboutPage = () => {
               </span>
               <BodyText>{t("about.stats.blocks")}</BodyText>
             </div>
-            <div tw="w-full sm:w-half">
+            <div tw="w-full sm:w-half mb-10 sm:mb-0">
               <span
                 tw="text-2xl md:text-3xl lg:text-4xl leading-none font-bold"
                 css={[gradientTextStylePink]}

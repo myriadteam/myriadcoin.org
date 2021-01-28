@@ -12,6 +12,7 @@ module.exports = {
         "bubble-blue": "#327CFF",
         "code-green": "#02C093",
         "blue-light": "#00E1FF",
+        "blue-graph": "#0066FF",
         exchanges: {
           0: "#327CFF",
           1: "#1A44CB",
@@ -29,6 +30,8 @@ module.exports = {
       lineHeight: {
         "extra-tight": "1.15",
         normal: "1.4",
+        md: "1.5",
+        lg: "1.8",
       },
       linearGradientColors: {
         "black-grey": ["#000000", "#313131"],
@@ -103,6 +106,7 @@ module.exports = {
       none: "0",
       sm: "4px",
       default: "8px",
+      "14": "14px",
       md: "16px",
       lg: "32px",
       full: "9999px",

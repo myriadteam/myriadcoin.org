@@ -1,12 +1,19 @@
-import React, { useEffect, useState, useMemo } from "react"
-import LineGraphContent from "./line-graph-content"
+import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
+
+import LineGraphContent from "./line-graph-content"
+import LineGraphXAxis from "./line-graph-x-axis"
+import LineGraphYAxis from "./line-graph-y-axis"
+import LineGraphMouse from "./line-graph-mouse"
 
 import { MediumBoldText } from "../../common/elements"
 import { parseDataForLineGraph } from "../../common/graph"
 
 function LineGraph() {
   const [parsedData, setParsedData] = useState(null)
+
+  const viewportWidth = 794
+  const viewportHeight = 248
 
   useEffect(() => {
     const getData = async () => {
@@ -23,7 +30,9 @@ function LineGraph() {
         y: v,
       }))
 
-      setParsedData(parseDataForLineGraph(newData, 794, 248))
+      setParsedData(
+        parseDataForLineGraph(newData, viewportWidth, viewportHeight, 0.0)
+      )
     }
 
     getData()
@@ -34,25 +43,16 @@ function LineGraph() {
   }
 
   return (
-    <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-16 sm:py-18 rounded">
+    <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
       <MediumBoldText>Block weights</MediumBoldText>
-      <div tw="flex flex-row text-grey font-normal text-xxxs sm:text-xxs md:text-base">
-        <div tw="flex flex-col justify-between pt-1 pr-2 pb-8 sm:pr-6 sm:pt-4 sm:pb-14">
-          <span>{(parsedData.maxY / 1000).toFixed(1)}K</span>
-          <span>{(parsedData.minY / 1000).toFixed(1)}K</span>
-        </div>
+      <div tw=" flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+        <LineGraphYAxis parsedData={parsedData} />
         <div tw="flex-grow">
-          <LineGraphContent parsedData={parsedData} />
-          <div tw="flex flex-row justify-between px-2 sm:px-10 pt-3 sm:pt-8">
-            <div>{parsedData.minX}</div>
-            <div>
-              {parsedData.minX + (parsedData.maxX - parsedData.minX) / 3}
-            </div>
-            <div>
-              {parsedData.minX + (2 * (parsedData.maxX - parsedData.minX)) / 3}
-            </div>
-            <div>{parsedData.maxX}</div>
+          <div tw="relative">
+            <LineGraphContent parsedData={parsedData} />
+            <LineGraphMouse parsedData={parsedData} />
           </div>
+          <LineGraphXAxis parsedData={parsedData} />
         </div>
       </div>
     </div>

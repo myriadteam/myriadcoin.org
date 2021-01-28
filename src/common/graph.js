@@ -19,6 +19,10 @@ const getNearestDataPointIndex = (pixels, dataValues) => position => {
 
   return distanceIndexes[0][1]
 }
+const getNearestDataPoint = (pixels, dataValues, data) => position => {
+  const index = getNearestDataPointIndex(pixels, dataValues)(position)
+  return data[index]
+}
 
 export const parseHistoryData = data => {
   if (!data.length) {
@@ -55,7 +59,7 @@ export const parseHistoryData = data => {
   }
 }
 
-export const parseDataForLineGraph = (data, width, height) => {
+export const parseDataForLineGraph = (data, width, height, mod = 0) => {
   if (!data.length) {
     return {
       gradientDivide: 0,
@@ -67,16 +71,23 @@ export const parseDataForLineGraph = (data, width, height) => {
   const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(data)
 
   const diff = maxY - minY
-  const extra = diff * 0
+  const extra = diff * mod
 
   const adjustedMinY = minY - extra
   const adjustedMaxY = maxY + extra
 
   const x = scaleGraph(minX, maxX, width)
   const y = scaleGraph(adjustedMaxY, adjustedMinY, height)
-  const nearestDataPointFromX = getNearestDataPointIndex(
+
+  const nearestDataPointFromX = getNearestDataPoint(
     width,
-    data.map(({ time }) => time)
+    data.map(({ x }) => x),
+    data
+  )
+
+  const nearestDataPointIndexFromX = getNearestDataPointIndex(
+    width,
+    data.map(({ x }) => x)
   )
 
   const gradientDivide = y(data[0].y) / height
@@ -118,6 +129,7 @@ export const parseDataForLineGraph = (data, width, height) => {
     x,
     y,
     nearestDataPointFromX,
+    nearestDataPointIndexFromX,
     line,
     minY,
     maxY,
@@ -125,5 +137,8 @@ export const parseDataForLineGraph = (data, width, height) => {
     adjustedMaxY,
     minX,
     maxX,
+    data,
+    width,
+    height,
   }
 }
