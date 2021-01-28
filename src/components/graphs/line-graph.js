@@ -7,6 +7,8 @@ import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
 
+import { MediumText } from "../../common/elements"
+
 import { parseDataForLineGraph } from "../../common/graph"
 
 function LineGraph({
@@ -23,8 +25,30 @@ function LineGraph({
     [data, viewportHeight, viewportWidth]
   )
 
-  if (!parsedData) {
-    return <div>Loading...</div>
+  if (data === null) {
+    return (
+      <div
+        tw="relative w-full"
+        style={{ paddingTop: (100 * viewportWidth) / viewportHeight / 2 }}
+      >
+        <div tw="absolute inset-0 flex justify-center items-center mb-5">
+          <MediumText>Loading...</MediumText>
+        </div>
+      </div>
+    )
+  }
+
+  if (!data.length) {
+    return (
+      <div
+        tw="relative w-full"
+        style={{ paddingTop: (100 * viewportWidth) / viewportHeight / 2 }}
+      >
+        <div tw="absolute inset-0 flex justify-center items-center mb-5">
+          <MediumText>No data.. :(</MediumText>
+        </div>
+      </div>
+    )
   }
 
   return (
