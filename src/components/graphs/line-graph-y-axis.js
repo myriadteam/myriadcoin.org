@@ -11,7 +11,7 @@ function LineGraphYAxis({ parsedData, renderValue, itemsCount }) {
           (parsedData.adjustedMaxY - parsedData.adjustedMinY)) /
           (itemsCount - 1)
 
-      return <span>{renderValue(value)}</span>
+      return <span key={i}>{renderValue(value)}</span>
     })
   }
 

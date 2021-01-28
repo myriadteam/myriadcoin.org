@@ -9,7 +9,7 @@ function LineGraphXAxis({ parsedData, renderValue, itemsCount }) {
         parsedData.minX +
         (i * (parsedData.maxX - parsedData.minX)) / (itemsCount - 1)
 
-      return <span>{renderValue(value)}</span>
+      return <span key={i}>{renderValue(value)}</span>
     })
   }
 
