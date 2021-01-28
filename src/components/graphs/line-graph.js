@@ -19,6 +19,8 @@ function LineGraph({
   renderYValue,
   viewportWidth,
   viewportHeight,
+  xAxisItemsCount,
+  yAxisItemsCount,
 }) {
   const parsedData = useMemo(
     () => parseDataForLineGraph(data, viewportWidth, viewportHeight),
@@ -53,7 +55,11 @@ function LineGraph({
 
   return (
     <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
-      <LineGraphYAxis parsedData={parsedData} renderValue={renderYAxis} />
+      <LineGraphYAxis
+        parsedData={parsedData}
+        renderValue={renderYAxis}
+        itemsCount={yAxisItemsCount}
+      />
       <div tw="flex-grow">
         <div tw="relative">
           <LineGraphContent parsedData={parsedData} />
@@ -63,7 +69,11 @@ function LineGraph({
             renderYValue={renderYValue}
           />
         </div>
-        <LineGraphXAxis parsedData={parsedData} renderValue={renderXAxis} />
+        <LineGraphXAxis
+          parsedData={parsedData}
+          renderValue={renderXAxis}
+          itemsCount={xAxisItemsCount}
+        />
       </div>
     </div>
   )
@@ -77,6 +87,8 @@ LineGraph.propTypes = {
   renderYValue: PropTypes.func,
   viewportWidth: PropTypes.number,
   viewportHeight: PropTypes.number,
+  xAxisItemsCount: PropTypes.number,
+  yAxisItemsCount: PropTypes.number,
 }
 
 LineGraph.defaultProps = {
@@ -91,6 +103,8 @@ LineGraph.defaultProps = {
   renderYValue: v => v.toFixed(1),
   viewportWidth: 794,
   viewportHeight: 248,
+  xAxisItemsCount: 4,
+  yAxisItemsCount: 4,
 }
 
 export default LineGraph

@@ -95,7 +95,8 @@ const AboutPage = () => {
               <BodyText>{t("about.stats.inflation_rate")}</BodyText>
             </div>
           </div>
-          <div>
+          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <MediumBoldText>Block weights</MediumBoldText>
             <BlockWeightGraph />
           </div>
         </PageContainer>

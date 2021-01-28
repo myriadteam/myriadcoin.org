@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
-import { MediumBoldText } from "../../common/elements"
-
 import LineGraph from "./line-graph"
 
 function BlockWeightGraph() {
@@ -39,16 +37,15 @@ function BlockWeightGraph() {
     t("formattedNumber", { number: y.toFixed(0) }) + " WUs"
 
   return (
-    <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-      <MediumBoldText>Block weights</MediumBoldText>
-      <LineGraph
-        data={data}
-        renderXAxis={renderXAxis}
-        renderYAxis={renderYAxis}
-        renderXValue={renderXValue}
-        renderYValue={renderYValue}
-      />
-    </div>
+    <LineGraph
+      data={data}
+      renderXAxis={renderXAxis}
+      renderYAxis={renderYAxis}
+      renderXValue={renderXValue}
+      renderYValue={renderYValue}
+      xAxisItemsCount={4}
+      yAxisItemsCount={3}
+    />
   )
 }
 
