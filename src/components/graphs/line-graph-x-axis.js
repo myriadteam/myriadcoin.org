@@ -1,16 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import tw from "twin.macro"
 
-function LineGraphYAxis({ parsedData, renderValue }) {
-  const itemCount = 4
-
+function LineGraphXAxis({ parsedData, renderValue, itemsCount }) {
   const renderContent = () => {
-    return [...Array(itemCount)].map((_, i) => {
+    return [...Array(itemsCount)].map((_, i) => {
       const value =
         parsedData.minX +
-        (i * (parsedData.maxX - parsedData.minX)) / (itemCount - 1)
+        (i * (parsedData.maxX - parsedData.minX)) / (itemsCount - 1)
 
-      return <div>{renderValue(value)}</div>
+      return <span>{renderValue(value)}</span>
     })
   }
 
@@ -21,4 +20,14 @@ function LineGraphYAxis({ parsedData, renderValue }) {
   )
 }
 
-export default LineGraphYAxis
+LineGraphXAxis.propTypes = {
+  parsedData: PropTypes.shape().isRequired,
+  renderValue: PropTypes.func.isRequired,
+  itemsCount: PropTypes.number,
+}
+
+LineGraphXAxis.defaultProps = {
+  itemsCount: 4,
+}
+
+export default React.memo(LineGraphXAxis)

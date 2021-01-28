@@ -1,45 +1,8 @@
-import React, { useLayoutEffect, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import tw from "twin.macro"
 import { useSpring, animated, interpolate } from "react-spring"
 
-function useDimensions(ref) {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-
-  useLayoutEffect(() => {
-    const onLayout = () => {
-      const { height, width } = ref.current.getBoundingClientRect()
-      setDimensions({ height, width })
-    }
-
-    onLayout()
-    window.addEventListener("resize", onLayout)
-
-    return () => {
-      window.removeEventListener("resize", onLayout)
-    }
-  }, [ref])
-
-  return dimensions
-}
-
-function useMousePosition(ref) {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useLayoutEffect(() => {
-    const mouseMove = evt => {
-      setMousePosition({ x: evt.layerX, y: evt.layerY })
-    }
-
-    const box = ref.current
-    box.addEventListener("mousemove", mouseMove)
-
-    return () => {
-      box.removeEventListener("mousemove", mouseMove)
-    }
-  }, [ref])
-
-  return mousePosition
-}
+import { useDimensions, useMousePosition } from "../../hooks/layout"
 
 function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
   const boxRef = useRef(null)
@@ -80,7 +43,7 @@ function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
           }),
         }}
       >
-        <animated.div tw="absolute bottom-0 whitespace-no-wrap bg-dark-light-bg rounded text-white px-3 text-sm leading-lg">
+        <animated.div tw="absolute bottom-0 whitespace-no-wrap bg-light-grey dark:bg-dark-light-bg rounded text-black dark:text-white px-3 text-sm leading-lg">
           {xValue.interpolate(renderXValue)}
         </animated.div>
       </animated.div>
@@ -100,4 +63,4 @@ function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
   )
 }
 
-export default LineGraphMouse
+export default React.memo(LineGraphMouse)

@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
 import Cover from "../components/shared/cover"
-import LineGraph from "../components/graphs/line-graph"
+import BlockWeightGraph from "../components/graphs/block-weight-graph"
 
 import {
   gradientTextStylePurple,
@@ -96,7 +96,7 @@ const AboutPage = () => {
             </div>
           </div>
           <div>
-            <LineGraph />
+            <BlockWeightGraph />
           </div>
         </PageContainer>
       </div>

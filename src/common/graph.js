@@ -60,12 +60,8 @@ export const parseHistoryData = data => {
 }
 
 export const parseDataForLineGraph = (data, width, height, startY, endY) => {
-  if (!data.length) {
-    return {
-      gradientDivide: 0,
-      lineLength: 0,
-      svgLine: null,
-    }
+  if (!data || !data.length) {
+    return null
   }
 
   const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(data)
