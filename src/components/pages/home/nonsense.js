@@ -7,7 +7,7 @@ import NonsenseBox from "./nonsense-box"
 import usePrevious from "../../../hooks/use-previous"
 
 const NonsenseButton = styled.button`
-  ${tw`px-4 py-2 whitespace-no-wrap transition duration-100 ease-in transform rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline`},
+  ${tw`px-2 py-1 whitespace-no-wrap transition duration-100 ease-in transform rounded-full text-xxs sm:px-4 sm:py-2 sm:text-xs hover:opacity-75 focus:outline-none focus:shadow-outline`},
   ${({ thisKey, selectedKey }) =>
     thisKey === selectedKey
       ? tw`text-white bg-bubble-blue`
