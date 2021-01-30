@@ -87,7 +87,7 @@ const Nonsense = () => {
           ))}
         </div>
       </PageContainer>
-      <div tw="mt-10">
+      <div tw="mt-10 overflow-hidden">
         <animated.div
           style={buttonContainerProps}
           tw="inline-flex"
