@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useTransition } from "react-spring"
+import React, { useState, useRef, useEffect } from "react"
+import { useTransition, useSpring, animated } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
 import { BigText, MediumText, PageContainer } from "../../../common/elements"
@@ -29,47 +29,88 @@ const Nonsense = () => {
   let { t } = useTranslation()
   const [index, setIndex] = useState(0)
 
+  let pageContainerRef = useRef(null)
+  let buttonsContainerRef = useRef(null)
+  const buttonsRef = useRef([])
+
+  useEffect(() => {
+    buttonsRef.current = buttonsRef.current.slice(0, dataKeys.length)
+  }, [])
+
   const previousSlide = usePrevious(index)
 
   const dir = index < previousSlide ? -1 : 1
-  const transitions = useTransition([index], item => item, {
-    from: { opacity: 0, transform: `translate3d(${80 * dir}%, 0, 0)` },
-    enter: { opacity: 1, transform: `translate3d(0px, 0, 0)` },
+  const boxTransitions = useTransition([index], null, {
+    initial: { opacity: 1, transform: `translate3d(0, 0, 0)` },
+    from: { opacity: 0, transform: `translate3d(${100 * dir}%, 0, 0)` },
+    enter: { opacity: 1, transform: `translate3d(0, 0, 0)` },
     leave: { opacity: 0, transform: `translate3d(${-100 * dir}%, 0, 0)` },
+    unique: true,
+    reset: true,
     config: {
       duration: 400,
     },
   })
 
+  let buttonOffsetX =
+    (buttonsRef.current[index] && buttonsRef.current[index].offsetLeft) || 0
+  let containerWidth =
+    buttonsContainerRef.current && buttonsContainerRef.current.offsetWidth
+  let pageContainerWidth =
+    pageContainerRef.current && pageContainerRef.current.offsetWidth
+  let pageContainerOffsetX =
+    pageContainerRef.current && pageContainerRef.current.offsetLeft
+
+  let offsetX = pageContainerOffsetX - buttonOffsetX
+  let maxOffsetX = -(containerWidth - pageContainerWidth - pageContainerOffsetX)
+
+  if (offsetX > pageContainerOffsetX) {
+    offsetX = pageContainerOffsetX
+  }
+
+  if (offsetX < maxOffsetX) {
+    offsetX = maxOffsetX
+  }
+
+  const buttonContainerProps = useSpring({
+    transform: `translate3d(${offsetX}px, 0, 0)`,
+  })
+
   return (
     <div tw="mt-24 sm:mt-48">
-      <PageContainer tw="px-6 sm:px-0">
+      <PageContainer tw="px-6 sm:px-0" ref={pageContainerRef}>
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
-        <div tw="h-112 overflow-hidden relative">
-          {transitions.map(({ props }) => (
-            <NonsenseBox
-              keyName={dataKeys[index]}
-              key={dataKeys[index]}
-              style={props}
-            />
+        <div tw="h-112 relative">
+          {boxTransitions.map(({ props, key }) => (
+            <NonsenseBox keyName={dataKeys[index]} key={key} style={props} />
           ))}
         </div>
       </PageContainer>
-      <div tw="flex mt-10 xl:justify-center overflow-hidden">
-        {dataKeys.map((key, keyIndex) => {
-          return (
-            <span tw="px-2" key={`nonsense-btn-${key}`}>
-              <NonsenseButton
-                onClick={() => setIndex(keyIndex)}
-                selectedKey={index}
-                thisKey={keyIndex}
+      <div tw="mt-10">
+        <animated.div
+          style={buttonContainerProps}
+          tw="inline-flex"
+          ref={buttonsContainerRef}
+        >
+          {dataKeys.map((key, keyIndex) => {
+            return (
+              <span
+                tw="px-2"
+                key={keyIndex}
+                ref={el => (buttonsRef.current[keyIndex] = el)}
               >
-                {t(`home.nonsense.bubbles.${key}.title`)}
-              </NonsenseButton>
-            </span>
-          )
-        })}
+                <NonsenseButton
+                  onClick={() => setIndex(keyIndex)}
+                  selectedKey={index}
+                  thisKey={keyIndex}
+                >
+                  {t(`home.nonsense.bubbles.${key}.title`)}
+                </NonsenseButton>
+              </span>
+            )
+          })}
+        </animated.div>
       </div>
     </div>
   )
