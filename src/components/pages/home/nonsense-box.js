@@ -19,7 +19,7 @@ const NonsenseBox = ({ keyName, style }) => {
   return (
     <animated.div
       style={style}
-      tw="absolute bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 w-full h-full"
+      tw="overflow-hidden flex flex-col absolute bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 w-full h-full"
     >
       <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
         <MediumBoldText tw="mb-0">{title}</MediumBoldText>
@@ -32,7 +32,7 @@ const NonsenseBox = ({ keyName, style }) => {
           </div>
         )}
       </div>
-      <div tw="overflow-x-auto">
+      <div tw="overflow-y-scroll h-full">
         <Trans
           i18nKey={`${translationKey}.body`}
           components={[<BodyText tw="mb-8 last:mb-0" />]}
