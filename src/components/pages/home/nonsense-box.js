@@ -21,7 +21,7 @@ const NonsenseBox = ({ keyName, style }) => {
       style={style}
       tw="overflow-hidden flex flex-col absolute bg-white dark:bg-dark-box shadow-wide rounded px-6 py-8 sm:px-16 sm:py-18 w-full h-full"
     >
-      <div tw="flex justify-between items-center flex-col sm:flex-row mb-10">
+      <div tw="flex justify-between items-center flex-col sm:flex-row mb-10 flex-shrink-0">
         <MediumBoldText tw="mb-0">{title}</MediumBoldText>
         {info && (
           <div tw="mt-8 sm:mt-0 rounded-full bg-light-grey dark:bg-dark-info-box text-bubble-blue px-4 py-2 text-sm flex items-center whitespace-no-wrap">

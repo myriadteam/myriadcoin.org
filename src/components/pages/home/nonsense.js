@@ -96,7 +96,7 @@ const Nonsense = () => {
           {dataKeys.map((key, keyIndex) => {
             return (
               <span
-                tw="px-2 first:pl-0 last:pr-0"
+                tw="px-2"
                 key={keyIndex}
                 ref={el => (buttonsRef.current[keyIndex] = el)}
               >
