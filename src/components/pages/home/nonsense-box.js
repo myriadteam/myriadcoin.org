@@ -32,7 +32,7 @@ const NonsenseBox = ({ keyName, style }) => {
           </div>
         )}
       </div>
-      <div tw="overflow-y-scroll h-full px-4 sm:px-10">
+      <div tw="overflow-y-auto h-full px-4 sm:px-10">
         <Trans
           i18nKey={`${translationKey}.body`}
           components={[<BodyText tw="mb-8 last:mb-0" />]}
