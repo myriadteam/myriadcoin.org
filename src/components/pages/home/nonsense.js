@@ -1,6 +1,6 @@
 /* global window */
-import React, { useState, useRef, useEffect } from "react"
-import { useTransition, useSpring, animated } from "react-spring"
+import React, { useState, useRef, useLayoutEffect } from "react"
+import { useTransition, useSpring, animated, interpolate } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
 import { BigText, MediumText, PageContainer } from "../../../common/elements"
@@ -33,11 +33,34 @@ const Nonsense = () => {
 
   let pageContainerRef = useRef(null)
   let buttonsContainerRef = useRef(null)
-  const buttonsRef = useRef([])
+  const buttonsRef = useRef([].slice(0, dataKeys.length))
 
-  useEffect(() => {
-    buttonsRef.current = buttonsRef.current.slice(0, dataKeys.length)
-  }, [])
+  const [{ offsetX }, setOffsetX] = useSpring(() => ({
+    offsetX: 0,
+  }))
+
+  useLayoutEffect(() => {
+    let buttonOffsetX = buttonsRef.current[index].offsetLeft || 0
+    let buttonWidth = buttonsRef.current[index].offsetWidth || 0
+    let windowWidth = window.innerWidth
+
+    let newOffsetX = 0
+    if (windowWidth <= 1024) {
+      newOffsetX = windowWidth / 2 - buttonOffsetX - buttonWidth / 2
+    } else {
+      let containerWidth = buttonsContainerRef.current.offsetWidth
+      let pageContainerWidth = pageContainerRef.current.offsetWidth
+
+      newOffsetX = -buttonOffsetX
+
+      let maxOffsetX = -(containerWidth - pageContainerWidth)
+
+      if (newOffsetX < maxOffsetX) {
+        newOffsetX = maxOffsetX
+      }
+      setOffsetX({ offsetX: newOffsetX })
+    }
+  }, [index, setOffsetX])
 
   const previousSlide = usePrevious(index)
 
@@ -49,45 +72,6 @@ const Nonsense = () => {
     leave: { opacity: 0, transform: `translate3d(${-30 * dir}%, 0, 0)` },
     unique: true,
     reset: true,
-    config: {
-      duration: 400,
-      easing: easings.easeCubicOut,
-    },
-  })
-
-  let buttonOffsetX =
-    (buttonsRef.current[index] && buttonsRef.current[index].offsetLeft) || 0
-  let buttonWidth =
-    (buttonsRef.current[index] && buttonsRef.current[index].offsetWidth) || 0
-  let windowWidth = window.innerWidth
-
-  let offsetX = 0
-  if (windowWidth <= 1024) {
-    offsetX = windowWidth / 2 - buttonOffsetX - buttonWidth / 2
-  } else {
-    let containerWidth =
-      buttonsContainerRef.current && buttonsContainerRef.current.offsetWidth
-    let pageContainerWidth =
-      pageContainerRef.current && pageContainerRef.current.offsetWidth
-
-    offsetX = -buttonOffsetX
-
-    let maxOffsetX = -(containerWidth - pageContainerWidth)
-
-    if (offsetX < maxOffsetX) {
-      offsetX = maxOffsetX
-    }
-  }
-
-  console.log("offsetX", {
-    offsetX,
-    windowWidth,
-    buttonOffsetX,
-    buttonWidth,
-  })
-
-  const buttonContainerProps = useSpring({
-    transform: `translate3d(${offsetX}px, 0, 0)`,
     config: {
       duration: 400,
       easing: easings.easeCubicOut,
@@ -108,7 +92,11 @@ const Nonsense = () => {
       <div tw="mt-8 py-2 overflow-hidden">
         <PageContainer>
           <animated.div
-            style={buttonContainerProps}
+            style={{
+              transform: interpolate([offsetX], offsetX => {
+                return `translate3d(${offsetX}px, 0, 0)`
+              }),
+            }}
             tw="inline-flex"
             ref={buttonsContainerRef}
           >
