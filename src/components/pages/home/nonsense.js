@@ -54,23 +54,44 @@ const Nonsense = () => {
 
   let buttonOffsetX =
     (buttonsRef.current[index] && buttonsRef.current[index].offsetLeft) || 0
-  let containerWidth =
-    buttonsContainerRef.current && buttonsContainerRef.current.offsetWidth
-  let pageContainerWidth =
-    pageContainerRef.current && pageContainerRef.current.offsetWidth
-  let pageContainerOffsetX =
-    pageContainerRef.current && pageContainerRef.current.offsetLeft
+  let buttonWidth =
+    (buttonsRef.current[index] && buttonsRef.current[index].offsetWidth) || 0
+  let windowWidth = window.innerWidth
 
-  let offsetX = pageContainerOffsetX - buttonOffsetX
-  let maxOffsetX = -(containerWidth - pageContainerWidth - pageContainerOffsetX)
+  let offsetX = 0
+  if (windowWidth <= 1024) {
+    offsetX = windowWidth / 2 - buttonOffsetX - buttonWidth / 2
+  } else {
+    let containerWidth =
+      buttonsContainerRef.current && buttonsContainerRef.current.offsetWidth
+    let pageContainerWidth =
+      pageContainerRef.current && pageContainerRef.current.offsetWidth
+    let pageContainerOffsetX =
+      pageContainerRef.current && pageContainerRef.current.offsetLeft
 
-  if (offsetX > pageContainerOffsetX) {
-    offsetX = pageContainerOffsetX
+    offsetX = pageContainerOffsetX - buttonOffsetX
+
+    let maxOffsetX = -(
+      containerWidth -
+      pageContainerWidth -
+      pageContainerOffsetX
+    )
+
+    if (offsetX > pageContainerOffsetX) {
+      offsetX = pageContainerOffsetX
+    }
+
+    if (offsetX < maxOffsetX) {
+      offsetX = maxOffsetX
+    }
   }
 
-  if (offsetX < maxOffsetX) {
-    offsetX = maxOffsetX
-  }
+  console.log("offsetX", {
+    offsetX,
+    windowWidth,
+    buttonOffsetX,
+    buttonWidth,
+  })
 
   const buttonContainerProps = useSpring({
     transform: `translate3d(${offsetX}px, 0, 0)`,
@@ -81,7 +102,7 @@ const Nonsense = () => {
       <PageContainer tw="px-6 sm:px-0" ref={pageContainerRef}>
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
-        <div tw="h-112 relative">
+        <div tw="h-112 relative overflow-hidden">
           {boxTransitions.map(({ props, key }) => (
             <NonsenseBox keyName={dataKeys[index]} key={key} style={props} />
           ))}
