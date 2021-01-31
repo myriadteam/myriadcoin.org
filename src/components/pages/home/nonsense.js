@@ -1,5 +1,5 @@
 /* global window */
-import React, { useState, useRef, useLayoutEffect } from "react"
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react"
 import { useTransition, useSpring, animated, interpolate } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
@@ -7,6 +7,7 @@ import { BigText, MediumText, PageContainer } from "../../../common/elements"
 import NonsenseBox from "./nonsense-box"
 import usePrevious from "../../../hooks/use-previous"
 import * as easings from "d3-ease"
+import { useDimensions } from "../../../hooks/layout"
 
 const NonsenseButton = styled.button`
   ${tw`px-2 py-1 whitespace-no-wrap transition duration-100 ease-in transform rounded-full text-xxs sm:px-4 sm:py-2 sm:text-xs hover:opacity-75 focus:outline-none`},
@@ -29,24 +30,30 @@ const dataKeys = [
 
 const Nonsense = () => {
   let { t } = useTranslation()
+
   const [index, setIndex] = useState(0)
 
   let pageContainerRef = useRef(null)
   let buttonsContainerRef = useRef(null)
   const buttonsRef = useRef([].slice(0, dataKeys.length))
 
+  const { width } = useDimensions(pageContainerRef)
+
   const [{ offsetX }, setOffsetX] = useSpring(() => ({
     offsetX: 0,
+    config: {
+      duration: 400,
+      easing: easings.easeCubicOut,
+    },
   }))
 
   useLayoutEffect(() => {
     let buttonOffsetX = buttonsRef.current[index].offsetLeft || 0
     let buttonWidth = buttonsRef.current[index].offsetWidth || 0
-    let windowWidth = window.innerWidth
 
     let newOffsetX = 0
-    if (windowWidth <= 1024) {
-      newOffsetX = windowWidth / 2 - buttonOffsetX - buttonWidth / 2
+    if (width <= 960) {
+      newOffsetX = width / 2 - buttonOffsetX - buttonWidth / 2
     } else {
       let containerWidth = buttonsContainerRef.current.offsetWidth
       let pageContainerWidth = pageContainerRef.current.offsetWidth
@@ -58,9 +65,9 @@ const Nonsense = () => {
       if (newOffsetX < maxOffsetX) {
         newOffsetX = maxOffsetX
       }
-      setOffsetX({ offsetX: newOffsetX })
     }
-  }, [index, setOffsetX])
+    setOffsetX({ offsetX: newOffsetX })
+  }, [index, setOffsetX, width])
 
   const previousSlide = usePrevious(index)
 
