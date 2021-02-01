@@ -59,12 +59,77 @@ export const parseHistoryData = data => {
   }
 }
 
-export const parseDataForLineGraph = (data, width, height, startY, endY) => {
-  if (!data || !data.length) {
+const average = rollingWindow => (a, c) => {
+  return {
+    x: a.x,
+    y: a.y + c.y / rollingWindow,
+  }
+}
+
+const getCentralRollingAverage = (rawData, rollingWindow) => {
+  if (rollingWindow % 2 === 0) {
+    rollingWindow += 1
+  }
+
+  const slicedData = rawData.slice(
+    (rollingWindow - 1) / 2,
+    -(rollingWindow - 1) / 2
+  )
+
+  const averagedData = slicedData.map((d, i) => {
+    const avgD = rawData
+      .slice(i, i + rollingWindow)
+      .reduce(average(rollingWindow), { x: d.x, y: 0 })
+
+    return avgD
+  })
+
+  console.log({ averagedData, slicedData, rawData })
+
+  return { slicedData, averagedData }
+}
+
+const getRollingAverage = (rawData, rollingWindow) => {
+  const slicedData = rawData.slice(rollingWindow - 1)
+
+  const averagedData = slicedData.map((d, i) => {
+    const avgD = rawData
+      .slice(i, i + rollingWindow)
+      .reduce(average(rollingWindow), { x: d.x, y: 0 })
+
+    return avgD
+  })
+
+  console.log({ slicedData, averagedData })
+
+  return { slicedData, averagedData }
+}
+
+export const parseDataForLineGraph = ({
+  rawData,
+  width,
+  height,
+  startY,
+  endY,
+  rollingWindow,
+  centralRolling,
+}) => {
+  if (!rawData || !rawData.length) {
     return null
   }
 
-  const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(data)
+  let data = rawData
+  let exactData = rawData
+
+  if (rollingWindow) {
+    const { slicedData, averagedData } = centralRolling
+      ? getCentralRollingAverage(data, rollingWindow)
+      : getRollingAverage(data, rollingWindow)
+    data = averagedData
+    exactData = slicedData
+  }
+
+  const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(exactData)
 
   const adjustedMinY = startY === undefined ? minY : startY
   const adjustedMaxY = endY === undefined ? maxY : endY
@@ -74,13 +139,13 @@ export const parseDataForLineGraph = (data, width, height, startY, endY) => {
 
   const nearestDataPointFromX = getNearestDataPoint(
     width,
-    data.map(({ x }) => x),
-    data
+    exactData.map(({ x }) => x),
+    exactData
   )
 
   const nearestDataPointIndexFromX = getNearestDataPointIndex(
     width,
-    data.map(({ x }) => x)
+    exactData.map(({ x }) => x)
   )
 
   const gradientDivide = y(data[0].y) / height
@@ -133,5 +198,6 @@ export const parseDataForLineGraph = (data, width, height, startY, endY) => {
     data,
     width,
     height,
+    exactData,
   }
 }

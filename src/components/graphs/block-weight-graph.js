@@ -45,6 +45,8 @@ function BlockWeightGraph() {
       renderYValue={renderYValue}
       xAxisItemsCount={4}
       yAxisItemsCount={3}
+      rollingWindow={5}
+      centralRolling={true}
     />
   )
 }

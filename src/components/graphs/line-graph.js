@@ -21,10 +21,19 @@ function LineGraph({
   viewportHeight,
   xAxisItemsCount,
   yAxisItemsCount,
+  rollingWindow,
+  centralRolling,
 }) {
   const parsedData = useMemo(
-    () => parseDataForLineGraph(data, viewportWidth, viewportHeight),
-    [data, viewportHeight, viewportWidth]
+    () =>
+      parseDataForLineGraph({
+        rawData: data,
+        width: viewportWidth,
+        height: viewportHeight,
+        rollingWindow,
+        centralRolling,
+      }),
+    [centralRolling, data, rollingWindow, viewportHeight, viewportWidth]
   )
 
   if (data === null) {
@@ -89,6 +98,8 @@ LineGraph.propTypes = {
   viewportHeight: PropTypes.number,
   xAxisItemsCount: PropTypes.number,
   yAxisItemsCount: PropTypes.number,
+  rollingWindow: PropTypes.number,
+  centralRolling: PropTypes.bool,
 }
 
 LineGraph.defaultProps = {
@@ -105,6 +116,8 @@ LineGraph.defaultProps = {
   viewportHeight: 248,
   xAxisItemsCount: 4,
   yAxisItemsCount: 4,
+  rollingWindow: 0,
+  centralRolling: false,
 }
 
 export default LineGraph
