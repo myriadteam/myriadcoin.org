@@ -66,41 +66,29 @@ const average = rollingWindow => (a, c) => {
   }
 }
 
-const getCentralRollingAverage = (rawData, rollingWindow) => {
-  if (rollingWindow % 2 === 0) {
-    rollingWindow += 1
+const getRollingAverage = (rawData, rollingWindow, centralRolling) => {
+  const getSlicedData = () => {
+    if (centralRolling) {
+      return rawData.slice((rollingWindow - 1) / 2, -(rollingWindow - 1) / 2)
+    }
+
+    return rawData.slice(rollingWindow - 1)
   }
+  const slicedData = getSlicedData()
 
-  const slicedData = rawData.slice(
-    (rollingWindow - 1) / 2,
-    -(rollingWindow - 1) / 2
-  )
+  const getInitialAverage = () =>
+    rawData.slice(0, rollingWindow).reduce(average(rollingWindow), { y: 0 }).y
 
-  const averagedData = slicedData.map((d, i) => {
-    const avgD = rawData
-      .slice(i, i + rollingWindow)
-      .reduce(average(rollingWindow), { x: d.x, y: 0 })
+  const averagedData = []
+  for (let i = 0; i < slicedData.length; i++) {
+    const { x } = slicedData[i]
+    const y = !i
+      ? getInitialAverage()
+      : averagedData[i - 1].y +
+        (rawData[i + rollingWindow - 1].y - rawData[i - 1].y) / rollingWindow
 
-    return avgD
-  })
-
-  console.log({ averagedData, slicedData, rawData })
-
-  return { slicedData, averagedData }
-}
-
-const getRollingAverage = (rawData, rollingWindow) => {
-  const slicedData = rawData.slice(rollingWindow - 1)
-
-  const averagedData = slicedData.map((d, i) => {
-    const avgD = rawData
-      .slice(i, i + rollingWindow)
-      .reduce(average(rollingWindow), { x: d.x, y: 0 })
-
-    return avgD
-  })
-
-  console.log({ slicedData, averagedData })
+    averagedData.push({ x, y })
+  }
 
   return { slicedData, averagedData }
 }
@@ -122,9 +110,11 @@ export const parseDataForLineGraph = ({
   let exactData = rawData
 
   if (rollingWindow) {
-    const { slicedData, averagedData } = centralRolling
-      ? getCentralRollingAverage(data, rollingWindow)
-      : getRollingAverage(data, rollingWindow)
+    const { slicedData, averagedData } = getRollingAverage(
+      data,
+      rollingWindow,
+      centralRolling
+    )
     data = averagedData
     exactData = slicedData
   }
