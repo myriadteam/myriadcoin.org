@@ -2,42 +2,48 @@ import React, { useCallback } from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
-const LineGraphContent = ({ parsedData, stackColors }) => {
+const LineGraphContent = ({
+  parsedData,
+  linePlotColors,
+  stackColors,
+  barPlotKeys,
+  barPlotColors,
+}) => {
   const renderLinePlot = useCallback(() => {
-    const { svgLine } = parsedData
-
-    return (
+    return parsedData.linePlotData.map(({ svgLine }, i) => (
       <path
+        key={i}
         d={svgLine}
         fill="none"
-        stroke={"#0066FF"}
+        stroke={linePlotColors[i]}
         strokeWidth="2"
         vectorEffect="non-scaling-stroke"
       />
-    )
-  }, [parsedData])
+    ))
+  }, [linePlotColors, parsedData.linePlotData])
 
   const renderBarPlot = useCallback(() => {
     const { exactData, x, y } = parsedData
 
-    const barWidth = (0.8 * 794) / exactData.length
+    const containerBarWidth = (0.8 * 794) / exactData.length
+    const barWidth = containerBarWidth / barPlotKeys.length
 
     return exactData.map((d, di) => {
-      const height = 248 - y(d.y)
-
-      return (
-        <rect
-          key={di}
-          x={x(d.x) - barWidth / 2}
-          y={y(d.y)}
-          width={barWidth}
-          height={height}
-          fill={"#0066FF"}
-          opacity={0.8}
-        />
-      )
+      return barPlotKeys.map((barKey, barI) => {
+        return (
+          <rect
+            key={barKey + di}
+            x={x(d.x) - containerBarWidth / 2 + barWidth * barI}
+            y={y(d[barKey])}
+            width={barWidth}
+            height={y(0) - y(d[barKey])}
+            fill={barPlotColors[barI]}
+            opacity={0.8}
+          />
+        )
+      })
     })
-  }, [parsedData])
+  }, [barPlotColors, barPlotKeys, parsedData])
 
   const renderStackedPlot = useCallback(() => {
     const { stackedData, exactData, x, y } = parsedData
@@ -66,9 +72,9 @@ const LineGraphContent = ({ parsedData, stackColors }) => {
 
   return (
     <svg width={"100%"} viewBox="0 0 794 248" tw="overflow-visible">
-      {renderLinePlot()}
-      {renderBarPlot()}
       {renderStackedPlot()}
+      {renderBarPlot()}
+      {renderLinePlot()}
     </svg>
   )
 }

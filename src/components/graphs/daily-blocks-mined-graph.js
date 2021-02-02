@@ -92,8 +92,8 @@ function DailyBlocksMinedGraph() {
       renderYAxis={renderYAxis}
       renderXValue={renderXValue}
       renderYValue={renderYValue}
-      rollingWindow={7}
-      centralRolling
+      barPlotKeys={[]}
+      barPlotColors={[]}
       stackedKeys={["0", "1", "2", "3", "4", "5", "6"]}
       stackColors={[
         "#0066FF",

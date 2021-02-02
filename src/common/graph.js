@@ -60,14 +60,19 @@ export const parseHistoryData = data => {
   }
 }
 
-const average = rollingWindow => (a, c) => {
+const average = (rollingWindow, key) => (a, c) => {
   return {
     x: a.x,
-    y: a.y + c.y / rollingWindow,
+    [key]: a[key] + c[key] / rollingWindow,
   }
 }
 
-const getRollingAverage = (rawData, rollingWindow, centralRolling) => {
+const getRollingAverage = (
+  rawData,
+  rollingWindow,
+  centralRolling,
+  linePlotKeys
+) => {
   const getSlicedData = () => {
     if (centralRolling) {
       return rawData.slice((rollingWindow - 1) / 2, -(rollingWindow - 1) / 2)
@@ -77,18 +82,26 @@ const getRollingAverage = (rawData, rollingWindow, centralRolling) => {
   }
   const slicedData = getSlicedData()
 
-  const getInitialAverage = () =>
-    rawData.slice(0, rollingWindow).reduce(average(rollingWindow), { y: 0 }).y
+  const getInitialAverage = key =>
+    rawData
+      .slice(0, rollingWindow)
+      .reduce(average(rollingWindow, key), { [key]: 0 })[key]
 
   const averagedData = []
   for (let i = 0; i < slicedData.length; i++) {
     const { x } = slicedData[i]
-    const y = !i
-      ? getInitialAverage()
-      : averagedData[i - 1].y +
-        (rawData[i + rollingWindow - 1].y - rawData[i - 1].y) / rollingWindow
 
-    averagedData.push({ x, y })
+    const averagedValues = linePlotKeys.reduce((a, key) => {
+      const value = !i
+        ? getInitialAverage(key)
+        : averagedData[i - 1][key] +
+          (rawData[i + rollingWindow - 1][key] - rawData[i - 1][key]) /
+            rollingWindow
+
+      return { ...a, [key]: value }
+    }, {})
+
+    averagedData.push({ x, ...averagedValues })
   }
 
   return { slicedData, averagedData }
@@ -103,6 +116,7 @@ export const parseDataForLineGraph = ({
   rollingWindow,
   centralRolling,
   stackedKeys,
+  linePlotKeys,
 }) => {
   if (!rawData || !rawData.length) {
     return null
@@ -115,7 +129,8 @@ export const parseDataForLineGraph = ({
     const { slicedData, averagedData } = getRollingAverage(
       data,
       rollingWindow,
-      centralRolling
+      centralRolling,
+      linePlotKeys
     )
     data = averagedData
     exactData = slicedData
@@ -144,51 +159,56 @@ export const parseDataForLineGraph = ({
     exactData
   )
 
-  const gradientDivide = y(data[0].y) / height
+  const linePlotData = linePlotKeys.map(lineKey => {
+    const gradientDivide = y(data[0][lineKey]) / height
 
-  const line = d3Shape
-    .line()
-    .curve(d3Shape.curveMonotoneX)
-    .x(d => x(d.x))
-    .y(d => y(d.y))
+    const line = d3Shape
+      .line()
+      .curve(d3Shape.curveMonotoneX)
+      .x(d => x(d.x))
+      .y(d => y(d[lineKey]))
 
-  const svgLine = line(data)
+    const svgLine = line(data)
 
-  const svgLineFill = line([
-    { ...data[0], y: adjustedMinY },
-    ...data,
-    { ...data[data.length - 1], y: adjustedMinY },
-  ])
+    const svgLineFill = line([
+      { ...data[0], y: adjustedMinY },
+      ...data,
+      { ...data[data.length - 1], y: adjustedMinY },
+    ])
 
-  const getSvgDivideLine = () => {
-    if (minY === data[0].y || maxY === data[0].y) {
-      return null
+    const getSvgDivideLine = () => {
+      if (minY === data[0][lineKey] || maxY === data[0][lineKey]) {
+        return null
+      }
+
+      return line([data[0], { ...data[data.length - 1], y: data[0][lineKey] }])
     }
 
-    return line([data[0], { ...data[data.length - 1], y: data[0].y }])
-  }
+    const svgDivideLine = getSvgDivideLine()
 
-  const svgDivideLine = getSvgDivideLine()
+    const properties = new svgPathProperties(svgLine)
+    const lineLength = properties.getTotalLength()
 
-  const properties = new svgPathProperties(svgLine)
-  const lineLength = properties.getTotalLength()
+    return {
+      gradientDivide,
+      line,
+      svgLine,
+      svgLineFill,
+      svgDivideLine,
+      lineLength,
+    }
+  })
 
   const stackGen = d3Shape.stack().keys(stackedKeys)
   const stackedData = stackGen(exactData)
 
   return {
-    svgLine,
-    svgLineFill,
-    svgDivideLine,
-    gradientDivide,
-    lineLength,
     changePercent,
     x,
     y,
     nearestDataPointIndexFromX,
     nearestDataPointFromX,
     nearestExactDataPointFromX,
-    line,
     minY,
     maxY,
     adjustedMinY,
@@ -200,5 +220,6 @@ export const parseDataForLineGraph = ({
     height,
     exactData,
     stackedData,
+    linePlotData,
   }
 }

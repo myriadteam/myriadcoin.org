@@ -27,6 +27,10 @@ function LineGraph({
   endY,
   stackedKeys,
   stackColors,
+  barPlotKeys,
+  barPlotColors,
+  linePlotKeys,
+  linePlotColors,
 }) {
   const parsedData = useMemo(() => {
     if (!data) {
@@ -42,6 +46,7 @@ function LineGraph({
       startY,
       endY,
       stackedKeys,
+      linePlotKeys,
     })
   }, [
     data,
@@ -52,6 +57,7 @@ function LineGraph({
     startY,
     endY,
     stackedKeys,
+    linePlotKeys,
   ])
 
   if (data === null) {
@@ -89,7 +95,13 @@ function LineGraph({
       />
       <div tw="flex-grow">
         <div tw="relative">
-          <LineGraphContent parsedData={parsedData} stackColors={stackColors} />
+          <LineGraphContent
+            parsedData={parsedData}
+            linePlotColors={linePlotColors}
+            stackColors={stackColors}
+            barPlotKeys={barPlotKeys}
+            barPlotColors={barPlotColors}
+          />
           <LineGraphMouse
             parsedData={parsedData}
             renderXValue={renderXValue}
@@ -122,6 +134,10 @@ LineGraph.propTypes = {
   endY: PropTypes.number,
   stackedKeys: PropTypes.arrayOf(PropTypes.string),
   stackColors: PropTypes.arrayOf(PropTypes.string),
+  linePlotKeys: PropTypes.arrayOf(PropTypes.string),
+  linePlotColors: PropTypes.arrayOf(PropTypes.string),
+  barPlotKeys: PropTypes.arrayOf(PropTypes.string),
+  barPlotColors: PropTypes.arrayOf(PropTypes.string),
 }
 
 LineGraph.defaultProps = {
@@ -140,6 +156,10 @@ LineGraph.defaultProps = {
   endY: undefined,
   stackedKeys: [],
   stackColors: [],
+  linePlotKeys: [],
+  linePlotColors: [],
+  barPlotKeys: [],
+  barPlotColors: [],
 }
 
 export default LineGraph
