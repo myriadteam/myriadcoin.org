@@ -13,7 +13,13 @@ const fetchFromPriceApi = (ticker, currency) => {
 
   return fetch(url)
     .then(r => r.json())
-    .then(j => j[currency])
+    .then(j => {
+      if (!j[currency]) {
+        return 0
+      }
+
+      return j[currency]
+    })
 }
 
 const fetchFromHistoricPriceApi = (ticker, currency, timestamp) => {
@@ -23,7 +29,13 @@ const fetchFromHistoricPriceApi = (ticker, currency, timestamp) => {
     `?fsym=${ticker}&tsyms=${currency}&ts=${parseInt(timestamp, 10)}`
   return fetch(url)
     .then(r => r.json())
-    .then(j => j[ticker][currency])
+    .then(j => {
+      if (!j[ticker]) {
+        return 0
+      }
+
+      return j[ticker][currency]
+    })
 }
 
 class ExchangeHelper extends EventEmitter {
