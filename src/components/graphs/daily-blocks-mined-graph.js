@@ -14,6 +14,10 @@ function DailyBlocksMinedGraph() {
         "https://xmy-history.coinid.org/latestblocks/100000/mediantime.json"
       ).then(r => r.json())
 
+      const algoData = await fetch(
+        "https://xmy-history.coinid.org/latestblocks/100000/pow_algo_id.json"
+      ).then(r => r.json())
+
       const startDate = new Date(times[0] * 1000)
       const startTimestamp = startDate.setUTCHours(24, 0, 0, 0) / 1000 // first day
 
@@ -22,11 +26,23 @@ function DailyBlocksMinedGraph() {
 
       const totalDays = (endTimestamp - startTimestamp) / (24 * 60 * 60)
 
-      const blockPerDay = []
-
       const getDayTimestamp = day => {
         return startTimestamp + 24 * 60 * 60 * day
       }
+
+      const algos = [
+        { name: "sha256", color: "blue" },
+        { name: "scrypt", color: "green" },
+        { name: "groestl", color: "yellow" },
+        { name: "skein", color: "purple" },
+        { name: "qubit", color: "black" },
+        { name: "yescrypt", color: "brown" },
+        { name: "argon2d", color: "purple" },
+      ]
+
+      const blocksPerDay = []
+
+      const blocksPerAlgoPerDay = []
 
       for (var i = 0; i < totalDays; i++) {
         const startOfDay = getDayTimestamp(i)
@@ -35,15 +51,24 @@ function DailyBlocksMinedGraph() {
         const startIndex = times.findIndex(time => time >= startOfDay)
         const endIndex = times.findIndex(time => time > endOfDay)
 
+        const algosInWindow = algoData.slice(startIndex, endIndex)
+
         const blocks = endIndex - startIndex
 
-        blockPerDay.push(blocks)
+        blocksPerDay.push(blocks)
+
+        blocksPerAlgoPerDay.push(
+          algos.map((_, i) => algosInWindow.filter(a => a === i).length)
+        )
       }
 
-      const newData = blockPerDay.map((v, i) => ({
-        x: getDayTimestamp(i),
-        y: v,
-      }))
+      const newData = blocksPerDay.map((v, i) => {
+        return {
+          x: getDayTimestamp(i),
+          y: v,
+          ...blocksPerAlgoPerDay[i],
+        }
+      })
 
       setData(newData)
     }
@@ -67,6 +92,19 @@ function DailyBlocksMinedGraph() {
       renderYAxis={renderYAxis}
       renderXValue={renderXValue}
       renderYValue={renderYValue}
+      rollingWindow={7}
+      centralRolling
+      stackedKeys={["0", "1", "2", "3", "4", "5", "6"]}
+      stackColors={[
+        "#0066FF",
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "grey",
+        "orange",
+      ]}
     />
   )
 }

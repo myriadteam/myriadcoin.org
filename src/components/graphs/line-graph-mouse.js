@@ -4,7 +4,7 @@ import { useSpring, animated, interpolate } from "react-spring"
 
 import { useDimensions, useMousePosition } from "../../hooks/layout"
 
-function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
+function LineGraphMouse({ parsedData, renderXValue, renderYValue, exact }) {
   const boxRef = useRef(null)
 
   const [{ dataX, dataY, xValue, yValue }, set] = useSpring(() => ({
@@ -22,14 +22,16 @@ function LineGraphMouse({ parsedData, renderXValue, renderYValue }) {
   const graphX = x * xScale
 
   useEffect(() => {
-    const dataPoint = parsedData.nearestDataPointFromX(graphX)
+    const dataPoint = exact
+      ? parsedData.nearestExactDataPointFromX(graphX)
+      : parsedData.nearestDataPointFromX(graphX)
     set({
       dataX: parsedData.x(dataPoint.x) / xScale,
       dataY: parsedData.y(dataPoint.y) / yScale,
       xValue: dataPoint.x,
       yValue: dataPoint.y,
     })
-  }, [x, graphX, parsedData, set, xScale, yScale])
+  }, [x, graphX, parsedData, set, xScale, yScale, exact])
 
   return (
     <div tw="absolute inset-0" ref={boxRef}>

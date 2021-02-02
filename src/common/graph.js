@@ -19,8 +19,9 @@ const getNearestDataPointIndex = (pixels, dataValues) => position => {
 
   return distanceIndexes[0][1]
 }
-const getNearestDataPoint = (pixels, dataValues, data) => position => {
-  const index = getNearestDataPointIndex(pixels, dataValues)(position)
+
+const getNearestDataPoint = (nearestDataPointIndexFromX, data) => position => {
+  const index = nearestDataPointIndexFromX(position)
   return data[index]
 }
 
@@ -101,6 +102,7 @@ export const parseDataForLineGraph = ({
   endY,
   rollingWindow,
   centralRolling,
+  stackedKeys,
 }) => {
   if (!rawData || !rawData.length) {
     return null
@@ -127,15 +129,19 @@ export const parseDataForLineGraph = ({
   const x = scaleGraph(minX, maxX, width)
   const y = scaleGraph(adjustedMaxY, adjustedMinY, height)
 
-  const nearestDataPointFromX = getNearestDataPoint(
-    width,
-    exactData.map(({ x }) => x),
-    exactData
-  )
-
   const nearestDataPointIndexFromX = getNearestDataPointIndex(
     width,
     exactData.map(({ x }) => x)
+  )
+
+  const nearestDataPointFromX = getNearestDataPoint(
+    nearestDataPointIndexFromX,
+    data
+  )
+
+  const nearestExactDataPointFromX = getNearestDataPoint(
+    nearestDataPointIndexFromX,
+    exactData
   )
 
   const gradientDivide = y(data[0].y) / height
@@ -167,6 +173,9 @@ export const parseDataForLineGraph = ({
   const properties = new svgPathProperties(svgLine)
   const lineLength = properties.getTotalLength()
 
+  const stackGen = d3Shape.stack().keys(stackedKeys)
+  const stackedData = stackGen(exactData)
+
   return {
     svgLine,
     svgLineFill,
@@ -176,8 +185,9 @@ export const parseDataForLineGraph = ({
     changePercent,
     x,
     y,
-    nearestDataPointFromX,
     nearestDataPointIndexFromX,
+    nearestDataPointFromX,
+    nearestExactDataPointFromX,
     line,
     minY,
     maxY,
@@ -189,5 +199,6 @@ export const parseDataForLineGraph = ({
     width,
     height,
     exactData,
+    stackedData,
   }
 }

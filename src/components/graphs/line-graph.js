@@ -24,19 +24,35 @@ function LineGraph({
   rollingWindow,
   centralRolling,
   startY,
+  endY,
+  stackedKeys,
+  stackColors,
 }) {
-  const parsedData = useMemo(
-    () =>
-      parseDataForLineGraph({
-        rawData: data,
-        width: viewportWidth,
-        height: viewportHeight,
-        rollingWindow,
-        centralRolling,
-        startY,
-      }),
-    [centralRolling, data, rollingWindow, startY, viewportHeight, viewportWidth]
-  )
+  const parsedData = useMemo(() => {
+    if (!data) {
+      return null
+    }
+
+    return parseDataForLineGraph({
+      rawData: data,
+      width: viewportWidth,
+      height: viewportHeight,
+      rollingWindow,
+      centralRolling,
+      startY,
+      endY,
+      stackedKeys,
+    })
+  }, [
+    data,
+    viewportWidth,
+    viewportHeight,
+    rollingWindow,
+    centralRolling,
+    startY,
+    endY,
+    stackedKeys,
+  ])
 
   if (data === null) {
     return (
@@ -73,7 +89,7 @@ function LineGraph({
       />
       <div tw="flex-grow">
         <div tw="relative">
-          <LineGraphContent parsedData={parsedData} />
+          <LineGraphContent parsedData={parsedData} stackColors={stackColors} />
           <LineGraphMouse
             parsedData={parsedData}
             renderXValue={renderXValue}
@@ -103,14 +119,13 @@ LineGraph.propTypes = {
   rollingWindow: PropTypes.number,
   centralRolling: PropTypes.bool,
   startY: PropTypes.number,
+  endY: PropTypes.number,
+  stackedKeys: PropTypes.arrayOf(PropTypes.string),
+  stackColors: PropTypes.arrayOf(PropTypes.string),
 }
 
 LineGraph.defaultProps = {
-  data: [
-    { x: 0, y: 2 },
-    { x: 1, y: 3 },
-    { x: 2, y: 2.5 },
-  ],
+  data: null,
   renderXAxis: v => v.toFixed(1),
   renderYAxis: v => v.toFixed(1),
   renderXValue: v => v.toFixed(1),
@@ -122,6 +137,9 @@ LineGraph.defaultProps = {
   rollingWindow: 0,
   centralRolling: false,
   startY: undefined,
+  endY: undefined,
+  stackedKeys: [],
+  stackColors: [],
 }
 
 export default LineGraph
