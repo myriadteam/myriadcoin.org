@@ -31,6 +31,7 @@ function LineGraph({
   barPlotColors,
   linePlotKeys,
   linePlotColors,
+  areaStack,
 }) {
   const parsedData = useMemo(() => {
     if (!data) {
@@ -99,6 +100,7 @@ function LineGraph({
             parsedData={parsedData}
             linePlotColors={linePlotColors}
             stackColors={stackColors}
+            areaStack={areaStack}
             barPlotKeys={barPlotKeys}
             barPlotColors={barPlotColors}
           />
@@ -138,6 +140,7 @@ LineGraph.propTypes = {
   linePlotColors: PropTypes.arrayOf(PropTypes.string),
   barPlotKeys: PropTypes.arrayOf(PropTypes.string),
   barPlotColors: PropTypes.arrayOf(PropTypes.string),
+  areaStack: PropTypes.bool,
 }
 
 LineGraph.defaultProps = {
@@ -160,6 +163,7 @@ LineGraph.defaultProps = {
   linePlotColors: [],
   barPlotKeys: [],
   barPlotColors: [],
+  areaStack: false,
 }
 
 export default LineGraph

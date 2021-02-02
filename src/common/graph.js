@@ -202,6 +202,18 @@ export const parseDataForLineGraph = ({
   const stackGen = d3Shape.stack().keys(stackedKeys)
   const stackedData = stackGen(exactData)
 
+  var areaGen = d3Shape
+    .area()
+    .curve(d3Shape.curveMonotoneX)
+    .x(d => x(d.data.x))
+    .y0(d => y(d[0]))
+    .y1(d => y(d[1]))
+
+  const stackAreas = stackedData.map(stack => {
+    const area = areaGen(stack)
+    return area
+  })
+
   return {
     changePercent,
     x,
@@ -220,6 +232,7 @@ export const parseDataForLineGraph = ({
     height,
     exactData,
     stackedData,
+    stackAreas,
     linePlotData,
   }
 }

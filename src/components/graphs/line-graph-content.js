@@ -8,6 +8,7 @@ const LineGraphContent = ({
   stackColors,
   barPlotKeys,
   barPlotColors,
+  areaStack,
 }) => {
   const renderLinePlot = useCallback(() => {
     return parsedData.linePlotData.map(({ svgLine }, i) => (
@@ -70,11 +71,17 @@ const LineGraphContent = ({
     })
   }, [parsedData, stackColors])
 
+  const renderStackedAreas = () => {
+    return parsedData.stackAreas.map((area, i) => (
+      <path d={area} fill={stackColors[i]} />
+    ))
+  }
+
   return (
     <svg width={"100%"} viewBox="0 0 794 248" tw="overflow-visible">
-      {renderStackedPlot()}
-      {renderBarPlot()}
       {renderLinePlot()}
+      {renderBarPlot()}
+      {areaStack ? renderStackedAreas() : renderStackedPlot()}
     </svg>
   )
 }
