@@ -1,6 +1,7 @@
 import i18next from "i18next"
 import numeral from "numeral"
 import LanguageDetector from "i18next-browser-languagedetector"
+import moment from "moment"
 
 i18next.use(LanguageDetector).init({
   fallbackLng: "en",
@@ -29,6 +30,7 @@ i18next.use(LanguageDetector).init({
       if (format === "uppercase") return value.toUpperCase()
       if (format === "0,0") return numeral(value).format(format)
       if (format === "0,0.00") return numeral(value).format(format)
+      if (value instanceof Date) return moment(value).format(format)
       return value
     },
   },

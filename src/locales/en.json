@@ -1,6 +1,8 @@
 {
   "formattedNumber": "{{number, 0,0}}",
   "percentage": "{{number, 0,0.00}}",
+  "dayMonth": "{{date, MMM Do}}",
+  "dayMonthYear": "{{date, ll}}",
   "languages": {
     "en": "English",
     "eo": "Esperanto",
