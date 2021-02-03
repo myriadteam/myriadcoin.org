@@ -35,18 +35,18 @@ export const parseHistoryData = data => {
     }
   }
 
-  const mappedPrices = data.map(v => v.y)
+  const mappedValues = data.map(v => v.y)
 
   const minX = data[0].x
   const maxX = data[data.length - 1].x
 
-  const minY = Math.min(...mappedPrices)
-  const maxY = Math.max(...mappedPrices)
+  const minY = Math.min(...mappedValues)
+  const maxY = Math.max(...mappedValues)
 
-  const startValue = mappedPrices[0]
-  const endValue = mappedPrices[mappedPrices.length - 1]
+  const startValue = mappedValues[0]
+  const endValue = mappedValues[mappedValues.length - 1]
   const change = endValue - startValue
-  const changePercent = change / mappedPrices[0]
+  const changePercent = change / mappedValues[0]
 
   return {
     minX,

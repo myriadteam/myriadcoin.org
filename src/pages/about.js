@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import XmyDataContext from "../contexts/xmy-data-context.js"
 import BodyBlock from "../components/shared/body-block"
 import Cover from "../components/shared/cover"
-import BlockWeightGraph from "../components/graphs/block-weight-graph"
+import DailyTransactionsGraph from "../components/graphs/daily-transactions-graph"
 import DailyBlocksMinedGraph from "../components/graphs/daily-blocks-mined-graph"
 
 import {
@@ -96,9 +96,15 @@ const AboutPage = () => {
               <BodyText>{t("about.stats.inflation_rate")}</BodyText>
             </div>
           </div>
+
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
             <MediumBoldText>Daily blocks mined</MediumBoldText>
             <DailyBlocksMinedGraph />
+          </div>
+
+          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
+            <MediumBoldText>Daily transactions</MediumBoldText>
+            <DailyTransactionsGraph />
           </div>
         </PageContainer>
       </div>
