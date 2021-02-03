@@ -78,7 +78,8 @@ function DailyBlocksMinedGraph() {
 
   const renderXAxis = x => t("dayMonth", { date: new Date(x * 1000) })
   const renderYAxis = y => y.toFixed(0)
-  const renderXValue = x => t("dayMonthYear", { date: new Date(x * 1000) })
+  const renderXValue = x =>
+    t("dayMonthYear", { date: new Date((x + 12 * 60 * 60) * 1000) })
   const renderYValue = y =>
     t("formattedNumber", { number: y.toFixed(0) }) + " blocks"
 
