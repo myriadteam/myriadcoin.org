@@ -36,7 +36,7 @@ function DailyBlocksMinedGraph() {
         }
       })
 
-      setData(newData)
+      setData(newData.slice(-365 * 2))
     }
 
     getData()
