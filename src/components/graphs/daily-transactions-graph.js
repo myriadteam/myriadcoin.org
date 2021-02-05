@@ -10,49 +10,21 @@ function DailyTransactionsGraph() {
 
   useEffect(() => {
     const getData = async () => {
-      const times = await fetch(
-        "https://xmy-history.coinid.org/latestblocks/100000/mediantime.json"
+      const groupInfo = await fetch(
+        "https://xmy-history.coinid.org/processeddata/groupInfo/1d.json"
       ).then(r => r.json())
 
       const transactionsData = await fetch(
-        "https://xmy-history.coinid.org/latestblocks/100000/tx.json"
+        "https://xmy-history.coinid.org/processeddata/transactions/1d.json"
       ).then(r => r.json())
 
-      const startDate = new Date(times[0] * 1000)
-      const startTimestamp = startDate.setUTCHours(24, 0, 0, 0) / 1000 // first day
-
-      const endDate = new Date(times[times.length - 1] * 1000)
-      const endTimestamp = endDate.setUTCHours(0, 0, 0, 0) / 1000 // last day
-
-      const totalDays = (endTimestamp - startTimestamp) / (24 * 60 * 60)
+      const startTimestamp = groupInfo.startTimestamp
 
       const getDayTimestamp = day => {
         return startTimestamp + 24 * 60 * 60 * day
       }
 
-      const transactionsPerDay = []
-
-      for (var i = 0; i < totalDays; i++) {
-        const startOfDay = getDayTimestamp(i)
-        const endOfDay = getDayTimestamp(i + 1)
-
-        const startIndex = times.findIndex(time => time >= startOfDay)
-        const endIndex = times.findIndex(time => time > endOfDay)
-
-        const transactionsInWindow = transactionsData.slice(
-          startIndex,
-          endIndex
-        )
-
-        const transactionsCount = transactionsInWindow.reduce(
-          (a, c) => a + c,
-          0
-        )
-
-        transactionsPerDay.push(transactionsCount)
-      }
-
-      const newData = transactionsPerDay.map((v, i) => {
+      const newData = transactionsData.map((v, i) => {
         return {
           x: getDayTimestamp(i),
           y: v,

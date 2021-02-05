@@ -10,63 +10,29 @@ function DailyBlocksMinedGraph() {
 
   useEffect(() => {
     const getData = async () => {
-      const times = await fetch(
-        "https://xmy-history.coinid.org/latestblocks/100000/mediantime.json"
+      const groupInfo = await fetch(
+        "https://xmy-history.coinid.org/processeddata/groupInfo/1d.json"
       ).then(r => r.json())
 
-      const algoData = await fetch(
-        "https://xmy-history.coinid.org/latestblocks/100000/pow_algo_id.json"
+      const blocks = await fetch(
+        "https://xmy-history.coinid.org/processeddata/blocks/1d.json"
       ).then(r => r.json())
 
-      const startDate = new Date(times[0] * 1000)
-      const startTimestamp = startDate.setUTCHours(24, 0, 0, 0) / 1000 // first day
+      const algoBlocks = await fetch(
+        "https://xmy-history.coinid.org/processeddata/algoBlocks/1d.json"
+      ).then(r => r.json())
 
-      const endDate = new Date(times[times.length - 1] * 1000)
-      const endTimestamp = endDate.setUTCHours(0, 0, 0, 0) / 1000 // last day
-
-      const totalDays = (endTimestamp - startTimestamp) / (24 * 60 * 60)
+      const startTimestamp = groupInfo.startTimestamp
 
       const getDayTimestamp = day => {
         return startTimestamp + 24 * 60 * 60 * day
       }
 
-      const algos = [
-        { name: "sha256", color: "blue" },
-        { name: "scrypt", color: "green" },
-        { name: "groestl", color: "yellow" },
-        { name: "skein", color: "purple" },
-        { name: "qubit", color: "black" },
-        { name: "yescrypt", color: "brown" },
-        { name: "argon2d", color: "purple" },
-      ]
-
-      const blocksPerDay = []
-
-      const blocksPerAlgoPerDay = []
-
-      for (var i = 0; i < totalDays; i++) {
-        const startOfDay = getDayTimestamp(i)
-        const endOfDay = getDayTimestamp(i + 1)
-
-        const startIndex = times.findIndex(time => time >= startOfDay)
-        const endIndex = times.findIndex(time => time > endOfDay)
-
-        const algosInWindow = algoData.slice(startIndex, endIndex)
-
-        const blocks = endIndex - startIndex
-
-        blocksPerDay.push(blocks)
-
-        blocksPerAlgoPerDay.push(
-          algos.map((_, i) => algosInWindow.filter(a => a === i).length)
-        )
-      }
-
-      const newData = blocksPerDay.map((v, i) => {
+      const newData = blocks.map((v, i) => {
         return {
           x: getDayTimestamp(i),
           y: v,
-          ...blocksPerAlgoPerDay[i],
+          ...algoBlocks[i],
         }
       })
 
