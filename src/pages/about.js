@@ -88,7 +88,7 @@ const AboutPage = () => {
               >
                 {t("percentage", {
                   number:
-                    (100 * (blockCountLast24Hour * coinsPerBlock) * 365) /
+                    (100 * blockCountLast24Hour * coinsPerBlock * 365) /
                     circulatingSupply,
                 })}
                 %
