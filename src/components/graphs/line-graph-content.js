@@ -77,41 +77,54 @@ const LineGraphContent = ({
   barPlotColors,
   areaStack,
 }) => {
-  const { dragBind, viewBox } = useGraphZoomPan()
+  const { viewBox, setPeriod } = useGraphZoomPan()
 
   return (
-    <svg
-      {...dragBind()}
-      width="100%"
-      viewBox={"0 0 794 248"}
-      tw="overflow-hidden"
-      style={{ transform: "scaleY(-1)" }}
-    >
-      <animated.svg
-        width={"100%"}
-        preserveAspectRatio="none"
-        viewBox={viewBox}
-        tw="overflow-visible absolute inset-0"
+    <>
+      <select
+        onChange={event => {
+          setPeriod(parseInt(event.target.value, 10))
+        }}
+        defaultValue={90}
+        tw="absolute right-0 top-0 z-50"
       >
-        <LinePlot
-          linePlotData={parsedData.linePlotData}
-          linePlotColors={linePlotColors}
-        />
-        <BarPlot
-          parsedData={parsedData}
-          barPlotKeys={barPlotKeys}
-          barPlotColors={barPlotColors}
-        />
-        {areaStack ? (
-          <StackedAreas
-            stackAreas={parsedData.stackAreas}
-            stackColors={stackColors}
+        <option value="365">Year</option>
+        <option value="90">Quarter</option>
+        <option value="30">Month</option>
+        <option value="7">Week</option>
+      </select>
+      <svg
+        width="100%"
+        viewBox={"0 0 794 248"}
+        tw="overflow-hidden"
+        style={{ transform: "scaleY(-1)" }}
+      >
+        <animated.svg
+          width={"100%"}
+          preserveAspectRatio="none"
+          viewBox={viewBox}
+          tw="overflow-visible absolute inset-0"
+        >
+          <LinePlot
+            linePlotData={parsedData.linePlotData}
+            linePlotColors={linePlotColors}
           />
-        ) : (
-          <StackedPlot parsedData={parsedData} stackColors={stackColors} />
-        )}
-      </animated.svg>
-    </svg>
+          <BarPlot
+            parsedData={parsedData}
+            barPlotKeys={barPlotKeys}
+            barPlotColors={barPlotColors}
+          />
+          {areaStack ? (
+            <StackedAreas
+              stackAreas={parsedData.stackAreas}
+              stackColors={stackColors}
+            />
+          ) : (
+            <StackedPlot parsedData={parsedData} stackColors={stackColors} />
+          )}
+        </animated.svg>
+      </svg>
+    </>
   )
 }
 

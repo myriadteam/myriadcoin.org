@@ -86,13 +86,6 @@ function LineGraph({
     )
   }
 
-  /*
-<LineGraphMouse
-  parsedData={parsedData}
-  renderXValue={renderXValue}
-  renderYValue={renderYValue}
-/>
-*/
   return (
     <ZoomPanContextProvider
       parsedData={parsedData}
@@ -115,6 +108,11 @@ function LineGraph({
               areaStack={areaStack}
               barPlotKeys={barPlotKeys}
               barPlotColors={barPlotColors}
+            />
+            <LineGraphMouse
+              parsedData={parsedData}
+              renderXValue={renderXValue}
+              renderYValue={renderYValue}
             />
           </div>
           <LineGraphXAxis

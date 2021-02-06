@@ -1,40 +1,22 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import tw from "twin.macro"
 import { useSpring, animated, interpolate } from "react-spring"
 
-import { useDimensions, useMousePosition } from "../../hooks/layout"
+import { useGraphZoomPan } from "./zoom-pan-context"
 
-function LineGraphMouse({ parsedData, renderXValue, renderYValue, exact }) {
-  const boxRef = useRef(null)
+function LineGraphMouse({ renderXValue, renderYValue }) {
+  const { dragBind, moveBind } = useGraphZoomPan()
 
-  const [{ dataX, dataY, xValue, yValue }, set] = useSpring(() => ({
+  const [{ dataX, dataY, xValue, yValue }] = useSpring(() => ({
     dataX: 0,
     dataY: 0,
     xValue: 0,
     yValue: 0,
   }))
 
-  const { width, height } = useDimensions(boxRef)
-  const { x } = useMousePosition(boxRef)
-
-  const xScale = parsedData.width / width
-  const yScale = parsedData.height / height
-  const graphX = x * xScale
-
-  useEffect(() => {
-    const dataPoint = exact
-      ? parsedData.nearestExactDataPointFromX(graphX)
-      : parsedData.nearestDataPointFromX(graphX)
-    set({
-      dataX: parsedData.x(dataPoint.x) / xScale,
-      dataY: parsedData.y(dataPoint.y) / yScale,
-      xValue: dataPoint.x,
-      yValue: dataPoint.y,
-    })
-  }, [x, graphX, parsedData, set, xScale, yScale, exact])
-
   return (
-    <div tw="absolute inset-0" ref={boxRef}>
+    <div tw="absolute inset-0" {...dragBind()}>
+      <div tw="absolute inset-0" {...moveBind()} />
       <animated.div
         tw="absolute w-0 border-r border-dashed border-grey pointer-events-none flex items-center justify-center"
         style={{

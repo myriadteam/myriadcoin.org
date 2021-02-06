@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback, useContext } from "react"
 import tw from "twin.macro"
 import { useSpring, interpolate } from "react-spring"
-import { useDrag } from "react-use-gesture"
+import { useDrag, useMove } from "react-use-gesture"
 import { useDimensions } from "../../hooks/layout"
 
 const ZoomPanContext = React.createContext({})
@@ -70,8 +70,8 @@ export function ZoomPanContextProvider({
     })
   )
 
-  const dragBind = useDrag(({ down, delta: [mx] }) => {
-    if (down) {
+  const dragBind = useDrag(({ down, intentional, delta: [mx] }) => {
+    if (down && intentional) {
       const newDragX =
         dragX.animation.to + mx / (startPeriod / period.animation.to)
 
@@ -86,6 +86,11 @@ export function ZoomPanContextProvider({
           period.animation.to
         ),
       })
+    }
+  })
+
+  const moveBind = useMove(({ intentional }) => {
+    if (intentional) {
     }
   })
 
@@ -139,8 +144,22 @@ export function ZoomPanContextProvider({
       period,
       dragBind,
       viewBox,
+      moveBind,
     }),
-    [dragBind, dragX, getHighestInView, getLowestInView, highestInView, lowestInView, offsetX, period, set, setPeriod, viewBox]
+    [
+      dragBind,
+      dragX,
+      getHighestInView,
+      getLowestInView,
+      highestInView,
+      lowestInView,
+      moveBind,
+      offsetX,
+      period,
+      set,
+      setPeriod,
+      viewBox,
+    ]
   )
 
   return (
