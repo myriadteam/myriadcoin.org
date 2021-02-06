@@ -1,5 +1,4 @@
-/* global window */
-import React, { useState, useRef, useLayoutEffect, useEffect } from "react"
+import React, { useState, useRef, useLayoutEffect } from "react"
 import { useTransition, useSpring, animated, interpolate } from "react-spring"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
@@ -72,13 +71,11 @@ const Nonsense = () => {
   const previousSlide = usePrevious(index)
 
   const dir = index < previousSlide ? -1 : 1
-  const boxTransitions = useTransition(index, item => item, {
+  const transition = useTransition(index, {
     initial: { opacity: 1, transform: `translate3d(0, 0, 0)` },
     from: { opacity: 0, transform: `translate3d(${30 * dir}%, 0, 0)` },
     enter: { opacity: 1, transform: `translate3d(0, 0, 0)` },
     leave: { opacity: 0, transform: `translate3d(${-30 * dir}%, 0, 0)` },
-    unique: true,
-    reset: true,
     config: {
       duration: 400,
       easing: easings.easeCubicOut,
@@ -91,9 +88,11 @@ const Nonsense = () => {
         <BigText tw="mt-20 mb-20">{t("home.nonsense.title")}</BigText>
         <MediumText tw="mb-24">{t("home.nonsense.caption")}</MediumText>
         <div tw="h-112 relative">
-          {boxTransitions.map(({ props, key }) => (
-            <NonsenseBox keyName={dataKeys[key]} key={key} style={props} />
-          ))}
+          {transition((props, key) => {
+            return (
+              <NonsenseBox keyName={dataKeys[key]} key={key} style={props} />
+            )
+          })}
         </div>
       </PageContainer>
       <div tw="mt-8 py-2 overflow-hidden">
