@@ -7,6 +7,7 @@ import Cover from "../components/shared/cover"
 import DailyTransactionsGraph from "../components/graphs/daily-transactions-graph"
 import DailyBlocksMinedGraph from "../components/graphs/daily-blocks-mined-graph"
 import DailyInflationGraph from "../components/graphs/daily-inflation-graph"
+import DailyMinedCoinsGraph from "../components/graphs/daily-mined-coins-graph"
 
 import {
   gradientTextStylePurple,
@@ -111,6 +112,11 @@ const AboutPage = () => {
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
             <MediumBoldText>Daily inflation</MediumBoldText>
             <DailyInflationGraph />
+          </div>
+
+          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
+            <MediumBoldText>Mined coins</MediumBoldText>
+            <DailyMinedCoinsGraph />
           </div>
         </PageContainer>
       </div>
