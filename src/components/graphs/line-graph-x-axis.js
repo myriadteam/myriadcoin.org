@@ -1,15 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
+import { animated, interpolate } from "react-spring"
+import { useGraphZoomPan } from "./zoom-pan-context"
 
-function LineGraphXAxis({ parsedData, renderValue, itemsCount }) {
+function LineGraphXAxis({ renderValue, itemsCount }) {
+  const { offsetX, period } = useGraphZoomPan()
+
   const renderContent = () => {
     return [...Array(itemsCount)].map((_, i) => {
-      const value =
-        parsedData.minX +
-        (i * (parsedData.maxX - parsedData.minX)) / (itemsCount - 1)
+      const interpolatedValue = interpolate(
+        [offsetX, period],
+        (offsetX, period) => {
+          const value = offsetX + (i * period) / (itemsCount - 1)
 
-      return <span key={i}>{renderValue(value)}</span>
+          return renderValue(value)
+        }
+      )
+
+      return <animated.span key={i}>{interpolatedValue}</animated.span>
     })
   }
 
@@ -21,7 +30,6 @@ function LineGraphXAxis({ parsedData, renderValue, itemsCount }) {
 }
 
 LineGraphXAxis.propTypes = {
-  parsedData: PropTypes.shape().isRequired,
   renderValue: PropTypes.func.isRequired,
   itemsCount: PropTypes.number,
 }

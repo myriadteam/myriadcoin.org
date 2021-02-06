@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useRef } from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
@@ -6,6 +6,8 @@ import LineGraphContent from "./line-graph-content"
 import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
+
+import { ZoomPanContextProvider } from "./zoom-pan-context"
 
 import { MediumText } from "../../common/elements"
 
@@ -33,6 +35,7 @@ function LineGraph({
   linePlotColors,
   areaStack,
 }) {
+  const boxRef = useRef()
   const parsedData = useMemo(() => {
     if (!data) {
       return null
@@ -40,8 +43,6 @@ function LineGraph({
 
     return parseDataForLineGraph({
       rawData: data,
-      width: viewportWidth,
-      height: viewportHeight,
       rollingWindow,
       centralRolling,
       startY,
@@ -51,8 +52,6 @@ function LineGraph({
     })
   }, [
     data,
-    viewportWidth,
-    viewportHeight,
     rollingWindow,
     centralRolling,
     startY,
@@ -61,7 +60,7 @@ function LineGraph({
     linePlotKeys,
   ])
 
-  if (data === null) {
+  if (parsedData === null) {
     return (
       <div
         tw="relative w-full"
@@ -74,7 +73,7 @@ function LineGraph({
     )
   }
 
-  if (!data.length) {
+  if (!parsedData.exactData.length) {
     return (
       <div
         tw="relative w-full"
@@ -87,36 +86,45 @@ function LineGraph({
     )
   }
 
+  /*
+<LineGraphMouse
+  parsedData={parsedData}
+  renderXValue={renderXValue}
+  renderYValue={renderYValue}
+/>
+*/
   return (
-    <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
-      <LineGraphYAxis
-        parsedData={parsedData}
-        renderValue={renderYAxis}
-        itemsCount={yAxisItemsCount}
-      />
-      <div tw="flex-grow">
-        <div tw="relative">
-          <LineGraphContent
+    <ZoomPanContextProvider
+      parsedData={parsedData}
+      boxRef={boxRef}
+      startPeriod={90}
+      startY={startY}
+    >
+      <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+        <LineGraphYAxis
+          parsedData={parsedData}
+          renderValue={renderYAxis}
+          itemsCount={yAxisItemsCount}
+        />
+        <div tw="flex-grow">
+          <div tw="relative" ref={boxRef}>
+            <LineGraphContent
+              parsedData={parsedData}
+              linePlotColors={linePlotColors}
+              stackColors={stackColors}
+              areaStack={areaStack}
+              barPlotKeys={barPlotKeys}
+              barPlotColors={barPlotColors}
+            />
+          </div>
+          <LineGraphXAxis
             parsedData={parsedData}
-            linePlotColors={linePlotColors}
-            stackColors={stackColors}
-            areaStack={areaStack}
-            barPlotKeys={barPlotKeys}
-            barPlotColors={barPlotColors}
-          />
-          <LineGraphMouse
-            parsedData={parsedData}
-            renderXValue={renderXValue}
-            renderYValue={renderYValue}
+            renderValue={renderXAxis}
+            itemsCount={xAxisItemsCount}
           />
         </div>
-        <LineGraphXAxis
-          parsedData={parsedData}
-          renderValue={renderXAxis}
-          itemsCount={xAxisItemsCount}
-        />
       </div>
-    </div>
+    </ZoomPanContextProvider>
   )
 }
 

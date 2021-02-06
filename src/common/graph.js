@@ -57,6 +57,7 @@ export const parseHistoryData = data => {
     endValue,
     change,
     changePercent,
+    mappedValues,
   }
 }
 
@@ -109,8 +110,6 @@ const getRollingAverage = (
 
 export const parseDataForLineGraph = ({
   rawData,
-  width,
-  height,
   startY,
   endY,
   rollingWindow,
@@ -136,13 +135,24 @@ export const parseDataForLineGraph = ({
     exactData = slicedData
   }
 
-  const { minX, maxX, minY, maxY, changePercent } = parseHistoryData(exactData)
+  const {
+    minX,
+    maxX,
+    minY,
+    maxY,
+    changePercent,
+    mappedValues,
+  } = parseHistoryData(exactData)
 
   const adjustedMinY = startY === undefined ? minY : startY
   const adjustedMaxY = endY === undefined ? maxY : endY
 
+  const width = maxX - minX
+  const height = adjustedMaxY - adjustedMinY
+
   const x = scaleGraph(minX, maxX, width)
   const y = scaleGraph(adjustedMaxY, adjustedMinY, height)
+  const yInv = scaleGraph(adjustedMinY, adjustedMaxY, height)
 
   const nearestDataPointIndexFromX = getNearestDataPointIndex(
     width,
@@ -166,7 +176,7 @@ export const parseDataForLineGraph = ({
       .line()
       .curve(d3Shape.curveMonotoneX)
       .x(d => x(d.x))
-      .y(d => y(d[lineKey]))
+      .y(d => yInv(d[lineKey]))
 
     const svgLine = line(data)
 
@@ -234,5 +244,6 @@ export const parseDataForLineGraph = ({
     stackedData,
     stackAreas,
     linePlotData,
+    mappedValues,
   }
 }

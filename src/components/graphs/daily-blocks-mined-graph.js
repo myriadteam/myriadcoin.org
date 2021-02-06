@@ -30,13 +30,13 @@ function DailyBlocksMinedGraph() {
 
       const newData = blocks.map((v, i) => {
         return {
-          x: getDayTimestamp(i),
+          x: i,
           y: v,
           ...algoBlocks[i],
         }
       })
 
-      setData(newData.slice(-365 * 2))
+      setData(newData)
     }
 
     getData()
