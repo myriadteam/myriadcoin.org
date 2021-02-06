@@ -3,19 +3,12 @@ import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
 import LineGraph from "./line-graph"
+import { useGroupInfo } from "./hooks"
 
 function DailyBlocksMinedGraph() {
   const [data, setData] = useState(null)
-  const [startTimestamp, setStartTimestamp] = useState(0)
+  const { getTimestamp } = useGroupInfo("1d")
   const { t } = useTranslation()
-
-  useEffect(() => {
-    fetch("https://xmy-history.coinid.org/processeddata/groupInfo/1d.json")
-      .then(r => r.json())
-      .then(groupInfo => {
-        setStartTimestamp(groupInfo.startTimestamp)
-      })
-  }, [])
 
   useEffect(() => {
     const getData = async () => {
@@ -42,24 +35,17 @@ function DailyBlocksMinedGraph() {
     getData()
   }, [])
 
-  const getDayTimestamp = useCallback(
-    day => {
-      return startTimestamp + 24 * 60 * 60 * day
-    },
-    [startTimestamp]
-  )
-
   const renderXAxis = useCallback(
-    x => t("dayMonth", { date: new Date(getDayTimestamp(x) * 1000) }),
-    [getDayTimestamp, t]
+    x => t("dayMonth", { date: new Date(getTimestamp(x) * 1000) }),
+    [getTimestamp, t]
   )
   const renderYAxis = useCallback(y => (y / 1000).toFixed(1) + "K", [])
   const renderXValue = useCallback(
     x =>
       t("dayMonthYear", {
-        date: new Date((getDayTimestamp(x) + 12 * 60 * 60) * 1000),
+        date: new Date((getTimestamp(x) + 12 * 60 * 60) * 1000),
       }),
-    [getDayTimestamp, t]
+    [getTimestamp, t]
   )
   const renderYValue = useCallback(
     y => t("formattedNumber", { number: y.toFixed(0) }) + " blocks",
