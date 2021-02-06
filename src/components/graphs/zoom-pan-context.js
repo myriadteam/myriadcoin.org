@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback, useContext } from "react"
 import tw from "twin.macro"
 import { useSpring, interpolate } from "react-spring"
-import { useDrag, useMove } from "react-use-gesture"
+import { useDrag } from "react-use-gesture"
 import { useDimensions } from "../../hooks/layout"
 
 const ZoomPanContext = React.createContext({})
@@ -75,16 +75,14 @@ export function ZoomPanContextProvider({
   )
 
   const startOffsetX = parsedData.mappedValues.length - startPeriod - 1
-  const [
-    { period, dragX, lowestInView, highestInView, hoverX },
-    set,
-  ] = useSpring(() => ({
-    dragX: 0,
-    hoverX: 0,
-    period: startPeriod,
-    lowestInView: getLowestInView(startOffsetX, startPeriod),
-    highestInView: getHighestInView(startOffsetX, startPeriod),
-  }))
+  const [{ period, dragX, lowestInView, highestInView }, set] = useSpring(
+    () => ({
+      dragX: 0,
+      period: startPeriod,
+      lowestInView: getLowestInView(startOffsetX, startPeriod),
+      highestInView: getHighestInView(startOffsetX, startPeriod),
+    })
+  )
 
   const dragBind = useDrag(({ down, intentional, delta: [mx] }) => {
     if (down && intentional) {
@@ -103,12 +101,6 @@ export function ZoomPanContextProvider({
         ),
       })
     }
-  })
-
-  const moveBind = useMove(({ xy: [mx] }) => {
-    const newHoverX = (mx - boxLeft) / (startPeriod / period.animation.to)
-
-    set({ hoverX: newHoverX })
   })
 
   const setPeriod = useCallback(
@@ -139,10 +131,6 @@ export function ZoomPanContextProvider({
     return getOffsetX(dragX, startPeriod)
   })
 
-  const itemX = interpolate([hoverX, offsetX], (hoverX, offsetX) => {
-    return Math.round(offsetX + getHoverItemX(hoverX, startPeriod))
-  })
-
   const viewBox = interpolate(
     [offsetX, period, lowestInView, highestInView],
     (offsetX, period, lowestInView, highestInView) => {
@@ -165,12 +153,30 @@ export function ZoomPanContextProvider({
       period,
       dragBind,
       viewBox,
-      moveBind,
-      itemX,
       boxWidth,
       boxHeight,
+      boxLeft,
+      startPeriod,
+      getHoverItemX,
     }),
-    [boxHeight, boxWidth, dragBind, dragX, getHighestInView, getLowestInView, highestInView, itemX, lowestInView, moveBind, offsetX, period, set, setPeriod, viewBox]
+    [
+      boxHeight,
+      boxLeft,
+      boxWidth,
+      dragBind,
+      dragX,
+      getHighestInView,
+      getHoverItemX,
+      getLowestInView,
+      highestInView,
+      lowestInView,
+      offsetX,
+      period,
+      set,
+      setPeriod,
+      startPeriod,
+      viewBox,
+    ]
   )
 
   return (

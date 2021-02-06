@@ -49,15 +49,22 @@ function DailyBlocksMinedGraph() {
     [startTimestamp]
   )
 
-  const renderXAxis = x =>
-    t("dayMonth", { date: new Date(getDayTimestamp(x) * 1000) })
-  const renderYAxis = y => y.toFixed(0)
-  const renderXValue = x =>
-    t("dayMonthYear", {
-      date: new Date((getDayTimestamp(x) + 12 * 60 * 60) * 1000),
-    })
-  const renderYValue = y =>
-    t("formattedNumber", { number: y.toFixed(0) }) + " blocks"
+  const renderXAxis = useCallback(
+    x => t("dayMonth", { date: new Date(getDayTimestamp(x) * 1000) }),
+    [getDayTimestamp, t]
+  )
+  const renderYAxis = useCallback(y => (y / 1000).toFixed(1) + "K", [])
+  const renderXValue = useCallback(
+    x =>
+      t("dayMonthYear", {
+        date: new Date((getDayTimestamp(x) + 12 * 60 * 60) * 1000),
+      }),
+    [getDayTimestamp, t]
+  )
+  const renderYValue = useCallback(
+    y => t("formattedNumber", { number: y.toFixed(0) }) + " blocks",
+    [t]
+  )
 
   return (
     <LineGraph

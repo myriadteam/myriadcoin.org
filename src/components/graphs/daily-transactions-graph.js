@@ -42,7 +42,7 @@ function DailyTransactionsGraph() {
     x => t("dayMonth", { date: new Date(getDayTimestamp(x) * 1000) }),
     [getDayTimestamp, t]
   )
-  const renderYAxis = useCallback(y => y.toFixed(0), [])
+  const renderYAxis = useCallback(y => (y / 1000).toFixed(1) + "K", [])
   const renderXValue = useCallback(
     x =>
       t("dayMonthYear", {

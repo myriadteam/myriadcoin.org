@@ -1,53 +1,57 @@
 import React from "react"
 import tw from "twin.macro"
-import { animated, interpolate } from "react-spring"
+import { useSpring, animated, interpolate } from "react-spring"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
+import { useMove, useGesture } from "react-use-gesture"
 
 function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
   const {
     dragBind,
-    moveBind,
-    itemX,
     offsetX,
     period,
     boxWidth,
     boxHeight,
+    boxLeft,
+    startPeriod,
     highestInView,
+    getHoverItemX,
   } = useGraphZoomPan()
 
-  const dataPoint = interpolate([itemX], itemX => {
-    const dataPoint = exact
-      ? parsedData.nearestExactDataPointFromX(itemX)
-      : parsedData.nearestDataPointFromX(itemX)
+  const [{ dataX, dataY, xValue, yValue, opacity }, set] = useSpring(() => ({
+    dataX: 0,
+    dataY: 0,
+    xValue: 0,
+    yValue: 0,
+    opacity: 0,
+  }))
 
-    return dataPoint
+  const moveBind = useGesture({
+    onHover: ({ hovering }) => {
+      set({ opacity: hovering ? 1 : 0 })
+    },
+    onMove: ({ xy: [mx] }) => {
+      const hoverX = (mx - boxLeft) / (startPeriod / period.animation.to)
+      const itemX = Math.round(
+        offsetX.get() + getHoverItemX(hoverX, startPeriod)
+      )
+
+      const dataPoint = exact
+        ? parsedData.nearestExactDataPointFromX(itemX)
+        : parsedData.nearestDataPointFromX(itemX)
+
+      set({
+        xValue: dataPoint.x,
+        yValue: dataPoint.y,
+        dataX: (dataPoint.x - offsetX.get()) * (boxWidth / period.animation.to),
+        dataY:
+          boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
+      })
+    },
   })
-
-  const xValue = interpolate([dataPoint], dataPoint => {
-    return dataPoint.x
-  })
-
-  const yValue = interpolate([dataPoint], dataPoint => {
-    return dataPoint.y
-  })
-
-  const dataX = interpolate(
-    [dataPoint, offsetX, period],
-    (dataPoint, offsetX, period) => {
-      return (dataPoint.x - offsetX) * (boxWidth / period)
-    }
-  )
-
-  const dataY = interpolate(
-    [dataPoint, highestInView],
-    (dataPoint, highestInView) => {
-      return boxHeight - dataPoint.y * (boxHeight / highestInView)
-    }
-  )
 
   return (
-    <div tw="absolute inset-0" {...dragBind()}>
+    <animated.div tw="absolute inset-0" {...dragBind()} style={{ opacity }}>
       <div tw="absolute inset-0" {...moveBind()} />
       <animated.div
         tw="absolute w-0 border-r border-dashed border-grey pointer-events-none flex items-center justify-center"
@@ -55,7 +59,7 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
           top: -10,
           bottom: -64,
           transform: interpolate([dataX], dataX => {
-            return `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(-0.5px, 0, 0)`
+            return `translate3d(${dataX}px, ${0}px, ${0}px)`
           }),
         }}
       >
@@ -75,7 +79,7 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
           <animated.span>{yValue.interpolate(renderYValue)}</animated.span>
         </div>
       </animated.div>
-    </div>
+    </animated.div>
   )
 }
 
