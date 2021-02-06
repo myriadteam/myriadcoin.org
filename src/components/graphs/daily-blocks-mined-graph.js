@@ -62,8 +62,6 @@ function DailyBlocksMinedGraph() {
   return (
     <LineGraph
       data={data}
-      xAxisItemsCount={4}
-      yAxisItemsCount={3}
       startY={0}
       renderXAxis={renderXAxis}
       renderYAxis={renderYAxis}

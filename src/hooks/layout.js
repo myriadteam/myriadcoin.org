@@ -1,19 +1,28 @@
 import { useLayoutEffect, useState } from "react"
 
 export function useDimensions(ref) {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+  })
 
   useLayoutEffect(() => {
     const onLayout = () => {
-      const { height, width } = ref.current.getBoundingClientRect()
-      setDimensions({ height, width })
+      const { height, width, top, left } = ref.current.getBoundingClientRect()
+      setDimensions({ height, width, top, left })
     }
 
     onLayout()
     window.addEventListener("resize", onLayout)
+    const interval = setInterval(() => {
+      onLayout()
+    }, 5000)
 
     return () => {
       window.removeEventListener("resize", onLayout)
+      clearInterval(interval)
     }
   }, [ref])
 

@@ -13,7 +13,9 @@ export function ZoomPanContextProvider({
   startPeriod,
   startY,
 }) {
-  const { width: boxWidth } = useDimensions(boxRef)
+  const { width: boxWidth, height: boxHeight, left: boxLeft } = useDimensions(
+    boxRef
+  )
 
   const getHighestInView = useCallback(
     (offsetX, period) => {
@@ -55,20 +57,34 @@ export function ZoomPanContextProvider({
 
       const offsetOffset = parsedData.mappedValues.length - period - 1
       const pixelToBar = boxWidth / period
-      return offsetOffset + -dragX / pixelToBar
+      return offsetOffset - dragX / pixelToBar
     },
     [boxWidth, parsedData.mappedValues.length]
   )
 
-  const startOffsetX = parsedData.mappedValues.length - startPeriod - 1
-  const [{ period, dragX, lowestInView, highestInView }, set] = useSpring(
-    () => ({
-      dragX: 0,
-      period: startPeriod,
-      lowestInView: getLowestInView(startOffsetX, startPeriod),
-      highestInView: getHighestInView(startOffsetX, startPeriod),
-    })
+  const getHoverItemX = useCallback(
+    (dragX, period) => {
+      if (!boxWidth) {
+        return 0
+      }
+
+      const pixelToBar = boxWidth / period
+      return dragX / pixelToBar
+    },
+    [boxWidth]
   )
+
+  const startOffsetX = parsedData.mappedValues.length - startPeriod - 1
+  const [
+    { period, dragX, lowestInView, highestInView, hoverX },
+    set,
+  ] = useSpring(() => ({
+    dragX: 0,
+    hoverX: 0,
+    period: startPeriod,
+    lowestInView: getLowestInView(startOffsetX, startPeriod),
+    highestInView: getHighestInView(startOffsetX, startPeriod),
+  }))
 
   const dragBind = useDrag(({ down, intentional, delta: [mx] }) => {
     if (down && intentional) {
@@ -89,9 +105,10 @@ export function ZoomPanContextProvider({
     }
   })
 
-  const moveBind = useMove(({ intentional }) => {
-    if (intentional) {
-    }
+  const moveBind = useMove(({ xy: [mx] }) => {
+    const newHoverX = (mx - boxLeft) / (startPeriod / period.animation.to)
+
+    set({ hoverX: newHoverX })
   })
 
   const setPeriod = useCallback(
@@ -122,6 +139,10 @@ export function ZoomPanContextProvider({
     return getOffsetX(dragX, startPeriod)
   })
 
+  const itemX = interpolate([hoverX, offsetX], (hoverX, offsetX) => {
+    return Math.round(offsetX + getHoverItemX(hoverX, startPeriod))
+  })
+
   const viewBox = interpolate(
     [offsetX, period, lowestInView, highestInView],
     (offsetX, period, lowestInView, highestInView) => {
@@ -145,21 +166,11 @@ export function ZoomPanContextProvider({
       dragBind,
       viewBox,
       moveBind,
+      itemX,
+      boxWidth,
+      boxHeight,
     }),
-    [
-      dragBind,
-      dragX,
-      getHighestInView,
-      getLowestInView,
-      highestInView,
-      lowestInView,
-      moveBind,
-      offsetX,
-      period,
-      set,
-      setPeriod,
-      viewBox,
-    ]
+    [boxHeight, boxWidth, dragBind, dragX, getHighestInView, getLowestInView, highestInView, itemX, lowestInView, moveBind, offsetX, period, set, setPeriod, viewBox]
   )
 
   return (

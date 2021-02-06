@@ -158,7 +158,7 @@ LineGraph.defaultProps = {
   viewportWidth: 794,
   viewportHeight: 248,
   xAxisItemsCount: 4,
-  yAxisItemsCount: 4,
+  yAxisItemsCount: 2,
   rollingWindow: 0,
   centralRolling: false,
   startY: undefined,

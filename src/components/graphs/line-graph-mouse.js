@@ -1,18 +1,50 @@
 import React from "react"
 import tw from "twin.macro"
-import { useSpring, animated, interpolate } from "react-spring"
+import { animated, interpolate } from "react-spring"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
 
-function LineGraphMouse({ renderXValue, renderYValue }) {
-  const { dragBind, moveBind } = useGraphZoomPan()
+function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
+  const {
+    dragBind,
+    moveBind,
+    itemX,
+    offsetX,
+    period,
+    boxWidth,
+    boxHeight,
+    highestInView,
+  } = useGraphZoomPan()
 
-  const [{ dataX, dataY, xValue, yValue }] = useSpring(() => ({
-    dataX: 0,
-    dataY: 0,
-    xValue: 0,
-    yValue: 0,
-  }))
+  const dataPoint = interpolate([itemX], itemX => {
+    const dataPoint = exact
+      ? parsedData.nearestExactDataPointFromX(itemX)
+      : parsedData.nearestDataPointFromX(itemX)
+
+    return dataPoint
+  })
+
+  const xValue = interpolate([dataPoint], dataPoint => {
+    return dataPoint.x
+  })
+
+  const yValue = interpolate([dataPoint], dataPoint => {
+    return dataPoint.y
+  })
+
+  const dataX = interpolate(
+    [dataPoint, offsetX, period],
+    (dataPoint, offsetX, period) => {
+      return (dataPoint.x - offsetX) * (boxWidth / period)
+    }
+  )
+
+  const dataY = interpolate(
+    [dataPoint, highestInView],
+    (dataPoint, highestInView) => {
+      return boxHeight - dataPoint.y * (boxHeight / highestInView)
+    }
+  )
 
   return (
     <div tw="absolute inset-0" {...dragBind()}>

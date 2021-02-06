@@ -31,9 +31,12 @@ function DailyTransactionsGraph() {
       })
   }, [])
 
-  const getDayTimestamp = useCallback(day => {
-    return startTimestamp + 24 * 60 * 60 * day
-  }, [startTimestamp])
+  const getDayTimestamp = useCallback(
+    day => {
+      return startTimestamp + 24 * 60 * 60 * day
+    },
+    [startTimestamp]
+  )
 
   const renderXAxis = useCallback(
     x => t("dayMonth", { date: new Date(getDayTimestamp(x) * 1000) }),
@@ -55,8 +58,6 @@ function DailyTransactionsGraph() {
   return (
     <LineGraph
       data={data}
-      xAxisItemsCount={4}
-      yAxisItemsCount={3}
       startY={0}
       renderXAxis={renderXAxis}
       renderYAxis={renderYAxis}
