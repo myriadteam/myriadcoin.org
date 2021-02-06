@@ -54,11 +54,11 @@ const StackedPlot = ({ parsedData, stackColors }) => {
         <rect
           key={data.x}
           x={x(data.x) - barWidth / 2}
-          y={0}
+          y={from}
           width={barWidth}
           height={y(from) - y(to)}
           fill={stackColors[stackI]}
-          opacity={1}
+          opacity={0.8}
         />
       )
     })
