@@ -3,7 +3,7 @@ import tw from "twin.macro"
 import { useSpring, animated, interpolate } from "react-spring"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
-import { useMove, useGesture } from "react-use-gesture"
+import { useGesture } from "react-use-gesture"
 
 function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
   const {
