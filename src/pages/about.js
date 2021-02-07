@@ -52,7 +52,7 @@ const AboutPage = () => {
       <PageContainer>
         <Cover showArrow>{t("about.title")}</Cover>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <BodyBlock translationKey="about.top" />
           <div tw="flex sm:flex-wrap flex-col sm:flex-row mb-24">

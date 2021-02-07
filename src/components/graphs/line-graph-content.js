@@ -86,7 +86,8 @@ const LineGraphContent = ({
           setPeriod(parseInt(event.target.value, 10))
         }}
         defaultValue={90}
-        tw="absolute right-0 top-0 z-50"
+        tw="absolute right-0 z-50"
+        style={{ top: -60 }}
       >
         <option value="365">Year</option>
         <option value="90">Quarter</option>
