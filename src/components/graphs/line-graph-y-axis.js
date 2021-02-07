@@ -42,4 +42,4 @@ LineGraphYAxis.defaultProps = {
   itemsCount: 4,
 }
 
-export default LineGraphYAxis
+export default React.memo(LineGraphYAxis)

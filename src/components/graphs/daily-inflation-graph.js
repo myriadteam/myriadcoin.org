@@ -51,4 +51,4 @@ function DailyTransactionsGraph() {
   )
 }
 
-export default DailyTransactionsGraph
+export default React.memo(DailyTransactionsGraph)

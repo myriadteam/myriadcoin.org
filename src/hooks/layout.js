@@ -1,32 +1,42 @@
-import { useLayoutEffect, useState } from "react"
+import { useLayoutEffect, useState, useMemo, useCallback, useRef } from "react"
 
 export function useDimensions(ref) {
-  const [dimensions, setDimensions] = useState({
+  const [{ width, height, left }, setDimensions] = useState({
     width: 0,
     height: 0,
-    top: 0,
     left: 0,
   })
 
-  useLayoutEffect(() => {
-    const onLayout = () => {
-      const { height, width, top, left } = ref.current.getBoundingClientRect()
-      setDimensions({ height, width, top, left })
-    }
+  const prevDimensions = useRef({ width, height, left })
 
-    onLayout()
-    window.addEventListener("resize", onLayout)
-    const interval = setInterval(() => {
-      onLayout()
-    }, 5000)
+  const onLayout = useCallback(() => {
+    const {
+      width: prevWidth,
+      height: prevHeight,
+      left: prevLeft,
+    } = prevDimensions.current
 
-    return () => {
-      window.removeEventListener("resize", onLayout)
-      clearInterval(interval)
+    const { width, height, left } = ref.current.getBoundingClientRect()
+
+    if (width !== prevWidth || height !== prevHeight || left !== prevLeft) {
+      prevDimensions.current = { width, height, left }
+      setDimensions({ width, height, left })
     }
   }, [ref])
 
-  return dimensions
+  useLayoutEffect(() => {
+    onLayout()
+  }, [onLayout])
+
+  useLayoutEffect(() => {
+    window.addEventListener("resize", onLayout)
+
+    return () => {
+      window.removeEventListener("resize", onLayout)
+    }
+  }, [onLayout])
+
+  return useMemo(() => ({ width, height, left }), [height, left, width])
 }
 
 export function useMousePosition(ref) {

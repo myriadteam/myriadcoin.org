@@ -7,7 +7,7 @@ import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
 
-import { ZoomPanContextProvider } from "./zoom-pan-context"
+import ZoomPanContextProvider from "./zoom-pan-context-provider"
 
 import { MediumText } from "../../common/elements"
 

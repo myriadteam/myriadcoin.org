@@ -54,4 +54,4 @@ function MinedCoinsGraph() {
   )
 }
 
-export default MinedCoinsGraph
+export default React.memo(MinedCoinsGraph)

@@ -1,22 +1,25 @@
-import React from "react"
+import React, { useRef, useCallback } from "react"
 import tw from "twin.macro"
 import { useSpring, animated, interpolate } from "react-spring"
+import { useGesture } from "react-use-gesture"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
-import { useGesture } from "react-use-gesture"
+import { useDimensions } from "../../hooks/layout"
 
 function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
   const {
-    dragBind,
+    dragCallback,
     offsetX,
     period,
-    boxWidth,
-    boxHeight,
-    boxLeft,
     startPeriod,
     highestInView,
-    getHoverItemX,
   } = useGraphZoomPan()
+
+  const boxRef = useRef()
+
+  const { width: boxWidth, height: boxHeight, left: boxLeft } = useDimensions(
+    boxRef
+  )
 
   const [{ dataX, dataY, xValue, yValue, opacity }, set] = useSpring(() => ({
     dataX: 0,
@@ -26,7 +29,20 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
     opacity: 0,
   }))
 
+  const getHoverItemX = useCallback(
+    (dragX, period) => {
+      if (!boxWidth) {
+        return 0
+      }
+
+      const pixelToBar = boxWidth / period
+      return dragX / pixelToBar
+    },
+    [boxWidth]
+  )
+
   const moveBind = useGesture({
+    onDrag: dragCallback,
     onHover: ({ hovering }) => {
       set({ opacity: hovering ? 1 : 0 })
     },
@@ -51,8 +67,12 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
   })
 
   return (
-    <animated.div tw="absolute inset-0" {...dragBind()} style={{ opacity }}>
-      <div tw="absolute inset-0" {...moveBind()} />
+    <animated.div
+      tw="absolute inset-0"
+      {...moveBind()}
+      style={{ opacity }}
+      ref={boxRef}
+    >
       <animated.div
         tw="absolute w-0 border-r border-dashed border-grey pointer-events-none flex items-center justify-center"
         style={{

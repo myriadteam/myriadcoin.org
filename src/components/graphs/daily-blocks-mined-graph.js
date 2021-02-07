@@ -77,4 +77,4 @@ function DailyBlocksMinedGraph() {
   )
 }
 
-export default DailyBlocksMinedGraph
+export default React.memo(DailyBlocksMinedGraph)
