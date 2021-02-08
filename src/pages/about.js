@@ -6,6 +6,7 @@ import BodyBlock from "../components/shared/body-block"
 import Cover from "../components/shared/cover"
 import DailyBlocksMinedGraph from "../components/graphs/daily-blocks-mined-graph"
 import DailyDifficultyGraph from "../components/graphs/daily-difficulty-graph"
+import DailyHashrateGraph from "../components/graphs/daily-hashrate-graph"
 
 import {
   gradientTextStylePurple,
@@ -104,6 +105,11 @@ const AboutPage = () => {
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
             <MediumBoldText>Daily groestl difficulty</MediumBoldText>
             <DailyDifficultyGraph />
+          </div>
+
+          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
+            <MediumBoldText>Daily groestl work/second</MediumBoldText>
+            <DailyHashrateGraph />
           </div>
         </PageContainer>
       </div>
