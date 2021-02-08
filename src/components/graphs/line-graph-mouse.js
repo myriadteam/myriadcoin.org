@@ -17,9 +17,7 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
 
   const boxRef = useRef()
 
-  const { width: boxWidth, height: boxHeight, left: boxLeft } = useDimensions(
-    boxRef
-  )
+  const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
 
   const [{ dataX, dataY, xValue, yValue, opacity }, set] = useSpring(() => ({
     dataX: 0,
@@ -41,13 +39,14 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
     [boxWidth]
   )
 
-  const moveBind = useGesture(
+  useGesture(
     {
       onDrag: dragCallback,
       onHover: ({ hovering }) => {
         set({ opacity: hovering ? 1 : 0 })
       },
       onMove: ({ xy: [mx] }) => {
+        const boxLeft = boxRef.current.offsetParent.offsetLeft
         const hoverX = (mx - boxLeft) / (startPeriod / period.animation.to)
         const itemX = Math.round(
           offsetX.get() + getHoverItemX(hoverX, startPeriod)
@@ -68,17 +67,22 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
       },
     },
     {
+      domTarget: boxRef,
+      eventOptions: {
+        capture: true,
+      },
       drag: {
         useTouch: true,
         preventWindowScrollY: true,
         experimental_preventWindowScrollY: true,
       },
+      move: {},
     }
   )
 
   return (
     <>
-      <div tw="absolute inset-0" {...moveBind()} ref={boxRef} />
+      <div tw="absolute inset-0" ref={boxRef} />
       <animated.div
         tw="absolute inset-0 pointer-events-none"
         style={{ opacity }}

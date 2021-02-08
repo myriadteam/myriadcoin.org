@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@react-hook/resize-observer": "^1.1.2",
     "d3-ease": "^2.0.0",
     "d3-shape": "^2.0.0",
     "gatsby": "^2.25.0",
