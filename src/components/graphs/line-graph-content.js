@@ -90,6 +90,7 @@ const LineGraphContent = ({
         style={{ top: -60 }}
       >
         <option value="365">Year</option>
+        <option value="182">6 Months</option>
         <option value="90">Quarter</option>
         <option value="30">Month</option>
         <option value="7">Week</option>

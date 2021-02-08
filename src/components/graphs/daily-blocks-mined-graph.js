@@ -65,13 +65,12 @@ function DailyBlocksMinedGraph() {
       stackedKeys={["0", "1", "2", "3", "4", "5", "6"]}
       stackColors={[
         "#0066FF",
-        "red",
-        "blue",
+        "#A5AEFF",
+        "#9570FF",
         "green",
-        "yellow",
         "purple",
-        "grey",
-        "orange",
+        "#FF9E4F",
+        "#FFE3B1",
       ]}
     />
   )
