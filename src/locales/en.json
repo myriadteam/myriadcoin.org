@@ -1,5 +1,6 @@
 {
   "formattedNumber": "{{number, 0,0}}",
+  "formattedNumber2Decimals": "{{number, 0,0.00}}",
   "percentage": "{{number, 0,0.00}}",
   "dayMonth": "{{date, MMM Do}}",
   "dayMonthYear": "{{date, ll}}",
