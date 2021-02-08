@@ -47,7 +47,9 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
       },
       onMove: ({ xy: [mx] }) => {
         const boxLeft = boxRef.current.offsetParent.offsetLeft
-        const hoverX = (mx - boxLeft) / (startPeriod / period.animation.to)
+
+        const clientX = Math.min(Math.max(mx - boxLeft, 0), boxWidth)
+        const hoverX = clientX / (startPeriod / period.animation.to)
         const itemX = Math.round(
           offsetX.get() + getHoverItemX(hoverX, startPeriod)
         )
