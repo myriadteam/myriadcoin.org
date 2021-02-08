@@ -77,7 +77,7 @@ const LineGraphContent = ({
   barPlotColors,
   areaStack,
 }) => {
-  const { viewBox, setPeriod } = useGraphZoomPan()
+  const { viewBox, setPeriod, startPeriod } = useGraphZoomPan()
 
   return (
     <>
@@ -85,7 +85,7 @@ const LineGraphContent = ({
         onChange={event => {
           setPeriod(parseInt(event.target.value, 10))
         }}
-        defaultValue={90}
+        defaultValue={startPeriod}
         tw="absolute right-0 z-50"
         style={{ top: -60 }}
       >

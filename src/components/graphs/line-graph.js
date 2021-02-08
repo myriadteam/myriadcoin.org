@@ -90,7 +90,7 @@ function LineGraph({
     <ZoomPanContextProvider
       parsedData={parsedData}
       boxRef={boxRef}
-      startPeriod={90}
+      startPeriod={182}
       startY={startY}
     >
       <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
