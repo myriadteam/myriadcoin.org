@@ -16,7 +16,6 @@ const BarPlot = ({ parsedData, barPlotKeys, barPlotColors }) => {
           width={barWidth}
           height={y(0) - y(d[barKey])}
           fill={barPlotColors[barI]}
-          opacity={0.8}
         />
       )
     })

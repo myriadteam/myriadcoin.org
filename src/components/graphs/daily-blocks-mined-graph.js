@@ -73,8 +73,6 @@ function DailyBlocksMinedGraph() {
       renderXValue={renderXValue}
       renderYValue={renderYValue}
       renderKeyValue={renderKeyValue}
-      barPlotKeys={[]}
-      barPlotColors={[]}
       keyNames={{
         0: "SHA256D",
         1: "Scrypt",

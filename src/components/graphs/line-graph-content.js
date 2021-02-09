@@ -24,14 +24,14 @@ const LineGraphContent = ({
     <svg
       width="100%"
       viewBox={"0 0 794 248"}
-      tw="overflow-hidden"
       style={{ transform: "scaleY(-1)" }}
+      tw="overflow-hidden pointer-events-none"
     >
       <animated.svg
         width={"100%"}
         preserveAspectRatio="none"
         viewBox={viewBox}
-        tw="overflow-visible absolute inset-0"
+        tw="overflow-visible absolute inset-0 pointer-events-none"
       >
         <LinePlot
           linePlotData={parsedData.linePlotData}

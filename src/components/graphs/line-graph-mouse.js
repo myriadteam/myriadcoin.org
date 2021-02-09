@@ -89,7 +89,7 @@ function LineGraphMouse({
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
       >
         <animated.div
-          tw="absolute inset-0 pointer-events-none bg-white dark:bg-dark-bg"
+          tw="absolute inset-0 bg-white dark:bg-dark-bg"
           style={{
             transform: interpolate(
               [dataX, period],
@@ -102,7 +102,7 @@ function LineGraphMouse({
         />
 
         <animated.div
-          tw="absolute inset-0 pointer-events-none bg-white dark:bg-dark-bg"
+          tw="absolute inset-0 bg-white dark:bg-dark-bg"
           style={{
             transform: interpolate(
               [dataX, period],
