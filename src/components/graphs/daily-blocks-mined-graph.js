@@ -58,9 +58,9 @@ function DailyBlocksMinedGraph() {
   const renderKeyValue = useCallback(
     key => x => {
       const v = data[Math.round(x)][key]
-      return v
+      return t("formattedNumber", { number: v })
     },
-    [data]
+    [data, t]
   )
 
   return (
