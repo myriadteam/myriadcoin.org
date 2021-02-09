@@ -17,7 +17,7 @@ function LineGraphValues({ renderKeyValue, keys, colors, names, hoverValues }) {
             {names[key]}
           </div>
           <div
-            tw="inline-flex rounded-14 px-2 text-white text-xxs leading-lg whitespace-no-wrap"
+            tw="inline-flex rounded-14 px-2 text-white text-xxs leading-lg whitespace-no-wrap dark:text-black"
             style={{ backgroundColor: colors[i] }}
           >
             <animated.span>

@@ -85,34 +85,63 @@ function LineGraphMouse({
     <>
       <div tw="absolute inset-0" ref={boxRef} />
       <animated.div
+        tw="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{ opacity: opacity.interpolate(o => o * 0.5) }}
+      >
+        <animated.div
+          tw="absolute inset-0 pointer-events-none bg-white dark:bg-dark-bg"
+          style={{
+            transform: interpolate(
+              [dataX, period],
+              (dataX, period) =>
+                `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(${
+                  boxWidth / period / 2
+                }px, ${0}px, ${0}px)`
+            ),
+          }}
+        />
+
+        <animated.div
+          tw="absolute inset-0 pointer-events-none bg-white dark:bg-dark-bg"
+          style={{
+            transform: interpolate(
+              [dataX, period],
+              (dataX, period) =>
+                `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(${-100}%, ${0}px, ${0}px) translate3d(${
+                  -boxWidth / period / 2
+                }px, ${0}px, ${0}px)`
+            ),
+          }}
+        />
+      </animated.div>
+      <animated.div
         tw="absolute inset-0 pointer-events-none"
         style={{ opacity }}
       >
         <animated.div
-          tw="absolute w-0 border-r border-dashed border-grey pointer-events-none flex items-center justify-center"
-          style={{
-            top: -10,
-            bottom: -64,
-            transform: interpolate([dataX], dataX => {
-              return `translate3d(${dataX}px, ${0}px, ${0}px)`
-            }),
-          }}
-        >
-          <animated.div tw="absolute bottom-0 whitespace-no-wrap bg-light-grey dark:bg-dark-light-bg rounded text-black dark:text-white px-3 text-sm leading-lg">
-            {xValue.interpolate(renderXValue)}
-          </animated.div>
-        </animated.div>
-        <animated.div
-          tw="absolute h-4 w-4 bg-blue-graph border-2 border-solid border-white dark:border-dark-bg rounded flex items-center justify-center pointer-events-none"
+          tw="absolute bg-light-grey dark:bg-dark-light-bg rounded-14 text-black dark:text-white px-3 text-sm leading-lg whitespace-no-wrap"
           style={{
             transform: interpolate([dataX, dataY], (dataX, dataY) => {
-              return `translate3d(${dataX}px, ${dataY}px, ${0}px) translate3d(-50%, -50%, 0)`
+              return `translate3d(${dataX}px, ${
+                dataY - 8
+              }px, ${0}px) translate3d(-50%, -100%, 0)`
             }),
           }}
         >
-          <div tw="absolute bottom-0 mb-5 bg-blue-graph rounded-14 text-white px-3 text-sm leading-lg whitespace-no-wrap">
-            <animated.span>{xValue.interpolate(renderYValue)}</animated.span>
-          </div>
+          {xValue.interpolate(renderYValue)}
+        </animated.div>
+
+        <animated.div
+          tw="absolute bottom-0 pt-3 sm:pt-8"
+          style={{
+            transform: interpolate([dataX], dataX => {
+              return `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(-50%, 100%, 0px)`
+            }),
+          }}
+        >
+          <animated.div tw="whitespace-no-wrap bg-light-grey dark:bg-dark-light-bg rounded-14 text-black dark:text-white px-3 text-sm leading-lg">
+            {xValue.interpolate(renderXValue)}
+          </animated.div>
         </animated.div>
       </animated.div>
     </>

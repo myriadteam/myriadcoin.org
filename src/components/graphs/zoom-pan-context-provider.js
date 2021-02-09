@@ -18,10 +18,10 @@ export function ZoomPanContextProvider({
     (offsetX, period) => {
       const from = Math.min(
         Math.max(offsetX, 0),
-        parsedData.mappedValues.length - period
+        parsedData.mappedValues.length - 1
       )
 
-      const to = from + period
+      const to = Math.max(offsetX + period, 1)
 
       return Math.max(...parsedData.mappedValues.slice(from, to))
     },
