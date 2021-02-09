@@ -80,7 +80,9 @@ const Wallet = ({ selected, title, theme = "light" }) => {
           <BodyText tw="mb-10">{t("mine.wallet.body")}</BodyText>
           <Dropdown
             options={platforms}
-            selected={selectedPlatformObject && selectedPlatformObject.label}
+            defaultValue={
+              selectedPlatformObject && selectedPlatformObject.value
+            }
             theme="dark"
             onChange={({ value }) => {
               changePlatform(value)

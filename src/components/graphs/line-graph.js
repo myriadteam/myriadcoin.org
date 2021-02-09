@@ -109,9 +109,7 @@ function LineGraph({
     >
       <div tw="flex flex-row justify-between items-center mb-10">
         <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-        <div>
-          <LineGraphPeriods />
-        </div>
+        <LineGraphPeriods />
       </div>
       <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
         <LineGraphYAxis

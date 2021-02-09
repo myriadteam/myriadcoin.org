@@ -84,7 +84,7 @@ const MineAlgoritm = ({ title, selected, onChange = () => {} }) => {
       <Dropdown
         options={algoritms}
         labelPrefix="algoritms"
-        selected={selected}
+        defaultValue={selected}
         onChange={({ value }) => onChange(value)}
       />
       {algoritms.map((algoritm, key) => (

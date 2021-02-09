@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React, { useState, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import tw, { styled } from "twin.macro"
 import IconChevronDown from "../svgs/icons/chevron-down.inline.svg"
@@ -43,7 +43,6 @@ const DropdownMenu = ({
   labelPrefix,
 }) => {
   const { t } = useTranslation()
-  console.log("labelPrefix 2", labelPrefix)
   return (
     <Menu>
       {options.map(option => (
@@ -66,7 +65,7 @@ const DropdownMenu = ({
 
 const Dropdown = ({
   options,
-  selected,
+  defaultValue,
   onChange,
   placeholder,
   labelPrefix,
@@ -75,11 +74,27 @@ const Dropdown = ({
   const { t } = useTranslation()
   const [isOpen, toggleOpen] = useState(false)
 
-  const selectedOption = options.find(option => option.value === selected)
+  const findOption = useCallback(
+    value => options.find(option => option.value === value),
+    [options]
+  )
 
-  const selectedTitle = labelPrefix
-    ? t(`${labelPrefix}.${selectedOption.value}.label`)
-    : selectedOption && selectedOption.label
+  const [selectedOption, setSelectedOption] = useState(findOption(defaultValue))
+
+  const onChangeOption = useCallback(
+    option => {
+      setSelectedOption(option)
+      onChange(option)
+    },
+    [onChange]
+  )
+
+  const selectedTitle =
+    selectedOption &&
+    (labelPrefix
+      ? t(`${labelPrefix}.${selectedOption.value}.label`)
+      : selectedOption && selectedOption.label)
+
   return (
     <DropdownContainer theme={theme}>
       <Selected
@@ -99,7 +114,7 @@ const Dropdown = ({
           labelPrefix={labelPrefix}
           options={options}
           theme={theme}
-          onChange={onChange}
+          onChange={onChangeOption}
           toggleOpen={toggleOpen}
         />
       )}
