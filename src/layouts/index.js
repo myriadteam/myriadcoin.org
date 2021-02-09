@@ -18,7 +18,7 @@ import Footer from "../components/footer"
 
 const BodyContainer = tw.div`font-body font-semibold`
 
-const Layout = ({ children, t, i18n }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
