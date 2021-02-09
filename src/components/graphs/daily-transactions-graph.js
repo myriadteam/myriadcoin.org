@@ -37,8 +37,11 @@ function DailyTransactionsGraph() {
     [getTimestamp, t]
   )
   const renderYValue = useCallback(
-    y => t("formattedNumber", { number: y.toFixed(0) }) + " transactions",
-    [t]
+    x => {
+      const { y } = data[Math.round(x)]
+      return t("formattedNumber", { number: y.toFixed(0) }) + " transactions"
+    },
+    [data, t]
   )
 
   return (

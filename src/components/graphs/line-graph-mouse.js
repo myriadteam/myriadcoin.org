@@ -1,12 +1,18 @@
 import React, { useRef, useCallback } from "react"
 import tw from "twin.macro"
-import { useSpring, animated, interpolate } from "react-spring"
+import { animated, interpolate } from "react-spring"
 import { useGesture } from "react-use-gesture"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
 import { useDimensions } from "../../hooks/layout"
 
-function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
+function LineGraphMouse({
+  renderXValue,
+  renderYValue,
+  parsedData,
+  exact,
+  hoverValues,
+}) {
   const {
     dragCallback,
     offsetX,
@@ -19,13 +25,7 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
 
   const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
 
-  const [{ dataX, dataY, xValue, yValue, opacity }, set] = useSpring(() => ({
-    dataX: 0,
-    dataY: 0,
-    xValue: 0,
-    yValue: 0,
-    opacity: 0,
-  }))
+  const [{ dataX, dataY, xValue, opacity }, set] = hoverValues
 
   const getHoverItemX = useCallback(
     (dragX, period) => {
@@ -60,7 +60,6 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
 
         set({
           xValue: dataPoint.x,
-          yValue: dataPoint.y,
           dataX:
             (dataPoint.x - offsetX.get()) * (boxWidth / period.animation.to),
           dataY:
@@ -112,7 +111,7 @@ function LineGraphMouse({ renderXValue, renderYValue, parsedData, exact }) {
           }}
         >
           <div tw="absolute bottom-0 mb-5 bg-blue-graph rounded-14 text-white px-3 text-sm leading-lg whitespace-no-wrap">
-            <animated.span>{yValue.interpolate(renderYValue)}</animated.span>
+            <animated.span>{xValue.interpolate(renderYValue)}</animated.span>
           </div>
         </animated.div>
       </animated.div>

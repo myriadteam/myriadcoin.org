@@ -36,8 +36,11 @@ function MinedCoinsGraph() {
     [getTimestamp, t]
   )
   const renderYValue = useCallback(
-    y => t("formattedNumber", { number: y.toFixed(0) }) + " XMY",
-    [t]
+    x => {
+      const { y } = data[Math.round(x)]
+      return t("formattedNumber", { number: y.toFixed(0) }) + " XMY"
+    },
+    [data, t]
   )
 
   return (

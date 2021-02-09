@@ -35,7 +35,13 @@ function DailyTransactionsGraph() {
       }),
     [getTimestamp, t]
   )
-  const renderYValue = useCallback(y => (100 * y).toFixed(2) + "%", [])
+  const renderYValue = useCallback(
+    x => {
+      const { y } = data[Math.round(x)]
+      return (100 * y).toFixed(2) + "%"
+    },
+    [data]
+  )
 
   return (
     <LineGraph

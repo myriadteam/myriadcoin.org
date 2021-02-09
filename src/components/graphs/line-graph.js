@@ -1,11 +1,13 @@
 import React, { useMemo, useRef } from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
+import { useSpring } from "react-spring"
 
 import LineGraphContent from "./line-graph-content"
 import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
+import LineGraphValues from "./line-graph-values"
 
 import ZoomPanContextProvider from "./zoom-pan-context-provider"
 
@@ -19,6 +21,7 @@ function LineGraph({
   renderYAxis,
   renderXValue,
   renderYValue,
+  renderKeyValue,
   viewportWidth,
   viewportHeight,
   xAxisItemsCount,
@@ -34,8 +37,17 @@ function LineGraph({
   linePlotKeys,
   linePlotColors,
   areaStack,
+  keyNames,
 }) {
   const boxRef = useRef()
+
+  const hoverValues = useSpring(() => ({
+    dataX: 0,
+    dataY: 0,
+    xValue: 0,
+    opacity: 0,
+  }))
+
   const parsedData = useMemo(() => {
     if (!data) {
       return null
@@ -113,12 +125,20 @@ function LineGraph({
               parsedData={parsedData}
               renderXValue={renderXValue}
               renderYValue={renderYValue}
+              hoverValues={hoverValues}
             />
           </div>
           <LineGraphXAxis
             parsedData={parsedData}
             renderValue={renderXAxis}
             itemsCount={xAxisItemsCount}
+          />
+          <LineGraphValues
+            keys={stackedKeys}
+            colors={stackColors}
+            names={keyNames}
+            hoverValues={hoverValues}
+            renderKeyValue={renderKeyValue}
           />
         </div>
       </div>
@@ -132,6 +152,7 @@ LineGraph.propTypes = {
   renderYAxis: PropTypes.func,
   renderXValue: PropTypes.func,
   renderYValue: PropTypes.func,
+  renderKeyValue: PropTypes.func,
   viewportWidth: PropTypes.number,
   viewportHeight: PropTypes.number,
   xAxisItemsCount: PropTypes.number,
@@ -140,6 +161,7 @@ LineGraph.propTypes = {
   centralRolling: PropTypes.bool,
   startY: PropTypes.number,
   endY: PropTypes.number,
+  keyNames: PropTypes.shape(),
   stackedKeys: PropTypes.arrayOf(PropTypes.string),
   stackColors: PropTypes.arrayOf(PropTypes.string),
   linePlotKeys: PropTypes.arrayOf(PropTypes.string),
@@ -155,6 +177,7 @@ LineGraph.defaultProps = {
   renderYAxis: v => v.toFixed(1),
   renderXValue: v => v.toFixed(1),
   renderYValue: v => v.toFixed(1),
+  renderKeyValue: key => v => key + v.toFixed(1),
   viewportWidth: 794,
   viewportHeight: 248,
   xAxisItemsCount: 4,
@@ -163,6 +186,7 @@ LineGraph.defaultProps = {
   centralRolling: false,
   startY: undefined,
   endY: undefined,
+  keyNames: {},
   stackedKeys: [],
   stackColors: [],
   linePlotKeys: [],

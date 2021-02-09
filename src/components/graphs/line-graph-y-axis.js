@@ -6,7 +6,7 @@ import { animated, interpolate } from "react-spring"
 import { useGraphZoomPan } from "./zoom-pan-context"
 
 function LineGraphYAxis({ renderValue, itemsCount }) {
-  const { lowestInView, highestInView } = useGraphZoomPan()
+  const { lowestInView, highestInView, boxHeight } = useGraphZoomPan()
 
   const renderContent = () => {
     return [...Array(itemsCount)].map((_, i) => {
@@ -27,7 +27,10 @@ function LineGraphYAxis({ renderValue, itemsCount }) {
   }
 
   return (
-    <div tw="flex flex-col justify-between pt-1 pr-2 pb-8 sm:pr-6 sm:pt-4 sm:pb-14 w-20">
+    <div
+      tw="flex flex-col justify-between py-1 pr-2 sm:pr-6 sm:py-4 w-20 h-full"
+      style={{ height: boxHeight }}
+    >
       {renderContent()}
     </div>
   )

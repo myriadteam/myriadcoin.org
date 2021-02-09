@@ -43,7 +43,8 @@ function DailyDifficultyGraph() {
     [getTimestamp, t]
   )
   const renderYValue = useCallback(
-    y => {
+    x => {
+      const { y } = data[Math.round(x)]
       if (y < 1) {
         return (
           t("formattedNumber2Decimals", { number: (y * 1000).toFixed(100) }) +
@@ -52,7 +53,7 @@ function DailyDifficultyGraph() {
       }
       return t("formattedNumber2Decimals", { number: y.toFixed(100) })
     },
-    [t]
+    [data, t]
   )
 
   return (

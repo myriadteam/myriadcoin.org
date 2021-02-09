@@ -8,6 +8,9 @@ export function useDimensions(ref) {
   })
 
   useLayoutEffect(() => {
+    if (!ref.current) {
+      return null
+    }
     const { width, height } = ref.current.getBoundingClientRect()
     setDimensions({ width, height })
   }, [ref])

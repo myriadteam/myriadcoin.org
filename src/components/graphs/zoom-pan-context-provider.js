@@ -12,7 +12,7 @@ export function ZoomPanContextProvider({
   startPeriod,
   startY,
 }) {
-  const { width: boxWidth } = useDimensions(boxRef)
+  const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
 
   const getHighestInView = useCallback(
     (offsetX, period) => {
@@ -149,6 +149,8 @@ export function ZoomPanContextProvider({
       dragCallback,
       viewBox,
       startPeriod,
+      boxWidth,
+      boxHeight,
     }
   }, [
     dragX,
@@ -161,6 +163,8 @@ export function ZoomPanContextProvider({
     dragCallback,
     startPeriod,
     getOffsetX,
+    boxWidth,
+    boxHeight,
   ])
 
   return (

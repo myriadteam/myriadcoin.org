@@ -48,8 +48,19 @@ function DailyBlocksMinedGraph() {
     [getTimestamp, t]
   )
   const renderYValue = useCallback(
-    y => t("formattedNumber", { number: y.toFixed(0) }) + " blocks",
-    [t]
+    x => {
+      const { y } = data[Math.round(x)]
+      return t("formattedNumber", { number: y.toFixed(0) }) + " blocks"
+    },
+    [data, t]
+  )
+
+  const renderKeyValue = useCallback(
+    key => x => {
+      const v = data[Math.round(x)][key]
+      return v
+    },
+    [data]
   )
 
   return (
@@ -60,8 +71,18 @@ function DailyBlocksMinedGraph() {
       renderYAxis={renderYAxis}
       renderXValue={renderXValue}
       renderYValue={renderYValue}
+      renderKeyValue={renderKeyValue}
       barPlotKeys={[]}
       barPlotColors={[]}
+      keyNames={{
+        0: "SHA256D",
+        1: "Scrypt",
+        2: "Groestl",
+        3: "Skein",
+        4: "Qubit",
+        5: "Yescrypt",
+        6: "Argon2d",
+      }}
       stackedKeys={["0", "1", "2", "3", "4", "5", "6"]}
       stackColors={[
         "#0066FF",
