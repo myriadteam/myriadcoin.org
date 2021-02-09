@@ -18,56 +18,40 @@ const LineGraphContent = ({
   barPlotColors,
   areaStack,
 }) => {
-  const { viewBox, setPeriod, startPeriod } = useGraphZoomPan()
+  const { viewBox } = useGraphZoomPan()
 
   return (
-    <>
-      <select
-        onChange={event => {
-          setPeriod(parseInt(event.target.value, 10))
-        }}
-        defaultValue={startPeriod}
-        tw="absolute right-0 z-50"
-        style={{ top: -60 }}
+    <svg
+      width="100%"
+      viewBox={"0 0 794 248"}
+      tw="overflow-hidden"
+      style={{ transform: "scaleY(-1)" }}
+    >
+      <animated.svg
+        width={"100%"}
+        preserveAspectRatio="none"
+        viewBox={viewBox}
+        tw="overflow-visible absolute inset-0"
       >
-        <option value="365">Year</option>
-        <option value="182">6 Months</option>
-        <option value="90">Quarter</option>
-        <option value="30">Month</option>
-        <option value="7">Week</option>
-      </select>
-      <svg
-        width="100%"
-        viewBox={"0 0 794 248"}
-        tw="overflow-hidden"
-        style={{ transform: "scaleY(-1)" }}
-      >
-        <animated.svg
-          width={"100%"}
-          preserveAspectRatio="none"
-          viewBox={viewBox}
-          tw="overflow-visible absolute inset-0"
-        >
-          <LinePlot
-            linePlotData={parsedData.linePlotData}
-            linePlotColors={linePlotColors}
+        <LinePlot
+          linePlotData={parsedData.linePlotData}
+          linePlotColors={linePlotColors}
+        />
+        <BarPlot
+          parsedData={parsedData}
+          barPlotKeys={barPlotKeys}
+          barPlotColors={barPlotColors}
+        />
+        {areaStack ? (
+          <StackedAreas
+            stackAreas={parsedData.stackAreas}
+            stackColors={stackColors}
           />
-          <BarPlot
-            parsedData={parsedData}
-            barPlotKeys={barPlotKeys}
-            barPlotColors={barPlotColors}
-          />
-          {areaStack ? (
-            <StackedAreas
-              stackAreas={parsedData.stackAreas}
-              stackColors={stackColors}
-            />
-          ) : (
-            <StackedPlot parsedData={parsedData} stackColors={stackColors} />
-          )}
-        </animated.svg>
-      </svg>
-    </>
+        ) : (
+          <StackedPlot parsedData={parsedData} stackColors={stackColors} />
+        )}
+      </animated.svg>
+    </svg>
   )
 }
 

@@ -45,6 +45,7 @@ function MinedCoinsGraph() {
 
   return (
     <LineGraph
+      title={"Daily blocks mined"}
       data={data}
       startY={0}
       renderXAxis={renderXAxis}

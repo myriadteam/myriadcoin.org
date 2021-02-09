@@ -8,10 +8,11 @@ import LineGraphXAxis from "./line-graph-x-axis"
 import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
 import LineGraphValues from "./line-graph-values"
+import LineGraphPeriods from "./line-graph-periods"
 
 import ZoomPanContextProvider from "./zoom-pan-context-provider"
 
-import { MediumText } from "../../common/elements"
+import { MediumText, MediumBoldText } from "../../common/elements"
 
 import { parseDataForLineGraph } from "../../common/graph"
 
@@ -38,6 +39,7 @@ function LineGraph({
   linePlotColors,
   areaStack,
   keyNames,
+  title,
 }) {
   const boxRef = useRef()
 
@@ -105,6 +107,12 @@ function LineGraph({
       startPeriod={182}
       startY={startY}
     >
+      <div tw="flex flex-row justify-between items-center mb-10">
+        <MediumBoldText tw="mb-0">{title}</MediumBoldText>
+        <div>
+          <LineGraphPeriods />
+        </div>
+      </div>
       <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
         <LineGraphYAxis
           parsedData={parsedData}

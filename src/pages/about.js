@@ -99,16 +99,13 @@ const AboutPage = () => {
           </div>
 
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <MediumBoldText>Daily blocks mined</MediumBoldText>
             <DailyBlocksMinedGraph />
           </div>
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
-            <MediumBoldText>Daily groestl difficulty</MediumBoldText>
             <DailyDifficultyGraph />
           </div>
 
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded mt-8">
-            <MediumBoldText>Daily groestl work/second</MediumBoldText>
             <DailyHashrateGraph />
           </div>
         </PageContainer>

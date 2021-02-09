@@ -58,6 +58,7 @@ function DailyDifficultyGraph() {
 
   return (
     <LineGraph
+      title={"Daily groestl difficulty"}
       data={data}
       startY={0}
       renderXAxis={renderXAxis}

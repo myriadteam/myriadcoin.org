@@ -64,6 +64,7 @@ function DailyDifficultyGraph() {
 
   return (
     <LineGraph
+      title={"Daily groestl wu/s"}
       data={data}
       startY={0}
       renderXAxis={renderXAxis}
