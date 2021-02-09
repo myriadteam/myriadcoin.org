@@ -6,7 +6,7 @@ function LineGraphValues({ renderKeyValue, keys, colors, names, hoverValues }) {
   const [{ xValue }] = hoverValues
 
   return (
-    <div tw="flex -mr-6 flex-wrap">
+    <div tw="flex -mr-6 flex-wrap mt-4">
       {keys.map((key, i) => (
         <div key={key} tw="flex-row mr-6 text-xxs">
           <div tw="text-sm mb-1 flex flex-row justify-center items-center">
