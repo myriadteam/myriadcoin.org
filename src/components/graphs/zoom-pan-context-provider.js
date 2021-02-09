@@ -52,7 +52,7 @@ export function ZoomPanContextProvider({
         return 0
       }
 
-      const offsetOffset = parsedData.mappedValues.length - period - 1
+      const offsetOffset = parsedData.mappedValues.length - period - 0.5
       const pixelToBar = boxWidth / period
       return offsetOffset - dragX / pixelToBar
     },
