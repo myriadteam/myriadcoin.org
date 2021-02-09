@@ -31,7 +31,7 @@ const Layout = ({ children, t, i18n }) => {
 
   return (
     <XmyDataProvider>
-      <BodyContainer>
+      <BodyContainer tw="text-black dark:text-white">
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <Footer />
