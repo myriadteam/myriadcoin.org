@@ -107,7 +107,7 @@ function LineGraph({
       startPeriod={182}
       startY={startY}
     >
-      <div tw="flex flex-row justify-between items-center mb-10">
+      <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
         <MediumBoldText tw="mb-0">{title}</MediumBoldText>
         <LineGraphPeriods />
       </div>
@@ -122,7 +122,6 @@ function LineGraph({
             tw="relative"
             width="100%"
             style={{ paddingTop: (100 * 248) / 794 + "%" }}
-            ref={boxRef}
           >
             <div tw="absolute z-10 inset-0">
               <LineGraphMouse
@@ -132,7 +131,7 @@ function LineGraph({
                 hoverValues={hoverValues}
               />
             </div>
-            <div tw="absolute inset-0">
+            <div tw="absolute inset-0" ref={boxRef}>
               <LineGraphContent
                 parsedData={parsedData}
                 linePlotColors={linePlotColors}
