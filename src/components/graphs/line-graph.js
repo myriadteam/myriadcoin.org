@@ -118,22 +118,32 @@ function LineGraph({
           itemsCount={yAxisItemsCount}
         />
         <div tw="flex-grow">
-          <div tw="relative" ref={boxRef}>
-            <LineGraphContent
-              parsedData={parsedData}
-              linePlotColors={linePlotColors}
-              stackColors={stackColors}
-              areaStack={areaStack}
-              barPlotKeys={barPlotKeys}
-              barPlotColors={barPlotColors}
-            />
-            <LineGraphMouse
-              parsedData={parsedData}
-              renderXValue={renderXValue}
-              renderYValue={renderYValue}
-              hoverValues={hoverValues}
-            />
+          <div
+            tw="relative"
+            width="100%"
+            style={{ paddingTop: (100 * 248) / 794 + "%" }}
+            ref={boxRef}
+          >
+            <div tw="absolute z-10 inset-0">
+              <LineGraphMouse
+                parsedData={parsedData}
+                renderXValue={renderXValue}
+                renderYValue={renderYValue}
+                hoverValues={hoverValues}
+              />
+            </div>
+            <div tw="absolute inset-0">
+              <LineGraphContent
+                parsedData={parsedData}
+                linePlotColors={linePlotColors}
+                stackColors={stackColors}
+                areaStack={areaStack}
+                barPlotKeys={barPlotKeys}
+                barPlotColors={barPlotColors}
+              />
+            </div>
           </div>
+
           <LineGraphXAxis
             parsedData={parsedData}
             renderValue={renderXAxis}

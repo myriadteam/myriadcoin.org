@@ -46,7 +46,7 @@ function LineGraphMouse({
         set({ opacity: hovering ? 1 : 0 })
       },
       onMove: ({ xy: [mx] }) => {
-        const boxLeft = boxRef.current.offsetParent.offsetLeft
+        const boxLeft = boxRef.current.offsetParent.offsetParent.offsetLeft
 
         const clientX = Math.min(Math.max(mx - boxLeft, 0), boxWidth)
         const hoverX = clientX / (startPeriod / period.animation.to)
@@ -69,21 +69,16 @@ function LineGraphMouse({
     },
     {
       domTarget: boxRef,
-      eventOptions: {
-        capture: true,
-      },
-      drag: {
-        useTouch: true,
-        preventWindowScrollY: true,
-        experimental_preventWindowScrollY: true,
-      },
-      move: {},
     }
   )
 
   return (
     <>
-      <div tw="absolute inset-0" ref={boxRef} style={{ touchAction: "none" }} />
+      <div
+        tw="absolute inset-0"
+        ref={boxRef}
+        style={{ touchAction: "none", userSelect: "none" }}
+      />
       <animated.div
         tw="absolute inset-0 overflow-hidden pointer-events-none"
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
