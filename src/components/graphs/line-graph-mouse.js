@@ -83,7 +83,7 @@ function LineGraphMouse({
 
   return (
     <>
-      <div tw="absolute inset-0" ref={boxRef} />
+      <div tw="absolute inset-0" ref={boxRef} style={{ touchAction: "none" }} />
       <animated.div
         tw="absolute inset-0 overflow-hidden pointer-events-none"
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
