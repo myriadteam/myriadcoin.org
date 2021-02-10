@@ -13,7 +13,7 @@ const DropdownContainer = styled.div`
 `
 
 const Selected = styled.div`
-  ${tw`flex items-center justify-between px-4 py-2 text-xs`}
+  ${tw`flex items-center justify-between px-4 py-2 text-xs whitespace-no-wrap`}
   ${({ isOpen }) => (isOpen ? tw`rounded-t` : tw`rounded`)}
   ${({ theme }) =>
     theme === "light"
