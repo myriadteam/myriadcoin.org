@@ -17,7 +17,7 @@ function DailyDifficultyGraph() {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: v[2],
+            y: v[2] / 1000,
           }
         })
         setData(newData)
@@ -29,11 +29,15 @@ function DailyDifficultyGraph() {
     [getTimestamp, t]
   )
   const renderYAxis = useCallback(y => {
-    if (y > 100) {
-      return (y / 1000).toFixed(1) + "K"
+    if (y > 1000) {
+      return (y / 1000).toFixed(1) + "M"
     }
 
-    return y.toFixed(2)
+    if (y > 1) {
+      return y.toFixed(1) + "K"
+    }
+
+    return (y * 1000).toFixed(1)
   }, [])
   const renderXValue = useCallback(
     x =>
@@ -45,13 +49,14 @@ function DailyDifficultyGraph() {
   const renderYValue = useCallback(
     x => {
       const { y } = data[Math.round(x)]
-      if (y < 1) {
+      if (y < 0.001) {
         return (
-          t("formattedNumber2Decimals", { number: (y * 1000).toFixed(100) }) +
-          "m"
+          t("formattedNumber2Decimals", {
+            number: (y * 1000 * 1000).toFixed(100),
+          }) + "m"
         )
       }
-      return t("formattedNumber2Decimals", { number: y.toFixed(100) })
+      return t("formattedNumber2Decimals", { number: (y * 1000).toFixed(100) })
     },
     [data, t]
   )

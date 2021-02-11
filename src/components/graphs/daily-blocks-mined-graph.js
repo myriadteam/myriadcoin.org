@@ -57,8 +57,14 @@ function DailyBlocksMinedGraph() {
 
   const renderKeyValue = useCallback(
     key => x => {
-      const v = data[Math.round(x)][key]
-      return t("formattedNumber", { number: v })
+      const d = data[Math.round(x)]
+      const v = d[key]
+      return (
+        t("formattedNumber", { number: v }) +
+        " (" +
+        ((100 * v) / d.y).toFixed(1) +
+        "%)"
+      )
     },
     [data, t]
   )
