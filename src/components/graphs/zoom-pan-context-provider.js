@@ -11,6 +11,8 @@ export function ZoomPanContextProvider({
   boxRef,
   startPeriod,
   startY,
+  viewportWidth,
+  viewportHeight,
 }) {
   const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
 
@@ -151,6 +153,8 @@ export function ZoomPanContextProvider({
       startPeriod,
       boxWidth,
       boxHeight,
+      viewportWidth,
+      viewportHeight,
     }
   }, [
     dragX,
@@ -162,9 +166,11 @@ export function ZoomPanContextProvider({
     setPeriod,
     dragCallback,
     startPeriod,
-    getOffsetX,
     boxWidth,
     boxHeight,
+    viewportWidth,
+    viewportHeight,
+    getOffsetX,
   ])
 
   return (

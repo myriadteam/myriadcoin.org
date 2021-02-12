@@ -13,8 +13,8 @@ import LineGraphPeriods from "./line-graph-periods"
 import ZoomPanContextProvider from "./zoom-pan-context-provider"
 
 import { MediumText, MediumBoldText } from "../../common/elements"
-
 import { parseDataForLineGraph } from "../../common/graph"
+import { useDimensions } from "../../hooks/layout"
 
 function LineGraph({
   data,
@@ -23,8 +23,6 @@ function LineGraph({
   renderXValue,
   renderYValue,
   renderKeyValue,
-  viewportWidth,
-  viewportHeight,
   xAxisItemsCount,
   yAxisItemsCount,
   rollingWindow,
@@ -42,6 +40,11 @@ function LineGraph({
   title,
 }) {
   const boxRef = useRef()
+  const viewportBox = useRef()
+
+  const { width: viewportWidth, height: viewportHeight } = useDimensions(
+    viewportBox
+  )
 
   const hoverValues = useSpring(() => ({
     dataX: 0,
@@ -74,90 +77,104 @@ function LineGraph({
     linePlotKeys,
   ])
 
-  if (parsedData === null) {
-    return (
-      <div
-        tw="relative w-full"
-        style={{ paddingTop: (100 * viewportWidth) / viewportHeight / 2 }}
-      >
-        <div tw="absolute inset-0 flex justify-center items-center mb-5">
-          <MediumText>Loading...</MediumText>
-        </div>
-      </div>
-    )
-  }
+  const renderGraph = () => {
+    if (parsedData === null || !parsedData.exactData.length) {
+      return (
+        <div>
+          <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
+            <MediumBoldText tw="mb-0">{title}</MediumBoldText>
+            <LineGraphPeriods />
+          </div>
 
-  if (!parsedData.exactData.length) {
-    return (
-      <div
-        tw="relative w-full"
-        style={{ paddingTop: (100 * viewportWidth) / viewportHeight / 2 }}
-      >
-        <div tw="absolute inset-0 flex justify-center items-center mb-5">
-          <MediumText>No data.. :(</MediumText>
+          <div
+            tw="relative"
+            width="100%"
+            style={{
+              paddingTop: (100 * viewportHeight) / viewportWidth + "%",
+            }}
+          >
+            <div tw="absolute inset-0 flex justify-center items-center mb-5">
+              <MediumText>
+                {parsedData === null ? "Loading..." : "No data.. :("}
+              </MediumText>
+            </div>
+          </div>
         </div>
-      </div>
+      )
+    }
+
+    return (
+      <ZoomPanContextProvider
+        parsedData={parsedData}
+        boxRef={boxRef}
+        startPeriod={182}
+        startY={startY}
+        viewportWidth={viewportWidth}
+        viewportHeight={viewportHeight}
+      >
+        <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
+          <MediumBoldText tw="mb-0">{title}</MediumBoldText>
+          <LineGraphPeriods />
+        </div>
+        <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+          <LineGraphYAxis
+            parsedData={parsedData}
+            renderValue={renderYAxis}
+            itemsCount={yAxisItemsCount}
+          />
+          <div tw="flex-grow">
+            <div
+              tw="relative"
+              width="100%"
+              style={{
+                paddingTop: (100 * viewportHeight) / viewportWidth + "%",
+              }}
+            >
+              <div tw="absolute z-10 inset-0">
+                <LineGraphMouse
+                  parsedData={parsedData}
+                  renderXValue={renderXValue}
+                  renderYValue={renderYValue}
+                  hoverValues={hoverValues}
+                />
+              </div>
+              <div tw="absolute inset-0" ref={boxRef}>
+                <LineGraphContent
+                  parsedData={parsedData}
+                  linePlotColors={linePlotColors}
+                  stackColors={stackColors}
+                  areaStack={areaStack}
+                  barPlotKeys={barPlotKeys}
+                  barPlotColors={barPlotColors}
+                />
+              </div>
+            </div>
+
+            <div>
+              <LineGraphXAxis
+                parsedData={parsedData}
+                renderValue={renderXAxis}
+                itemsCount={xAxisItemsCount}
+              />
+              <LineGraphValues
+                keys={stackedKeys}
+                colors={stackColors}
+                names={keyNames}
+                hoverValues={hoverValues}
+                renderKeyValue={renderKeyValue}
+              />
+            </div>
+          </div>
+        </div>
+      </ZoomPanContextProvider>
     )
   }
 
   return (
-    <ZoomPanContextProvider
-      parsedData={parsedData}
-      boxRef={boxRef}
-      startPeriod={182}
-      startY={startY}
-    >
-      <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
-        <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-        <LineGraphPeriods />
-      </div>
-      <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
-        <LineGraphYAxis
-          parsedData={parsedData}
-          renderValue={renderYAxis}
-          itemsCount={yAxisItemsCount}
-        />
-        <div tw="flex-grow">
-          <div
-            tw="relative"
-            width="100%"
-            style={{ paddingTop: (100 * 248) / 794 + "%" }}
-          >
-            <div tw="absolute z-10 inset-0">
-              <LineGraphMouse
-                parsedData={parsedData}
-                renderXValue={renderXValue}
-                renderYValue={renderYValue}
-                hoverValues={hoverValues}
-              />
-            </div>
-            <div tw="absolute inset-0" ref={boxRef}>
-              <LineGraphContent
-                parsedData={parsedData}
-                linePlotColors={linePlotColors}
-                stackColors={stackColors}
-                areaStack={areaStack}
-                barPlotKeys={barPlotKeys}
-                barPlotColors={barPlotColors}
-              />
-            </div>
-          </div>
-
-          <LineGraphXAxis
-            parsedData={parsedData}
-            renderValue={renderXAxis}
-            itemsCount={xAxisItemsCount}
-          />
-          <LineGraphValues
-            keys={stackedKeys}
-            colors={stackColors}
-            names={keyNames}
-            hoverValues={hoverValues}
-            renderKeyValue={renderKeyValue}
-          />
-        </div>
-      </div>
-    </ZoomPanContextProvider>
+    <>
+      <div tw="absolute w-6 h-7 sm:w-16 sm:h-5" ref={viewportBox} />
+      {renderGraph()}
+    </>
   )
 }
 
@@ -168,8 +185,6 @@ LineGraph.propTypes = {
   renderXValue: PropTypes.func,
   renderYValue: PropTypes.func,
   renderKeyValue: PropTypes.func,
-  viewportWidth: PropTypes.number,
-  viewportHeight: PropTypes.number,
   xAxisItemsCount: PropTypes.number,
   yAxisItemsCount: PropTypes.number,
   rollingWindow: PropTypes.number,
@@ -193,8 +208,6 @@ LineGraph.defaultProps = {
   renderXValue: v => v.toFixed(1),
   renderYValue: v => v.toFixed(1),
   renderKeyValue: key => v => key + v.toFixed(1),
-  viewportWidth: 794,
-  viewportHeight: 248,
   xAxisItemsCount: 4,
   yAxisItemsCount: 2,
   rollingWindow: 0,

@@ -22,6 +22,7 @@ function LineGraphMouse({
   } = useGraphZoomPan()
 
   const boxRef = useRef()
+  const boxRef2 = useRef()
 
   const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
 
@@ -39,36 +40,74 @@ function LineGraphMouse({
     [boxWidth]
   )
 
+  const hoverCallback = useCallback(
+    ({ hovering }) => {
+      set({ opacity: hovering ? 1 : 0 })
+    },
+    [set]
+  )
+
+  const moveCallback = useCallback(
+    ({ xy: [mx] }) => {
+      const boxLeft = boxRef.current.offsetParent.offsetParent.offsetLeft
+
+      const clientX = Math.min(Math.max(mx - boxLeft, 0), boxWidth)
+      const hoverX = clientX / (startPeriod / period.animation.to)
+      const itemX = Math.round(
+        offsetX.get() + getHoverItemX(hoverX, startPeriod)
+      )
+
+      const dataPoint = exact
+        ? parsedData.nearestExactDataPointFromX(itemX)
+        : parsedData.nearestDataPointFromX(itemX)
+
+      set({
+        xValue: dataPoint.x,
+        dataX: (dataPoint.x - offsetX.get()) * (boxWidth / period.animation.to),
+        dataY:
+          boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
+      })
+    },
+    [
+      boxHeight,
+      boxWidth,
+      exact,
+      getHoverItemX,
+      highestInView.animation.to,
+      offsetX,
+      parsedData,
+      period.animation.to,
+      set,
+      startPeriod,
+    ]
+  )
+
   useGesture(
     {
       onDrag: dragCallback,
-      onHover: ({ hovering }) => {
-        set({ opacity: hovering ? 1 : 0 })
-      },
-      onMove: ({ xy: [mx] }) => {
-        const boxLeft = boxRef.current.offsetParent.offsetParent.offsetLeft
-
-        const clientX = Math.min(Math.max(mx - boxLeft, 0), boxWidth)
-        const hoverX = clientX / (startPeriod / period.animation.to)
-        const itemX = Math.round(
-          offsetX.get() + getHoverItemX(hoverX, startPeriod)
-        )
-
-        const dataPoint = exact
-          ? parsedData.nearestExactDataPointFromX(itemX)
-          : parsedData.nearestDataPointFromX(itemX)
-
-        set({
-          xValue: dataPoint.x,
-          dataX:
-            (dataPoint.x - offsetX.get()) * (boxWidth / period.animation.to),
-          dataY:
-            boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
-        })
-      },
+      onHover: hoverCallback,
+      onMove: moveCallback,
     },
     {
       domTarget: boxRef,
+      drag: {
+        useTouch: true,
+        experimental_preventWindowScrollY: true,
+      },
+    }
+  )
+
+  useGesture(
+    {
+      onHover: hoverCallback,
+      onMove: moveCallback,
+    },
+    {
+      domTarget: boxRef2,
+      drag: {
+        useTouch: true,
+        experimental_preventWindowScrollY: true,
+      },
     }
   )
 
@@ -78,6 +117,15 @@ function LineGraphMouse({
         tw="absolute inset-0"
         ref={boxRef}
         style={{ touchAction: "none", userSelect: "none" }}
+      />
+      <div
+        tw="absolute inset-x-0 bottom-0 block sm:hidden"
+        ref={boxRef2}
+        style={{
+          height: "10%",
+          touchAction: "none",
+          userSelect: "none",
+        }}
       />
       <animated.div
         tw="absolute inset-0 overflow-hidden pointer-events-none"

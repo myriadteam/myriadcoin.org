@@ -18,12 +18,12 @@ const LineGraphContent = ({
   barPlotColors,
   areaStack,
 }) => {
-  const { viewBox } = useGraphZoomPan()
+  const { viewBox, viewportWidth, viewportHeight } = useGraphZoomPan()
 
   return (
     <svg
       width="100%"
-      viewBox={"0 0 794 248"}
+      viewBox={`0 0 ${viewportWidth} ${viewportHeight}`}
       style={{ transform: "scaleY(-1)" }}
       tw="overflow-hidden pointer-events-none"
     >
