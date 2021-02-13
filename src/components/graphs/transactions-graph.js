@@ -61,9 +61,9 @@ function TransactionsGraph() {
         return null
       }
       const { y } = d
-      return y
+      return t("formattedNumber", { number: y }) + " transactions"
     },
-    [data]
+    [data, t]
   )
 
   return (
