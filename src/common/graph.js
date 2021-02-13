@@ -1,6 +1,44 @@
 import { svgPathProperties } from "svg-path-properties"
 import * as d3Shape from "d3-shape"
 
+export const HOUR = 60 * 60
+export const DAY = HOUR * 24
+export const WEEK = DAY * 7
+export const MONTH = DAY * 30
+export const QUARTER = MONTH * 3
+export const YEAR = DAY * 365
+
+export const GROUP_NAMES = {
+  [HOUR]: "1h",
+  [DAY]: "1d",
+  [WEEK]: "1w",
+  [MONTH]: "1m",
+  [QUARTER]: "1q",
+  [YEAR]: "1y",
+}
+
+export const GROUP_PERIODS = {
+  [DAY]: [
+    { value: 365, label: "Year" },
+    { value: 182, label: "6 Months", isDefault: true },
+    { value: 90, label: "Quarter" },
+    { value: 30, label: "Month" },
+    { value: 7, label: "Week" },
+  ],
+  [WEEK]: [
+    { value: 6 * 52, label: "6 Years" },
+    { value: 3 * 52, label: "3 Years", isDefault: true },
+    { value: 52, label: "Year" },
+    { value: 26, label: "6 Months" },
+    { value: 13, label: "Quarter" },
+  ],
+  [MONTH]: [
+    { value: 6 * 12, label: "6 Years", isDefault: true },
+    { value: 3 * 12, label: "3 Years" },
+    { value: 12, label: "1 Year" },
+  ],
+}
+
 export const scaleGraph = (min, max, pixels) => value =>
   (pixels * (value - min)) / (max - min)
 

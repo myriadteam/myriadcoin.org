@@ -74,8 +74,8 @@ const Header = ({ siteTitle, t }) => {
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink to="/community" onClick={closeExpansion}>
-                {t("navigation.links.community")}
+              <HeaderLink to="/analytics" onClick={closeExpansion}>
+                {t("navigation.links.analytics")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>

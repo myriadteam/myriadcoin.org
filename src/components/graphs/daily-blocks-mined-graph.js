@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next"
 import LineGraph from "./line-graph"
 import { useGroupInfo } from "./hooks"
 
+import { DAY } from "../../common/graph"
+
 function DailyBlocksMinedGraph() {
   const [data, setData] = useState(null)
   const { getTimestamp } = useGroupInfo("1d")
@@ -72,6 +74,7 @@ function DailyBlocksMinedGraph() {
   return (
     <LineGraph
       title={"Daily blocks mined"}
+      group={DAY}
       data={data}
       startY={0}
       renderXAxis={renderXAxis}

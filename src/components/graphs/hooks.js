@@ -1,22 +1,22 @@
 import { useEffect, useState, useCallback } from "react"
 import tw from "twin.macro"
 
-export const useGroupInfo = group => {
+export const useGroupInfo = (group, groupName) => {
   const [groupInfo, setGroupInfo] = useState({ startTimestamp: 0 })
 
   useEffect(() => {
     fetch(
-      `https://xmy-history.coinid.org/processeddata/groupInfo/${group}.json`
+      `https://xmy-history.coinid.org/processeddata/groupInfo/${groupName}.json`
     )
       .then(r => r.json())
       .then(setGroupInfo)
-  }, [group])
+  }, [groupName])
 
   const getTimestamp = useCallback(
-    day => {
-      return groupInfo.startTimestamp + 24 * 60 * 60 * day
+    i => {
+      return groupInfo.startTimestamp + Math.round(i) * group
     },
-    [groupInfo.startTimestamp]
+    [group, groupInfo.startTimestamp]
   )
 
   return { ...groupInfo, getTimestamp }

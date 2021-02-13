@@ -16,6 +16,8 @@ import { MediumText, MediumBoldText } from "../../common/elements"
 import { parseDataForLineGraph } from "../../common/graph"
 import { useDimensions } from "../../hooks/layout"
 
+import { GROUP_PERIODS } from "../../common/graph"
+
 function LineGraph({
   data,
   renderXAxis,
@@ -38,6 +40,8 @@ function LineGraph({
   areaStack,
   keyNames,
   title,
+  loading,
+  group,
 }) {
   const boxRef = useRef()
   const viewportBox = useRef()
@@ -78,7 +82,7 @@ function LineGraph({
   ])
 
   const renderGraph = () => {
-    if (parsedData === null || !parsedData.exactData.length) {
+    if (loading || parsedData === null || !parsedData.exactData.length) {
       return (
         <div>
           <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
@@ -95,7 +99,7 @@ function LineGraph({
           >
             <div tw="absolute inset-0 flex justify-center items-center mb-5">
               <MediumText>
-                {parsedData === null ? "Loading..." : "No data.. :("}
+                {parsedData === null || loading ? "Loading..." : "No data.. :("}
               </MediumText>
             </div>
           </div>
@@ -103,18 +107,20 @@ function LineGraph({
       )
     }
 
+    const { value: startPeriod } = GROUP_PERIODS[group].find(c => c.isDefault)
+
     return (
       <ZoomPanContextProvider
         parsedData={parsedData}
         boxRef={boxRef}
-        startPeriod={182}
+        startPeriod={startPeriod}
         startY={startY}
         viewportWidth={viewportWidth}
         viewportHeight={viewportHeight}
       >
         <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
           <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-          <LineGraphPeriods />
+          <LineGraphPeriods group={group} />
         </div>
         <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
           <LineGraphYAxis
