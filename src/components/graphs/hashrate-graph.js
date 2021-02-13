@@ -7,10 +7,9 @@ import LineGraph from "./line-graph"
 import { useGroupInfo } from "./hooks"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
-
 import { GROUP_NAMES, DAY, WEEK, MONTH } from "../../common/graph"
 
-function DifficultyGraph() {
+function HashrateGraph() {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -22,14 +21,14 @@ function DifficultyGraph() {
   useEffect(() => {
     setLoading(true)
     fetch(
-      `https://xmy-history.coinid.org/processeddata/difficulty/${groupName}.json`
+      `https://xmy-history.coinid.org/processeddata/workSeconds/${groupName}.json`
     )
       .then(r => r.json())
       .then(difficultyData => {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: v[2] / 1000000,
+            y: (4295032833 * v[2]) / 1000000000,
           }
         })
         setData(newData)
@@ -43,7 +42,7 @@ function DifficultyGraph() {
   )
 
   const renderYAxis = useCallback(y => {
-    return millify(y * 1000000, { precision: 1 })
+    return millify(y * 1000000000, { precision: 1 })
   }, [])
 
   const renderXValue = useCallback(
@@ -61,7 +60,7 @@ function DifficultyGraph() {
         return null
       }
       const { y } = d
-      return millify(y * 1000000, { precision: 3 })
+      return millify(y * 1000000000, { precision: 2 }) + "H/s"
     },
     [data]
   )
@@ -70,12 +69,9 @@ function DifficultyGraph() {
     <>
       <div>
         <MediumBoldText tw="mb-10">
-          Groestl {t("analytics.mining_difficulty.title")}
+          Groestl {t("analytics.hash_rate.title")}
         </MediumBoldText>
-        <BodyText tw="mb-14">
-          {t("analytics.mining_difficulty.description")}
-        </BodyText>
-
+        <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>s
         <LineGraph
           loading={loading}
           group={group}
@@ -103,4 +99,4 @@ function DifficultyGraph() {
   )
 }
 
-export default React.memo(DifficultyGraph)
+export default React.memo(HashrateGraph)

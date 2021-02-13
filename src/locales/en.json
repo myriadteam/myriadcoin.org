@@ -131,15 +131,15 @@
     },
     "transactions": {
       "title": "Transactions",
-      "descriptions": "The number of transactions made on the Myriad network (excluding coinbase transacions)."
+      "description": "The number of transactions made on the Myriad network (excluding coinbase transacions)."
     },
     "mined_coins": {
       "title": "Mined Coins",
-      "descriptions": "The number of mined coins during the interval."
+      "description": "The number of mined coins during the interval."
     },
     "inflation": {
       "title": "Inflation (yearly)",
-      "descriptions": "The yearly inflation rate for the coins mined during the interval."
+      "description": "The yearly inflation rate for the coins mined during the interval."
     }
   },
   "about": {

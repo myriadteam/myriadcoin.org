@@ -4,8 +4,14 @@ import { useTranslation } from "react-i18next"
 
 import SEO from "../components/seo"
 import Cover from "../components/shared/cover"
+
 import BlocksMinedGraph from "../components/graphs/blocks-mined-graph"
+import TransactionsGraph from "../components/graphs/transactions-graph"
 import DifficultyGraph from "../components/graphs/difficulty-graph"
+import HashrateGraph from "../components/graphs/hashrate-graph"
+import MinedCoinsGraph from "../components/graphs/mined-coins-graph"
+import InflationGraph from "../components/graphs/inflation-graph"
+
 import { PageContainer } from "../common/elements"
 
 const AnalyticsPage = () => {
@@ -34,28 +40,28 @@ const AnalyticsPage = () => {
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <BlocksMinedGraph />
+            <HashrateGraph />
           </div>
         </PageContainer>
       </div>
       <div tw="py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <DifficultyGraph />
+            <TransactionsGraph />
           </div>
         </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <BlocksMinedGraph />
+            <MinedCoinsGraph />
           </div>
         </PageContainer>
       </div>
       <div tw="py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <DifficultyGraph />
+            <InflationGraph />
           </div>
         </PageContainer>
       </div>

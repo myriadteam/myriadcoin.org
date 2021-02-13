@@ -9,7 +9,7 @@ import { DAY } from "../../common/graph"
 
 function DailyBlocksMinedGraph() {
   const [data, setData] = useState(null)
-  const { getTimestamp } = useGroupInfo("1d")
+  const { getTimestamp } = useGroupInfo(DAY, "1d")
   const { t } = useTranslation()
 
   useEffect(() => {

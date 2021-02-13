@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
-import millify from "millify"
 
 import LineGraph from "./line-graph"
 import { useGroupInfo } from "./hooks"
@@ -10,7 +9,7 @@ import { MediumBoldText, BodyText } from "../../common/elements"
 
 import { GROUP_NAMES, DAY, WEEK, MONTH } from "../../common/graph"
 
-function DifficultyGraph() {
+function MinedCoinsGraph() {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -22,14 +21,14 @@ function DifficultyGraph() {
   useEffect(() => {
     setLoading(true)
     fetch(
-      `https://xmy-history.coinid.org/processeddata/difficulty/${groupName}.json`
+      `https://xmy-history.coinid.org/processeddata/inflation/${groupName}.json`
     )
       .then(r => r.json())
       .then(difficultyData => {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: v[2] / 1000000,
+            y: v,
           }
         })
         setData(newData)
@@ -42,9 +41,7 @@ function DifficultyGraph() {
     [getTimestamp, t]
   )
 
-  const renderYAxis = useCallback(y => {
-    return millify(y * 1000000, { precision: 1 })
-  }, [])
+  const renderYAxis = useCallback(y => (100 * y).toFixed(1) + "%", [])
 
   const renderXValue = useCallback(
     x =>
@@ -61,7 +58,7 @@ function DifficultyGraph() {
         return null
       }
       const { y } = d
-      return millify(y * 1000000, { precision: 3 })
+      return (100 * y).toFixed(2) + "%"
     },
     [data]
   )
@@ -70,12 +67,9 @@ function DifficultyGraph() {
     <>
       <div>
         <MediumBoldText tw="mb-10">
-          Groestl {t("analytics.mining_difficulty.title")}
+          {t("analytics.inflation.title")}
         </MediumBoldText>
-        <BodyText tw="mb-14">
-          {t("analytics.mining_difficulty.description")}
-        </BodyText>
-
+        <BodyText tw="mb-14">{t("analytics.inflation.description")}</BodyText>
         <LineGraph
           loading={loading}
           group={group}
@@ -103,4 +97,4 @@ function DifficultyGraph() {
   )
 }
 
-export default React.memo(DifficultyGraph)
+export default React.memo(MinedCoinsGraph)
