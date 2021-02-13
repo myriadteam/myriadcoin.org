@@ -71,7 +71,7 @@ function HashrateGraph() {
         <MediumBoldText tw="mb-10">
           Groestl {t("analytics.hash_rate.title")}
         </MediumBoldText>
-        <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>s
+        <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>
         <LineGraph
           loading={loading}
           group={group}
