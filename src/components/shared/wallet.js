@@ -6,7 +6,7 @@ import tw from "twin.macro"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
-import Image from "../image"
+import MyrImage from "../image"
 import Dropdown from "../dropdown"
 import Link from "./link"
 
@@ -69,7 +69,7 @@ const Wallet = ({ selected, title, theme = "light" }) => {
   return (
     <section tw="text-white py-24 sm:py-32 flex flex-col-reverse sm:flex-row">
       {selectedPlatformObject && (
-        <Image
+        <MyrImage
           filename={`wallets/${selectedPlatformObject.image.toLocaleLowerCase()}.png`}
           className="sm:mr-12"
         />

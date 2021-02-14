@@ -23,14 +23,16 @@ const Image = ({ filename, className, alt }) => (
       }
     `}
     render={data => {
+      console.log('Image.render')
       const image = data.images.edges.find(n =>
         n.node.relativePath.includes(filename)
-      )
-      if (!image) {
-        return null
-      }
+        )
+        if (!image) {
+          return null
+        }
 
-      const imageSizes = image.node.childImageSharp.sizes
+        const imageSizes = image.node.childImageSharp.sizes
+        console.log('Image.render->return image',{className, filename})
       return (
         <Img
           alt={alt}
