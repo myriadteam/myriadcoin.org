@@ -32,9 +32,9 @@
         },
         "asic_farms": {
           "title": "ASIC-farms",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "body": "<0>ASIC miners can in some ways remove decentralization from a cryptocurrency. Large mining farms could pontentially give someone the capability to control the future development of the network.</0>",
           "link": "about",
-          "info": "Myriad do not do premining"
+          "info": "Myriad don’t have ASIC-farms"
         },
         "ico": {
           "title": "ICO",
@@ -43,8 +43,9 @@
         },
         "secure_storing": {
           "title": "No secure storing",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
-          "link": "about"
+          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing. Myriad have cold wallet for both iOS and Android.</0>",
+          "link": "hold",
+          "info": "Cold wallet"
         },
         "no_development": {
           "title": "No development happening",
@@ -53,12 +54,13 @@
         },
         "pump_and_dump": {
           "title": "Pump and dump-moves",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
+          "body": "<0>When a few people own large stakes in a cryptocurrency it is common that there is a lot of pump-and-dump moves going on.</0>",
           "link": "about"
         },
         "non_vibrant_communities": {
           "title": "Non-vibrant communities",
-          "body": "about"
+          "body": "<0>The Myriadcoin community is spread all over the world and has a thriving community on Reddit and Telegram.</0>",
+          "link": "about"
         },
         "instant_transactions": {
           "title": "Instant transactions",
