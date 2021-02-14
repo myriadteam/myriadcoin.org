@@ -214,7 +214,7 @@ LineGraph.defaultProps = {
   renderXValue: v => v.toFixed(1),
   renderYValue: v => v.toFixed(1),
   renderKeyValue: key => v => key + v.toFixed(1),
-  xAxisItemsCount: 4,
+  xAxisItemsCount: 2,
   yAxisItemsCount: 2,
   rollingWindow: 0,
   centralRolling: false,

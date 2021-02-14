@@ -23,7 +23,7 @@ export function ZoomPanContextProvider({
         parsedData.mappedValues.length - 1
       )
 
-      const to = Math.max(offsetX + period, 1)
+      const to = Math.max(offsetX + period + 1.5, 1)
 
       return Math.max(...parsedData.mappedValues.slice(from, to))
     },

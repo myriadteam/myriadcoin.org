@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useCallback } from "react"
+import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
-import millify from "millify"
 
 import LineGraph from "./line-graph"
-import { useGroupInfo } from "./hooks"
+import { useRenderValues } from "./hooks"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { GROUP_NAMES, DAY, WEEK, MONTH } from "../../common/graph"
+const SCALE = 1000000000
 
 function HashrateGraph() {
   const [data, setData] = useState(null)
@@ -15,8 +15,19 @@ function HashrateGraph() {
   const [loading, setLoading] = useState(true)
   const groupName = GROUP_NAMES[group]
 
-  const { getTimestamp } = useGroupInfo(group, groupName)
   const { t } = useTranslation()
+
+  const {
+    renderXAxis,
+    renderXValue,
+    renderYAxis,
+    renderYValue,
+  } = useRenderValues({
+    data,
+    group,
+    scale: SCALE,
+    yValueOptions: { shorten: { precision: 3, space: true }, suffix: "H/s" },
+  })
 
   useEffect(() => {
     setLoading(true)
@@ -28,42 +39,13 @@ function HashrateGraph() {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: (4295032833 * v[2]) / 1000000000,
+            y: (4295032833 * v[2]) / SCALE,
           }
         })
         setData(newData)
         setLoading(false)
       })
   }, [groupName])
-
-  const renderXAxis = useCallback(
-    x => t("dayMonth", { date: new Date(getTimestamp(x) * 1000) }),
-    [getTimestamp, t]
-  )
-
-  const renderYAxis = useCallback(y => {
-    return millify(y * 1000000000, { precision: 1 })
-  }, [])
-
-  const renderXValue = useCallback(
-    x =>
-      t("dayMonthYear", {
-        date: new Date((getTimestamp(x) + 12 * 60 * 60) * 1000),
-      }),
-    [getTimestamp, t]
-  )
-
-  const renderYValue = useCallback(
-    x => {
-      const d = data[Math.round(x)]
-      if (!d) {
-        return null
-      }
-      const { y } = d
-      return millify(y * 1000000000, { precision: 2 }) + "H/s"
-    },
-    [data]
-  )
 
   return (
     <>

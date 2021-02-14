@@ -28,10 +28,12 @@ function LineGraphYAxis({ renderValue, itemsCount }) {
 
   return (
     <div
-      tw="flex flex-col justify-between py-1 pr-2 sm:pr-6 sm:py-4 w-20 h-full"
+      tw="relative py-1 pr-2 sm:pr-6 sm:py-4 w-8 sm:w-18 h-full"
       style={{ height: boxHeight }}
     >
-      {renderContent()}
+      <div tw="flex flex-col justify-between absolute inset-0">
+        {renderContent()}
+      </div>
     </div>
   )
 }
