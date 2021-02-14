@@ -6,7 +6,14 @@ import LineGraph from "./line-graph"
 import { useRenderValues } from "./hooks"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
-import { GROUP_NAMES, DAY, WEEK, MONTH } from "../../common/graph"
+import {
+  GROUP_NAMES,
+  THREE_HOURS,
+  SIX_HOURS,
+  DAY,
+  WEEK,
+  MONTH,
+} from "../../common/graph"
 const SCALE = 1000000000
 
 function HashrateGraph() {
@@ -68,6 +75,12 @@ function HashrateGraph() {
         />
         <div tw="text-right">
           <span>Grouping: </span>
+          <button tw="mr-1" onClick={() => setGroup(THREE_HOURS)}>
+            3 Hours
+          </button>
+          <button tw="mr-1" onClick={() => setGroup(SIX_HOURS)}>
+            6 Hours
+          </button>
           <button tw="mr-1" onClick={() => setGroup(DAY)}>
             Day
           </button>

@@ -2,6 +2,8 @@ import { svgPathProperties } from "svg-path-properties"
 import * as d3Shape from "d3-shape"
 
 export const HOUR = 60 * 60
+export const THREE_HOURS = HOUR * 3
+export const SIX_HOURS = HOUR * 6
 export const DAY = HOUR * 24
 export const WEEK = DAY * 7
 export const MONTH = DAY * 30
@@ -10,6 +12,8 @@ export const YEAR = DAY * 365
 
 export const GROUP_NAMES = {
   [HOUR]: "1h",
+  [THREE_HOURS]: "3h",
+  [SIX_HOURS]: "6h",
   [DAY]: "1d",
   [WEEK]: "1w",
   [MONTH]: "1m",
@@ -18,6 +22,8 @@ export const GROUP_NAMES = {
 }
 
 export const GROUP_PERIODS = {
+  [THREE_HOURS]: [{ value: 8 * 7, label: "Week", isDefault: true }],
+  [SIX_HOURS]: [{ value: 4 * 7, label: "Week", isDefault: true }],
   [DAY]: [
     { value: 365, label: "Year" },
     { value: 182, label: "6 Months", isDefault: true },

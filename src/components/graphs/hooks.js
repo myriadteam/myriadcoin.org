@@ -48,9 +48,9 @@ export const useRenderValues = ({
   const renderXValue = useCallback(
     x =>
       t("dayMonthYear", {
-        date: new Date((getTimestamp(x) + 12 * 60 * 60) * 1000),
+        date: new Date((getTimestamp(x) + group / 2) * 1000),
       }),
-    [getTimestamp, t]
+    [getTimestamp, group, t]
   )
 
   const formatValue = useCallback(
