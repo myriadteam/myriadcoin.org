@@ -36,7 +36,7 @@ const Image = ({ filename, className, alt }) => (
       return (
         <Img
           alt={alt}
-          sizes={imageSizes}
+          fluid={imageSizes}
           tw="relative w-full max-w-full max-h-full"
           className={className}
         />
