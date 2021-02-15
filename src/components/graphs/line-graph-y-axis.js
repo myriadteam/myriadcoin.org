@@ -44,7 +44,7 @@ LineGraphYAxis.propTypes = {
 }
 
 LineGraphYAxis.defaultProps = {
-  itemsCount: 4,
+  itemsCount: 0,
 }
 
 export default React.memo(LineGraphYAxis)

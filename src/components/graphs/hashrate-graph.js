@@ -18,7 +18,7 @@ import {
 
 const SCALE = 1000000000
 
-function HashrateGraph() {
+function HashrateGraph({ algo = 5 }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -48,13 +48,13 @@ function HashrateGraph() {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: (4295032833 * v[2]) / SCALE,
+            y: (4.295032833 * v[algo]) / SCALE,
           }
         })
         setData(newData)
         setLoading(false)
       })
-  }, [groupName])
+  }, [algo, groupName])
 
   return (
     <>

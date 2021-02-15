@@ -4,7 +4,7 @@ import { animated, interpolate } from "react-spring"
 import { useGesture } from "react-use-gesture"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
-import { useDimensions } from "../../hooks/layout"
+import { useDimensions, usePosition } from "../../hooks/layout"
 
 function LineGraphMouse({
   renderXValue,
@@ -25,6 +25,7 @@ function LineGraphMouse({
   const boxRef2 = useRef()
 
   const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
+  const { left: boxLeft } = usePosition(boxRef)
 
   const [{ dataX, dataY, xValue, opacity }, set] = hoverValues
 
@@ -49,8 +50,6 @@ function LineGraphMouse({
 
   const moveCallback = useCallback(
     ({ xy: [mx] }) => {
-      const boxLeft = boxRef.current.offsetParent.offsetParent.offsetLeft
-
       const clientX = Math.min(Math.max(mx - boxLeft, 0), boxWidth)
       const hoverX = clientX / (startPeriod / period.animation.to)
       const itemX = Math.round(
@@ -68,18 +67,7 @@ function LineGraphMouse({
           boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
       })
     },
-    [
-      boxHeight,
-      boxWidth,
-      exact,
-      getHoverItemX,
-      highestInView.animation.to,
-      offsetX,
-      parsedData,
-      period.animation.to,
-      set,
-      startPeriod,
-    ]
+    [boxHeight, boxLeft, boxWidth, exact, getHoverItemX, highestInView.animation.to, offsetX, parsedData, period.animation.to, set, startPeriod]
   )
 
   useGesture(

@@ -90,17 +90,28 @@ function LineGraph({
             <LineGraphPeriods />
           </div>
 
-          <div
-            tw="relative"
-            width="100%"
-            style={{
-              paddingTop: (100 * viewportHeight) / viewportWidth + "%",
-            }}
-          >
-            <div tw="absolute inset-0 flex justify-center items-center mb-5">
-              <MediumText>
-                {parsedData === null || loading ? "Loading..." : "No data.. :("}
-              </MediumText>
+          <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+            <LineGraphYAxis />
+            <div tw="flex-grow">
+              <div
+                tw="relative"
+                width="100%"
+                style={{
+                  paddingTop: (100 * viewportHeight) / viewportWidth + "%",
+                }}
+              >
+                <div tw="absolute inset-0 flex justify-center items-center mb-5">
+                  <MediumText>
+                    {parsedData === null || loading
+                      ? "Loading..."
+                      : "No data.. :("}
+                  </MediumText>
+                </div>
+              </div>
+              <div>
+                <LineGraphXAxis />
+                <LineGraphValues />
+              </div>
             </div>
           </div>
         </div>

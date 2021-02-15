@@ -8,6 +8,10 @@ function LineGraphXAxis({ renderValue, itemsCount }) {
   const { offsetX, period } = useGraphZoomPan()
 
   const renderContent = () => {
+    if (!itemsCount) {
+      return <span>&nbsp;</span>
+    }
+
     return [...Array(itemsCount)].map((_, i) => {
       const interpolatedValue = interpolate(
         [offsetX, period],
@@ -35,7 +39,7 @@ LineGraphXAxis.propTypes = {
 }
 
 LineGraphXAxis.defaultProps = {
-  itemsCount: 4,
+  itemsCount: 0,
 }
 
 export default React.memo(LineGraphXAxis)

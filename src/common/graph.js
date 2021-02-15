@@ -52,6 +52,26 @@ export const GROUP_PERIODS = {
   ],
 }
 
+export const algoNames = [
+  "SHA256D",
+  "Scrypt",
+  "Groestl",
+  "Skein",
+  "Qubit",
+  "Yescrypt",
+  "Argon2d",
+]
+
+export const algoColors = [
+  "#0066FF",
+  "#A5AEFF",
+  "#9570FF",
+  "green",
+  "purple",
+  "#FF9E4F",
+  "#FFE3B1",
+]
+
 export const scaleGraph = (min, max, pixels) => value =>
   (pixels * (value - min)) / (max - min)
 

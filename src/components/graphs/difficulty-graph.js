@@ -15,10 +15,11 @@ import {
   DAY,
   WEEK,
   MONTH,
+  algoColors,
 } from "../../common/graph"
 const SCALE = 1000000000
 
-function DifficultyGraph() {
+function DifficultyGraph({ algo = 5 }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -43,19 +44,19 @@ function DifficultyGraph() {
         const newData = difficultyData.map((v, i) => {
           return {
             x: i,
-            y: v[2] / SCALE,
+            y: v[algo] / SCALE,
           }
         })
         setData(newData)
         setLoading(false)
       })
-  }, [groupName])
+  }, [algo, groupName])
 
   return (
     <>
       <div>
         <MediumBoldText tw="mb-10">
-          Groestl {t("analytics.mining_difficulty.title")}
+          {t("analytics.mining_difficulty.title")}
         </MediumBoldText>
         <BodyText tw="mb-14">
           {t("analytics.mining_difficulty.description")}
@@ -71,7 +72,7 @@ function DifficultyGraph() {
           renderXValue={renderXValue}
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
-          barPlotColors={["#0066FF"]}
+          barPlotColors={[algoColors[algo]]}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}

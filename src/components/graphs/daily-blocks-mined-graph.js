@@ -4,7 +4,7 @@ import tw from "twin.macro"
 import LineGraph from "./line-graph"
 import { useRenderValues } from "./hooks"
 
-import { DAY } from "../../common/graph"
+import { DAY, algoNames, algoColors } from "../../common/graph"
 
 function DailyBlocksMinedGraph() {
   const [data, setData] = useState(null)
@@ -58,25 +58,9 @@ function DailyBlocksMinedGraph() {
       renderXValue={renderXValue}
       renderYValue={renderYValue}
       renderKeyValue={renderKeyValue}
-      keyNames={{
-        0: "SHA256D",
-        1: "Scrypt",
-        2: "Groestl",
-        3: "Skein",
-        4: "Qubit",
-        5: "Yescrypt",
-        6: "Argon2d",
-      }}
-      stackedKeys={["0", "1", "2", "3", "4", "5", "6"]}
-      stackColors={[
-        "#0066FF",
-        "#A5AEFF",
-        "#9570FF",
-        "green",
-        "purple",
-        "#FF9E4F",
-        "#FFE3B1",
-      ]}
+      keyNames={algoNames}
+      stackedKeys={Object.keys(algoNames)}
+      stackColors={algoColors}
     />
   )
 }

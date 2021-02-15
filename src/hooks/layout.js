@@ -23,6 +23,48 @@ export function useDimensions(ref) {
   return dimensions
 }
 
+export function usePosition(ref) {
+  const [position, setPosition] = useState({
+    left: 0,
+    top: 0,
+  })
+
+  useLayoutEffect(() => {
+    const onLayout = () => {
+      if (!ref.current) {
+        return null
+      }
+      const { left, top } = ref.current.getBoundingClientRect()
+      setPosition({ left, top })
+    }
+
+    onLayout()
+    setTimeout(onLayout, 400)
+    return () => {
+      clearTimeout(onLayout)
+    }
+  }, [ref])
+
+  useLayoutEffect(() => {
+    const onResize = () => {
+      if (!ref.current) {
+        return null
+      }
+
+      const { left, top } = ref.current.getBoundingClientRect()
+      setPosition({ left, top })
+    }
+
+    window.addEventListener("resize", onResize)
+
+    return () => {
+      window.removeEventListener("resize", onResize)
+    }
+  }, [ref])
+
+  return position
+}
+
 export function useMousePosition(ref) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
