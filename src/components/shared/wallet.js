@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Img from "gatsby-image"
 import { osName } from "react-device-detect"
 import { animated, useSpring } from "react-spring"
 import { useTranslation } from "react-i18next"
@@ -6,7 +7,6 @@ import tw from "twin.macro"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
 import { platforms } from "../../common/wallets"
-import MyrImage from "../image"
 import Dropdown from "../dropdown"
 import Link from "./link"
 
@@ -59,19 +59,25 @@ const WalletItem = ({ wallet: { name, github, homepage, versions } }) => {
   )
 }
 
-const Wallet = ({ selected, title, theme = "light" }) => {
+const Wallet = ({ data, title, theme = "light" }) => {
   const { t } = useTranslation()
   const [selectedPlatform, changePlatform] = useState(null)
 
   let selectedPlatformObject = platforms.find(platform => {
     return platform.label === (selectedPlatform || osName)
   })
+
+  let imageSizes =
+    data[selectedPlatformObject.image.toLocaleLowerCase()].childImageSharp.sizes
+
   return (
     <section tw="text-white py-24 sm:py-32 flex flex-col-reverse sm:flex-row">
       {selectedPlatformObject && (
-        <MyrImage
-          filename={`wallets/${selectedPlatformObject.image.toLocaleLowerCase()}.png`}
-          className="sm:mr-12"
+        <Img
+          fluid={imageSizes}
+          tw="relative w-full max-w-full max-h-full sm:mr-12"
+          objectFit="cover"
+          objectPosition="50% 50%"
         />
       )}
       <div tw="p-6 sm:p-0 flex flex-col justify-center">

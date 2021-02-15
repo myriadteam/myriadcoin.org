@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import tw from "twin.macro"
 import SEO from "../components/seo"
 import Wallet from "../components/shared/wallet"
@@ -18,7 +19,7 @@ import {
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
 
-const HoldPage = () => {
+const HoldPage = ({ data }) => {
   const { t } = useTranslation()
   return (
     <>
@@ -38,7 +39,7 @@ const HoldPage = () => {
       </div>
       <div tw="bg-black relative">
         <PageContainer id="download">
-          <Wallet title={t("hold.wallet.title")} />
+          <Wallet data={data} title={t("hold.wallet.title")} />
         </PageContainer>
       </div>
       <PageContainer tw="py-24 px-6 sm:py-30 ">
@@ -68,3 +69,43 @@ const HoldPage = () => {
 }
 
 export default HoldPage
+
+export const query = graphql`
+  query {
+    macos: file(relativePath: { eq: "wallets/macos.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    android: file(relativePath: { eq: "wallets/android.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    ios: file(relativePath: { eq: "wallets/ios.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    default: file(relativePath: { eq: "wallets/default.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    windows: file(relativePath: { eq: "wallets/windows.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`
