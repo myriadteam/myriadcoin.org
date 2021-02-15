@@ -14,11 +14,12 @@ import {
   DAY,
   WEEK,
   MONTH,
+  algoColors,
 } from "../../common/graph"
 
-const SCALE = 1000000000
+const savedData = {}
 
-function HashrateGraph({ algo = 5 }) {
+function HashrateGraph({ algo = 0, scale = 1 }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -34,27 +35,45 @@ function HashrateGraph({ algo = 5 }) {
   } = useRenderValues({
     data,
     group,
-    scale: SCALE,
-    yValueOptions: { shorten: { precision: 3, space: true }, suffix: "H/s" },
+    scale: scale,
+    yValueOptions: {
+      shorten: { precision: 3, space: true },
+      suffix: "H/s",
+    },
+    valueMultiplier: 4295032833,
   })
 
   useEffect(() => {
     setLoading(true)
-    fetch(
-      `https://xmy-history.coinid.org/processeddata/workSeconds/${groupName}.json`
-    )
-      .then(r => r.json())
-      .then(difficultyData => {
-        const newData = difficultyData.map((v, i) => {
-          return {
-            x: i,
-            y: (4.295032833 * v[algo]) / SCALE,
-          }
-        })
-        setData(newData)
-        setLoading(false)
+    const uri = `https://xmy-history.coinid.org/processeddata/workSeconds/${groupName}.json`
+
+    if (savedData[uri]) {
+      const newData = savedData[uri].map((v, i) => {
+        return {
+          x: i,
+          y: v[algo] / scale,
+        }
       })
-  }, [algo, groupName])
+      setData(newData)
+      setLoading(false)
+    } else {
+      fetch(uri)
+        .then(r => r.json())
+        .then(difficultyData => {
+          savedData[uri] = difficultyData
+
+          const newData = difficultyData.map((v, i) => {
+            return {
+              x: i,
+              y: v[algo] / scale,
+            }
+          })
+
+          setData(newData)
+          setLoading(false)
+        })
+    }
+  }, [algo, groupName, scale])
 
   return (
     <>
@@ -73,7 +92,7 @@ function HashrateGraph({ algo = 5 }) {
           renderXValue={renderXValue}
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
-          barPlotColors={["#0066FF"]}
+          barPlotColors={[algoColors[algo]]}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}

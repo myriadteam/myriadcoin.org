@@ -13,7 +13,12 @@ import MinedCoinsGraph from "../components/graphs/mined-coins-graph"
 import InflationGraph from "../components/graphs/inflation-graph"
 import BottomTab from "../components/shared/bottom-tab"
 
-import { algoNames, algoColors } from "../common/graph"
+import {
+  algoNames,
+  algoColors,
+  algoDiffScale,
+  hashrateScale,
+} from "../common/graph"
 
 import { PageContainer } from "../common/elements"
 
@@ -40,7 +45,7 @@ const AnalyticsPage = () => {
             color: algoColors[i],
             content: (
               <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
-                <DifficultyGraph algo={i} />
+                <DifficultyGraph algo={i} scale={algoDiffScale[i]} />
               </div>
             ),
           }))}
@@ -53,7 +58,7 @@ const AnalyticsPage = () => {
             color: algoColors[i],
             content: (
               <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-                <HashrateGraph algo={i} />
+                <HashrateGraph algo={i} scale={hashrateScale[i]} />
               </div>
             ),
           }))}

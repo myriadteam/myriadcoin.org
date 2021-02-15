@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from "react"
 import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
-import millify from "millify"
 import { GROUP_NAMES } from "../../common/graph"
 
 export const useGroupInfo = group => {
@@ -29,10 +28,11 @@ export const useGroupInfo = group => {
 export const useRenderValues = ({
   data,
   group,
-  yAxisOptions = { shorten: { precision: 0 } },
+  yAxisOptions = { shorten: { precision: 1 } },
   yValueOptions = {},
   keyValueOptions = {},
   scale = 1,
+  valueMultiplier = 1,
 }) => {
   const { getTimestamp } = useGroupInfo(group)
 
@@ -53,14 +53,40 @@ export const useRenderValues = ({
     [getTimestamp, group, t]
   )
 
+  const getRealValue = useCallback(
+    value => {
+      return value * scale * valueMultiplier
+    },
+    [scale, valueMultiplier]
+  )
+
+  const shorten = useCallback((v, c) => {
+    const denomitors = ["Z", "E", "P", "T", "G", "M", "K"]
+    const step = 3
+    const start = denomitors.length * 3
+
+    for (var i = 0; i < denomitors.length; i += 1) {
+      const exp = start - i * step
+      if (v > Math.pow(10, exp - 1)) {
+        return (
+          (v / Math.pow(10, exp)).toFixed(c.precision) +
+          (c.space ? " " : "") +
+          denomitors[i]
+        )
+      }
+    }
+
+    return v.toFixed(c.precision) + (c.space ? " " : "")
+  }, [])
+
   const formatValue = useCallback(
     (value, options) => {
       const getValue = () => {
         if (options.shorten) {
-          return millify(value * scale, options.shorten)
+          return shorten(getRealValue(value), options.shorten)
         }
 
-        return t("formattedNumber", { number: value * scale })
+        return t("formattedNumber", { number: getRealValue(value) })
       }
 
       if (options.suffix) {
@@ -69,7 +95,7 @@ export const useRenderValues = ({
 
       return getValue()
     },
-    [scale, t]
+    [getRealValue, shorten, t]
   )
 
   const renderYAxis = useCallback(y => formatValue(y, yAxisOptions), [
@@ -96,10 +122,12 @@ export const useRenderValues = ({
   )
 
   return {
+    getDatapoint,
     renderXAxis,
     renderXValue,
     renderYAxis,
     renderYValue,
     renderKeyValue,
+    formatValue,
   }
 }

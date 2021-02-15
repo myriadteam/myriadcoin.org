@@ -69,7 +69,6 @@ const BottomTab = ({ items }) => {
       position: "absolute",
       transform: `translate3d(${-30 * dir}%, 0, 0)`,
     },
-    reset: false,
     config: {
       duration: 400,
       easing: easings.easeCubicOut,

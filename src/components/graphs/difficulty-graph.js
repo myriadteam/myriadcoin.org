@@ -17,9 +17,10 @@ import {
   MONTH,
   algoColors,
 } from "../../common/graph"
-const SCALE = 1000000000
 
-function DifficultyGraph({ algo = 5 }) {
+const savedData = {}
+
+function DifficultyGraph({ algo = 0, scale = 1 }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -32,25 +33,42 @@ function DifficultyGraph({ algo = 5 }) {
     renderXValue,
     renderYAxis,
     renderYValue,
-  } = useRenderValues({ data, group, scale: SCALE })
+  } = useRenderValues({
+    data,
+    group,
+    scale: scale,
+    yValueOptions: { shorten: { precision: 2 } },
+  })
 
   useEffect(() => {
     setLoading(true)
-    fetch(
-      `https://xmy-history.coinid.org/processeddata/difficulty/${groupName}.json`
-    )
-      .then(r => r.json())
-      .then(difficultyData => {
-        const newData = difficultyData.map((v, i) => {
-          return {
-            x: i,
-            y: v[algo] / SCALE,
-          }
-        })
-        setData(newData)
-        setLoading(false)
+    const uri = `https://xmy-history.coinid.org/processeddata/difficulty/${groupName}.json`
+
+    if (savedData[uri]) {
+      const newData = savedData[uri].map((v, i) => {
+        return {
+          x: i,
+          y: v[algo] / scale,
+        }
       })
-  }, [algo, groupName])
+      setData(newData)
+      setLoading(false)
+    } else {
+      fetch(uri)
+        .then(r => r.json())
+        .then(difficultyData => {
+          savedData[uri] = difficultyData
+          const newData = difficultyData.map((v, i) => {
+            return {
+              x: i,
+              y: v[algo] / scale,
+            }
+          })
+          setData(newData)
+          setLoading(false)
+        })
+    }
+  }, [algo, groupName, scale])
 
   return (
     <>
