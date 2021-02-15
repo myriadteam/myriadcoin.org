@@ -76,8 +76,8 @@ const BottomTab = ({ items }) => {
   })
 
   return (
-    <div tw="mt-24 sm:mt-48 overflow-hidden">
-      <PageContainer tw="px-6 sm:px-0" ref={pageContainerRef}>
+    <div tw="mt-24 sm:mt-48">
+      <PageContainer ref={pageContainerRef}>
         {transition((props, index) => {
           return (
             <animated.div tw="inset-0" style={props}>
@@ -86,7 +86,7 @@ const BottomTab = ({ items }) => {
           )
         })}
       </PageContainer>
-      <div tw="mt-8 py-2 overflow-hidden">
+      <div tw="mt-8 py-2">
         <PageContainer>
           <animated.div
             style={{
