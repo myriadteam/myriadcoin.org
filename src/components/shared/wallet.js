@@ -63,23 +63,22 @@ const Wallet = ({ data, title, theme = "light" }) => {
   const { t } = useTranslation()
   const [selectedPlatform, changePlatform] = useState(null)
 
+  let os = osName === "none" ? "Mac OS" : osName
   let selectedPlatformObject = platforms.find(platform => {
-    return platform.label === (selectedPlatform || osName || "Mac OS")
+    return platform.label === (selectedPlatform || os || "Mac OS")
   })
 
   let imageSizes =
     selectedPlatformObject &&
+    data &&
     data[selectedPlatformObject.image.toLocaleLowerCase()].childImageSharp.sizes
 
   return (
     <section tw="text-white py-24 sm:py-32 flex flex-col-reverse sm:flex-row">
       {selectedPlatformObject && imageSizes && (
-        <Img
-          fluid={imageSizes}
-          tw="relative w-full max-w-full max-h-full sm:mr-12"
-          objectFit="cover"
-          objectPosition="50% 50%"
-        />
+        <div tw="relative w-full max-w-full max-h-full sm:mr-12">
+          <Img fluid={imageSizes} />
+        </div>
       )}
       <div tw="p-6 sm:p-0 flex flex-col justify-center">
         <div>
