@@ -42,6 +42,7 @@ function LineGraph({
   title,
   loading,
   group,
+  overlayStyle,
 }) {
   const boxRef = useRef()
   const viewportBox = useRef()
@@ -153,6 +154,7 @@ function LineGraph({
                   renderXValue={renderXValue}
                   renderYValue={renderYValue}
                   hoverValues={hoverValues}
+                  overlayStyle={overlayStyle}
                 />
               </div>
               <div tw="absolute inset-0" ref={boxRef}>
@@ -216,6 +218,7 @@ LineGraph.propTypes = {
   barPlotKeys: PropTypes.arrayOf(PropTypes.string),
   barPlotColors: PropTypes.arrayOf(PropTypes.string),
   areaStack: PropTypes.bool,
+  overlayClasses: PropTypes.string,
 }
 
 LineGraph.defaultProps = {
@@ -239,6 +242,7 @@ LineGraph.defaultProps = {
   barPlotKeys: [],
   barPlotColors: [],
   areaStack: false,
+  overlayStyle: tw`absolute inset-0 bg-white dark:bg-dark-bg`,
 }
 
 export default LineGraph

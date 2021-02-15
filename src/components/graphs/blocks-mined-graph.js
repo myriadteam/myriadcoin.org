@@ -18,7 +18,7 @@ import {
   algoColors,
 } from "../../common/graph"
 
-function BlocksMinedGraph() {
+function BlocksMinedGraph({ overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -35,7 +35,6 @@ function BlocksMinedGraph() {
   } = useRenderValues({
     data,
     group,
-    yAxisOptions: { shorten: { precision: 0 } },
     yValueOptions: { suffix: " blocks" },
   })
 
@@ -90,6 +89,7 @@ function BlocksMinedGraph() {
           keyNames={algoNames}
           stackedKeys={Object.keys(algoNames)}
           stackColors={algoColors}
+          overlayStyle={overlayStyle}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}

@@ -19,7 +19,7 @@ import {
 
 const savedData = {}
 
-function HashrateGraph({ algo = 0, scale = 1 }) {
+function HashrateGraph({ algo = 0, scale = 1, overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -93,6 +93,7 @@ function HashrateGraph({ algo = 0, scale = 1 }) {
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
           barPlotColors={[algoColors[algo]]}
+          overlayStyle={overlayStyle}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}

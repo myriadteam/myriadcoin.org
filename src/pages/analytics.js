@@ -34,7 +34,9 @@ const AnalyticsPage = () => {
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <BlocksMinedGraph />
+            <BlocksMinedGraph
+              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
+            />
           </div>
         </PageContainer>
       </div>
@@ -45,7 +47,11 @@ const AnalyticsPage = () => {
             color: algoColors[i],
             content: (
               <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
-                <DifficultyGraph algo={i} scale={algoDiffScale[i]} />
+                <DifficultyGraph
+                  algo={i}
+                  scale={algoDiffScale[i]}
+                  overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+                />
               </div>
             ),
           }))}
@@ -58,7 +64,11 @@ const AnalyticsPage = () => {
             color: algoColors[i],
             content: (
               <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-                <HashrateGraph algo={i} scale={hashrateScale[i]} />
+                <HashrateGraph
+                  algo={i}
+                  scale={hashrateScale[i]}
+                  overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
+                />
               </div>
             ),
           }))}
@@ -67,21 +77,27 @@ const AnalyticsPage = () => {
       <div tw="py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <TransactionsGraph />
+            <TransactionsGraph
+              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+            />
           </div>
         </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <MinedCoinsGraph />
+            <MinedCoinsGraph
+              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
+            />
           </div>
         </PageContainer>
       </div>
       <div tw="py-24 px-6 sm:py-30 overflow-hidden">
         <PageContainer>
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <InflationGraph />
+            <InflationGraph
+              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+            />
           </div>
         </PageContainer>
       </div>

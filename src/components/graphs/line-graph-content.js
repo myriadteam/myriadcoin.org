@@ -21,37 +21,39 @@ const LineGraphContent = ({
   const { viewBox, viewportWidth, viewportHeight } = useGraphZoomPan()
 
   return (
-    <svg
-      width="100%"
-      viewBox={`0 0 ${viewportWidth} ${viewportHeight}`}
-      style={{ transform: "scaleY(-1)" }}
-      tw="overflow-hidden pointer-events-none"
-    >
-      <animated.svg
-        width={"100%"}
-        preserveAspectRatio="none"
-        viewBox={viewBox}
-        tw="overflow-visible absolute inset-0 pointer-events-none"
+    <div tw="absolute inset-0 overflow-hidden">
+      <svg
+        width="100%"
+        viewBox={`0 0 ${viewportWidth} ${viewportHeight}`}
+        style={{ transform: "scaleY(-1)" }}
+        tw="pointer-events-none"
       >
-        <LinePlot
-          linePlotData={parsedData.linePlotData}
-          linePlotColors={linePlotColors}
-        />
-        <BarPlot
-          parsedData={parsedData}
-          barPlotKeys={barPlotKeys}
-          barPlotColors={barPlotColors}
-        />
-        {areaStack ? (
-          <StackedAreas
-            stackAreas={parsedData.stackAreas}
-            stackColors={stackColors}
+        <animated.svg
+          width={"100%"}
+          preserveAspectRatio="none"
+          viewBox={viewBox}
+          tw="absolute inset-0 pointer-events-none"
+        >
+          <LinePlot
+            linePlotData={parsedData.linePlotData}
+            linePlotColors={linePlotColors}
           />
-        ) : (
-          <StackedPlot parsedData={parsedData} stackColors={stackColors} />
-        )}
-      </animated.svg>
-    </svg>
+          <BarPlot
+            parsedData={parsedData}
+            barPlotKeys={barPlotKeys}
+            barPlotColors={barPlotColors}
+          />
+          {areaStack ? (
+            <StackedAreas
+              stackAreas={parsedData.stackAreas}
+              stackColors={stackColors}
+            />
+          ) : (
+            <StackedPlot parsedData={parsedData} stackColors={stackColors} />
+          )}
+        </animated.svg>
+      </svg>
+    </div>
   )
 }
 

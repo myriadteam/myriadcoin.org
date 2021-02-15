@@ -18,7 +18,7 @@ import {
 } from "../../common/graph"
 const SCALE = 1000000
 
-function MinedCoinsGraph() {
+function MinedCoinsGraph({ overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -74,6 +74,7 @@ function MinedCoinsGraph() {
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
           barPlotColors={["#0066FF"]}
+          overlayStyle={overlayStyle}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}

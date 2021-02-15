@@ -12,6 +12,7 @@ function LineGraphMouse({
   parsedData,
   exact,
   hoverValues,
+  overlayStyle,
 }) {
   const {
     dragCallback,
@@ -67,7 +68,19 @@ function LineGraphMouse({
           boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
       })
     },
-    [boxHeight, boxLeft, boxWidth, exact, getHoverItemX, highestInView.animation.to, offsetX, parsedData, period.animation.to, set, startPeriod]
+    [
+      boxHeight,
+      boxLeft,
+      boxWidth,
+      exact,
+      getHoverItemX,
+      highestInView.animation.to,
+      offsetX,
+      parsedData,
+      period.animation.to,
+      set,
+      startPeriod,
+    ]
   )
 
   useGesture(
@@ -120,7 +133,7 @@ function LineGraphMouse({
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
       >
         <animated.div
-          tw="absolute inset-0 bg-white dark:bg-dark-bg"
+          css={overlayStyle}
           style={{
             transform: interpolate(
               [dataX, period],
@@ -133,8 +146,9 @@ function LineGraphMouse({
         />
 
         <animated.div
-          tw="absolute inset-0 bg-white dark:bg-dark-bg"
+          css={overlayStyle}
           style={{
+            bottom: 0,
             transform: interpolate(
               [dataX, period],
               (dataX, period) =>

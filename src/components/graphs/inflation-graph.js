@@ -16,7 +16,7 @@ import {
   MONTH,
 } from "../../common/graph"
 
-function MinedCoinsGraph() {
+function InflationGraph({ overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -72,6 +72,7 @@ function MinedCoinsGraph() {
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
           barPlotColors={["#0066FF"]}
+          overlayStyle={overlayStyle}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
@@ -82,4 +83,4 @@ function MinedCoinsGraph() {
   )
 }
 
-export default React.memo(MinedCoinsGraph)
+export default React.memo(InflationGraph)

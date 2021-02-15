@@ -20,7 +20,7 @@ import {
 
 const savedData = {}
 
-function DifficultyGraph({ algo = 0, scale = 1 }) {
+function DifficultyGraph({ algo = 0, scale = 1, overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -91,6 +91,7 @@ function DifficultyGraph({ algo = 0, scale = 1 }) {
           renderYValue={renderYValue}
           barPlotKeys={["y"]}
           barPlotColors={[algoColors[algo]]}
+          overlayStyle={overlayStyle}
         />
         <GroupingSelector
           options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
