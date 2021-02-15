@@ -13,6 +13,8 @@ import MinedCoinsGraph from "../components/graphs/mined-coins-graph"
 import InflationGraph from "../components/graphs/inflation-graph"
 import BottomTab from "../components/shared/bottom-tab"
 
+import Map from "../svgs/map.inline.svg"
+
 import {
   algoNames,
   algoColors,
@@ -20,7 +22,7 @@ import {
   hashrateScale,
 } from "../common/graph"
 
-import { PageContainer } from "../common/elements"
+import { PageContainer, MediumBoldText, BodyText } from "../common/elements"
 
 const AnalyticsPage = () => {
   const { t } = useTranslation()
@@ -33,31 +35,19 @@ const AnalyticsPage = () => {
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
-          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <BlocksMinedGraph
-              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
-            />
-          </div>
+          <MediumBoldText tw="mb-10">{t("analytics.map.title")}</MediumBoldText>
+          <BodyText tw="mb-14">{t("analytics.map.description")}</BodyText>
+          <Map width="100%" />
         </PageContainer>
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
-        <div tw="px-6">
-          <BottomTab
-            items={algoNames.map((a, i) => ({
-              label: a,
-              color: algoColors[i],
-              content: (
-                <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
-                  <DifficultyGraph
-                    algo={i}
-                    scale={algoDiffScale[i]}
-                    overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
-                  />
-                </div>
-              ),
-            }))}
-          />
-        </div>
+        <PageContainer tw="px-6">
+          <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <BlocksMinedGraph
+              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+            />
+          </div>
+        </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <div tw="px-6">
@@ -66,10 +56,10 @@ const AnalyticsPage = () => {
               label: a,
               color: algoColors[i],
               content: (
-                <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-                  <HashrateGraph
+                <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
+                  <DifficultyGraph
                     algo={i}
-                    scale={hashrateScale[i]}
+                    scale={algoDiffScale[i]}
                     overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
                   />
                 </div>
@@ -79,18 +69,28 @@ const AnalyticsPage = () => {
         </div>
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
-        <PageContainer tw="px-6">
-          <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <TransactionsGraph
-              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
-            />
-          </div>
-        </PageContainer>
+        <div tw="px-6">
+          <BottomTab
+            items={algoNames.map((a, i) => ({
+              label: a,
+              color: algoColors[i],
+              content: (
+                <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+                  <HashrateGraph
+                    algo={i}
+                    scale={hashrateScale[i]}
+                    overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+                  />
+                </div>
+              ),
+            }))}
+          />
+        </div>
       </div>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24  sm:py-30 overflow-hidden">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <MinedCoinsGraph
+            <TransactionsGraph
               overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
             />
           </div>
@@ -99,8 +99,17 @@ const AnalyticsPage = () => {
       <div tw="py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <InflationGraph
+            <MinedCoinsGraph
               overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+            />
+          </div>
+        </PageContainer>
+      </div>
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
+        <PageContainer tw="px-6">
+          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <InflationGraph
+              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
             />
           </div>
         </PageContainer>

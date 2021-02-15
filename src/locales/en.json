@@ -119,6 +119,10 @@
   },
   "analytics": {
     "title": "Analytics",
+    "map": {
+      "title": "Seed Nodes",
+      "description": "Myriad has seed nodes all over the world. Join the network you to by running a full node and making it accessible by opening port 10888 to the internet."
+    },
     "blocks_mined": {
       "title": "Blocks Mined",
       "description": "The number of blocks mined on each of Myriad's algorithms."
@@ -140,7 +144,7 @@
       "description": "The number of mined coins during the interval."
     },
     "inflation": {
-      "title": "Inflation (yearly)",
+      "title": "Yearly Inflation",
       "description": "The yearly inflation rate for the coins mined during the interval."
     }
   },
