@@ -121,7 +121,7 @@
     "title": "Analytics",
     "map": {
       "title": "Seed Nodes",
-      "description": "Myriad has seed nodes all over the world. Join the network you to by running a full node and making it accessible by opening port 10888 to the internet."
+      "description": "Myriad has seed nodes all over the world. Join the network you to by running a full node and making it accessible to the internet (read more here)"
     },
     "blocks_mined": {
       "title": "Blocks Mined",

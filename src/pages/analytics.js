@@ -13,7 +13,7 @@ import MinedCoinsGraph from "../components/graphs/mined-coins-graph"
 import InflationGraph from "../components/graphs/inflation-graph"
 import BottomTab from "../components/shared/bottom-tab"
 
-import Map from "../svgs/map.inline.svg"
+import SeedNodeMap from "../components/pages/analytics/seed-node-map"
 
 import {
   algoNames,
@@ -37,7 +37,7 @@ const AnalyticsPage = () => {
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">{t("analytics.map.title")}</MediumBoldText>
           <BodyText tw="mb-14">{t("analytics.map.description")}</BodyText>
-          <Map width="100%" />
+          <SeedNodeMap />
         </PageContainer>
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
