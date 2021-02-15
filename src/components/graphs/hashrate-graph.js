@@ -3,6 +3,7 @@ import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
 import LineGraph from "./line-graph"
+import GroupingSelector from "./grouping-selector"
 import { useRenderValues } from "./hooks"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
@@ -14,6 +15,7 @@ import {
   WEEK,
   MONTH,
 } from "../../common/graph"
+
 const SCALE = 1000000000
 
 function HashrateGraph() {
@@ -58,7 +60,7 @@ function HashrateGraph() {
     <>
       <div>
         <MediumBoldText tw="mb-10">
-          Groestl {t("analytics.hash_rate.title")}
+          {t("analytics.hash_rate.title")}
         </MediumBoldText>
         <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>
         <LineGraph
@@ -73,22 +75,10 @@ function HashrateGraph() {
           barPlotKeys={["y"]}
           barPlotColors={["#0066FF"]}
         />
-        <div tw="text-right">
-          <span>Grouping: </span>
-          <button tw="mr-1" onClick={() => setGroup(THREE_HOURS)}>
-            3 Hours
-          </button>
-          <button tw="mr-1" onClick={() => setGroup(SIX_HOURS)}>
-            6 Hours
-          </button>
-          <button tw="mr-1" onClick={() => setGroup(DAY)}>
-            Day
-          </button>
-          <button tw="mr-1" onClick={() => setGroup(WEEK)}>
-            Week
-          </button>
-          <button onClick={() => setGroup(MONTH)}>Month</button>
-        </div>
+        <GroupingSelector
+          options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
+          onChange={setGroup}
+        />
       </div>
     </>
   )

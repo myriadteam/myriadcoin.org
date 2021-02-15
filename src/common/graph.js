@@ -22,8 +22,15 @@ export const GROUP_NAMES = {
 }
 
 export const GROUP_PERIODS = {
-  [THREE_HOURS]: [{ value: 8 * 7, label: "Week", isDefault: true }],
-  [SIX_HOURS]: [{ value: 4 * 7, label: "Week", isDefault: true }],
+  [THREE_HOURS]: [
+    { value: 8 * 7, label: "Week" },
+    { value: 8 * 30, label: "Month", isDefault: true },
+  ],
+  [SIX_HOURS]: [
+    { value: 4 * 7, label: "Week" },
+    { value: 4 * 30, label: "Month", isDefault: true },
+    { value: 4 * 90, label: "Quarter" },
+  ],
   [DAY]: [
     { value: 365, label: "Year" },
     { value: 182, label: "6 Months", isDefault: true },

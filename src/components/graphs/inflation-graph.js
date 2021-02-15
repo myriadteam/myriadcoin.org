@@ -3,10 +3,18 @@ import tw from "twin.macro"
 import { useTranslation } from "react-i18next"
 
 import LineGraph from "./line-graph"
+import GroupingSelector from "./grouping-selector"
 import { useRenderValues } from "./hooks"
 
 import { MediumBoldText, BodyText } from "../../common/elements"
-import { GROUP_NAMES, DAY, WEEK, MONTH } from "../../common/graph"
+import {
+  GROUP_NAMES,
+  THREE_HOURS,
+  SIX_HOURS,
+  DAY,
+  WEEK,
+  MONTH,
+} from "../../common/graph"
 
 function MinedCoinsGraph() {
   const [data, setData] = useState(null)
@@ -65,16 +73,10 @@ function MinedCoinsGraph() {
           barPlotKeys={["y"]}
           barPlotColors={["#0066FF"]}
         />
-        <div tw="text-right">
-          <span>Grouping: </span>
-          <button tw="mr-1" onClick={() => setGroup(DAY)}>
-            Day
-          </button>
-          <button tw="mr-1" onClick={() => setGroup(WEEK)}>
-            Week
-          </button>
-          <button onClick={() => setGroup(MONTH)}>Month</button>
-        </div>
+        <GroupingSelector
+          options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
+          onChange={setGroup}
+        />
       </div>
     </>
   )
