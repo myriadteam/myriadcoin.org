@@ -72,9 +72,9 @@ export const algoColors = [
   "#FFE3B1",
 ]
 
-export const algoDiffScale = [1000000000, 10000, 10000, 1000, 100, 1, 1]
+export const algoDiffScale = [1000000, 100, 100, 100, 10, 0.1, 0.1]
 
-export const hashrateScale = [10000000000, 100000, 100000, 10000, 1000, 10, 10]
+export const hashrateScale = [100000, 10, 10, 10, 1, 0.01, 0.01]
 
 export const scaleGraph = (min, max, pixels) => value =>
   (pixels * (value - min)) / (max - min)
