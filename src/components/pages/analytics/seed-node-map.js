@@ -68,13 +68,30 @@ const SeedNodeMap = () => {
 
           const [left, top] = convertGeoToPixel(lat, lon)
 
+          const sizes = [
+            1.688,
+            1.688,
+            1.688,
+            1.688,
+            1.688,
+            1.688,
+            2.3,
+            2.3,
+            2.3,
+            2.3,
+            3.6,
+            5.4,
+          ]
+
+          const size = sizes[parseInt(Math.random() * sizes.length, 10)]
+
           return (
             <div
               key={ip}
               tw="absolute rounded-full bg-blue-500 top-0 left-0"
               style={{
-                width: "1%",
-                height: "1%",
+                width: size + "%",
+                height: size + "%",
                 left: left + "%",
                 top: top + "%",
                 transform: "translate(-50%, -50%)",
