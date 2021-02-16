@@ -33,7 +33,6 @@ function TransactionsGraph({ overlayStyle }) {
   } = useRenderValues({
     data,
     group,
-    yAxisOptions: { shorten: { precision: 0 } },
     yValueOptions: { suffix: " transactions" },
   })
 
