@@ -76,7 +76,7 @@ const BottomTab = ({ items }) => {
   })
 
   return (
-    <div tw="mt-24 sm:mt-48">
+    <>
       <PageContainer ref={pageContainerRef}>
         {transition((props, index) => {
           return (
@@ -120,7 +120,7 @@ const BottomTab = ({ items }) => {
           </animated.div>
         </PageContainer>
       </div>
-    </div>
+    </>
   )
 }
 
