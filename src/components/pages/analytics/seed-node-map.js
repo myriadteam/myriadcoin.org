@@ -44,14 +44,26 @@ const SeedNodeMap = () => {
     getData().then(setNodes)
   }, [])
 
+  /*
+top: "70%",
+left: "46.5%",
+*/
   return (
     <div tw="relative">
-      <Map />
+      <Map width="100%" />
       <div
         tw="absolute w-full top-0"
-        style={{ top: "59%", left: "47%", transform: "translate(-50%, -50%)" }}
+        style={{
+          top: "50%",
+          left: "50%",
+          transform: "translate(-53.2%, -36.5%) scale(1.01)",
+        }}
       >
-        <Map2 width="100%" style={{ opacity: 0.0 }} />
+        {1 ? (
+          <div tw="w-full" style={{ paddingBottom: "100%" }} />
+        ) : (
+          <Map2 width="100%" style={{ opacity: 0.3 }} />
+        )}
         {nodes.map(node => {
           const ip = node[0]
           const lat = node[10]
@@ -63,8 +75,10 @@ const SeedNodeMap = () => {
           return (
             <div
               key={ip}
-              tw="absolute rounded-full bg-blue-500 top-0 left-0 w-5 h-5"
+              tw="absolute rounded-full bg-blue-500 top-0 left-0"
               style={{
+                width: "1%",
+                height: "1%",
                 left: left + "%",
                 top: top + "%",
                 transform: "translate(-50%, -50%)",
