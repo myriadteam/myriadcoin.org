@@ -44,13 +44,9 @@ const SeedNodeMap = () => {
     getData().then(setNodes)
   }, [])
 
-  /*
-top: "70%",
-left: "46.5%",
-*/
   return (
     <div tw="relative">
-      <Map width="100%" />
+      <Map tw="w-full" />
       <div
         tw="absolute w-full top-0"
         style={{
