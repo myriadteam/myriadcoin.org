@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
 
 import Map from "../../../svgs/map.inline.svg"
+import Map2 from "../../../svgs/map2.inline.svg"
 
 const mapWidth = 100
 const mapHeight = 100
@@ -48,14 +49,9 @@ const SeedNodeMap = () => {
       <Map />
       <div
         tw="absolute w-full top-0"
-        style={{ top: "57%", left: "50%", transform: "translate(-50%, -50%)" }}
+        style={{ top: "59%", left: "47%", transform: "translate(-50%, -50%)" }}
       >
-        <div
-          width="100%"
-          style={{
-            paddingBottom: "100%",
-          }}
-        />
+        <Map2 width="100%" style={{ opacity: 0.0 }} />
         {nodes.map(node => {
           const ip = node[0]
           const lat = node[10]
