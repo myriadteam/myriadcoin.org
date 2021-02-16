@@ -18,7 +18,7 @@ function LineGraphYAxis({ renderValue, itemsCount }) {
             ((itemsCount - i - 1) * (highestInView - lowestInView)) /
               (itemsCount - 1)
 
-          return renderValue(value)
+          return value ? renderValue(value) : "\xa0"
         }
       )
 
@@ -28,12 +28,10 @@ function LineGraphYAxis({ renderValue, itemsCount }) {
 
   return (
     <div
-      tw="relative py-1 pr-2 sm:pr-6 sm:py-4 w-8 sm:w-18 h-full"
+      tw="relative mr-1 h-full flex flex-col justify-between"
       style={{ height: boxHeight }}
     >
-      <div tw="flex flex-col justify-between absolute inset-0">
-        {renderContent()}
-      </div>
+      {renderContent()}
     </div>
   )
 }

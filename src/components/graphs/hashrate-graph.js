@@ -1,21 +1,10 @@
 import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
-import { useTranslation } from "react-i18next"
 
 import LineGraph from "./line-graph"
-import GroupingSelector from "./grouping-selector"
 import { useRenderValues } from "./hooks"
 
-import { MediumBoldText, BodyText } from "../../common/elements"
-import {
-  GROUP_NAMES,
-  THREE_HOURS,
-  SIX_HOURS,
-  DAY,
-  WEEK,
-  MONTH,
-  algoColors,
-} from "../../common/graph"
+import { GROUP_NAMES, DAY, algoColors } from "../../common/graph"
 
 const savedData = {}
 
@@ -24,8 +13,6 @@ function HashrateGraph({ algo = 0, scale = 1, overlayStyle }) {
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
   const groupName = GROUP_NAMES[group]
-
-  const { t } = useTranslation()
 
   const {
     renderXAxis,
@@ -76,31 +63,20 @@ function HashrateGraph({ algo = 0, scale = 1, overlayStyle }) {
   }, [algo, groupName, scale])
 
   return (
-    <>
-      <div>
-        <MediumBoldText tw="mb-10">
-          {t("analytics.hash_rate.title")}
-        </MediumBoldText>
-        <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>
-        <LineGraph
-          loading={loading}
-          group={group}
-          data={data}
-          startY={0}
-          renderXAxis={renderXAxis}
-          renderYAxis={renderYAxis}
-          renderXValue={renderXValue}
-          renderYValue={renderYValue}
-          barPlotKeys={["y"]}
-          barPlotColors={[algoColors[algo]]}
-          overlayStyle={overlayStyle}
-        />
-        <GroupingSelector
-          options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
-          onChange={setGroup}
-        />
-      </div>
-    </>
+    <LineGraph
+      loading={loading}
+      group={group}
+      data={data}
+      startY={0}
+      renderXAxis={renderXAxis}
+      renderYAxis={renderYAxis}
+      renderXValue={renderXValue}
+      renderYValue={renderYValue}
+      barPlotKeys={["y"]}
+      barPlotColors={[algoColors[algo]]}
+      overlayStyle={overlayStyle}
+      onChangeGroup={setGroup}
+    />
   )
 }
 

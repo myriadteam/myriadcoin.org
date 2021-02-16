@@ -27,7 +27,7 @@ function LineGraphXAxis({ renderValue, itemsCount }) {
   }
 
   return (
-    <div tw="flex flex-row justify-between px-2 md:px-3 lg:px-5 xl:px-10 pt-3 sm:pt-8">
+    <div tw="flex flex-row justify-between px-1 pt-2 sm:pt-4">
       {renderContent()}
     </div>
   )

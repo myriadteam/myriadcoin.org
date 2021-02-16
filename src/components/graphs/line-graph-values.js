@@ -31,7 +31,7 @@ function LineGraphValues({ renderKeyValue, keys, colors, names, hoverValues }) {
     ))
   }
 
-  return <div tw="flex flex-wrap">{renderContent()}</div>
+  return <div tw="flex flex-wrap mt-4">{renderContent()}</div>
 }
 
 LineGraphValues.propTypes = {}

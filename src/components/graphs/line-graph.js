@@ -9,14 +9,21 @@ import LineGraphYAxis from "./line-graph-y-axis"
 import LineGraphMouse from "./line-graph-mouse"
 import LineGraphValues from "./line-graph-values"
 import LineGraphPeriods from "./line-graph-periods"
-
+import GroupingSelector from "./grouping-selector"
 import ZoomPanContextProvider from "./zoom-pan-context-provider"
 
 import { MediumText, MediumBoldText } from "../../common/elements"
 import { parseDataForLineGraph } from "../../common/graph"
 import { useDimensions } from "../../hooks/layout"
 
-import { GROUP_PERIODS } from "../../common/graph"
+import {
+  GROUP_PERIODS,
+  THREE_HOURS,
+  SIX_HOURS,
+  DAY,
+  WEEK,
+  MONTH,
+} from "../../common/graph"
 
 function LineGraph({
   data,
@@ -43,6 +50,7 @@ function LineGraph({
   loading,
   group,
   overlayStyle,
+  onChangeGroup,
 }) {
   const boxRef = useRef()
   const viewportBox = useRef()
@@ -86,34 +94,44 @@ function LineGraph({
     if (loading || parsedData === null || !parsedData.exactData.length) {
       return (
         <div>
-          <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
-            <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-            <LineGraphPeriods />
+          {title && <MediumBoldText tw="mb-6">{title}</MediumBoldText>}
+
+          <div tw="flex flex-row items-center mb-10 relative z-20">
+            <div>
+              <span tw="mr-4 hidden md:inline">Date range</span>
+              <LineGraphPeriods group={group} />
+            </div>
+
+            {onChangeGroup && (
+              <div tw="ml-6 md:ml-10">
+                <span tw="mr-4 hidden md:inline">Interval</span>
+                <GroupingSelector
+                  options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
+                  onChange={onChangeGroup}
+                  group={group}
+                />
+              </div>
+            )}
           </div>
 
-          <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
-            <LineGraphYAxis />
-            <div tw="flex-grow">
-              <div
-                tw="relative"
-                width="100%"
-                style={{
-                  paddingTop: (100 * viewportHeight) / viewportWidth + "%",
-                }}
-              >
-                <div tw="absolute inset-0 flex justify-center items-center mb-5">
-                  <MediumText>
-                    {parsedData === null || loading
-                      ? "Loading..."
-                      : "No data.. :("}
-                  </MediumText>
-                </div>
-              </div>
-              <div>
-                <LineGraphXAxis />
-                <LineGraphValues />
+          <div tw="text-black dark:text-white font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+            <div
+              tw="relative"
+              width="100%"
+              style={{
+                paddingTop: (100 * viewportHeight) / viewportWidth + "%",
+              }}
+            >
+              <div tw="absolute inset-0 flex justify-center items-center mb-5">
+                <MediumText>
+                  {parsedData === null || loading
+                    ? "Loading..."
+                    : "No data.. :("}
+                </MediumText>
               </div>
             </div>
+            <LineGraphXAxis />
+            <LineGraphValues />
           </div>
         </div>
       )
@@ -130,60 +148,73 @@ function LineGraph({
         viewportWidth={viewportWidth}
         viewportHeight={viewportHeight}
       >
-        <div tw="flex flex-row justify-between items-center mb-10 relative z-20">
-          <MediumBoldText tw="mb-0">{title}</MediumBoldText>
-          <LineGraphPeriods group={group} />
-        </div>
-        <div tw="flex text-grey font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
-          <LineGraphYAxis
-            parsedData={parsedData}
-            renderValue={renderYAxis}
-            itemsCount={yAxisItemsCount}
-          />
-          <div tw="flex-grow">
-            <div
-              tw="relative"
-              width="100%"
-              style={{
-                paddingTop: (100 * viewportHeight) / viewportWidth + "%",
-              }}
-            >
-              <div tw="absolute z-10 inset-0">
-                <LineGraphMouse
-                  parsedData={parsedData}
-                  renderXValue={renderXValue}
-                  renderYValue={renderYValue}
-                  hoverValues={hoverValues}
-                  overlayStyle={overlayStyle}
-                />
-              </div>
-              <div tw="absolute inset-0" ref={boxRef}>
-                <LineGraphContent
-                  parsedData={parsedData}
-                  linePlotColors={linePlotColors}
-                  stackColors={stackColors}
-                  areaStack={areaStack}
-                  barPlotKeys={barPlotKeys}
-                  barPlotColors={barPlotColors}
-                />
-              </div>
-            </div>
+        {title && <MediumBoldText tw="mb-6">{title}</MediumBoldText>}
 
-            <div>
-              <LineGraphXAxis
-                parsedData={parsedData}
-                renderValue={renderXAxis}
-                itemsCount={xAxisItemsCount}
+        <div tw="flex flex-row items-center mb-10 relative z-20">
+          <div>
+            <span tw="mr-4 hidden md:inline">Date range</span>
+            <LineGraphPeriods group={group} />
+          </div>
+
+          {onChangeGroup && (
+            <div tw="ml-6 md:ml-10">
+              <span tw="mr-4 hidden md:inline">Interval</span>
+              <GroupingSelector
+                options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
+                onChange={onChangeGroup}
+                group={group}
               />
-              <LineGraphValues
-                keys={stackedKeys}
-                colors={stackColors}
-                names={keyNames}
+            </div>
+          )}
+        </div>
+        <div tw="text-black dark:text-white font-normal text-xxxs sm:text-xxs md:text-sm lg:text-base">
+          <div
+            tw="relative"
+            width="100%"
+            style={{
+              paddingTop: (100 * viewportHeight) / viewportWidth + "%",
+            }}
+          >
+            <div tw="absolute z-10 inset-0">
+              <LineGraphMouse
+                parsedData={parsedData}
+                renderXValue={renderXValue}
+                renderYValue={renderYValue}
                 hoverValues={hoverValues}
-                renderKeyValue={renderKeyValue}
+                overlayStyle={overlayStyle}
+              />
+            </div>
+            <div tw="absolute top-0 bottom-0 right-0 text-right z-10 pointer-events-none">
+              <LineGraphYAxis
+                parsedData={parsedData}
+                renderValue={renderYAxis}
+                itemsCount={yAxisItemsCount}
+              />
+            </div>
+            <div tw="absolute inset-0 pointer-events-none" ref={boxRef}>
+              <LineGraphContent
+                parsedData={parsedData}
+                linePlotColors={linePlotColors}
+                stackColors={stackColors}
+                areaStack={areaStack}
+                barPlotKeys={barPlotKeys}
+                barPlotColors={barPlotColors}
               />
             </div>
           </div>
+
+          <LineGraphXAxis
+            parsedData={parsedData}
+            renderValue={renderXAxis}
+            itemsCount={xAxisItemsCount}
+          />
+          <LineGraphValues
+            keys={stackedKeys}
+            colors={stackColors}
+            names={keyNames}
+            hoverValues={hoverValues}
+            renderKeyValue={renderKeyValue}
+          />
         </div>
       </ZoomPanContextProvider>
     )
@@ -219,6 +250,7 @@ LineGraph.propTypes = {
   barPlotColors: PropTypes.arrayOf(PropTypes.string),
   areaStack: PropTypes.bool,
   overlayClasses: PropTypes.string,
+  onChangeGroup: PropTypes.func,
 }
 
 LineGraph.defaultProps = {
@@ -228,8 +260,8 @@ LineGraph.defaultProps = {
   renderXValue: v => v.toFixed(1),
   renderYValue: v => v.toFixed(1),
   renderKeyValue: key => v => key + v.toFixed(1),
-  xAxisItemsCount: 2,
-  yAxisItemsCount: 2,
+  xAxisItemsCount: 4,
+  yAxisItemsCount: 4,
   rollingWindow: 0,
   centralRolling: false,
   startY: undefined,
@@ -243,6 +275,7 @@ LineGraph.defaultProps = {
   barPlotColors: [],
   areaStack: false,
   overlayStyle: tw`absolute inset-0 bg-white dark:bg-dark-bg`,
+  onChangeGroup: null,
 }
 
 export default LineGraph

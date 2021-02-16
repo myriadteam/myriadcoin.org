@@ -22,7 +22,7 @@ import {
   hashrateScale,
 } from "../common/graph"
 
-import { PageContainer } from "../common/elements"
+import { PageContainer, BodyText, MediumBoldText } from "../common/elements"
 
 const AnalyticsPage = () => {
   const { t } = useTranslation()
@@ -40,6 +40,13 @@ const AnalyticsPage = () => {
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.blocks_mined.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">
+            {t("analytics.blocks_mined.description")}
+          </BodyText>
+
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
             <BlocksMinedGraph
               overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
@@ -48,7 +55,13 @@ const AnalyticsPage = () => {
         </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
-        <div tw="px-6">
+        <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.mining_difficulty.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">
+            {t("analytics.mining_difficulty.description")}
+          </BodyText>
           <BottomTab
             items={algoNames.map((a, i) => ({
               label: a,
@@ -64,10 +77,15 @@ const AnalyticsPage = () => {
               ),
             }))}
           />
-        </div>
+        </PageContainer>
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
-        <div tw="px-6">
+        <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.hash_rate.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>
+
           <BottomTab
             items={algoNames.map((a, i) => ({
               label: a,
@@ -83,10 +101,17 @@ const AnalyticsPage = () => {
               ),
             }))}
           />
-        </div>
+        </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.transactions.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">
+            {t("analytics.transactions.description")}
+          </BodyText>
+
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
             <TransactionsGraph
               overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
@@ -96,6 +121,13 @@ const AnalyticsPage = () => {
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.mined_coins.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">
+            {t("analytics.mined_coins.description")}
+          </BodyText>
+
           <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
             <MinedCoinsGraph
               overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
@@ -105,6 +137,11 @@ const AnalyticsPage = () => {
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
+          <MediumBoldText tw="mb-10">
+            {t("analytics.inflation.title")}
+          </MediumBoldText>
+          <BodyText tw="mb-14">{t("analytics.inflation.description")}</BodyText>
+
           <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
             <InflationGraph
               overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}

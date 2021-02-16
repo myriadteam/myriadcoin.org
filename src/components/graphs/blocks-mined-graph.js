@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
-import { useTranslation } from "react-i18next"
 
 import LineGraph from "./line-graph"
-import GroupingSelector from "./grouping-selector"
 import { useRenderValues } from "./hooks"
 
-import { MediumBoldText, BodyText } from "../../common/elements"
-import {
-  GROUP_NAMES,
-  THREE_HOURS,
-  SIX_HOURS,
-  DAY,
-  WEEK,
-  MONTH,
-  algoNames,
-  algoColors,
-} from "../../common/graph"
+import { GROUP_NAMES, DAY, algoNames, algoColors } from "../../common/graph"
 
 function BlocksMinedGraph({ overlayStyle }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
   const groupName = GROUP_NAMES[group]
-
-  const { t } = useTranslation()
 
   const {
     renderXAxis,
@@ -66,37 +52,23 @@ function BlocksMinedGraph({ overlayStyle }) {
   }, [groupName])
 
   return (
-    <>
-      <div>
-        <MediumBoldText tw="mb-10">
-          {t("analytics.blocks_mined.title")}
-        </MediumBoldText>
-        <BodyText tw="mb-14">
-          {t("analytics.blocks_mined.description")}
-        </BodyText>
-
-        <LineGraph
-          title=""
-          group={group}
-          loading={loading}
-          data={data}
-          startY={0}
-          renderXAxis={renderXAxis}
-          renderYAxis={renderYAxis}
-          renderXValue={renderXValue}
-          renderYValue={renderYValue}
-          renderKeyValue={renderKeyValue}
-          keyNames={algoNames}
-          stackedKeys={Object.keys(algoNames)}
-          stackColors={algoColors}
-          overlayStyle={overlayStyle}
-        />
-        <GroupingSelector
-          options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
-          onChange={setGroup}
-        />
-      </div>
-    </>
+    <LineGraph
+      title=""
+      group={group}
+      loading={loading}
+      data={data}
+      startY={0}
+      renderXAxis={renderXAxis}
+      renderYAxis={renderYAxis}
+      renderXValue={renderXValue}
+      renderYValue={renderYValue}
+      renderKeyValue={renderKeyValue}
+      keyNames={algoNames}
+      stackedKeys={Object.keys(algoNames)}
+      stackColors={algoColors}
+      overlayStyle={overlayStyle}
+      onChangeGroup={setGroup}
+    />
   )
 }
 

@@ -2,6 +2,7 @@ import React from "react"
 import tw from "twin.macro"
 
 import { THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH } from "../../common/graph"
+import Dropdown from "../dropdown"
 
 const LABELS = {
   [THREE_HOURS]: "3 Hours",
@@ -11,18 +12,16 @@ const LABELS = {
   [MONTH]: "Month",
 }
 
-function GroupingSelector({ options, onChange }) {
+function GroupingSelector({ options, group, onChange }) {
+  const optionsMap = options.map(o => ({ label: LABELS[o], value: o }))
   return (
-    <div tw="text-right">
-      <span>Grouping: </span>
-      {options.map(val => {
-        return (
-          <button key={val} tw="mr-1" onClick={() => onChange(val)}>
-            {LABELS[val]}
-          </button>
-        )
-      })}
-    </div>
+    <Dropdown
+      options={optionsMap}
+      defaultValue={group}
+      onChange={({ value }) => {
+        onChange(value)
+      }}
+    />
   )
 }
 
