@@ -120,8 +120,8 @@
   "analytics": {
     "title": "Analytics",
     "map": {
-      "title": "Seed Nodes",
-      "description": "Myriad has seed nodes all over the world. Join the network by running a full node and making it accessible to the internet."
+      "title": "Nodes around the world",
+      "description": "Myriad has nodes all over the world. The following map shows public nodes, i.e nodes that help distribute the blockchain and that anyone can connect to. Join the network you too by making your full node public."
     },
     "blocks_mined": {
       "title": "Blocks Mined",

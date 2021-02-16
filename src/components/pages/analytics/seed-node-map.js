@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import tw from "twin.macro"
 
 import Map from "../../../svgs/map.inline.svg"
@@ -32,18 +32,7 @@ function convertGeoToPixel(lat, lon) {
   return [x, y]
 }
 
-const SeedNodeMap = () => {
-  const [nodes, setNodes] = useState([])
-
-  useEffect(() => {
-    const getData = async () => {
-      const uri = `https://xmy-nodes.coinid.org/latest.json`
-      return await fetch(uri).then(r => r.json())
-    }
-
-    getData().then(setNodes)
-  }, [])
-
+const SeedNodeMap = ({ nodes }) => {
   return (
     <div tw="relative">
       <Map tw="w-full" />

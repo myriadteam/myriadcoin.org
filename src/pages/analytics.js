@@ -13,7 +13,7 @@ import MinedCoinsGraph from "../components/graphs/mined-coins-graph"
 import InflationGraph from "../components/graphs/inflation-graph"
 import BottomTab from "../components/shared/bottom-tab"
 
-import SeedNodeMap from "../components/pages/analytics/seed-node-map"
+import SeedNodeMapSection from "../components/pages/analytics/seed-node-map-section"
 
 import {
   algoNames,
@@ -22,7 +22,7 @@ import {
   hashrateScale,
 } from "../common/graph"
 
-import { PageContainer, MediumBoldText, BodyText } from "../common/elements"
+import { PageContainer } from "../common/elements"
 
 const AnalyticsPage = () => {
   const { t } = useTranslation()
@@ -35,9 +35,7 @@ const AnalyticsPage = () => {
       </PageContainer>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
-          <MediumBoldText tw="mb-10">{t("analytics.map.title")}</MediumBoldText>
-          <BodyText tw="mb-14">{t("analytics.map.description")}</BodyText>
-          <SeedNodeMap />
+          <SeedNodeMapSection />
         </PageContainer>
       </div>
       <div tw="py-24 sm:py-30 overflow-hidden">
