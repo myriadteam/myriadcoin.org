@@ -3,6 +3,8 @@ import tw from "twin.macro"
 import { useGesture } from "react-use-gesture"
 import { useSpring, animated } from "react-spring"
 
+import Image from "../../image"
+
 import Map from "../../../svgs/map.inline.svg"
 import SeedNodeList from "./seed-node-list"
 
@@ -87,7 +89,8 @@ const SeedNodeMap = ({ nodes }) => {
 
           {renderNode()}
         </animated.div>
-        <Map tw="w-full" />
+        <Image filename="map.dark.png" alt="Map" tw="hidden dark:block" />
+        <Image filename="map.light.png" alt="Map" tw="block dark:hidden" />
         <div
           tw="absolute w-full top-0"
           style={{

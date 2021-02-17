@@ -141,7 +141,7 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!--pattern for filling-->
     <pattern id="Pattern" width="8" height="8"
         patternUnits="userSpaceOnUse">
-      <circle cx="4" cy="4" r="2.5" fill="currentColor"/>
+      <circle cx="4" cy="4" r="2.5" fill="white"/>
     </pattern>
     <!--mask by paint area-->
     <mask id="Mask" maskUnits="userSpaceOnUse">
