@@ -177,19 +177,17 @@ function LineGraph({
               paddingTop: (100 * viewportHeight) / viewportWidth + "%",
             }}
           >
-            <div tw="absolute z-10 inset-0">
-              <LineGraphMouse
-                parsedData={parsedData}
-                renderXValue={renderXValue}
-                renderYValue={renderYValue}
-                hoverValues={hoverValues}
-                theme={theme}
-                renderKeyValue={renderKeyValue}
-                stackedKeys={stackedKeys}
-                stackColors={stackColors}
-                keyNames={keyNames}
-              />
-            </div>
+            <LineGraphMouse
+              parsedData={parsedData}
+              renderXValue={renderXValue}
+              renderYValue={renderYValue}
+              hoverValues={hoverValues}
+              theme={theme}
+              renderKeyValue={renderKeyValue}
+              stackedKeys={stackedKeys}
+              stackColors={stackColors}
+              keyNames={keyNames}
+            />
             <div tw="absolute top-0 bottom-0 right-0 text-right z-10 pointer-events-none">
               <LineGraphYAxis
                 parsedData={parsedData}

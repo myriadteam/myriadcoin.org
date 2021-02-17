@@ -164,7 +164,7 @@ function LineGraphMouse({
         }}
       />
       <animated.div
-        tw="absolute inset-0 overflow-hidden pointer-events-none"
+        tw="absolute inset-0 overflow-hidden pointer-events-none z-10"
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
       >
         <animated.div
@@ -198,11 +198,11 @@ function LineGraphMouse({
         </animated.div>
       </animated.div>
       <animated.div
-        tw="absolute inset-0 pointer-events-none"
+        tw="absolute inset-0 pointer-events-none z-20"
         style={{ opacity }}
       >
         <animated.div
-          tw="absolute"
+          tw="absolute z-20"
           style={{
             transform: interpolate([dataX, dataY], (dataX, dataY) => {
               return `translate3d(${dataX}px, ${
@@ -235,7 +235,7 @@ function LineGraphMouse({
         </animated.div>
 
         <animated.div
-          tw="absolute bottom-0 pt-1 sm:pt-4"
+          tw="absolute bottom-0 pt-1 sm:pt-4 z-20"
           style={{
             transform: interpolate([dataX], dataX => {
               return `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(-50%, 100%, 0px)`
