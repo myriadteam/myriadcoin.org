@@ -1,10 +1,30 @@
 import React, { useRef, useCallback } from "react"
-import tw from "twin.macro"
 import { animated, interpolate } from "react-spring"
 import { useGesture } from "react-use-gesture"
+import tw, { styled } from "twin.macro"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
 import { useDimensions, usePosition } from "../../hooks/layout"
+
+const Overlay = styled.div`
+  ${tw`absolute inset-0`}
+  ${({ theme }) =>
+    (theme === "graph1" &&
+      tw`bg-white dark:bg-dark-bg sm:bg-light-grey sm:dark:bg-dark-light-bg`) ||
+    (theme === "graph2" &&
+      tw`bg-light-grey dark:bg-dark-light-bg sm:bg-white sm:dark:bg-dark-bg`) ||
+    tw`bg-white dark:bg-dark-bg`}
+`
+
+const Tooltip = styled.div`
+  ${tw`text-black dark:text-white whitespace-no-wrap rounded-14 px-3 text-sm leading-lg`}
+  ${({ theme }) =>
+    (theme === "graph1" &&
+      tw`bg-light-grey dark:bg-dark-graph2-dropdown sm:bg-white sm:dark:bg-dark-graph1-dropdown`) ||
+    (theme === "graph2" &&
+      tw`bg-white dark:bg-dark-graph1-dropdown sm:bg-light-grey sm:dark:bg-dark-graph2-dropdown`) ||
+    tw`bg-light-grey dark:bg-dark-light-bg`}
+`
 
 function LineGraphMouse({
   renderXValue,
@@ -12,7 +32,7 @@ function LineGraphMouse({
   parsedData,
   exact,
   hoverValues,
-  overlayStyle,
+  theme = "graph1",
 }) {
   const {
     dragCallback,
@@ -133,7 +153,7 @@ function LineGraphMouse({
         style={{ opacity: opacity.interpolate(o => o * 0.5) }}
       >
         <animated.div
-          css={overlayStyle}
+          tw="absolute inset-0"
           style={{
             transform: interpolate(
               [dataX, period],
@@ -143,12 +163,13 @@ function LineGraphMouse({
                 }px, ${0}px, ${0}px)`
             ),
           }}
-        />
+        >
+          <Overlay theme={theme} />
+        </animated.div>
 
         <animated.div
-          css={overlayStyle}
+          tw="absolute inset-0"
           style={{
-            bottom: 0,
             transform: interpolate(
               [dataX, period],
               (dataX, period) =>
@@ -157,14 +178,16 @@ function LineGraphMouse({
                 }px, ${0}px, ${0}px)`
             ),
           }}
-        />
+        >
+          <Overlay theme={theme} />
+        </animated.div>
       </animated.div>
       <animated.div
         tw="absolute inset-0 pointer-events-none"
         style={{ opacity }}
       >
         <animated.div
-          tw="absolute bg-light-grey dark:bg-dark-light-bg rounded-14 text-black dark:text-white px-3 text-sm leading-lg whitespace-no-wrap"
+          tw="absolute"
           style={{
             transform: interpolate([dataX, dataY], (dataX, dataY) => {
               return `translate3d(${dataX}px, ${
@@ -173,20 +196,22 @@ function LineGraphMouse({
             }),
           }}
         >
-          {xValue.interpolate(renderYValue)}
+          <Tooltip theme={theme}>
+            <animated.span>{xValue.interpolate(renderYValue)}</animated.span>
+          </Tooltip>
         </animated.div>
 
         <animated.div
-          tw="absolute bottom-0 pt-3 sm:pt-8"
+          tw="absolute bottom-0 pt-1 sm:pt-4"
           style={{
             transform: interpolate([dataX], dataX => {
               return `translate3d(${dataX}px, ${0}px, ${0}px) translate3d(-50%, 100%, 0px)`
             }),
           }}
         >
-          <animated.div tw="whitespace-no-wrap bg-light-grey dark:bg-dark-light-bg rounded-14 text-black dark:text-white px-3 text-sm leading-lg">
-            {xValue.interpolate(renderXValue)}
-          </animated.div>
+          <Tooltip theme={theme}>
+            <animated.span>{xValue.interpolate(renderXValue)}</animated.span>
+          </Tooltip>
         </animated.div>
       </animated.div>
     </>

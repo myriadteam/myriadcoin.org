@@ -6,7 +6,7 @@ import { useRenderValues } from "./hooks"
 
 import { DAY, algoNames, algoColors } from "../../common/graph"
 
-function DailyBlocksMinedGraph({ overlayStyle }) {
+function DailyBlocksMinedGraph({ theme }) {
   const [data, setData] = useState(null)
 
   const {
@@ -60,7 +60,7 @@ function DailyBlocksMinedGraph({ overlayStyle }) {
       keyNames={algoNames}
       stackedKeys={Object.keys(algoNames)}
       stackColors={algoColors}
-      overlayStyle={overlayStyle}
+      theme={theme}
     />
   )
 }

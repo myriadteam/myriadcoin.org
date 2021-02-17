@@ -7,7 +7,7 @@ import { useRenderValues } from "./hooks"
 import { GROUP_NAMES, DAY } from "../../common/graph"
 const SCALE = 1000000
 
-function MinedCoinsGraph({ overlayStyle }) {
+function MinedCoinsGraph({ theme }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -55,8 +55,8 @@ function MinedCoinsGraph({ overlayStyle }) {
       renderYValue={renderYValue}
       barPlotKeys={["y"]}
       barPlotColors={["#0066FF"]}
-      overlayStyle={overlayStyle}
       onChangeGroup={setGroup}
+      theme={theme}
     />
   )
 }

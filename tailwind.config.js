@@ -25,6 +25,8 @@ module.exports = {
           box: "#2B2B2B",
           "light-bg": "#2A2A2A",
           "info-box": "#2C3746",
+          "graph1-dropdown": "#434343",
+          "graph2-dropdown": "#2A2A2A",
         },
       },
       lineHeight: {

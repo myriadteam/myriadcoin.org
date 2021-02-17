@@ -6,7 +6,7 @@ import { useRenderValues } from "./hooks"
 
 import { GROUP_NAMES, DAY } from "../../common/graph"
 
-function TransactionsGraph({ overlayStyle }) {
+function TransactionsGraph({ theme }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -53,8 +53,8 @@ function TransactionsGraph({ overlayStyle }) {
       renderYValue={renderYValue}
       barPlotKeys={["y"]}
       barPlotColors={["#0066FF"]}
-      overlayStyle={overlayStyle}
       onChangeGroup={setGroup}
+      theme={theme}
     />
   )
 }

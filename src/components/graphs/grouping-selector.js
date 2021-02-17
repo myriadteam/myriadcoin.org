@@ -12,7 +12,7 @@ const LABELS = {
   [MONTH]: "Month",
 }
 
-function GroupingSelector({ options, group, onChange }) {
+function GroupingSelector({ options, group, onChange, theme }) {
   const optionsMap = options.map(o => ({ label: LABELS[o], value: o }))
   return (
     <Dropdown
@@ -21,6 +21,7 @@ function GroupingSelector({ options, group, onChange }) {
       onChange={({ value }) => {
         onChange(value)
       }}
+      theme={theme}
     />
   )
 }

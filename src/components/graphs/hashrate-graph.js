@@ -8,7 +8,7 @@ import { GROUP_NAMES, DAY, algoColors } from "../../common/graph"
 
 const savedData = {}
 
-function HashrateGraph({ algo = 0, scale = 1, overlayStyle }) {
+function HashrateGraph({ algo = 0, scale = 1, theme }) {
   const [data, setData] = useState(null)
   const [group, setGroup] = useState(DAY)
   const [loading, setLoading] = useState(true)
@@ -74,8 +74,8 @@ function HashrateGraph({ algo = 0, scale = 1, overlayStyle }) {
       renderYValue={renderYValue}
       barPlotKeys={["y"]}
       barPlotColors={[algoColors[algo]]}
-      overlayStyle={overlayStyle}
       onChangeGroup={setGroup}
+      theme={theme}
     />
   )
 }

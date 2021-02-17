@@ -33,12 +33,12 @@ const AnalyticsPage = () => {
       <PageContainer>
         <Cover showArrow>{t("analytics.title")}</Cover>
       </PageContainer>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <SeedNodeMapSection />
         </PageContainer>
       </div>
-      <div tw="py-24 sm:py-30 overflow-hidden">
+      <div tw="py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.blocks_mined.title")}
@@ -47,14 +47,12 @@ const AnalyticsPage = () => {
             {t("analytics.blocks_mined.description")}
           </BodyText>
 
-          <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <BlocksMinedGraph
-              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
-            />
+          <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <BlocksMinedGraph theme="graph1" />
           </div>
         </PageContainer>
       </div>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.mining_difficulty.title")}
@@ -63,15 +61,16 @@ const AnalyticsPage = () => {
             {t("analytics.mining_difficulty.description")}
           </BodyText>
           <BottomTab
+            theme="graph2"
             items={algoNames.map((a, i) => ({
               label: a,
               color: algoColors[i],
               content: (
-                <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
+                <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
                   <DifficultyGraph
                     algo={i}
                     scale={algoDiffScale[i]}
-                    overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
+                    theme="graph2"
                   />
                 </div>
               ),
@@ -79,7 +78,7 @@ const AnalyticsPage = () => {
           />
         </PageContainer>
       </div>
-      <div tw="py-24 sm:py-30 overflow-hidden">
+      <div tw="py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.hash_rate.title")}
@@ -87,15 +86,16 @@ const AnalyticsPage = () => {
           <BodyText tw="mb-14">{t("analytics.hash_rate.description")}</BodyText>
 
           <BottomTab
+            theme="graph1"
             items={algoNames.map((a, i) => ({
               label: a,
               color: algoColors[i],
               content: (
-                <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+                <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
                   <HashrateGraph
                     algo={i}
                     scale={hashrateScale[i]}
-                    overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
+                    theme="graph1"
                   />
                 </div>
               ),
@@ -103,7 +103,7 @@ const AnalyticsPage = () => {
           />
         </PageContainer>
       </div>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.transactions.title")}
@@ -112,14 +112,12 @@ const AnalyticsPage = () => {
             {t("analytics.transactions.description")}
           </BodyText>
 
-          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <TransactionsGraph
-              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
-            />
+          <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <TransactionsGraph theme="graph2" />
           </div>
         </PageContainer>
       </div>
-      <div tw="py-24 sm:py-30 overflow-hidden">
+      <div tw="py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.mined_coins.title")}
@@ -128,24 +126,20 @@ const AnalyticsPage = () => {
             {t("analytics.mined_coins.description")}
           </BodyText>
 
-          <div tw="bg-light-grey dark:bg-dark-light-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <MinedCoinsGraph
-              overlayStyle={tw`absolute inset-0 bg-light-grey dark:bg-dark-light-bg`}
-            />
+          <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <MinedCoinsGraph theme="graph1" />
           </div>
         </PageContainer>
       </div>
-      <div tw="bg-light-grey dark:bg-dark-light-bg py-24 sm:py-30 overflow-hidden">
+      <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
         <PageContainer tw="px-6">
           <MediumBoldText tw="mb-10">
             {t("analytics.inflation.title")}
           </MediumBoldText>
           <BodyText tw="mb-14">{t("analytics.inflation.description")}</BodyText>
 
-          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <InflationGraph
-              overlayStyle={tw`absolute inset-0 bg-white dark:bg-dark-bg`}
-            />
+          <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+            <InflationGraph theme="graph2" />
           </div>
         </PageContainer>
       </div>

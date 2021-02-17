@@ -8,15 +8,19 @@ import usePrevious from "../../hooks/use-previous"
 import { useDimensions } from "../../hooks/layout"
 
 const TabButton = styled.button`
-  ${tw`px-2 py-1 whitespace-no-wrap transition duration-100 ease-in transform rounded-full text-xxs sm:px-4 sm:py-2 sm:text-xs hover:opacity-75 focus:outline-none`},
-  ${({ thisKey, selectedKey }) =>
-    thisKey === selectedKey
-      ? tw`text-white bg-bubble-blue`
-      : tw`bg-light-grey dark:bg-dark-box text-grey`}
+  ${tw`px-2 py-1 whitespace-no-wrap bg-light-grey transition duration-100 ease-in transform rounded-full text-xxs sm:px-4 sm:py-2 sm:text-xs hover:opacity-75 focus:outline-none`},
+  ${({ thisKey, selectedKey, theme }) =>
+    (thisKey === selectedKey && tw`text-white bg-bubble-blue`) ||
+    (theme === "graph1" && tw`bg-light-grey dark:bg-dark-box text-grey`) ||
+    (theme === "graph2" &&
+      tw`bg-white dark:bg-dark-graph1-dropdown text-grey`) ||
+    tw`bg-light-grey dark:bg-dark-box text-grey`}
 `
 
-const BottomTab = ({ items }) => {
+const BottomTab = ({ items, theme }) => {
   const [index, setIndex] = useState(0)
+
+  console.log({ theme })
 
   let pageContainerRef = useRef(null)
   let buttonsContainerRef = useRef(null)
@@ -86,7 +90,7 @@ const BottomTab = ({ items }) => {
           )
         })}
       </PageContainer>
-      <div tw="mt-8 py-2">
+      <div tw="mt-4">
         <PageContainer>
           <animated.div
             style={{
@@ -105,6 +109,7 @@ const BottomTab = ({ items }) => {
                   ref={el => (buttonsRef.current[keyIndex] = el)}
                 >
                   <TabButton
+                    theme={theme}
                     onClick={() => setIndex(keyIndex)}
                     selectedKey={index}
                     thisKey={keyIndex}

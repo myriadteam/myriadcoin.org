@@ -3,11 +3,11 @@ import tw from "twin.macro"
 import { animated } from "react-spring"
 
 function LineGraphValues({ renderKeyValue, keys, colors, names, hoverValues }) {
-  const renderContent = () => {
-    if (!keys) {
-      return null
-    }
+  if (!keys || !keys.length) {
+    return null
+  }
 
+  const renderContent = () => {
     const [{ xValue }] = hoverValues
 
     return keys.map((key, i) => (

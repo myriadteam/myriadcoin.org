@@ -6,7 +6,7 @@ import Dropdown from "../dropdown"
 
 import { GROUP_PERIODS } from "../../common/graph"
 
-const LineGraphPeriods = ({ group }) => {
+const LineGraphPeriods = ({ group, theme }) => {
   const { setPeriod, startPeriod } = useGraphZoomPan()
 
   return (
@@ -16,6 +16,7 @@ const LineGraphPeriods = ({ group }) => {
       onChange={({ value }) => {
         setPeriod(parseInt(value, 10))
       }}
+      theme={theme}
     />
   )
 }

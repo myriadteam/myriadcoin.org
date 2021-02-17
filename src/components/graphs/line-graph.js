@@ -49,8 +49,8 @@ function LineGraph({
   title,
   loading,
   group,
-  overlayStyle,
   onChangeGroup,
+  theme,
 }) {
   const boxRef = useRef()
   const viewportBox = useRef()
@@ -99,7 +99,7 @@ function LineGraph({
           <div tw="flex flex-row items-center mb-10 relative z-20">
             <div>
               <span tw="mr-4 hidden md:inline">Date range</span>
-              <LineGraphPeriods group={group} />
+              <LineGraphPeriods group={group} theme={theme} />
             </div>
 
             {onChangeGroup && (
@@ -109,6 +109,7 @@ function LineGraph({
                   options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
                   onChange={onChangeGroup}
                   group={group}
+                  theme={theme}
                 />
               </div>
             )}
@@ -153,7 +154,7 @@ function LineGraph({
         <div tw="flex flex-row items-center mb-10 relative z-20">
           <div>
             <span tw="mr-4 hidden md:inline">Date range</span>
-            <LineGraphPeriods group={group} />
+            <LineGraphPeriods group={group} theme={theme} />
           </div>
 
           {onChangeGroup && (
@@ -163,6 +164,7 @@ function LineGraph({
                 options={[THREE_HOURS, SIX_HOURS, DAY, WEEK, MONTH]}
                 onChange={onChangeGroup}
                 group={group}
+                theme={theme}
               />
             </div>
           )}
@@ -181,7 +183,7 @@ function LineGraph({
                 renderXValue={renderXValue}
                 renderYValue={renderYValue}
                 hoverValues={hoverValues}
-                overlayStyle={overlayStyle}
+                theme={theme}
               />
             </div>
             <div tw="absolute top-0 bottom-0 right-0 text-right z-10 pointer-events-none">
@@ -249,8 +251,8 @@ LineGraph.propTypes = {
   barPlotKeys: PropTypes.arrayOf(PropTypes.string),
   barPlotColors: PropTypes.arrayOf(PropTypes.string),
   areaStack: PropTypes.bool,
-  overlayClasses: PropTypes.string,
   onChangeGroup: PropTypes.func,
+  theme: PropTypes.string,
 }
 
 LineGraph.defaultProps = {
@@ -274,8 +276,8 @@ LineGraph.defaultProps = {
   barPlotKeys: [],
   barPlotColors: [],
   areaStack: false,
-  overlayStyle: tw`absolute inset-0 bg-white dark:bg-dark-bg`,
   onChangeGroup: null,
+  theme: "graph1",
 }
 
 export default LineGraph
