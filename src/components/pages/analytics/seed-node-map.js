@@ -73,6 +73,18 @@ const SeedNodeMap = ({ nodes }) => {
           tw="absolute p-4 text-black bg-white rounded-14 z-10 pointer-events-none shadow-wide"
           style={{ opacity, left, top, transform: "translate(-50%, 1rem)" }}
         >
+          <svg
+            width="13"
+            height="6"
+            viewBox="0 0 13 6"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            tw="absolute top-0"
+            style={{ left: "50%", transform: "translate(-50%, -100%)" }}
+          >
+            <path d="M6.5 0L12.1292 6H0.870835L6.5 0Z" fill="white" />
+          </svg>
+
           {renderNode()}
         </animated.div>
         <Map tw="w-full" />
