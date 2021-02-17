@@ -145,7 +145,7 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     </pattern>
     <!--mask by paint area-->
     <mask id="Mask" maskUnits="userSpaceOnUse">
-      <use xlink:href="#Base" fill="url(#Dots)" stroke="url(#Dots)" stroke-width="0" filter="url(#Range)"/>
+      <use xlink:href="#Base" fill="url(#Dots)" stroke="none" stroke-width="0" filter="url(#Range)"/>
     </mask>
   </defs>
   <use xlink:href="#Base" fill="none" stroke="none"/>
