@@ -72,7 +72,7 @@ const SeedNodeMap = ({ nodes }) => {
     <>
       <div tw="relative" ref={boxRef}>
         <animated.div
-          tw="absolute p-4 text-black bg-white rounded-14 z-10 pointer-events-none shadow-wide"
+          tw="absolute p-4 text-black bg-white rounded-14 z-10 pointer-events-none shadow-wide whitespace-no-wrap"
           style={{ opacity, left, top, transform: "translate(-50%, 1rem)" }}
         >
           <svg
