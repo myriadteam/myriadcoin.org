@@ -22,7 +22,12 @@ import {
   hashrateScale,
 } from "../common/graph"
 
-import { PageContainer, BodyText, MediumBoldText } from "../common/elements"
+import {
+  PageContainer,
+  BodyText,
+  MediumBoldText,
+  GraphContainer,
+} from "../common/elements"
 
 const AnalyticsPage = () => {
   const { t } = useTranslation()
@@ -47,9 +52,9 @@ const AnalyticsPage = () => {
             {t("analytics.blocks_mined.description")}
           </BodyText>
 
-          <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+          <GraphContainer theme="graph1">
             <BlocksMinedGraph theme="graph1" />
-          </div>
+          </GraphContainer>
         </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
@@ -66,13 +71,13 @@ const AnalyticsPage = () => {
               label: a,
               color: algoColors[i],
               content: (
-                <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative">
+                <GraphContainer theme="graph2">
                   <DifficultyGraph
                     algo={i}
                     scale={algoDiffScale[i]}
                     theme="graph2"
                   />
-                </div>
+                </GraphContainer>
               ),
             }))}
           />
@@ -91,13 +96,13 @@ const AnalyticsPage = () => {
               label: a,
               color: algoColors[i],
               content: (
-                <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+                <GraphContainer theme="graph1">
                   <HashrateGraph
                     algo={i}
                     scale={hashrateScale[i]}
                     theme="graph1"
                   />
-                </div>
+                </GraphContainer>
               ),
             }))}
           />
@@ -112,9 +117,9 @@ const AnalyticsPage = () => {
             {t("analytics.transactions.description")}
           </BodyText>
 
-          <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+          <GraphContainer theme="graph2">
             <TransactionsGraph theme="graph2" />
-          </div>
+          </GraphContainer>
         </PageContainer>
       </div>
       <div tw="py-14 sm:py-30 overflow-hidden">
@@ -126,9 +131,9 @@ const AnalyticsPage = () => {
             {t("analytics.mined_coins.description")}
           </BodyText>
 
-          <div tw="mx--6 sm:mx-0 sm:bg-light-grey sm:dark:bg-dark-light-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+          <GraphContainer theme="graph1">
             <MinedCoinsGraph theme="graph1" />
-          </div>
+          </GraphContainer>
         </PageContainer>
       </div>
       <div tw="bg-light-grey dark:bg-dark-light-bg py-14 sm:py-30 overflow-hidden">
@@ -138,9 +143,9 @@ const AnalyticsPage = () => {
           </MediumBoldText>
           <BodyText tw="mb-14">{t("analytics.inflation.description")}</BodyText>
 
-          <div tw="mx--6 sm:mx-0 sm:bg-white sm:dark:bg-dark-bg sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
+          <GraphContainer theme="graph2">
             <InflationGraph theme="graph2" />
-          </div>
+          </GraphContainer>
         </PageContainer>
       </div>
     </>

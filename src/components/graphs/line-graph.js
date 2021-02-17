@@ -224,7 +224,7 @@ function LineGraph({
 
   return (
     <>
-      <div tw="absolute w-6 h-7 sm:w-16 sm:h-5" ref={viewportBox} />
+      <div tw="absolute w-5 h-4 sm:w-16 sm:h-6" ref={viewportBox} />
       {renderGraph()}
     </>
   )

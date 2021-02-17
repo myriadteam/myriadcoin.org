@@ -20,8 +20,6 @@ const TabButton = styled.button`
 const BottomTab = ({ items, theme }) => {
   const [index, setIndex] = useState(0)
 
-  console.log({ theme })
-
   let pageContainerRef = useRef(null)
   let buttonsContainerRef = useRef(null)
   const buttonsRef = useRef([].slice(0, items.length))

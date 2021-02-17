@@ -1,4 +1,4 @@
-import tw from "twin.macro"
+import tw, { styled } from "twin.macro"
 
 export const PageContainer = tw.div`container`
 export const BigText = tw.h2`text-2xl sm:text-3xl font-bold leading-extra-tight`
@@ -10,3 +10,9 @@ export const PurpleGrad = tw.div`bg-gradient-b-purple absolute inset-0`
 export const OrangeGrad = tw.div`bg-gradient-tr-orange absolute inset-0`
 export const Code = tw.p`text-xs italic text-code-green`
 export const LinkButton = tw.a`inline-flex items-center justify-center bg-black hover:bg-purple text-white font-bold text-xs py-3 px-10 rounded mb-6 dark:bg-white dark:text-black`
+export const GraphContainer = styled.div`
+  ${tw`mx--6 sm:mx-0 sm:shadow-wide px-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded relative`}
+  ${({ theme }) =>
+    (theme === "graph1" && tw`sm:bg-light-grey sm:dark:bg-dark-light-bg`) ||
+    (theme === "graph2" && tw`sm:bg-white sm:dark:bg-dark-bg`)}
+`

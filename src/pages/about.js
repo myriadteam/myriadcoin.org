@@ -18,6 +18,7 @@ import {
   MediumBoldText,
   BodyText,
   BodyBoldText,
+  GraphContainer,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
 
@@ -96,9 +97,9 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div tw="bg-white dark:bg-dark-bg shadow-wide px-6 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-18 rounded">
-            <DailyBlocksMinedGraph />
-          </div>
+          <GraphContainer theme="graph2">
+            <DailyBlocksMinedGraph theme="graph2" />
+          </GraphContainer>
         </PageContainer>
       </div>
       <div tw="bg-black text-white">
