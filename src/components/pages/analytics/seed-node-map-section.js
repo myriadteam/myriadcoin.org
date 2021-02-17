@@ -25,7 +25,7 @@ const SeedNodeMapSection = () => {
       <MediumBoldText>{t("analytics.map.title")}</MediumBoldText>
       <div tw="md:flex md:flex-row mb-14">
         <BodyText tw="mr-10 mb-10">{t("analytics.map.description")}</BodyText>
-        <div tw="h-24 px-3 sm:h-32 sm:px-6 inline-flex flex-col flex-shrink-0 flex-grow-0 bg-white dark:bg-dark-bg rounded shadow items-center justify-center text-center">
+        <div tw="h-24 px-3 sm:h-32 sm:px-6 inline-flex flex-col flex-shrink-0 flex-grow-0 bg-white dark:bg-dark-bg rounded shadow-wide items-center justify-center text-center">
           <BigText css={gradientTextStyleBlue}>
             {t("formattedNumber", { number: nodes.length })}
           </BigText>

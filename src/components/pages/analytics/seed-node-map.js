@@ -1,97 +1,94 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 import tw from "twin.macro"
+import { useGesture } from "react-use-gesture"
+import { useSpring, animated } from "react-spring"
 
 import Map from "../../../svgs/map.inline.svg"
-import Map2 from "../../../svgs/map2.inline.svg"
-
-const mapWidth = 100
-const mapHeight = 100
-
-const mapLonLeft = -180
-const mapLonRight = 180
-const mapLonDelta = mapLonRight - mapLonLeft
-
-const mapLatBottom = -85
-const mapLatBottomDegree = (mapLatBottom * Math.PI) / 180
-
-function convertGeoToPixel(lat, lon) {
-  const x = (lon - mapLonLeft) * (mapWidth / mapLonDelta)
-
-  lat = (lat * Math.PI) / 180
-  const worldMapWidth = ((mapWidth / mapLonDelta) * 360) / (2 * Math.PI)
-  const mapOffsetY =
-    (worldMapWidth / 2) *
-    Math.log(
-      (1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree))
-    )
-  const y =
-    mapHeight -
-    ((worldMapWidth / 2) * Math.log((1 + Math.sin(lat)) / (1 - Math.sin(lat))) -
-      mapOffsetY)
-
-  return [x, y]
-}
+import SeedNodeList from "./seed-node-list"
 
 const SeedNodeMap = ({ nodes }) => {
+  const [currentNode, setCurrentNode] = useState([])
+  const [{ opacity, left, top }, set] = useSpring(() => ({
+    opacity: 0,
+    left: 0,
+    top: 0,
+  }))
+  const boxRef = useRef(null)
+
+  const bindDots = useGesture({
+    onHover: ({ hovering, args: [node] }) => {
+      setCurrentNode(node)
+      set({ opacity: hovering ? 1 : 0 })
+    },
+  })
+
+  useGesture(
+    {
+      onMove: ({ event }) => {
+        if (event && event.pageY && event.pageX) {
+          const left = event.pageX - boxRef.current.offsetLeft
+          const top = event.pageY - boxRef.current.offsetTop
+          set({ top, left })
+        }
+      },
+    },
+    {
+      domTarget: boxRef,
+    }
+  )
+
+  const renderNode = () => {
+    const [
+      ip,
+      port,
+      ,
+      version,
+      ,
+      ,
+      ,
+      ,
+      city,
+      country,
+      ,
+      ,
+      location,
+    ] = currentNode
+    return (
+      <>
+        <div>
+          IP address: {ip}:{port}
+        </div>
+        <div>Version: {version}</div>
+        <div>Zone: {location}</div>
+        {city && <div>City: {city}</div>}
+        <div>Country: {country}</div>
+      </>
+    )
+  }
+
   return (
-    <div tw="relative">
-      <Map tw="w-full" />
-      <div
-        tw="absolute w-full top-0"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-53.2%, -36.5%) scale(1.01)",
-        }}
-      >
-        {1 ? (
+    <>
+      <div tw="relative" ref={boxRef}>
+        <animated.div
+          tw="absolute p-4 text-black bg-white rounded-14 z-10 pointer-events-none shadow-wide"
+          style={{ opacity, left, top, transform: "translate(-50%, 1rem)" }}
+        >
+          {renderNode()}
+        </animated.div>
+        <Map tw="w-full" />
+        <div
+          tw="absolute w-full top-0"
+          style={{
+            top: "50%",
+            left: "50%",
+            transform: "translate(-53.2%, -36.5%) scale(1.01)",
+          }}
+        >
           <div tw="w-full" style={{ paddingBottom: "100%" }} />
-        ) : (
-          <Map2 width="100%" style={{ opacity: 0.3 }} />
-        )}
-        {nodes.map(node => {
-          const ip = node[0]
-          const lat = node[10]
-          const lon = node[11]
-          const location = node[12]
-
-          const [left, top] = convertGeoToPixel(lat, lon)
-
-          const sizes = [
-            1.688,
-            1.688,
-            1.688,
-            1.688,
-            1.688,
-            1.688,
-            2.3,
-            2.3,
-            2.3,
-            2.3,
-            3.6,
-            5.4,
-          ]
-
-          const size = sizes[parseInt(Math.random() * sizes.length, 10)]
-
-          return (
-            <div
-              key={ip}
-              tw="absolute rounded-full bg-blue-500 top-0 left-0"
-              style={{
-                width: size + "%",
-                height: size + "%",
-                left: left + "%",
-                top: top + "%",
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "rgba(50, 124, 255, 0.75)",
-              }}
-              title={ip + " (" + location + ")"}
-            />
-          )
-        })}
+          <SeedNodeList nodes={nodes} bind={bindDots} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

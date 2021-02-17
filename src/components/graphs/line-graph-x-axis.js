@@ -34,12 +34,13 @@ function LineGraphXAxis({ renderValue, itemsCount }) {
 }
 
 LineGraphXAxis.propTypes = {
-  renderValue: PropTypes.func.isRequired,
+  renderValue: PropTypes.func,
   itemsCount: PropTypes.number,
 }
 
 LineGraphXAxis.defaultProps = {
   itemsCount: 0,
+  renderValue: () => {},
 }
 
 export default React.memo(LineGraphXAxis)
