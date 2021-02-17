@@ -184,6 +184,10 @@ function LineGraph({
                 renderYValue={renderYValue}
                 hoverValues={hoverValues}
                 theme={theme}
+                renderKeyValue={renderKeyValue}
+                stackedKeys={stackedKeys}
+                stackColors={stackColors}
+                keyNames={keyNames}
               />
             </div>
             <div tw="absolute top-0 bottom-0 right-0 text-right z-10 pointer-events-none">
@@ -209,13 +213,6 @@ function LineGraph({
             parsedData={parsedData}
             renderValue={renderXAxis}
             itemsCount={xAxisItemsCount}
-          />
-          <LineGraphValues
-            keys={stackedKeys}
-            colors={stackColors}
-            names={keyNames}
-            hoverValues={hoverValues}
-            renderKeyValue={renderKeyValue}
           />
         </div>
       </ZoomPanContextProvider>

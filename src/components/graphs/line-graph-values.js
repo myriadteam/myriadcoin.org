@@ -11,27 +11,20 @@ function LineGraphValues({ renderKeyValue, keys, colors, names, hoverValues }) {
     const [{ xValue }] = hoverValues
 
     return keys.map((key, i) => (
-      <div key={key} tw="flex-row mr-6 text-xxs">
-        <div tw="text-sm mb-1 flex flex-row justify-center items-center">
-          <div
-            tw="h-4 w-4 bg-blue-graph border-2 border-solid border-white dark:border-dark-bg rounded flex items-center justify-center mr-1"
-            style={{ backgroundColor: colors[i] }}
-          />
-          {names[key]}
-        </div>
+      <div key={key} tw="flex-row whitespace-no-wrap">
         <div
-          tw="inline-flex rounded-14 px-2 text-white text-xxs leading-lg whitespace-no-wrap dark:text-black"
+          tw="h-2 w-2 rounded inline-block mr-1"
           style={{ backgroundColor: colors[i] }}
-        >
-          <animated.span>
-            {xValue.interpolate(renderKeyValue(key))}
-          </animated.span>
-        </div>
+        />
+        {names[key]}{" "}
+        <animated.span tw="font-bold" style={{ color: colors[i] }}>
+          {xValue.interpolate(renderKeyValue(key))}
+        </animated.span>
       </div>
     ))
   }
 
-  return <div tw="flex flex-wrap mt-4">{renderContent()}</div>
+  return renderContent()
 }
 
 LineGraphValues.propTypes = {}

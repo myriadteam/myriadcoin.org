@@ -4,6 +4,7 @@ import { useGesture } from "react-use-gesture"
 import tw, { styled } from "twin.macro"
 
 import { useGraphZoomPan } from "./zoom-pan-context"
+import LineGraphValues from "./line-graph-values"
 import { useDimensions, usePosition } from "../../hooks/layout"
 
 const Overlay = styled.div`
@@ -26,12 +27,26 @@ const Tooltip = styled.div`
     tw`bg-light-grey dark:bg-dark-light-bg`}
 `
 
+const TooltipKeys = styled.div`
+  ${tw`text-black dark:text-white whitespace-no-wrap rounded-14 py-2 px-4 text-xxs`}
+  ${({ theme }) =>
+    (theme === "graph1" &&
+      tw`bg-light-grey dark:bg-dark-graph2-dropdown sm:bg-white sm:dark:bg-dark-graph1-dropdown`) ||
+    (theme === "graph2" &&
+      tw`bg-white dark:bg-dark-graph1-dropdown sm:bg-light-grey sm:dark:bg-dark-graph2-dropdown`) ||
+    tw`bg-light-grey dark:bg-dark-light-bg`}
+`
+
 function LineGraphMouse({
   renderXValue,
   renderYValue,
   parsedData,
   exact,
   hoverValues,
+  stackedKeys,
+  stackColors,
+  keyNames,
+  renderKeyValue,
   theme = "graph1",
 }) {
   const {
@@ -199,6 +214,24 @@ function LineGraphMouse({
           <Tooltip theme={theme}>
             <animated.span>{xValue.interpolate(renderYValue)}</animated.span>
           </Tooltip>
+          {stackedKeys && stackedKeys.length ? (
+            <div
+              tw="absolute top-0 left-0 rounded"
+              style={{
+                transform: "translate(-100%, 0) translate(-0.5rem, -1rem)",
+              }}
+            >
+              <TooltipKeys theme={theme}>
+                <LineGraphValues
+                  keys={stackedKeys}
+                  colors={stackColors}
+                  names={keyNames}
+                  hoverValues={hoverValues}
+                  renderKeyValue={renderKeyValue}
+                />
+              </TooltipKeys>
+            </div>
+          ) : null}
         </animated.div>
 
         <animated.div

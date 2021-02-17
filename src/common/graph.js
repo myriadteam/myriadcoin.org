@@ -66,8 +66,8 @@ export const algoColors = [
   "#0066FF",
   "#A5AEFF",
   "#9570FF",
-  "green",
-  "purple",
+  "#5CE282",
+  "#FF6489",
   "#FF9E4F",
   "#FFE3B1",
 ]
