@@ -9,7 +9,7 @@ const BarPlot = ({ parsedData, barPlotKeys, barPlotColors }) => {
   const lastVal = useRef(0)
   const lastPeriod = useRef(0)
 
-  const { exactData, x, y, width } = parsedData
+  const { exactData, width } = parsedData
 
   const containerBarWidth = (0.8 * width) / exactData.length
   const barWidth = containerBarWidth / barPlotKeys.length
@@ -18,7 +18,7 @@ const BarPlot = ({ parsedData, barPlotKeys, barPlotColors }) => {
     <animated.g
       data={interpolate([offsetX, period], offsetX => {
         const diff = Math.abs(lastVal.current - offsetX)
-        const page = parseInt(period.animation.to * 0.3, 10)
+        const page = parseInt(period.animation.to * 0.5, 10)
         if (diff > page || lastPeriod.current !== period.animation.to) {
           lastVal.current = parseInt(offsetX, 10)
           lastPeriod.current = period.animation.to
@@ -32,15 +32,15 @@ const BarPlot = ({ parsedData, barPlotKeys, barPlotColors }) => {
     >
       {barPlotKeys.map((barKey, barI) => {
         return (
-          <g key={barKey} fill={barPlotColors[barI]}>
+          <g key={barKey} stroke={barPlotColors[barI]} stroke-width={barWidth}>
             {slice !== undefined &&
               exactData.slice(slice.start, slice.end).map((d, di) => {
                 return (
-                  <rect
+                  <line
                     key={barKey + (slice.start + di)}
-                    x={x(d.x) - containerBarWidth / 2 + barWidth * barI}
-                    width={barWidth}
-                    height={y(0) - y(d[barKey])}
+                    x1={d.x}
+                    x2={d.x}
+                    y2={d[barKey]}
                   />
                 )
               })}

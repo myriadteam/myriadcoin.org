@@ -17,7 +17,7 @@ const StackedPlot = ({ parsedData, stackColors }) => {
     <animated.g
       data={interpolate([offsetX, period], offsetX => {
         const diff = Math.abs(lastVal.current - offsetX)
-        const page = parseInt(period.animation.to * 0.3, 10)
+        const page = parseInt(period.animation.to * 0.5, 10)
         if (diff > page || lastPeriod.current !== period.animation.to) {
           lastVal.current = parseInt(offsetX, 10)
           lastPeriod.current = period.animation.to
@@ -30,7 +30,7 @@ const StackedPlot = ({ parsedData, stackColors }) => {
       })}
     >
       {stackedData.map((stack, stackI) => (
-        <g key={stackI} fill={stackColors[stackI]}>
+        <g key={stackI} stroke={stackColors[stackI]} stroke-width={barWidth}>
           {slice !== undefined &&
             stack.slice(slice.start, slice.end).map(d => {
               const [from, to] = d
@@ -41,13 +41,7 @@ const StackedPlot = ({ parsedData, stackColors }) => {
               }
 
               return (
-                <rect
-                  key={data.x}
-                  x={data.x - barWidth / 2}
-                  y={from}
-                  width={barWidth}
-                  height={to - from}
-                />
+                <line key={data.x} x1={data.x} y1={from} x2={data.x} y2={to} />
               )
             })}
         </g>
