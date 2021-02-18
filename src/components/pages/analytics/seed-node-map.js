@@ -4,8 +4,6 @@ import { useGesture } from "react-use-gesture"
 import { useSpring, animated } from "react-spring"
 
 import Image from "../../image"
-
-import Map from "../../../svgs/map.inline.svg"
 import SeedNodeList from "./seed-node-list"
 
 const SeedNodeMap = ({ nodes }) => {

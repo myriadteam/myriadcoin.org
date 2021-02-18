@@ -1,7 +1,6 @@
 import React, { useMemo, useRef } from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
-import { useSpring } from "react-spring"
 
 import LineGraphContent from "./line-graph-content"
 import LineGraphXAxis from "./line-graph-x-axis"
@@ -58,13 +57,6 @@ function LineGraph({
   const { width: viewportWidth, height: viewportHeight } = useDimensions(
     viewportBox
   )
-
-  const hoverValues = useSpring(() => ({
-    dataX: 0,
-    dataY: 0,
-    xValue: 0,
-    opacity: 0,
-  }))
 
   const parsedData = useMemo(() => {
     if (!data) {
@@ -181,7 +173,6 @@ function LineGraph({
               parsedData={parsedData}
               renderXValue={renderXValue}
               renderYValue={renderYValue}
-              hoverValues={hoverValues}
               theme={theme}
               renderKeyValue={renderKeyValue}
               stackedKeys={stackedKeys}

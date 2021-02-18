@@ -8,11 +8,10 @@ export function useDimensions(ref) {
   })
 
   useLayoutEffect(() => {
-    if (!ref.current) {
-      return null
+    if (ref.current) {
+      const { width, height } = ref.current.getBoundingClientRect()
+      setDimensions({ width, height })
     }
-    const { width, height } = ref.current.getBoundingClientRect()
-    setDimensions({ width, height })
   }, [ref])
 
   useResizeObserver(ref, entry => {
@@ -31,11 +30,10 @@ export function usePosition(ref) {
 
   useLayoutEffect(() => {
     const onLayout = () => {
-      if (!ref.current) {
-        return null
+      if (ref.current) {
+        const { left, top } = ref.current.getBoundingClientRect()
+        setPosition({ left, top })
       }
-      const { left, top } = ref.current.getBoundingClientRect()
-      setPosition({ left, top })
     }
 
     onLayout()
@@ -47,12 +45,10 @@ export function usePosition(ref) {
 
   useLayoutEffect(() => {
     const onResize = () => {
-      if (!ref.current) {
-        return null
+      if (ref.current) {
+        const { left, top } = ref.current.getBoundingClientRect()
+        setPosition({ left, top })
       }
-
-      const { left, top } = ref.current.getBoundingClientRect()
-      setPosition({ left, top })
     }
 
     window.addEventListener("resize", onResize)

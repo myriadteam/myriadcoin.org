@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from "react"
-import { animated, interpolate } from "react-spring"
+import { useSpring, animated, interpolate } from "react-spring"
 import { useGesture } from "react-use-gesture"
 import tw, { styled } from "twin.macro"
 
@@ -42,13 +42,20 @@ function LineGraphMouse({
   renderYValue,
   parsedData,
   exact,
-  hoverValues,
   stackedKeys,
   stackColors,
   keyNames,
   renderKeyValue,
   theme = "graph1",
 }) {
+  const hoverValues = useSpring(() => ({
+    dataX: 0,
+    dataY: 0,
+    xValue: 0,
+    opacity: 0,
+    tooltipOffset: 0,
+  }))
+
   const {
     dragCallback,
     offsetX,
@@ -59,11 +66,15 @@ function LineGraphMouse({
 
   const boxRef = useRef()
   const boxRef2 = useRef()
+  const tooltipRef = useRef()
+  const tooltipKeyRef = useRef()
 
   const { width: boxWidth, height: boxHeight } = useDimensions(boxRef)
+  const { width: tooltipWidth } = useDimensions(tooltipRef)
+  const { width: tooltipKeyWidth } = useDimensions(tooltipKeyRef)
   const { left: boxLeft } = usePosition(boxRef)
 
-  const [{ dataX, dataY, xValue, opacity }, set] = hoverValues
+  const [{ dataX, dataY, xValue, opacity, tooltipOffset }, set] = hoverValues
 
   const getHoverItemX = useCallback(
     (dragX, period) => {
@@ -96,11 +107,17 @@ function LineGraphMouse({
         ? parsedData.nearestExactDataPointFromX(itemX)
         : parsedData.nearestDataPointFromX(itemX)
 
+      let tooltipOffset = tooltipWidth / 2 + tooltipKeyWidth / 2 + 8
+      if (clientX / boxWidth > 0.5) {
+        tooltipOffset = -tooltipOffset
+      }
+
       set({
         xValue: dataPoint.x,
         dataX: (dataPoint.x - offsetX.get()) * (boxWidth / period.animation.to),
         dataY:
           boxHeight - dataPoint.y * (boxHeight / highestInView.animation.to),
+        tooltipOffset,
       })
     },
     [
@@ -115,6 +132,8 @@ function LineGraphMouse({
       period.animation.to,
       set,
       startPeriod,
+      tooltipKeyWidth,
+      tooltipWidth,
     ]
   )
 
@@ -210,16 +229,23 @@ function LineGraphMouse({
               }px, ${0}px) translate3d(-50%, -100%, 0)`
             }),
           }}
+          ref={tooltipRef}
         >
           <Tooltip theme={theme}>
             <animated.span>{xValue.interpolate(renderYValue)}</animated.span>
           </Tooltip>
           {stackedKeys && stackedKeys.length ? (
-            <div
-              tw="absolute top-0 left-0 rounded"
+            <animated.div
+              tw="absolute rounded top-0"
               style={{
-                transform: "translate(-100%, 0) translate(-0.5rem, -1rem)",
+                left: "50%",
+                transform: interpolate(
+                  [tooltipOffset],
+                  tooltipOffset =>
+                    `translate3d(-50%, 0px, 0px) translate3d(${tooltipOffset}px, -1rem, 0px)`
+                ),
               }}
+              ref={tooltipKeyRef}
             >
               <TooltipKeys theme={theme}>
                 <LineGraphValues
@@ -230,7 +256,7 @@ function LineGraphMouse({
                   renderKeyValue={renderKeyValue}
                 />
               </TooltipKeys>
-            </div>
+            </animated.div>
           ) : null}
         </animated.div>
 
