@@ -34,23 +34,27 @@ const LineGraphContent = ({
           viewBox={viewBox}
           tw="absolute inset-0 pointer-events-none"
         >
-          <LinePlot
-            linePlotData={parsedData.linePlotData}
-            linePlotColors={linePlotColors}
-          />
-          <BarPlot
-            parsedData={parsedData}
-            barPlotKeys={barPlotKeys}
-            barPlotColors={barPlotColors}
-          />
+          {parsedData.linePlotData.length ? (
+            <LinePlot
+              linePlotData={parsedData.linePlotData}
+              linePlotColors={linePlotColors}
+            />
+          ) : null}
+          {barPlotKeys.length ? (
+            <BarPlot
+              parsedData={parsedData}
+              barPlotKeys={barPlotKeys}
+              barPlotColors={barPlotColors}
+            />
+          ) : null}
           {areaStack ? (
             <StackedAreas
               stackAreas={parsedData.stackAreas}
               stackColors={stackColors}
             />
-          ) : (
+          ) : stackColors.length ? (
             <StackedPlot parsedData={parsedData} stackColors={stackColors} />
-          )}
+          ) : null}
         </animated.svg>
       </svg>
     </div>
