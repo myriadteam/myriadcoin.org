@@ -17,7 +17,7 @@
   "home": {
     "coverText": "Welcome to the<br>future of no nonsense<br>transactions!",
     "parallax": {
-      "first": "Myriad is an <b>open source</b>, <b>truly decentralized</b>, digital currency that can be sent peer-to-peer over the internet.",
+      "first": "Myriadcoin is an <b>open source</b>, <b>truly decentralized</b>, digital currency that can be sent peer-to-peer over the internet.",
       "second": "There are <b>no intermediaries</b>, <b>no chargebacks</b> and most importantly you control <b>your money</b>."
     },
     "nonsense": {
@@ -28,13 +28,13 @@
           "title": "Pre-mining",
           "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
           "link": "about",
-          "info": "Myriad do not do premining"
+          "info": "Myriadcoin do not do premining"
         },
         "asic_farms": {
           "title": "ASIC-farms",
           "body": "<0>ASIC miners can in some ways remove decentralization from a cryptocurrency. Large mining farms could pontentially give someone the capability to control the future development of the network.</0>",
           "link": "about",
-          "info": "Myriad don’t have ASIC-farms"
+          "info": "Myriadcoin don’t have ASIC-farms"
         },
         "ico": {
           "title": "ICO",
@@ -43,7 +43,7 @@
         },
         "secure_storing": {
           "title": "No secure storing",
-          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing. Myriad have cold wallet for both iOS and Android.</0>",
+          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing. Myriadcoin have cold wallet for both iOS and Android.</0>",
           "link": "hold",
           "info": "Cold wallet"
         },
@@ -70,14 +70,14 @@
       }
     },
     "myriadIs": {
-      "title": "But Myriad on the other hand is:",
+      "title": "But Myriadcoin on the other hand is:",
       "trusted": {
         "title": "Trusted, secure and<br>up-to-date",
         "body": "Myriadcoins unique multi-algorithm approach means that it has extra resistance to 51% attacks."
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
-        "body": "No one and everyone controls Myriad. It’s a community driven project full of volunteers."
+        "body": "No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers."
       },
       "fair": {
         "title": "Fair distribution and mining",
@@ -100,14 +100,14 @@
       }
     },
     "links": {
-      "title": "Start using Myriad now",
-      "mine": "Mine Myriad",
-      "hold": "Buy and store Myriad",
+      "title": "Start using Myriadcoin now",
+      "mine": "Mine Myriadcoin",
+      "hold": "Buy and store Myriadcoin",
       "community": "Join the community"
     },
     "esperanto": {
       "title": "Saluton!",
-      "body": "Myriad is used to support content creators in the Esperanto community",
+      "body": "Myriadcoin is used to support content creators in the Esperanto community",
       "join": "Join in"
     },
     "telegram": {
@@ -121,11 +121,11 @@
     "title": "Analytics",
     "map": {
       "title": "Nodes around the world",
-      "description": "Myriad has nodes all over the world. The following map shows public nodes, i.e nodes that help distribute the blockchain and that anyone can connect to. Join the network you too by making your full node public."
+      "description": "Myriadcoin has nodes all over the world. The following map shows public nodes, i.e nodes that help distribute the blockchain and that anyone can connect to. Join the network you too by making your full node public."
     },
     "blocks_mined": {
       "title": "Blocks Mined",
-      "description": "The number of blocks mined on each of Myriad's algorithms."
+      "description": "The number of blocks mined on each of Myriadcoin’s algorithms."
     },
     "mining_difficulty": {
       "title": "Mining Difficulty",
@@ -133,11 +133,11 @@
     },
     "hash_rate": {
       "title": "Hash Rate",
-      "description": "The estimated number of hashes per second the Myriad network is performing."
+      "description": "The estimated number of hashes per second the Myriadcoin network is performing."
     },
     "transactions": {
       "title": "Transactions",
-      "description": "The number of transactions made on the Myriad network (excluding coinbase transacions)."
+      "description": "The number of transactions made on the Myriadcoin network (excluding coinbase transacions)."
     },
     "mined_coins": {
       "title": "Mined Coins",
@@ -149,10 +149,10 @@
     }
   },
   "about": {
-    "title": "About Myriad",
+    "title": "About Myriadcoin",
     "top": {
       "title": "Trusted, secure and up-to-date",
-      "body": "<0>Myriad addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriad has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed on Reddit.</0>",
+      "body": "<0>Myriadcoin addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriadcoin has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed on Reddit.</0>",
       "link": ""
     },
     "stats": {
@@ -165,23 +165,23 @@
       "inflation_rate": "Yearly inflation rate (last 24 hours)"
     },
     "history": {
-      "title": "The history of Myriad",
+      "title": "The history of Myriadcoin",
       "items": [
         {
           "date": "February, 2014",
-          "text": "Myriad was launched by 8bitcoder, forked from Zetacoin. It was the first cryptocurrency to use five proof-of-work algorithms in an effort to increase security as well as broaden the base of people who could mine it - SHA256d and Scrypt for ASIC miners, Skein and Myr-Groestl for GPU miners, and Qubit for GPU and CPU miners."
+          "text": "Myriadcoin was launched by 8bitcoder, forked from Zetacoin. It was the first cryptocurrency to use five proof-of-work algorithms in an effort to increase security as well as broaden the base of people who could mine it - SHA256d and Scrypt for ASIC miners, Skein and Myr-Groestl for GPU miners, and Qubit for GPU and CPU miners."
         },
         {
           "date": "August, 2015",
-          "text": "Myriad hard-forked to allow merge-mining on its SHA256d and Scrypt algorithms in an effort to improve security and achieve a more stable hashrate on those two algorithms."
+          "text": "Myriadcoin hard-forked to allow merge-mining on its SHA256d and Scrypt algorithms in an effort to improve security and achieve a more stable hashrate on those two algorithms."
         },
         {
           "date": "July, 2016",
-          "text": "Myriad 0.11.3.1 is released changing the ticker from MYR to XMY and signaling replacement of Qubit to Yescrypt using mining consensus."
+          "text": "Myriadcoin 0.11.3.1 is released changing the ticker from MYR to XMY and signaling replacement of Qubit to Yescrypt using mining consensus."
         },
         {
           "date": "August, 2016",
-          "text": "Mining consensus is reached and Myriad succeeds to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriad became the first cryptocurrency to use mining consensus to change a mining algorithm."
+          "text": "Mining consensus is reached and Myriadcoin succeeds to replace the Qubit algorithm with the Yescrypt algorithm to preserve mining decentralization. Myriadcoin became the first cryptocurrency to use mining consensus to change a mining algorithm."
         },
         {
           "date": "October, 2018",
@@ -193,7 +193,7 @@
         },
         {
           "date": "March, 2020",
-          "text": "Myriad 0.18.1.0 is released with improved multi-wallet support and RISC-V support. 0.00000001 XMY is now defined as octibit or obi."
+          "text": "Myriadcoin 0.18.1.0 is released with improved multi-wallet support and RISC-V support. 0.00000001 XMY is now defined as octibit or obi."
         }
       ]
     },
@@ -224,7 +224,7 @@
           },
           {
             "title": "Fair",
-            "value": "Myriad is fairly distributed. No Premine and No ICO."
+            "value": "Myriadcoin is fairly distributed. No Premine and No ICO."
           }
         ]
       },
@@ -264,7 +264,7 @@
     },
     "community": {
       "title": "Community-driven with democratic decision making",
-      "body": "<0>No one and everyone controls Myriad. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriad strives to be a coin for everyone, not a elite/selected few. Myriad is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
+      "body": "<0>No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriadcoin strives to be a coin for everyone, not a elite/selected few. Myriadcoin is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
       "link": {
         "title": "Join our community",
         "url": "/community"
@@ -272,7 +272,7 @@
     },
     "fair": {
       "title": "Fair distribution and mining",
-      "body": "<0>No one and everyone controls Myriad. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriad strives to be a coin for everyone, not a elite/selected few. Myriad is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
+      "body": "<0>No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriadcoin strives to be a coin for everyone, not a elite/selected few. Myriadcoin is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
       "link": {
         "title": "Start mining",
         "url": "/mine"
@@ -280,13 +280,13 @@
     }
   },
   "mine": {
-    "title": "How to Mine Myriad",
+    "title": "How to Mine Myriadcoin",
     "algoritm": {
       "title": "1. Choose an algorithm"
     },
     "wallet": {
       "title": "2. Choose a wallet",
-      "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriad..."
+      "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriadcoin..."
     },
     "pool": {
       "title": "3. Join a mining pool",
@@ -295,7 +295,7 @@
     },
     "ready": "Now you’re ready to start mining!",
     "links": {
-      "title": "Do more with Myriad"
+      "title": "Do more with Myriadcoin"
     },
     "need": {
       "title": "Is there a need for<1/>cryptocurrencies?",
@@ -303,10 +303,10 @@
     }
   },
   "hold": {
-    "title": "Buy and store Myriad",
+    "title": "Buy and store Myriadcoin",
     "buy": {
-      "title": "Buy Myriad",
-      "body": "To get your hands on your first Myriad you need to use an exchange. You can buy Myriad with fiat money or exchange another cryptocurrency for Myriad."
+      "title": "Buy Myriadcoin",
+      "body": "To get your hands on your first Myriadcoin you need to use an exchange. You can buy Myriadcoin with fiat money or exchange another cryptocurrency for Myriadcoin."
     },
     "wallet": {
       "title": "Store your coins"
@@ -317,7 +317,7 @@
       "link": "Learn more"
     },
     "links": {
-      "title": "Do more with Myriad"
+      "title": "Do more with Myriadcoin"
     },
     "fair": {
       "title": "Aren’t all cryptocurrencies fairly distributed and mined?",
@@ -327,8 +327,8 @@
   "community": {
     "title": "Join the community!",
     "top": {
-      "title": "No one and everyone controls Myriad.",
-      "body": "Myriad is a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining."
+      "title": "No one and everyone controls Myriadcoin.",
+      "body": "Myriadcoin is a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining."
     },
     "social_media": {
       "title": "Social media",
@@ -337,7 +337,7 @@
   },
   "navigation": {
     "links": {
-      "myriad": "Myriad",
+      "myriad": "Myriadcoin",
       "about": "About",
       "hold": "Hold",
       "mine": "Mine",

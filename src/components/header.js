@@ -32,11 +32,11 @@ const Header = ({ siteTitle, t }) => {
           <img
             src={logo}
             className="w-8 mr-2"
-            alt="Myriad logo"
+            alt="Myriadcoin logo"
             width="32"
             height="32"
           />
-          <h2 tw="tracking-tight">Myriad</h2>
+          <h2 tw="tracking-tight">Myriadcoin</h2>
         </Link>
         <div className="block sm:hidden">
           <button
