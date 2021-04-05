@@ -1,7 +1,6 @@
 import React from "react"
 import tw, { styled } from "twin.macro"
 import { exchanges } from "../../common/exchanges"
-import IconLitebit from "../../svgs/icons/litebit.inline.svg"
 import IconBittrex from "../../svgs/icons/bittrex.inline.svg"
 import IconBitladon from "../../svgs/icons/bitladon.inline.svg"
 import IconNetcoins from "../../svgs/icons/netcoins.inline.svg"
@@ -32,7 +31,6 @@ const Exchanges = () => {
       >
         <div tw="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full h-auto text-white">
           <ExchangeCircle nr={index}>
-            {name === "Litebit" && <IconLitebit />}
             {name === "Bittrex" && <IconBittrex />}
             {name === "Bitladon" && <IconBitladon />}
             {name === "Netcoins" && <IconNetcoins />}

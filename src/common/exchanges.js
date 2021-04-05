@@ -8,10 +8,6 @@ export const exchanges = [
     url: "https://dovewallet.com/en/trade/spot/xmy-btc",
   },
   {
-    name: "Litebit",
-    url: "https://www.litebit.eu/en/buy/myriadcoin",
-  },
-  {
     name: "Bitladon",
     url: "https://www.bitladon.com/myriad",
   },
