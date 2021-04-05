@@ -66,7 +66,8 @@
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
-        "body": "No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers."
+        "body": "No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers.",
+        "link": "Join our community"
       },
       "fair": {
         "title": "Fair distribution and mining",
@@ -99,11 +100,13 @@
       "body": "Myriadcoin is used to support content creators in the Esperanto community",
       "join": "Join in"
     },
-    "telegram": {
-      "bubble": "Join our Telegram channel",
+    "community": {
+      "bubble": "Join our community",
       "title": "Got any questions or just wanna chat?",
-      "join": "Join telegram"
+      "join_telegram": "Join Telegram",
+      "join_reddit": "Join Reddit"
     },
+
     "footerText": "Built with Gatsby"
   },
   "analytics": {
@@ -256,7 +259,7 @@
       "body": "<0>No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriadcoin strives to be a coin for everyone, not a elite/selected few. Myriadcoin is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
       "link": {
         "title": "Join our community",
-        "url": "/community"
+        "url": "#community"
       }
     },
     "fair": {

@@ -42,7 +42,6 @@ const columns = [
   [
     { text: "explore" },
     { text: "about", uri: "/about" },
-    { text: "community", uri: "/community" },
     { text: "blog", uri: "https://medium.com/myriadcoin" },
   ],
   [
@@ -120,21 +119,30 @@ const Footer = () => {
 
   return (
     <>
-      <PageContainer tw="py-24 sm:py-30 px-6">
+      <PageContainer tw="py-24 sm:py-30 px-6" id="community">
         <div tw="max-w-2xl">
           <Bubble tw="mb-8 sm:mb-16" color="blue">
-            {t("home.telegram.bubble")}
+            {t("home.community.bubble")}
           </Bubble>
           <MediumBoldText tw="text-black dark:text-white mb-8 sm:mb-16">
-            {t("home.telegram.title")}
+            {t("home.community.title")}
           </MediumBoldText>
+          <div tw="flex">
           <Link
             uri="https://t.me/Myriadcoinofficial"
+            tw="text-sm sm:text-md font-bold mr-12"
+            showArrow
+          >
+            {t("home.community.join_telegram")}
+          </Link>
+          <Link
+            uri="https://www.reddit.com/r/myriadcoin/"
             tw="text-sm sm:text-md font-bold"
             showArrow
           >
-            {t("home.telegram.join")}
+            {t("home.community.join_reddit")}
           </Link>
+          </div>
         </div>
       </PageContainer>
       <FooterContainer>

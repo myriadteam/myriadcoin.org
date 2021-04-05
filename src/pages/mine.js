@@ -64,7 +64,7 @@ const MinePage = () => {
             </Trans>
           </BigText>
           <Link
-            uri="/community"
+            uri="#community"
             tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
             showArrow
           >

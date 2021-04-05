@@ -128,10 +128,10 @@ const IndexPage = () => {
                   {t("home.myriadIs.community.body")}
 
                   <Link
-                    uri="/community"
+                    uri="#community"
                     tw="inline-flex leading-tight block mt-6"
                   >
-                    {t("common.readMore")}
+                    {t("home.myriadIs.community.link")}
                   </Link>
                 </BodyText>
 
@@ -205,7 +205,7 @@ const IndexPage = () => {
           <BigText tw="mb-24">{t("home.esperanto.body")}</BigText>
           <span tw="inline-flex hover:text-black">
             <Link
-              uri="/community"
+              uri="#community"
               tw="text-xl sm:text-2xl font-bold hover:text-black"
               showArrow
             >
