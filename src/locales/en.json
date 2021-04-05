@@ -24,53 +24,42 @@
       "title": "In today’s world, there are a lot of coins and a lot of claims. It can be hard to spot what’s real and what’s nonsense.",
       "caption": "Here are some things to look out for:",
       "bubbles": {
-        "pre_mining": {
+        "premining": {
           "title": "Pre-mining",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
-          "link": "about",
-          "info": "Myriadcoin do not do premining"
+          "body": "<0>Pre-mining means mining many coins before the cryptocurrency is launched to the public. This means the developer or creator of the coin could create a high demand for a coin but then inflate it by selling a high volume of pre-mined coins for their gain.</0><0>Myriadcoin has not been pre-mined.</0>"
         },
         "asic_farms": {
           "title": "ASIC-farms",
-          "body": "<0>ASIC miners can in some ways remove decentralization from a cryptocurrency. Large mining farms could pontentially give someone the capability to control the future development of the network.</0>",
-          "link": "about",
-          "info": "Myriadcoin don’t have ASIC-farms"
+          "body": "<0>ASIC miners can in some ways remove decentralization from a cryptocurrency. Large mining farms could pontentially give someone the capability to control the future development of the network.</0><0>By using multiple algorithms Myriadcoin’s multi algorithm approach offers exceptional 51% resistance because a range of different hardware is needed to find 51% of the blocks.</0>"
         },
         "ico": {
           "title": "ICO",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
-          "link": "about"
+          "body": "<0>Initial Coin Offerings (ICOs) is a method for cryptocurrencies to raise funding for their development. By offering people to buy in to the currency before it launches to the open market. During 2017 and 2018 ICO also become a popular for scammers and people around the world to promise good things but in the end leaving the investors empty handed.</0><0>Myriadcoin have never done an ICO.</0>"
         },
         "secure_storing": {
           "title": "No secure storing",
-          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing. Myriadcoin have cold wallet for both iOS and Android.</0>",
-          "link": "hold",
-          "info": "Cold wallet"
+          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing, either by using cold storage or be available on hardware wallets.</0><0>Myriadcoin have cold wallet for both iOS and Android.</0>"
         },
         "no_development": {
           "title": "No development happening",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
-          "link": "about"
+          "body": "<0>Keeping a coin up to date with the current BIPs of Bitcoin and having a community of contributors is a crucial part of have a successful cryptocurrency. To make sure the interest is high but also to make use of the currency in new and exiciting ways.</0><0>Myriadcoin has a number of contributors from all around the world making it move forward.</0>"
         },
         "pump_and_dump": {
           "title": "Pump and dump-moves",
-          "body": "<0>When a few people own large stakes in a cryptocurrency it is common that there is a lot of pump-and-dump moves going on.</0>",
-          "link": "about"
+          "body": "<0>When a few people own large stakes in a cryptocurrency it is common that there is a lot of pump-and-dump moves going on.</0><0>But not having a few number of large stake holders and being open to the public from the start, Myriadcoin has not seen any big pump and dump moves during it’s lifetime</0>"
         },
         "non_vibrant_communities": {
           "title": "Non-vibrant communities",
-          "body": "<0>The Myriadcoin community is spread all over the world and has a thriving community on Reddit and Telegram.</0>",
-          "link": "about"
+          "body": "<0>The Myriadcoin community is spread all over the world and has a thriving community on Reddit and Telegram.</0><0>Real world examples of use of Myriadcoin can be found in the Esperanto community.</0>"
         },
         "instant_transactions": {
           "title": "Instant transactions",
-          "body": "<0>Premining is the mining or creation of a number of cryptocurrency coins before the cryptocurrency is launched to the public.</0><0>During the ICO bubble from 2017 to 2018, premining was often a red flag that an ICO was being launched to fleece investors rather than</0>",
-          "link": "about"
+          "body": "<0>One of the problems with many cryptocurrencies if the speed and cost of the transactions in the network.</0>"
         }
       }
     },
     "myriadIs": {
-      "title": "But Myriadcoin on the other hand is:",
+      "title": "What makes Myriadcoin great is:",
       "trusted": {
         "title": "Trusted, secure and<br>up-to-date",
         "body": "Myriadcoins unique multi-algorithm approach means that it has extra resistance to 51% attacks."

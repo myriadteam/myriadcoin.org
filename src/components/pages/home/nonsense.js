@@ -18,7 +18,7 @@ const NonsenseButton = styled.button`
 
 const dataKeys = [
   "asic_farms",
-  "pre_mining",
+  "premining",
   "secure_storing",
   "ico",
   "no_development",

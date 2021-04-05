@@ -13,7 +13,7 @@
       "title": "En la hodiaŭa mondo, ekzistas multaj moneroj kaj multaj asertoj. Povas esti malfacile ekvidi, kio estas reala kaj kio estas sensencaĵo.",
       "caption": "Jen kelkaj aferoj atentindaj:",
       "bubbles": {
-        "pre_mining": "Antaŭminado",
+        "premining": "Antaŭminado",
         "asic_farms": "ASIC-bienoj",
         "ico": "ICO",
         "secure_storing": "Neniu sekura stokado 😱",
