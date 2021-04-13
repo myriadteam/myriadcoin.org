@@ -69,24 +69,6 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <script type="text/javascript">
-        {`var HW_config = {
-          selector: "#headway-link",
-          account:  "7wRpdx",
-          trigger: "#headway-link",
-          widgetPosition: "bottom-left",
-          callbacks: {
-            onWidgetReady: function(widget) {
-              console.log("Widget is here!");
-              console.log("unseen entries count: " + widget.getUnseenCount());
-            },
-          }
-        }`}
-      </script>
-      <script
-        type="text/javascript"
-        src="//cdn.headwayapp.co/widget.js"
-      ></script>
     </Helmet>
   )
 }

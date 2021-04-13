@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import LanguageMenu from "./language-menu"
@@ -19,6 +19,26 @@ const Header = ({ siteTitle, t }) => {
   const closeExpansion = useCallback(() => {
     setIsExpanded(false)
   }, [])
+
+  useEffect(() => {
+    if (!window.Headway) {
+      const script = document.createElement("script")
+      script.async = true
+      script.src = "https://cdn.headwayapp.co/widget.js"
+      document.head.appendChild(script)
+      var config = {
+        selector: "#headway-link",
+        account: "7wRpdx",
+        trigger: "#headway-link",
+        widgetPosition: "bottom-left",
+      }
+      script.onload = function () {
+        window.Headway.init(config)
+      }
+    } else {
+      window.Headway.reload()
+    }
+  })
 
   return (
     <HeaderContainer>
