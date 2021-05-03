@@ -273,19 +273,13 @@
   },
   "mine": {
     "title": "How to Mine Myriadcoin",
-    "algoritm": {
-      "title": "1. Choose an algorithm"
+    "software_and_pools": {
+      "title": "Software and pools",
+      "body": "<0>Myriad supports a handful of different mining softwares. You can choose from the list below for what algorithm you want to mine with depending on how your mining rig or device is setup.</0><0>A mining pool is the pooling of resources by miners, who share their processing power over a network. You can mine Myriad through a number of pools. We've listed the pools that currently support mining and merge mining of Myriad below.</0>"
     },
-    "wallet": {
-      "title": "2. Choose a wallet",
-      "body": "Do not store your cryptocurrency on an exchange. You should have awallet ready and setup to store your coins. These wallets support Myriadcoin..."
-    },
-    "pool": {
-      "title": "3. Join a mining pool",
-      "body": "A mining pool is the pooling of resources by miners, who share their processing power over a network.",
-      "available_for": "Available mining pools for "
-    },
-    "ready": "Now you’re ready to start mining!",
+    "available_algorithms": "Available algorithms",
+    "software_for": "Software for ",
+    "available_mining_pools_for": "Available mining pools for ",
     "links": {
       "title": "Do more with Myriadcoin"
     },

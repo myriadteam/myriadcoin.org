@@ -1,54 +1,67 @@
-import React, { useState } from "react"
-import tw, { css } from "twin.macro"
+import React from "react"
+import tw, { css, styled } from "twin.macro"
 import { useTranslation, Trans } from "react-i18next"
+import BodyBlock from "../components/shared/body-block"
 import SEO from "../components/seo"
-import MineAlgorithm from "../components/pages/mine/algoritm"
-import MinePool from "../components/pages/mine/pool"
-import Wallet from "../components/shared/wallet"
 import Links from "../components/shared/links"
 import BgImage from "../components/bg-image"
 import Cover from "../components/shared/cover"
 import Link from "../components/shared/link"
+import AlgoSHA265d from "../components/algoritms/sha256d"
+import AlgoScrypt from "../components/algoritms/scrypt"
+import AlgoMyrGroestl from "../components/algoritms/myr-groestl"
 
-import { PageContainer, BigText } from "../common/elements"
+import {
+  PageContainer,
+  BigText,
+  MediumBoldText,
+} from "../common/elements"
 
-const gradientTextStyle = css`
-  background: -webkit-linear-gradient(60deg, #ffd17f, #ff5aa9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+const AlgoButton = styled.a`
+  ${tw`px-2 py-1 mx-2 whitespace-no-wrap transition duration-100 ease-in transform rounded-full text-xxs sm:px-4 sm:py-2 sm:text-xs hover:opacity-75 focus:outline-none`},
+  ${tw`bg-light-grey dark:bg-dark-box text-grey`}
 `
 
 const MinePage = () => {
   const { t } = useTranslation()
-  const [algoritm, changeAlgoritm] = useState("SHA256d")
+
   return (
     <>
       <SEO title={t("mine.title")} />
       <PageContainer>
         <Cover showArrow>{t("mine.title")}</Cover>
       </PageContainer>
+
       <div tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 ">
         <PageContainer>
-          <MineAlgorithm
-            title={t("mine.algoritm.title")}
-            selected={algoritm}
-            onChange={value => changeAlgoritm(value)}
-          />
+          <BodyBlock translationKey="mine.software_and_pools" />
         </PageContainer>
       </div>
-      <div tw="bg-black relative">
-        <PageContainer>
-          <Wallet title={t("mine.wallet.title")} />
-        </PageContainer>
-      </div>
+
       <PageContainer tw="py-24 sm:py-30 px-6">
-        <MinePool selected={algoritm} />
+        <MediumBoldText tw="mb-10">
+          {t("mine.available_algorithms")}
+        </MediumBoldText>
+        <div tw="flex -mx-2">
+          <AlgoButton href="#SHA256d">
+            {t("algoritms.SHA256d.label")}
+          </AlgoButton>
+          <AlgoButton href="#scrypt">{t("algoritms.scrypt.label")}</AlgoButton>
+          <AlgoButton href="#myr-groestl">
+            {t("algoritms.myr-groestl.label")}
+          </AlgoButton>
+          <AlgoButton href="#argon2d">
+            {t("algoritms.argon2d.label")}
+          </AlgoButton>
+          <AlgoButton href="#yescrypt">
+            {t("algoritms.yescrypt.label")}
+          </AlgoButton>
+        </div>
+        <AlgoSHA265d />
+        <AlgoScrypt />
+        <AlgoMyrGroestl />
       </PageContainer>
-      <PageContainer tw="pb-24 sm:pb-43 px-6">
-        <BigText tw="text-orange sm:px-32" css={[gradientTextStyle]}>
-          {t("mine.ready")}
-        </BigText>
-      </PageContainer>
+
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
       <PageContainer tw="py-24 sm:py-30 px-6">
         <BigText tw="mb-32">{t("mine.links.title")}</BigText>
