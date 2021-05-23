@@ -11,6 +11,7 @@ import AlgoSHA265d from "../components/algoritms/sha256d"
 import AlgoScrypt from "../components/algoritms/scrypt"
 import AlgoMyrGroestl from "../components/algoritms/myr-groestl"
 import AlgoYescrypt from "../components/algoritms/yescrypt"
+import AlgoArgon2d from "../components/algoritms/argon2d"
 
 import {
   PageContainer,
@@ -61,6 +62,7 @@ const MinePage = () => {
         <AlgoSHA265d />
         <AlgoScrypt />
         <AlgoMyrGroestl />
+        <AlgoArgon2d />
         <AlgoYescrypt />
       </PageContainer>
 
