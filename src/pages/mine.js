@@ -10,6 +10,7 @@ import Link from "../components/shared/link"
 import AlgoSHA265d from "../components/algoritms/sha256d"
 import AlgoScrypt from "../components/algoritms/scrypt"
 import AlgoMyrGroestl from "../components/algoritms/myr-groestl"
+import AlgoYescrypt from "../components/algoritms/yescrypt"
 
 import {
   PageContainer,
@@ -60,6 +61,7 @@ const MinePage = () => {
         <AlgoSHA265d />
         <AlgoScrypt />
         <AlgoMyrGroestl />
+        <AlgoYescrypt />
       </PageContainer>
 
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />

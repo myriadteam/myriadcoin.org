@@ -11,7 +11,7 @@ import {
   LinkButton,
 } from "../../common/elements"
 
-const AlgoSHA265d = () => {
+const AlgoScrypt = () => {
   return (
     <div
       id="scrypt"
@@ -53,7 +53,7 @@ const AlgoSHA265d = () => {
           </Trans>
         </BodyBoldText>
       </div>
-      <div tw="flex">
+      <div tw="flex flex-wrap">
         <LinkButton href="https://www.zergpool.com" tw="mb-2 mr-2">
           zergpool
         </LinkButton>
@@ -74,4 +74,4 @@ const AlgoSHA265d = () => {
   )
 }
 
-export default AlgoSHA265d
+export default AlgoScrypt

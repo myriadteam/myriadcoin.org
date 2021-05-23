@@ -53,7 +53,7 @@ const AlgoSHA265d = () => {
           </Trans>
         </BodyBoldText>
       </div>
-      <div tw="flex">
+      <div tw="flex flex-wrap">
         <LinkButton href="https://miningfield.com" tw="mb-2 mr-2">
           Miningfield
         </LinkButton>

@@ -12,7 +12,7 @@ import {
   Code,
 } from "../../common/elements"
 
-const AlgoSHA265d = () => {
+const AlgoMyrGroestl = () => {
   return (
     <div
       id="myr-groestl"
@@ -95,7 +95,7 @@ const AlgoSHA265d = () => {
           </Trans>
         </BodyBoldText>
       </div>
-      <div tw="flex">
+      <div tw="flex flex-wrap">
         <LinkButton href="nz.nutty.one:5545" tw="mb-2 mr-2">
           Nutty P2pool node
         </LinkButton>
@@ -122,4 +122,4 @@ const AlgoSHA265d = () => {
   )
 }
 
-export default AlgoSHA265d
+export default AlgoMyrGroestl
