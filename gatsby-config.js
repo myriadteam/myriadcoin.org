@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/myriad-website",
   siteMetadata: {
     title: `Myriad`,
     description: `Welcome to the future of no nonsense transactions!`,

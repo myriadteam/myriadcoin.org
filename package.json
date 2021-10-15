@@ -45,6 +45,7 @@
     "gatsby-plugin-layout": "^1.3.0",
     "gatsby-plugin-preload-fonts": "^1.2.0",
     "gatsby-plugin-styled-components": "^3.3.0",
+    "gh-pages": "^3.2.3",
     "i18next": "^19.4.4",
     "prettier": "2.0.5",
     "react-i18next": "^11.4.0",
@@ -68,7 +69,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "preload-fonts": "gatsby-preload-fonts",
-    "tailwind-config-viewer": "tailwind-config-viewer -o"
+    "tailwind-config-viewer": "tailwind-config-viewer -o",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",
