@@ -10,13 +10,19 @@ export const algoritms = [
       },
       { url: "https://www.zpool.ca", name: "zpool" },
       { url: "https://www.multipool.us", name: "MultiPool" },
+      { url: "https://zergpool.com/", name: "Zergpool" },
+      { url: "http://blockmasters.co/", name: "Block Masters" },
+      { url: "https://prohashing.com/", name: "Prohashing" },
     ],
   },
   {
     value: "scrypt",
     miningPools: [
-      { url: "https://pokemongomongo.tk", name: "Pokemongomongo.tk Pool" },
-      { url: "https://www.zpool.ca", name: "zpool" },
+      { url: "https://zergpool.com/", name: "Zergpool" },
+      { url: "https://www.ahashpool.com/", name: "ahashpool.com" },
+      { url: "http://blockmasters.co/", name: "Block Masters" },
+      { url: "https://www.mining-dutch.nl/", name: "Mining Dutch" },
+      { url: "https://prohashing.com/", name: "Prohashing" },
     ],
   },
   {
@@ -50,14 +56,17 @@ export const algoritms = [
     ],
     miningPools: [
       {
-        url: "https://www.miners-pool.eu/pools/myriadcoin-groestl",
-        name: "Miners-pool eu",
-      },
-      {
         url: "https://myriadcoin-groestl.miningpoolhub.com",
         name: "Mining Pool Hub",
       },
-      { url: "nz.nutty.one:5545", name: "Nutty P2Pool node" },
+      { url: "https://www.ahashpool.com/", name: "ahashpool.com" },
+      { url: "https://www.mining-dutch.nl/", name: "Mining Dutch" },
+      {
+        url: "https://myriadcoin-groestl.miningpoolhub.com/",
+        name: "Mining Pool Hub",
+      },
+      { url: "https://www.zpool.ca", name: "zpool" },
+      { url: "https://zergpool.com/", name: "Zergpool" },
     ],
   },
   {
@@ -74,11 +83,13 @@ export const algoritms = [
     ],
     miningPools: [
       { url: "https://pokemongomongo.tk", name: "Pokemongomongo.tk Pool" },
+      { url: "https://www.zpool.ca", name: "zpool" },
+      { url: "https://zergpool.com/", name: "Zergpool" },
+      { url: "http://p2p-spb.xyz:6002/", name: "p2p-spb.xyz" },
     ],
   },
   {
     value: "yescrypt",
-
     softwares: [
       {
         label: "CPUMiner-opt",
@@ -92,17 +103,14 @@ export const algoritms = [
     miningPools: [
       { url: "https://pokemongomongo.tk", name: "Pokemongomongo.tk Pool" },
       {
-        url: "https://www.miners-pool.eu/pools/myriadcoin-yescrypt",
-        name: "Miners-pool eu",
+        url: "https://myriadcoin-yescrypt.miningpoolhub.com/",
+        name: "Mining Pool Hub",
       },
-      {
-        url: "http://myriadcoin.tk",
-        name: "Myriadcoin.tk Pool",
-      },
-      {
-        url: "yescrypt.easymine.online:6000",
-        name: "Easymine P2Pool node",
-      },
+      { url: "https://www.zpool.ca", name: "zpool" },
+      { url: "https://zergpool.com/", name: "Zergpool" },
+      { url: "http://blockmasters.co/", name: "Block Masters" },
+      { url: "https://www.ahashpool.com/", name: "ahashpool.com" },
+      { url: "https://www.mining-dutch.nl/", name: "Mining Dutch" },
     ],
   },
 ]

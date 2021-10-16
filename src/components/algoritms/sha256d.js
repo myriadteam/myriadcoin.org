@@ -11,23 +11,23 @@ import {
   LinkButton,
 } from "../../common/elements"
 
-const AlgoSHA265d = () => {
+const AlgoSHA256d = () => {
   return (
     <div
       id="SHA256d"
       tw="py-12 sm:py-25 last:border-0 border-b border-black border-opacity-25"
     >
       <MediumBoldText tw="mb-6">
-        <Trans i18nkey="components.algoritms.sha265d.title">SHA265d</Trans>
+        <Trans i18nkey="components.algoritms.sha256d.title">SHA256d</Trans>
       </MediumBoldText>
       <div tw="flex -mx-4 mb-14">
         <InfoTile>
-          <Trans i18nkey="components.algoritms.sha265d.recommended_for">
+          <Trans i18nkey="components.algoritms.sha256d.recommended_for">
             Recommended algo for ASIC miners.
           </Trans>
         </InfoTile>
         <InfoTile>
-          <Trans i18nkey="components.algoritms.sha265d.merged_mining">
+          <Trans i18nkey="components.algoritms.sha256d.merged_mining">
             Merged mining.
           </Trans>
         </InfoTile>
@@ -35,20 +35,20 @@ const AlgoSHA265d = () => {
       <div tw="flex items-center mb-4.5">
         <BoxedIcon symbol="laptop" />
         <BodyBoldText tw="mb-0">
-          <Trans i18nkey="components.algoritms.sha265d.software_for">
+          <Trans i18nkey="components.algoritms.sha256d.software_for">
             Software for SHA256d
           </Trans>
         </BodyBoldText>
       </div>
       <BodyText tw="mb-14">
-        <Trans i18nkey="components.algoritms.sha265d.any_compatible_asic">
-          You may use any SHA265d compatible ASIC
+        <Trans i18nkey="components.algoritms.sha256d.any_compatible_asic">
+          You may use any SHA256d compatible ASIC
         </Trans>
       </BodyText>
       <div tw="flex items-center mb-4">
         <BoxedIcon symbol="pools" />
         <BodyBoldText tw="mb-0">
-          <Trans i18nkey="components.algoritms.sha265d.mining_pools_for">
+          <Trans i18nkey="components.algoritms.sha256d.mining_pools_for">
             Available mining pools for SHA256d
           </Trans>
         </BodyBoldText>
@@ -74,4 +74,4 @@ const AlgoSHA265d = () => {
   )
 }
 
-export default AlgoSHA265d
+export default AlgoSHA256d

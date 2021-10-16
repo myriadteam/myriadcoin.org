@@ -7,7 +7,7 @@ import Links from "../components/shared/links"
 import BgImage from "../components/bg-image"
 import Cover from "../components/shared/cover"
 import Link from "../components/shared/link"
-import AlgoSHA265d from "../components/algoritms/sha256d"
+import AlgoSHA256d from "../components/algoritms/sha256d"
 import AlgoScrypt from "../components/algoritms/scrypt"
 import AlgoMyrGroestl from "../components/algoritms/myr-groestl"
 import AlgoYescrypt from "../components/algoritms/yescrypt"
@@ -59,7 +59,7 @@ const MinePage = () => {
             {t("algoritms.yescrypt.label")}
           </AlgoButton>
         </div>
-        <AlgoSHA265d />
+        <AlgoSHA256d />
         <AlgoScrypt />
         <AlgoMyrGroestl />
         <AlgoArgon2d />
