@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Myriad`,
+    title: `Myriadcoin`,
     description: `Welcome to the future of no nonsense transactions!`,
-    author: `@emilkarl`,
+    author: `Myriadcoin community`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
