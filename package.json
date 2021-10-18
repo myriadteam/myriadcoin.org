@@ -70,7 +70,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "preload-fonts": "gatsby-preload-fonts",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -d public"
   },
   "repository": {
     "type": "git",
