@@ -21,7 +21,7 @@
       "second": "There are <b>no intermediaries</b>, <b>no chargebacks</b> and most importantly you control <b>your money</b>."
     },
     "nonsense": {
-      "title": "In today’s world, there are a lot of coins and a lot of claims. It can be hard to spot what’s real and what’s nonsense.",
+      "title": "There are a lot of coins and a lot of claims so it can be hard to spot what’s real and what’s nonsense.",
       "caption": "Here are some things to look out for:",
       "bubbles": {
         "premining": {
@@ -66,7 +66,7 @@
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
-        "body": "No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers.",
+        "body": "No one and everyone controls Myriadcoin. It’s a community driven project using mining consensus for large implementing changes.",
         "link": "Join our community"
       },
       "fair": {
@@ -143,8 +143,8 @@
   "about": {
     "title": "About Myriadcoin",
     "top": {
-      "title": "Trusted, secure and up-to-date",
-      "body": "<0>Myriadcoin addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriadcoin has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed on Reddit.</0>",
+      "title": "Five mining algorithms makes all the difference",
+      "body": "<0>Myriadcoin addresses the issues with mining centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>Five different algorithms enables a couple of things: means that it is incredible hard to attak</0><0>All development can be followed and discussed on Reddit.</0>",
       "link": ""
     },
     "stats": {
