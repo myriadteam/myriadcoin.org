@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "private": true,
   "description": "Welcome to the future of no nonsense transactions!`",
-  "version": "1.0",
+  "version": "1.0.0",
   "author": "Myriadcoin community",
   "dependencies": {
     "@react-hook/resize-observer": "^1.1.2",
