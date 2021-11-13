@@ -150,7 +150,7 @@ const IndexPage = () => {
                 <BodyText>
                   {t("home.myriadIs.fair.body")}
 
-                  <Link uri="/mine" tw="inline-flex leading-tight block mt-6">
+                  <Link uri="/about" tw="inline-flex leading-tight block mt-6">
                     {t("common.readMore")}
                   </Link>
                 </BodyText>

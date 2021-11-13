@@ -26,14 +26,8 @@ const LanguageMenu = () => {
       }
 
       document.addEventListener("click", closeMenu)
-      document
-        .getElementById("headway-link") // needed since they preventDefault
-        .addEventListener("click", closeMenu)
       return () => {
         document.removeEventListener("click", closeMenu)
-        document
-          .getElementById("headway-link")
-          .removeEventListener("click", closeMenu)
       }
     }
   }, [open])

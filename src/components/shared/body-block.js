@@ -14,7 +14,7 @@ const BodyBlock = ({ translationKey }) => {
         components={[<BodyText tw="mb-6" />]}
       />
       {link && link.title && link.url && (
-        <LinkButton href={link.url} tw="mt-10 mb-0">
+        <LinkButton href={link.url} tw="mt-10 mb-0" target="_blank">
           {link.title}
         </LinkButton>
       )}

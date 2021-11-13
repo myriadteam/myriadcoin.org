@@ -21,7 +21,7 @@
       "second": "There are <b>no intermediaries</b>, <b>no chargebacks</b> and most importantly you control <b>your money</b>."
     },
     "nonsense": {
-      "title": "In today’s world, there are a lot of coins and a lot of claims. It can be hard to spot what’s real and what’s nonsense.",
+      "title": "There are a lot of coins and a lot of claims so it can be hard to spot what’s real and what’s nonsense.",
       "caption": "Here are some things to look out for:",
       "bubbles": {
         "premining": {
@@ -38,23 +38,19 @@
         },
         "secure_storing": {
           "title": "No secure storing",
-          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing, either by using cold storage or be available on hardware wallets.</0><0>Myriadcoin have cold wallet for both iOS and Android.</0>"
+          "body": "<0>One of the biggest problems with many cryptocurrencies is that they dont offer secure storing, either by using cold storage or be available on hardware wallets.</0><0>Myriadcoin have cold wallets available for both iOS and Android.</0>"
         },
         "no_development": {
           "title": "No development happening",
-          "body": "<0>Keeping a coin up to date with the current BIPs of Bitcoin and having a community of contributors is a crucial part of have a successful cryptocurrency. To make sure the interest is high but also to make use of the currency in new and exiciting ways.</0><0>Myriadcoin has a number of contributors from all around the world making it move forward.</0>"
+          "body": "<0>Keeping a coin up to date with the current BIPs of Bitcoin and having a community of contributors is a crucial part of have a successful cryptocurrency. To make sure the interest is high but also to make use of the currency in new and exiciting ways.</0><0>Myriadcoin has a number of contributors from all around the world moving it forward.</0>"
         },
         "pump_and_dump": {
           "title": "Pump and dump-moves",
-          "body": "<0>When a few people own large stakes in a cryptocurrency it is common that there is a lot of pump-and-dump moves going on.</0><0>But not having a few number of large stake holders and being open to the public from the start, Myriadcoin has not seen any big pump and dump moves during it’s lifetime</0>"
+          "body": "<0>When a few people own large stakes in a cryptocurrency it is common that there is a lot of pump-and-dump moves going on.</0><0>But not having a few number of large stake holders and being open to the public from the start, Myriadcoin has not seen any big pump and dump moves during its lifetime.</0>"
         },
         "non_vibrant_communities": {
           "title": "Non-vibrant communities",
           "body": "<0>The Myriadcoin community is spread all over the world and has a thriving community on Reddit and Telegram.</0><0>Real world examples of use of Myriadcoin can be found in the Esperanto community.</0>"
-        },
-        "instant_transactions": {
-          "title": "Instant transactions",
-          "body": "<0>One of the problems with many cryptocurrencies if the speed and cost of the transactions in the network.</0>"
         }
       }
     },
@@ -66,7 +62,7 @@
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
-        "body": "No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers.",
+        "body": "No one and everyone controls Myriadcoin. It’s a community driven project that is using mining consensus for implementing changes.",
         "link": "Join our community"
       },
       "fair": {
@@ -143,9 +139,12 @@
   "about": {
     "title": "About Myriadcoin",
     "top": {
-      "title": "Trusted, secure and up-to-date",
-      "body": "<0>Myriadcoin addresses the issues with ASIC specialization and centralization, 51% attacks, unfair distribution and slow transactions by an innovative approach with a multi-algorithm blockchain.</0><0>It is the first multi-algorithm coin and its innovation has influenced many coins to come. Myriadcoin has a proven track record and has since its release in 2014 stood the test of time and have adapted when needed.</0><0>All development can be followed and discussed on Reddit.</0>",
-      "link": ""
+      "title": "Five mining algorithms makes all the difference",
+      "body": "<0>Myriadcoin addresses the issues with mining centralization, 51% attacks and unfair distribution with a multi-algorithm blockchain.</0><0>Using five different mining algorithms may seem like a simple addition but let’s explore more in depth what it really means.</0>",
+      "link": {
+        "title": "Find out more",
+        "url": "https://medium.com/myriadcoin/what-makes-myriadcoin-different-9110f910fb3"
+      }
     },
     "stats": {
       "full_nodes": "Full nodes",
@@ -216,7 +215,7 @@
           },
           {
             "title": "Fair",
-            "value": "Myriadcoin is fairly distributed. No Premine and No ICO."
+            "value": "No Premine and No ICO"
           }
         ]
       },
@@ -253,29 +252,13 @@
           }
         ]
       }
-    },
-    "community": {
-      "title": "Community-driven with democratic decision making",
-      "body": "<0>No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriadcoin strives to be a coin for everyone, not a elite/selected few. Myriadcoin is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
-      "link": {
-        "title": "Join our community",
-        "url": "#community"
-      }
-    },
-    "fair": {
-      "title": "Fair distribution and mining",
-      "body": "<0>No one and everyone controls Myriadcoin. It’s a community driven project full of volunteers. For large changes in Core mining consensus is used. This principle works because of Myriads decentralized mining.</0><0>Myriadcoin strives to be a coin for everyone, not a elite/selected few. Myriadcoin is for the people it can help most. With a truly secure and decentralized coin, we pour our focus and effort into real use cases to help the people with the greatest need.</0><0>For large changes in Core mining consensus is used. The latest mining consensus were 2016 with Yescrypt and 2019 with Argon2D.</0>",
-      "link": {
-        "title": "Start mining",
-        "url": "/mine"
-      }
     }
   },
   "mine": {
     "title": "How to Mine Myriadcoin",
     "software_and_pools": {
       "title": "Software and pools",
-      "body": "<0>Myriad supports a handful of different mining softwares. You can choose from the list below for what algorithm you want to mine with depending on how your mining rig or device is setup.</0><0>A mining pool is the pooling of resources by miners, who share their processing power over a network. You can mine Myriad through a number of pools. We've listed the pools that currently support mining and merge mining of Myriad below.</0>"
+      "body": "<0>Myriad supports a handful of different mining softwares. You can choose from the list below for what algorithm you want to mine with depending on how your mining rig or device is setup.</0>"
     },
     "available_algorithms": "Available algorithms",
     "software_for": "Software for ",
@@ -286,6 +269,9 @@
     "need": {
       "title": "Is there a need for<1/>cryptocurrencies?",
       "link": "Lets find out"
+    },
+    "wallet": {
+      "body": "Do not store your cryptocurrency on an exchange. Use one of these wallets instead."
     }
   },
   "hold": {
@@ -296,11 +282,6 @@
     },
     "wallet": {
       "title": "Store your coins"
-    },
-    "use": {
-      "title": "Use your coins",
-      "body": "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-      "link": "Learn more"
     },
     "links": {
       "title": "Do more with Myriadcoin"
@@ -325,10 +306,10 @@
     "links": {
       "myriad": "Myriadcoin",
       "about": "About",
+      "articles": "Articles",
       "hold": "Hold",
       "mine": "Mine",
       "community": "Community",
-      "updates": "Updates",
       "download": "Download",
       "resources": "Resources",
       "explore": "Explore",
