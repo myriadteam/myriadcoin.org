@@ -20,26 +20,6 @@ const Header = ({ siteTitle, t }) => {
     setIsExpanded(false)
   }, [])
 
-  useEffect(() => {
-    if (!window.Headway) {
-      const script = document.createElement("script")
-      script.async = true
-      script.src = "https://cdn.headwayapp.co/widget.js"
-      document.head.appendChild(script)
-      var config = {
-        selector: "#headway-link",
-        account: "7wRpdx",
-        trigger: "#headway-link",
-        widgetPosition: "bottom-left",
-      }
-      script.onload = function () {
-        window.Headway.init(config)
-      }
-    } else {
-      window.Headway.reload()
-    }
-  })
-
   return (
     <HeaderContainer>
       <nav tw="flex items-center justify-between flex-wrap w-full">
@@ -99,8 +79,8 @@ const Header = ({ siteTitle, t }) => {
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <HeaderLink id="headway-link" onClick={closeExpansion}>
-                {t("navigation.links.updates")}
+              <HeaderLink to="https://medium.com/myriadcoin" onClick={closeExpansion} target="_blank">
+                {t("navigation.links.articles")}
               </HeaderLink>
             </MenuItem>
             <MenuItem>

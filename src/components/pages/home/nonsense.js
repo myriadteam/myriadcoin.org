@@ -24,7 +24,6 @@ const dataKeys = [
   "no_development",
   "pump_and_dump",
   "non_vibrant_communities",
-  "instant_transactions",
 ]
 
 const Nonsense = () => {

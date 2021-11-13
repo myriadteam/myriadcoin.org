@@ -42,11 +42,6 @@ const HoldPage = ({ data }) => {
           <Wallet data={data} title={t("hold.wallet.title")} />
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-30 ">
-        <MediumBoldText>{t("hold.use.title")}</MediumBoldText>
-        <BodyText tw="mb-12">{t("hold.use.body")}</BodyText>
-        <LinkButton href="XXXX">{t("hold.use.link")}</LinkButton>
-      </PageContainer>
       <hr tw="border-black border-opacity-25 dark:border-opacity-75" />
       <PageContainer tw="py-24 sm:py-30 px-6">
         <BigText tw="mb-32">{t("hold.links.title")}</BigText>
@@ -56,7 +51,7 @@ const HoldPage = ({ data }) => {
         <PageContainer tw="py-24 px-6 sm:py-30  text-right text-white overflow-hidden">
           <BigText tw="mb-16 sm:mb-24 text-xl">{t("hold.fair.title")}</BigText>
           <Link
-            uri="/about"
+            uri="https://medium.com/myriadcoin/arent-all-cryptocurrencies-fairly-distributed-and-mined-70ec0f03bee9"
             tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
             showArrow
           >

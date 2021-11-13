@@ -81,7 +81,7 @@ const MinePage = () => {
             </Trans>
           </BigText>
           <Link
-            uri="#community"
+            uri="https://medium.com/myriadcoin/is-there-a-need-for-cryptocurrencies-2dd7b338b93f"
             tw="text-xl sm:text-2xl font-bold leading-extra-tight hover:text-black"
             showArrow
           >

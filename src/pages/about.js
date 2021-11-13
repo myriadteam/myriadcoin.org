@@ -124,10 +124,6 @@ const AboutPage = () => {
           </div>
         </PageContainer>
       </div>
-      <PageContainer tw="py-24 px-6 sm:py-30 ">
-        <BodyBlock translationKey="about.community" />
-        <BodyBlock translationKey="about.fair" />
-      </PageContainer>
       <div
         tw="bg-light-grey dark:bg-dark-light-bg py-24 px-6 sm:py-30 "
         id="specifications"
