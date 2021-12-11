@@ -42,7 +42,7 @@ const columns = [
   [
     { text: "explore" },
     { text: "about", uri: "/about" },
-    { text: "blog", uri: "https://medium.com/myriadcoin" },
+    { text: "articles", uri: "https://medium.com/myriadcoin" },
   ],
   [
     { text: "resources" },
@@ -55,6 +55,7 @@ const columns = [
     { text: "blockbook", uri: "https://xmy-blockbook1.coinid.org" },
     { text: "chainz", uri: "https://chainz.cryptoid.info/xmy" },
     { text: "myrstats", uri: "https://cryptapus.org/myr/myrstat" },
+    { text: "merch", uri: "https://myriad-keepmyshirt.myspreadshop.com/" },
   ],
 ]
 
