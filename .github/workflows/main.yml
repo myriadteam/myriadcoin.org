@@ -17,6 +17,9 @@ jobs:
       - name: Build 🔧
         run: yarn run build
 
+      - name: Set CNAME 🔧
+        run: echo "myriadcoin.coinid.org" > public/CNAME
+
       - name: Deploy 🚀
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
