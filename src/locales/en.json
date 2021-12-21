@@ -58,7 +58,7 @@
       "title": "What makes Myriadcoin great is:",
       "trusted": {
         "title": "Trusted, secure and<br>up-to-date",
-        "body": "Myriadcoins unique multi-algorithm approach means that it has extra resistance to 51% attacks."
+        "body": "Myriadcoin's unique multi-algorithm approach means that it has extra resistance to 51% attacks."
       },
       "community": {
         "title": "Community-driven with<br>democratic decision making",
@@ -258,7 +258,7 @@
     "title": "How to Mine Myriadcoin",
     "software_and_pools": {
       "title": "Software and pools",
-      "body": "<0>Myriad supports a handful of different mining softwares. You can choose from the list below for what algorithm you want to mine with depending on how your mining rig or device is setup.</0>"
+      "body": "<0>Myriadcoin supports a handful of different mining softwares. You can choose from the list below for what algorithm you want to mine with depending on how your mining rig or device is setup.</0>"
     },
     "available_algorithms": "Available algorithms",
     "software_for": "Software for ",
@@ -268,7 +268,7 @@
     },
     "need": {
       "title": "Is there a need for<1/>cryptocurrencies?",
-      "link": "Lets find out"
+      "link": "Let's find out"
     },
     "wallet": {
       "body": "Do not store your cryptocurrency on an exchange. Use one of these wallets instead."
@@ -288,7 +288,7 @@
     },
     "fair": {
       "title": "Aren’t all cryptocurrencies fairly distributed and mined?",
-      "link": "Lets find out"
+      "link": "Let's find out"
     }
   },
   "community": {

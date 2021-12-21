@@ -1,18 +1,14 @@
 export const exchanges = [
   {
     name: "Bittrex",
-    url: "https://global.bittrex.com/Market/Index?MarketName=BTC-XMY",
+    url: "https://global.bittrex.com/Market/Index?MarketName=USDT-XMY",
   },
   {
     name: "Dove Wallet",
-    url: "https://dovewallet.com/en/trade/spot/xmy-btc",
+    url: "https://dovewallet.com/en/trade/spot/xmy-usdt",
   },
   {
-    name: "Bitladon",
-    url: "https://www.bitladon.com/myriad",
-  },
-  {
-    name: "Netcoins",
-    url: "https://www.gonetcoins.com/",
+    name: "AtomicDEX",
+    url: "https://atomicdex.io",
   },
 ]

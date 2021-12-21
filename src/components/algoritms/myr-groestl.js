@@ -76,7 +76,7 @@ const AlgoMyrGroestl = () => {
       </div>
 
       <div tw="mb-14">
-        <LinkButton tw="mb-6" href="https://bitcointalk.org/?topic=770064">
+        <LinkButton tw="mb-6" href="https://bitcointalk.org/?topic=841401">
           CPUMiner-multi
         </LinkButton>
         <div tw="text-sm mb-2">
@@ -96,9 +96,6 @@ const AlgoMyrGroestl = () => {
         </BodyBoldText>
       </div>
       <div tw="flex flex-wrap">
-        <LinkButton href="nz.nutty.one:5545" tw="mb-2 mr-2">
-          Nutty P2pool node
-        </LinkButton>
         <LinkButton
           href="https://myriadcoin-groestl.miningpoolhub.com/"
           tw="mb-2 mr-2"

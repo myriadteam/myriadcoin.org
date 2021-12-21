@@ -74,10 +74,6 @@ const AlgoArgon2d = () => {
         </BodyBoldText>
       </div>
       <div tw="flex flex-wrap">
-        <LinkButton href="p2p-spb.xyz:6002" tw="mb-2 mr-2">
-          P2Pool Node
-        </LinkButton>
-
         <LinkButton href="https://pokemongomongo.tk" tw="mb-2 mr-2">
           Pokemongomongo.tk Pool
         </LinkButton>

@@ -15,7 +15,6 @@ import {
   BigText,
   MediumBoldText,
   BodyText,
-  LinkButton,
 } from "../common/elements"
 import { useTranslation } from "react-i18next"
 

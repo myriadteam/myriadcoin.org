@@ -5,19 +5,19 @@ export const platforms = [
     image: "windows",
     wallets: [
       {
-        name: "Myriadcoin 0.16.4.1",
+        name: "Myriadcoin 0.18.1.0",
         github: "https://github.com/myriadteam/myriadcoin/",
         homepage: null,
         versions: [
           {
             name: "32-bit",
             url:
-              "https://github.com/myriadteam/myriadcoin/releases/download/v0.16.4.1/myriadcoin-0.16.4.1-win32-setup.exe",
+              "https://github.com/myriadteam/myriadcoin/releases/download/v0.18.1.0/myriadcoin-0.18.1.0-win32-setup.exe",
           },
           {
             name: "64-bit",
             url:
-              "https://github.com/myriadteam/myriadcoin/releases/download/v0.16.4.1/myriadcoin-0.16.4.1-win64-setup.exe",
+              "https://github.com/myriadteam/myriadcoin/releases/download/v0.18.1.0/myriadcoin-0.18.1.0-win64-setup.exe",
           },
         ],
       },
@@ -29,14 +29,14 @@ export const platforms = [
     image: "macos",
     wallets: [
       {
-        name: "Myriadcoin 0.16.4.1",
+        name: "Myriadcoin 0.18.1.0",
         github: "https://github.com/myriadteam/myriadcoin/",
         homepage: null,
         versions: [
           {
             name: "DMG",
             url:
-              "https://github.com/myriadteam/myriadcoin/releases/download/v0.16.4.1/myriadcoin-0.16.4.1-osx.dmg",
+              "https://github.com/myriadteam/myriadcoin/releases/download/v0.18.1.0/myriadcoin-0.18.1.0-osx.dmg",
           },
         ],
       },
