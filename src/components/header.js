@@ -84,7 +84,9 @@ const Header = ({ siteTitle, t }) => {
               </HeaderLink>
             </MenuItem>
             <MenuItem>
-              <LanguageMenu />
+              <HeaderLink to="https://myriad-keepmyshirt.myspreadshop.com/" onClick={closeExpansion} target="_blank">
+                {t("navigation.links.merch")}
+              </HeaderLink>
             </MenuItem>
           </MenuList>
         </div>
