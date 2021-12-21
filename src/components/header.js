@@ -83,11 +83,6 @@ const Header = ({ siteTitle, t }) => {
                 {t("navigation.links.articles")}
               </HeaderLink>
             </MenuItem>
-            <MenuItem>
-              <HeaderLink to="https://myriad-keepmyshirt.myspreadshop.com/" onClick={closeExpansion} target="_blank">
-                {t("navigation.links.merch")}
-              </HeaderLink>
-            </MenuItem>
           </MenuList>
         </div>
       </nav>

@@ -68,17 +68,11 @@ const AlgoYescrypt = () => {
         </BodyBoldText>
       </div>
       <div tw="flex flex-wrap">
-        <LinkButton href="yescrypt.easymine.online:6000" tw="mb-2 mr-2">
-          Yescrypt Easymine
-        </LinkButton>
         <LinkButton
           href="https://myriadcoin-yescrypt.miningpoolhub.com/"
           tw="mb-2 mr-2"
         >
           Mining Pool Hub
-        </LinkButton>
-        <LinkButton href="https://myriadcoin.tk" tw="mb-2 mr-2">
-          Myriadcoin.tk Pool (with Unitus merged-mining)
         </LinkButton>
         <LinkButton href="https://pokemongomongo.tk" tw="mb-2 mr-2">
           Pokemongomongo.tk Pool
